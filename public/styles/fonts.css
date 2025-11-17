@@ -1,0 +1,49 @@
+/* ----------------------------------------------
+   GOOGLE FONT IMPORTS
+---------------------------------------------- */
+
+/* Momo Trust Display */
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
+
+/* Zalando Sans (Variable font) */
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+/* ----------------------------------------------
+   FONT CLASSES
+---------------------------------------------- */
+
+/* Momo Trust Display */
+.momo-font {
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Zalando Sans (variable font) */
+/* Replace <uniquifier> with your own semantic class name, e.g. zalando-regular, zalando-bold */
+.zalando-regular {
+  font-family: "Zalando Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* normal */
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.zalando-bold {
+  font-family: "Zalando Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.zalando-light {
+  font-family: "Zalando Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+

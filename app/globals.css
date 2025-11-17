@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #e4e4e4;
 }
 
+.momo-trust-display-regular {
+  font-family: "Momo Trust Display", sans-serif;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -14,7 +18,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -23,4 +27,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes scaleOneWay {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-scaleOneWay {
+  animation: scaleOneWay 18s ease-in-out infinite alternate;
 }
