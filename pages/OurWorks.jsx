@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+
+import Globe from "../components/Globe"
 import {
   motion,
   useInView,
@@ -10,7 +12,10 @@ import {
   animate,
 } from "framer-motion";
 import first from "./first.png";
-
+import dg from "./dg.jpg"
+import ds from "./ds.jpg"
+import ecom from "./ecom.jpg"
+import ss from "./ss.jpg"
 /* -------------------- COUNTER COMPONENT -------------------- */
 const Counter = ({ from = 0, to }) => {
   const value = useMotionValue(from);
@@ -55,13 +60,24 @@ const OurWorks = () => {
 
   const statsInView = useInView(statsRef, { once: true, amount: 0.4 });
 
+  /* -------------------- SERVICES HOVER SETUP -------------------- */
+  const [hovered, setHovered] = useState(null);
+
+  const services = [
+    { title: "WEBSITE DESIGN", image: ds},
+    { title: "E-COMMERCE", image: ecom },
+    { title: "DIGITAL MARKETING", image: dg },
+    { title: "SOFTWARE SOLUTIONS", image: ss },
+  ];
+  /* ------------------------------------------------------------ */
+
   return (
     <div className="bg-[#042326] relative w-full flex flex-col items-center pb-32">
 
       {/* Top Section */}
       <div className="flex flex-col text-white items-center px-4 text-center space-y-3 mt-16 w-full">
         <h1 className={`zalando-bold text-3xl uppercase font-bold tracking-wide ${TitleStar}`}>
-          Our Work
+          About ArabInfotech
         </h1>
       </div>
 
@@ -170,28 +186,112 @@ const OurWorks = () => {
         </div>
       </div>
 
-    <div className="w-full py-20 px-6 flex justify-center">
-  <div className="w-full max-w-5xl space-y-16">
-
-    <h1 className="text-white text-[48px] md:text-[70px] font-light border-b border-white/20 pb-4">
-      WEBSITE DESIGN
+      {/* -------------------- SERVICES SECTION -------------------- */}
+  <div className="w-full py-20 px-6 flex justify-center relative">
+  <div className="w-full max-w-5xl space-y-20 relative">
+          
+    <h1 className="momo-font text-5xl font-semibold text-white leading-tight text-center md:text-left">
+      Our Focus
     </h1>
 
-    <h1 className="text-white text-[48px] md:text-[70px] font-light border-b border-white/20 pb-4">
-      E-COMMERCE
-    </h1>
+    {services.map((item, i) => (
+      <div
+        key={i}
+        onMouseEnter={() => setHovered(i)}
+        onMouseLeave={() => setHovered(null)}
+        className="relative w-full flex items-center md:items-start"
+      >
+        {/* IMAGE ON LEFT (Desktop only) */}
+        {hovered === i && (
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="
+              absolute 
+              left-0
+              top-1/2 -translate-y-1/2
+              hidden md:block
+              bg-[#0c383a] 
+              border border-white/10 
+              rounded-2xl 
+              
+              shadow-xl
+            "
+          >
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={150}
+              height={110}
+              className="rounded-xl object-cover"
+            />
+          </motion.div>
+        )}
 
-    <h1 className="text-white text-[48px] md:text-[70px] font-light border-b border-white/20 pb-4">
-      DIGITAL MARKETING
-    </h1>
+        {/* IMAGE ON TOP (Mobile Only) */}
+        {hovered === i && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="
+              md:hidden mb-3 w-full flex justify-center
+            "
+          >
+            <div className="bg-[#0c383a] border border-white/10 rounded-xl  shadow-xl">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={130}
+                height={90}
+                className="rounded-lg object-cover"
+              />
+            </div>
+          </motion.div>
+        )}
 
-    <h1 className="text-white text-[48px] md:text-[70px] font-light border-b border-white/20 pb-4">
-      SOFTWARE SOLUTIONS
-    </h1>
+        {/* TEXT */}
+        <motion.h1
+          initial={{ x: 0 }}
+          animate={
+            hovered === i
+              ? { x: window.innerWidth < 768 ? 20 : 180 } // smaller shift on mobile
+              : { x: 0 }
+          }
+          transition={{ type: "spring", stiffness: 160, damping: 20 }}
+          className="
+            text-white 
+            text-[38px] md:text-[70px] 
+            font-light 
+            border-b border-white/20 
+            pb-4 cursor-pointer 
+            w-full leading-tight
+          "
+        >
+          {item.title}
+        </motion.h1>
+      </div>
+    ))}
 
   </div>
 </div>
 
+    <div className="w-full py-28 px-6 flex justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-start">
+         
+             <div className="space-y-6">
+              <h1 className="text-white momo-font text-4xl md:text-5xl font-light leading-tight">"We help brands scale faster, perform better, and stand out online"</h1>
+             </div>
+        <Globe/>
+              
+        </div>
+       
+    </div>
+
+
+      {/* ------------------------------------------------------------ */}
 
     </div>
   );

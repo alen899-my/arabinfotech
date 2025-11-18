@@ -19,76 +19,67 @@ export default function Home() {
         className="object-cover animate-scaleOneWay"
       />
 
-      {/* Overlay */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
 
-      {/* Content */}
-      <div className="relative z-20 flex flex-col justify-center translate-y-10 mt-25 px-6 transform translate-x-50 h-fit">
+      {/* Content Wrapper */}
+      <div className="relative z-20 px-6 w-full max-w-7xl mx-auto flex flex-col justify-center h-full">
 
-        {/* Heading */}
-        <h1 className="momo-font text-[clamp(28px,9vw,100px)] leading-none tracking-tight">
+        {/* Main Heading */}
+        <h1 className="momo-font text-[clamp(32px,9vw,100px)] leading-[0.95] tracking-tight">
           Arab Web <br />
           Design Agency, <br />
           Delivering <br />
           Big Results
         </h1>
 
-        {/* Text Section */}
-        <div className="mt-10 flex flex-col md:flex-row gap-10 max-w-6xl">
+        {/* Two Column Layout */}
+        <div className="mt-10 flex flex-col md:flex-row gap-10 md:items-start">
 
           {/* Star Tagline */}
-          <p
-            className="relative zalando-bold text-sm leading-tight uppercase text-left font-bold
-              pl-6
-              before:content-['✦']
-              before:absolute
-              before:left-0
-              before:top-1/2
-              before:-translate-y-30
-              before:text-[#5e1afd]
-              before:text-lg
-              before:animate-pulse
-              before:drop-shadow-[0_0_6px_rgba(255,255,150,0.8)]
-            "
-          >
-            UAE Based Software Agency
-            <br />
-            Working Worldwide
+          <p className="flex items-center gap-2 zalando-bold text-xs sm:text-sm md:text-base uppercase font-bold">
+            <span className="text-[#5e1afd] text-lg animate-pulse drop-shadow-[0_0_6px_rgba(255,255,150,0.8)]">
+              ✦
+            </span>
+            <span className="leading-tight">
+              UAE Based Software Agency — Working Worldwide
+            </span>
           </p>
 
-          {/* Paragraphs */}
-          <div className="md:w-2/3 text-justify text-lg sm:text-xl md:text-2xl gap-2">
+          {/* Right-Side Text + CTA */}
+          <div className="md:w-2/3 text-left md:text-justify md:text-lg sm:text-xl md:text-2xl space-y-3">
 
-            <p className="text-gray-100/80 font-light font-mono bg-black/5">
-              We specialize in building standout websites and digital products
-              that blend visual storytelling with clean development principles
-              and strategic thinking.
-            </p>
+           {/* Paragraph 1 */}
+<p className="text-gray-100/80 font-light font-mono bg-black/5 p-2 rounded">
+  We create modern websites and digital experiences that are fast, clean, and beautifully designed.
+</p>
 
-            <p className="text-gray-100/80 mt-2 font-light font-mono bg-black/5">
-              Clients describe us as lean, focused, and a refreshing alternative
-              to larger agencies. We bring big-team expertise with the care and
-              precision of a boutique studio.
-            </p>
+{/* Paragraph 2 */}
+<p className="text-gray-100/80 mt-2 font-light font-mono bg-black/5 p-2 rounded">
+  A lean, quality-focused team delivering smart solutions with precise craftsmanship.
+</p>
+
 
             {/* CTA Button */}
-            <p>
+            <div className="pt-2">
               <Link
-                href="/"
-                className="inline-block px-6 py-3 rounded-xl bg-[#6c53a7] text-[#b6abc5] 
-                           border border-[#b6abc5]/30 backdrop-blur-md
-                           hover:bg-[#b6abc5]/30 hover:border-[#b6abc5]/50 
-                           transition-all duration-300 mt-2"
-              >
-                Schedule an intro call →
-              </Link>
-            </p>
+  href="/"
+  className="inline-flex items-center justify-center px-6 py-3 rounded-lg
+             bg-white/10 border border-white/20 text-white 
+             backdrop-blur-md
+             hover:bg-white/20 hover:border-white/30 
+             transition-all duration-300 font-medium tracking-wide"
+>
+  Schedule an intro call →
+</Link>
+
+            </div>
 
           </div>
-  
+
         </div>
       </div>
-   
+
     </div>
   );
 }
