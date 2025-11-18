@@ -124,3 +124,26 @@ export default function Globe() {
     </div>
   );
 }
+
+      {/* ---------------- SERVICES SECTION ---------------- */}
+      <section className="w-full max-w-6xl px-6 py-16 bg-white">
+
+        <h1 className="momo-font text-5xl font-semibold text-white leading-tight mb-10">
+          Our Focus
+        </h1>
+
+        
+
+      </section>
+
+      {/* ---------------- GLOBE SECTION ---------------- */}
+      <section className="w-full py-20 px-6 flex justify-center">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+          <h1 className="text-white momo-font text-4xl md:text-5xl font-light leading-tight">
+            “We help brands scale faster,<br />perform better,<br />and stand out online”
+          </h1>
+
+          <Globe />
+        </div>
+      </section>

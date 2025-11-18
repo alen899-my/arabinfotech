@@ -2,8 +2,8 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-
-import Globe from "../components/Globe"
+import first from "@/pages/first.png"
+import { Monitor, ShoppingCart, Megaphone, Layers } from "lucide-react";
 import {
   motion,
   useInView,
@@ -11,12 +11,8 @@ import {
   useTransform,
   animate,
 } from "framer-motion";
-import first from "./first.png";
-import dg from "./dg.jpg"
-import ds from "./ds.jpg"
-import ecom from "./ecom.jpg"
-import ss from "./ss.jpg"
-/* -------------------- COUNTER COMPONENT -------------------- */
+
+/* -------------------- COUNTER -------------------- */
 const Counter = ({ from = 0, to }) => {
   const value = useMotionValue(from);
   const rounded = useTransform(value, (latest) => Math.floor(latest));
@@ -31,268 +27,205 @@ const Counter = ({ from = 0, to }) => {
 
   return <motion.span>{rounded}</motion.span>;
 };
-/* ------------------------------------------------------------ */
+/* ------------------------------------------------ */
 
 const TitleStar = `
-  relative
-  pl-6
+  relative pl-4
   before:content-['✦']
   before:absolute
   before:left-0
   before:top-1/2
   before:-translate-y-1/2
-  before:text-[#5e1afd]
-  before:text-lg
-  before:animate-pulse
-  before:drop-shadow-[0_0_6px_rgba(255,255,150,0.8)]
+  before:text-[#6c53a7]
+  before:text-base
 `;
 
-const highlight = "text-white font-semibold";
+const highlight = "text-[#6c53a7] font-semibold";
 
 const OurWorks = () => {
   const imgRef = useRef(null);
   const statsRef = useRef(null);
 
-  const isInView = useInView(imgRef, {
-    once: true,
-    amount: 0.6,
-  });
-
+  const isInView = useInView(imgRef, { once: true, amount: 0.6 });
   const statsInView = useInView(statsRef, { once: true, amount: 0.4 });
 
-  /* -------------------- SERVICES HOVER SETUP -------------------- */
-  const [hovered, setHovered] = useState(null);
-
-  const services = [
-    { title: "WEBSITE DESIGN", image: ds},
-    { title: "E-COMMERCE", image: ecom },
-    { title: "DIGITAL MARKETING", image: dg },
-    { title: "SOFTWARE SOLUTIONS", image: ss },
-  ];
-  /* ------------------------------------------------------------ */
+  /* ------------------------------------------------------ */
+  /* ---------------------- PAGE START --------------------- */
+  /* ------------------------------------------------------ */
 
   return (
-    <div className="bg-[#042326] relative w-full flex flex-col items-center pb-32">
+    <div className="bg-white w-full flex flex-col items-center">
 
-      {/* Top Section */}
-      <div className="flex flex-col text-white items-center px-4 text-center space-y-3 mt-16 w-full">
-        <h1 className={`zalando-bold text-3xl uppercase font-bold tracking-wide ${TitleStar}`}>
-          About ArabInfotech
+      {/* ---------------- TOP SECTION ---------------- */}
+      <section className="w-full max-w-7xl px-6 pt-16 pb-8 text-center">
+        <h1 className="text-5xl font-semibold tracking-wide text-[#3b2d57]">
+          About ArabInfoTech
         </h1>
-      </div>
+        <div className="w-20 h-[3px] bg-[#6c53a7] mx-auto mt-3 rounded-full"></div>
+      </section>
 
-      {/* Row: Image + Heading */}
-      <div className="flex flex-col md:flex-row items-center justify-center mt-10 gap-6 md:gap-10 px-6 max-w-7xl w-full">
+      {/* ---------------- IMAGE + HEADING ---------------- */}
+      <section className="w-full max-w-7xl px-6 flex flex-col md:flex-row items-center justify-center gap-6 py-8">
         <motion.div
           ref={imgRef}
-          initial={{ scale: 1, rotate: 0 }}
-          animate={
-            isInView
-              ? { rotate: 12, scale: 1.12 }
-              : { rotate: 0, scale: 1 }
-          }
+          initial={{ scale: 1 }}
+          animate={isInView ? { rotate: 12, scale: 1.12 } : { rotate: 0, scale: 1 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
-          className="flex justify-center"
         >
           <Image
             src={first}
-            alt="Digital Marketing"
-            width={100}
-            height={100}
-            className="w-[100px] md:w-[150px] min-w-[80px] h-auto drop-shadow-xl"
+            width={150}
+            height={150}
+            alt="about"
+            className="w-[120px] md:w-[150px] drop-shadow-xl"
           />
         </motion.div>
 
-        <h1 className="momo-font text-3xl md:text-5xl font-semibold text-white leading-tight text-center md:text-left">
-          Digital Marketing & Software Development Company in Dubai
+        <h1 className="momo-font text-3xl md:text-5xl font-semibold text-black leading-tight text-center md:text-left max-w-2xl">
+         <span className={TitleStar}>Digital Marketing & Software Development Company in Dubai</span>  
         </h1>
-      </div>
+      </section>
 
-      {/* Paragraph */}
-      <div className="max-w-5xl mt-10 px-6">
-        <p className="text-gray-200 text-lg md:text-xl text-center leading-relaxed md:leading-loose">
+      {/* ---------------- PARAGRAPH ---------------- */}
+      <section className="w-full max-w-5xl px-6 py-10">
+        <p className="text-black text-lg md:text-xl text-center leading-relaxed">
           Whatever may be your requirements, <span className={highlight}>ArabInfotec</span> has a solution tailored
-          to your needs. We provide comprehensive, cost-effective
+          to your needs. We provide cost-effective
           <span className={highlight}> Web Designing</span>,
           <span className={highlight}> Software Solutions</span>,
           <span className={highlight}> Mobile App Development</span>,
-          <span className={highlight}> Digital Marketing</span>, and a wide range of
-          applications such as <span className={highlight}>E-commerce Sites</span>,
-          <span className={highlight}> Cloud Software</span> for Staff Supply,
-          <span className={highlight}> Valet Parking</span>,
-          <span className={highlight}> KOD Systems</span>,
-          <span className={highlight}> Real Estate CRM</span> and
-          <span className={highlight}> Tour Management Systems</span>.
+          <span className={highlight}> Digital Marketing</span>, and more.
         </p>
-      </div>
+      </section>
 
-      {/* Stats Section */}
-      <div className="w-full py-28 px-6 flex justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      {/* ---------------- STATS SECTION ---------------- */}
+      <section className="w-full bg-white px-6 py-20 flex justify-center relative">
+        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-[0.06] pointer-events-none"></div>
 
-          {/* LEFT SIDE */}
-          <div className="space-y-6">
-            <h1 className="text-white momo-font text-4xl md:text-5xl font-light leading-tight">
-              Numbers that<br /> tell our story
+        <div className="max-w-7xl w-full relative">
+
+          {/* Heading */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h1 className="text-5xl font-semibold tracking-wide text-[#3b2d57]">
+              <span className={TitleStar}>Numbers that tell our story</span>
             </h1>
 
-            <p className="text-gray-300 text-lg max-w-md leading-relaxed">
-              Behind every number is a milestone — built through trust,
-              innovation, and the success of our clients.
+            <p className="text-gray-600 mt-3 text-sm md:text-base">
+              We’ve built milestones through trust, consistency and innovation.
             </p>
           </div>
 
-          {/* RIGHT SIDE CARD */}
-          <div ref={statsRef} className="relative">
-            <div className="absolute -inset-6 bg-purple-800/10 blur-3xl rounded-3xl"></div>
+          {/* Stats Grid */}
+          <div
+  ref={statsRef}
+  className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+>
+  {[
+    { to: 10, label: "Years of Experience", icon: "⏳" },
+    { to: 25, label: "Associates", icon: "👥" },
+    { to: 750, label: "Clients", icon: "🌍" },
+    { to: 2000, label: "Projects Delivered", icon: "🚀" },
+  ].map((stat, i) => (
+    <motion.div
+      key={i}
+      whileHover={{ y: -6, scale: 1.035 }}
+      transition={{ type: "spring", stiffness: 140, damping: 18 }}
+      className="
+        bg-white
+        border border-[#eaeaea]
+        rounded-2xl p-10
+        shadow-[0_4px_20px_rgba(0,0,0,0.05)]
+        hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+        transition-all duration-300
+        text-center relative
+      "
+    >
+      <div className="absolute top-0 left-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-[#ae5c83] to-[#6c53a7]" />
 
-            <div className="relative backdrop-blur-xl border border-white/10 rounded-3xl shadow-xl overflow-hidden">
+      <h1 className="text-[#6c53a7] text-5xl font-semibold tracking-tight">
+        {statsInView && <Counter from={0} to={stat.to} />}+
+      </h1>
 
-              {/* Stat 1 */}
-              <div className="p-10 border-b border-white/10">
-                <h1 className="text-white text-5xl font-light">
-                  {statsInView && <Counter from={0} to={10} />}+
-                </h1>
-                <p className="text-gray-400 mt-2">Years of Experience</p>
-              </div>
+      <p className="text-gray-700 text-sm md:text-base mt-3 font-medium">
+        {stat.label}
+      </p>
 
-              {/* Stat 2 */}
-              <div className="p-10 border-b border-white/10">
-                <h1 className="text-white text-5xl font-light">
-                  {statsInView && <Counter from={0} to={25} />}+
-                </h1>
-                <p className="text-gray-400 mt-2">Associates</p>
-              </div>
-
-              {/* Stat 3 */}
-              <div className="p-10 border-b border-white/10">
-                <h1 className="text-white text-5xl font-light">
-                  {statsInView && <Counter from={0} to={750} />}+
-                </h1>
-                <p className="text-gray-400 mt-2">Clients</p>
-              </div>
-
-              {/* Stat 4 */}
-              <div className="p-10">
-                <h1 className="text-white text-5xl font-light">
-                  {statsInView && <Counter from={0} to={2000} />}+
-                </h1>
-                <p className="text-gray-400 mt-2">Projects Delivered</p>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* -------------------- SERVICES SECTION -------------------- */}
-  <div className="w-full py-20 px-6 flex justify-center relative">
-  <div className="w-full max-w-5xl space-y-20 relative">
-          
-    <h1 className="momo-font text-5xl font-semibold text-white leading-tight text-center md:text-left">
-      Our Focus
-    </h1>
-
-    {services.map((item, i) => (
-      <div
-        key={i}
-        onMouseEnter={() => setHovered(i)}
-        onMouseLeave={() => setHovered(null)}
-        className="relative w-full flex items-center md:items-start"
-      >
-        {/* IMAGE ON LEFT (Desktop only) */}
-        {hovered === i && (
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="
-              absolute 
-              left-0
-              top-1/2 -translate-y-1/2
-              hidden md:block
-              bg-[#0c383a] 
-              border border-white/10 
-              rounded-2xl 
-              
-              shadow-xl
-            "
-          >
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={150}
-              height={110}
-              className="rounded-xl object-cover"
-            />
-          </motion.div>
-        )}
-
-        {/* IMAGE ON TOP (Mobile Only) */}
-        {hovered === i && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.25 }}
-            className="
-              md:hidden mb-3 w-full flex justify-center
-            "
-          >
-            <div className="bg-[#0c383a] border border-white/10 rounded-xl  shadow-xl">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={130}
-                height={90}
-                className="rounded-lg object-cover"
-              />
-            </div>
-          </motion.div>
-        )}
-
-        {/* TEXT */}
-        <motion.h1
-          initial={{ x: 0 }}
-          animate={
-            hovered === i
-              ? { x: window.innerWidth < 768 ? 20 : 180 } // smaller shift on mobile
-              : { x: 0 }
-          }
-          transition={{ type: "spring", stiffness: 160, damping: 20 }}
-          className="
-            text-white 
-            text-[38px] md:text-[70px] 
-            font-light 
-            border-b border-white/20 
-            pb-4 cursor-pointer 
-            w-full leading-tight
-          "
-        >
-          {item.title}
-        </motion.h1>
-      </div>
-    ))}
-
-  </div>
+      <div className="mx-auto mt-4 h-[2px] w-12 bg-[#6c53a7]/30 rounded-full"></div>
+    </motion.div>
+  ))}
 </div>
 
-    <div className="w-full py-28 px-6 flex justify-center">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-start">
-         
-             <div className="space-y-6">
-              <h1 className="text-white momo-font text-4xl md:text-5xl font-light leading-tight">"We help brands scale faster, perform better, and stand out online"</h1>
-             </div>
-        <Globe/>
-              
         </div>
-       
-    </div>
+      </section>
 
+      {/* ---------------- SERVICES SECTION ---------------- */}
+      <section className="w-full bg-white px-6 py-16 flex justify-center">
+        <div className="max-w-7xl w-full">
 
-      {/* ------------------------------------------------------------ */}
+          <div className="text-center max-w-2xl mx-auto mb-12 -mt-12">
+            <h1 className="text-5xl font-semibold tracking-wide text-[#3b2d57]">
+              Our Services
+            </h1>
 
+            <p className="text-gray-600 text-sm md:text-base mt-4">
+              Powerful results-driven services designed to elevate your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {[
+              {
+                title: "Website Design",
+                desc: "A Website resembles the standard and image of a company.",
+                icon: Monitor,
+              },
+              {
+                title: "E-COMMERCE",
+                desc: "We ensure to provide the best result-driven ecommerce development",
+                icon: ShoppingCart,
+              },
+              {
+                title: "Digital Marketing",
+                desc: "We create differentiated go-to-market processes for your organisation.",
+                icon: Megaphone,
+              },
+              {
+                title: "Software Solutions",
+                desc: "Make an Impact On Your Business or Industry with Our Application Tools.",
+                icon: Layers,
+              },
+            ].map((srv, i) => (
+              <motion.div
+                key={i}
+                className="
+                  border-t-4 border-t-[#6c53a7]
+                  border border-[#6c53a7]
+                  rounded-2xl p-6 text-center
+                  shadow-xl hover:shadow-2xl
+                  transition-all duration-300
+                "
+              >
+                {/* Icon */}
+                <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-[#f3f0ff] flex items-center justify-center shadow-md">
+                  <srv.icon size={48} strokeWidth={1.5} className="text-[#6c53a7]" />
+                </div>
+
+                <h3 className="text-black text-xl font-semibold mb-3">
+                  {srv.title}
+                </h3>
+
+                <p className="text-gray-700 text-sm leading-relaxed mb-5">
+                  {srv.desc}
+                </p>
+
+                <button className="text-[#6c53a7] hover:text-black font-semibold transition-all">
+                  Learn More →
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
