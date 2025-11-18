@@ -40,3 +40,20 @@ body {
 .animate-scaleOneWay {
   animation: scaleOneWay 18s ease-in-out infinite alternate;
 }
+@keyframes stamp {
+  0% {
+    transform: scale(0.4) rotate(-10deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-stamp {
+  animation: stamp 0.6s ease-out forwards;
+}
