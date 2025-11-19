@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import map from "@/pages/map.jpg";
 
@@ -44,9 +46,22 @@ www.arabinfotechllc.com`,
 ];
 
 export default function Office() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const tooltipRef = useRef(null);
+
+  // CLICK OUTSIDE TO CLOSE TOOLTIP (mobile)
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
+        setActiveIndex(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="bg-white w-full flex flex-col items-center">
-
       {/* Heading */}
       <section className="w-full max-w-7xl px-6 -mt-10 pt-12 text-center">
         <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
@@ -54,12 +69,11 @@ export default function Office() {
         </h1>
       </section>
 
-      {/* BANNER */}
+      {/* Banner */}
       <section className="w-full flex justify-center mb-10">
         <div
           className="
             w-full max-w-5xl
-            bg-[#f7f3ff]
             rounded-2xl 
             flex flex-col items-center
             text-center
@@ -70,8 +84,6 @@ export default function Office() {
           "
         >
           <div className="flex items-center justify-center gap-3 sm:gap-4">
-
-            {/* ICON */}
             <div
               className="
                 w-10 h-10 sm:w-12 sm:h-12
@@ -99,16 +111,14 @@ export default function Office() {
               </svg>
             </div>
 
-            {/* TEXT */}
             <p className="text-gray-600 text-sm sm:text-base max-w-xs sm:max-w-md md:max-w-xl">
               We operate across multiple regions to support our clients worldwide.
             </p>
-
           </div>
         </div>
       </section>
 
-      {/* MAP SECTION */}
+      {/* MAP */}
       <div className="relative w-full max-w-4xl mx-auto mb-16">
         <Image
           src={map}
@@ -118,56 +128,60 @@ export default function Office() {
           className="w-full rounded-lg shadow-lg"
         />
 
-        {/* LOCATION DOTS */}
-        {locations.map((loc, i) => (
-          <div
-            key={i}
-            className={`absolute ${loc.position} group cursor-pointer`}
-          >
-            {/* Ping */}
-            <span
-              className={`
-                absolute left-1/2 top-1/2 
-                -translate-x-1/2 -translate-y-1/2
-                w-6 h-6 rounded-full ${loc.color}
-                opacity-40 blur-sm animate-ping
-              `}
-            />
+       {locations.map((loc, i) => (
+  <div
+    key={i}
+    className={`absolute ${loc.position} group cursor-pointer`}
+    onClick={() => setActiveIndex(i)} // mobile
+    onMouseLeave={() => setActiveIndex(null)} // for smooth desktop fallback
+  >
+    {/* Ping */}
+    <span
+      className={`
+        absolute left-1/2 top-1/2 
+        -translate-x-1/2 -translate-y-1/2
+        w-6 h-6 rounded-full ${loc.color}
+        opacity-40 blur-sm animate-ping
+      `}
+    />
 
-            {/* Dot */}
-            <div
-              className={`
-                w-4 h-4 ${loc.color} rounded-full 
-                border-2 border-white shadow-lg
-                relative z-10 
-                group-hover:scale-125 
-                transition-transform
-              `}
-            />
+    {/* Dot */}
+    <div
+      className={`
+        w-4 h-4 ${loc.color} rounded-full 
+        border-2 border-white shadow-lg
+        relative z-10 
+        transition-transform
+        group-hover:scale-125
+        ${activeIndex === i ? "scale-125" : ""}
+      `}
+    />
 
-            {/* Tooltip */}
-            <div
-              className="
-                opacity-0 group-hover:opacity-100 
-                transition-opacity duration-300 
-                absolute left-6 top-10
-                bg-white text-gray-700 px-2 py-2
-                rounded-xl shadow-xl w-48
-                pointer-events-none
-                text-left
-              "
-            >
-              <h3 className="font-semibold text-sm">{loc.name}</h3>
+    {/* Tooltip — Desktop(Hover) + Mobile(Tap) */}
+    <div
+      className={`
+        absolute left-6 top-10
+        bg-white text-gray-700 px-3 py-3
+        rounded-xl shadow-xl w-52 text-left z-50
+        transition-opacity duration-300
 
-              <p
-                className="text-xs mt-1 leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: loc.details }}
-              ></p>
-            </div>
-          </div>
-        ))}
+        ${
+          activeIndex === i
+            ? "opacity-100" // mobile (tap)
+            : "opacity-0 group-hover:opacity-100" // desktop (hover)
+        }
+      `}
+    >
+      <h3 className="font-semibold text-sm">{loc.name}</h3>
+      <p
+        className="text-xs mt-1 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: loc.details }}
+      ></p>
+    </div>
+  </div>
+))}
+
       </div>
-
     </div>
   );
 }
