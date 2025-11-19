@@ -6,6 +6,7 @@ import Link from "next/link";
 import Hero from "@/pages/Hero"
 import OurWorks from  "@/pages/OurWorks"
 import Office from "@/pages/Office"
+import Solutions from "@/pages/Solutions"
 export default function Home() {
   return (
     /* HERO SECTION */
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero/>
       <OurWorks/>
       <Office/>
+      <Solutions/>
     </div>
   );
 }

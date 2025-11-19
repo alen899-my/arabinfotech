@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
-
+import lo from "@/public/lo.jpg"
+import Image from "next/image"
 const NavBar = () => {
   const [open, setOpen] = useState(false);          // Mobile menu
   const [dropdown, setDropdown] = useState(false);  // Works dropdown
@@ -23,10 +24,19 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 w-full bg-white z-50 border-b border-black/10  transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-        {/* LOGO */}
-        <h1 className="text-3xl font-semibold tracking-wide text-[#ae5c83]">
-          Arab <span className="text-[#6c53a7]">InfoTech</span>
-        </h1>
+   
+<div className="flex items-center">
+  <Image
+    src={lo}
+    alt="Logo"
+    width={120}        
+    height={50}       
+    className="object-contain mix-blend-multiply"
+    priority
+  />
+</div>
+
+
 
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex gap-10 text-lg font-medium items-center">

@@ -5,19 +5,39 @@ import map from "@/pages/map.jpg";
 const locations = [
   {
     name: "USA Office",
-    details: "New York, Business Bay Tower",
+    details: `US Office <br>
+Virtual Sys Technologies Inc,<br>
+447 Broadway, 2nd Floor Suite #1233,<br> 
+New York, NY 10013, US <br>
++1 478 800 4004 <br> 
+info@vstbiz.com <br> 
+www.virtualsystechnologies.com`,
     position: "top-[40%] left-[22%]",
     color: "bg-red-500",
   },
-  { name: "India Office",
-    details: "Bangalore – Electronic City",
-   
+
+  {
+    name: "India Office",
+    details: `Bangalore India Office<br>
+Virtual Sys Technologies,<br> 
+Infopark, 1st Floor, Suite #C1-5,<br> 
+Cherthala, Kerala 688541, IN <br>
++91 478 255 4004 <br>
+info@vstbiz.com <br> 
+www.virtualsystechnologies.com`,
     position: "top-[55%] left-[63%]",
     color: "bg-blue-500",
   },
+
   {
     name: "UAE Office",
-    details: "Dubai – Sheikh Zayed Road",
+    details: `UAE Office<br>
+AIT Information Technology L.L.C<br>
+R364 - Al Wasal Building, 3rd Floor<br> 
+Suite #40 & 103, Dubai, DXB 111273, AE.<br>
++971 4 852 0449<br>
+info@arabinfotechllc.com<br>
+www.arabinfotechllc.com`,
     position: "top-[50%] left-[58%]",
     color: "bg-green-500",
   },
@@ -26,15 +46,70 @@ const locations = [
 export default function Office() {
   return (
     <div className="bg-white w-full flex flex-col items-center">
-      <section className="w-full max-w-7xl px-6 pt-12 pb-6 text-center">
-        <h1 className="text-5xl font-semibold tracking-wide text-[#52476b]">
-          Our Offices
+
+      {/* Heading */}
+      <section className="w-full max-w-7xl px-6 -mt-10 pt-12 text-center">
+        <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
+          Our <span className="text-[#ad4678]">Offices</span>
         </h1>
       </section>
 
-      <div className="relative w-full max-w-4xl mx-auto">
+      {/* BANNER */}
+      <section className="w-full flex justify-center mb-10">
+        <div
+          className="
+            w-full max-w-5xl
+            bg-[#f7f3ff]
+            rounded-2xl 
+            flex flex-col items-center
+            text-center
+            shadow-sm
+            hover:shadow-md
+            transition-all duration-300
+            py-8 px-6
+          "
+        >
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
 
-        {/* MAP IMAGE */}
+            {/* ICON */}
+            <div
+              className="
+                w-10 h-10 sm:w-12 sm:h-12
+                rounded-full 
+                bg-[#6c53a7]/10 
+                flex items-center justify-center 
+                border border-[#6c53a7]/30
+                shadow-inner
+              "
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='w-5 h-5 sm:w-6 sm:h-6 text-[#6c53a7]'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z'
+                />
+                <circle cx='12' cy='9' r='2.5' />
+              </svg>
+            </div>
+
+            {/* TEXT */}
+            <p className="text-gray-600 text-sm sm:text-base max-w-xs sm:max-w-md md:max-w-xl">
+              We operate across multiple regions to support our clients worldwide.
+            </p>
+
+          </div>
+        </div>
+      </section>
+
+      {/* MAP SECTION */}
+      <div className="relative w-full max-w-4xl mx-auto mb-16">
         <Image
           src={map}
           alt="world map"
@@ -49,7 +124,7 @@ export default function Office() {
             key={i}
             className={`absolute ${loc.position} group cursor-pointer`}
           >
-            {/* Pulsing animation wrapper */}
+            {/* Ping */}
             <span
               className={`
                 absolute left-1/2 top-1/2 
@@ -57,30 +132,42 @@ export default function Office() {
                 w-6 h-6 rounded-full ${loc.color}
                 opacity-40 blur-sm animate-ping
               `}
-            ></span>
+            />
 
-            {/* Main dot */}
+            {/* Dot */}
             <div
-              className={`w-4 h-4 ${loc.color} rounded-full border-2 border-white shadow-lg
-                relative z-10 group-hover:scale-125 transition-transform`}
-            ></div>
+              className={`
+                w-4 h-4 ${loc.color} rounded-full 
+                border-2 border-white shadow-lg
+                relative z-10 
+                group-hover:scale-125 
+                transition-transform
+              `}
+            />
 
-            {/* Hover Info Card */}
+            {/* Tooltip */}
             <div
               className="
                 opacity-0 group-hover:opacity-100 
                 transition-opacity duration-300 
                 absolute left-6 top-10
-                bg-white text-gray-700 px-4 py-2
-                rounded-xl shadow-xl w-40
+                bg-white text-gray-700 px-2 py-2
+                rounded-xl shadow-xl w-48
+                pointer-events-none
+                text-left
               "
             >
               <h3 className="font-semibold text-sm">{loc.name}</h3>
-              <p className="text-xs mt-1">{loc.details}</p>
+
+              <p
+                className="text-xs mt-1 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: loc.details }}
+              ></p>
             </div>
           </div>
         ))}
       </div>
+
     </div>
   );
 }

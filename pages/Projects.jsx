@@ -1,92 +1,144 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
+
 import valetparking from "@/public/valetparking.jpg";
-import analtyc from "@/public/analtyc.jpg"
-import payday from "@/public/payday.jpg"
+import analtyc from "@/public/analtyc.jpg";
+import payday from "@/public/payday.jpg";
+import bus from "@/public/bus.jpg"
 const Projects = () => {
-    const PROJECTS = [
-  {
-    title: "Valet Parking Solution",
-    description:
-      "Our Valet Parking Platform delivers advanced technology and data-driven solutions to improve parking management and reduce congestion in cities. Since parking areas often create the first and last impression for visitors, a poor experience can affect return rates. Arabinfotec’s Valet Parking Software helps maximize revenue, enhance comfort, offer real-time visibility, and reduce operational challenges. It also supports secure transactions with P2PE and EMV.",
-    image: valetparking,
-    link: "#",
-  },
-  {
-    title: "Competency Analytics System",
-    description:
-      "Competency Analysis system is used to measure knowledge, skills, and capabilities either for analyzing a company’s products, services, human capital. Also it can be used in education in order to analyze the core competency in student performance. Competency Analysis tools are interested in determining skills, knowledge and abilities   Competencies are capabilities that can be performed by individuals or groups and measured. Measurements can be divided by technical competencies and behavioral competencies.It is an evaluative way to measure performance in an organized, structured manner.",
-    image: analtyc,
-    link: "#",
-  },
-   {
-    title: "Attendance Payroll System ",
-    description:
-      "Arabinfotec is a leading leading HRMS & Payroll Platform.Automate HR tasks & employee attendance in minutes with our Attendance payroll system.Best-in-class Software.Using this system we manage Payroll Execution, Leave & Attendance Management & Payout Processing and other HR processes efficiently. Manage your attendance and payroll anytime, anywhere, on any platform.We are the fastest growing HR & Payroll Platform in UAE.",
-    image: payday,
-        link: "#",
-  },
-  
+  const PROJECTS = [
+    {
+      title: "Valet Parking Solution",
+      description:
+        "Our Valet Parking Platform delivers advanced technology and data-driven solutions to improve parking management and reduce congestion in cities. It enhances comfort, real-time visibility, and supports secure P2PE & EMV transactions.",
+      image: valetparking,
+      link: "#",
+    },
+    {
+      title: "Competency Analytics System",
+      description:
+        "This system measures knowledge, skills, and capabilities for businesses and education. It analyzes technical and behavioral competencies, providing structured and measurable insights.",
+      image: analtyc,
+      link: "#",
+    },
+    {
+      title: "Attendance Payroll System",
+      description:
+        "A leading HR & Payroll platform managing attendance, leave, payout processing, and HR workflows. Automate HR tasks efficiently on any device—anytime, anywhere.",
+      image: payday,
+      link: "#",
+    },
+    {
+      title: "Splunk Professional Services",
+      description:
+        "At ARABINFOTECH, we specialize in providing tailored Splunk Professional Services to help businesses harness the power of their data. Whether you're implementing IT Service Intelligence (ITSI) for service monitoring, optimizing your Security Information and Event Management (SIEM) solution",
+      image: bus,
+      link: "#",
+    },
+  ];
 
-];
+  const TitleStar = `
+    relative pl-7
+    before:content-['✦']
+    before:absolute
+    before:left-0
+    before:top-1/2 before:-translate-y-1/2
+    before:text-[#6c53a7]
+    before:text-xl
+    before:animate-pulse
+    before:drop-shadow-[0_0_6px_rgba(255,255,255,0.7)]
+  `;
 
-const TitleStar = `
-  relative 
-  pl-6 
-  before:content-['✦']
-  before:absolute
-  before:left-0
-  before:top-1/2
-  before:-translate-y-1/2
-  before:text-[#5e1afd]
-  before:text-lg
-  before:animate-pulse
-  before:drop-shadow-[0_0_6px_rgba(255,255,150,0.8)]
-`;
-  return (
-    <div className="w-full max-w-6xl px-6 mt-20 space-y-24 pb-20">
+return (
+  <div className="w-full max-w-7xl mx-auto  px-4">
 
-        {PROJECTS.map((proj, index) => (
-          <div
-            key={index}
-            className={`flex flex-col md:flex-row items-center justify-between gap-10 
-              ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
+    {/* GRID — responsive */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      {PROJECTS.map((proj, index) => (
+        <div
+          key={index}
+          className="
+            border-t-4 border-t-[#6c53a7] 
+            border border-[#e5e1ee]
+            rounded-xl 
+            p-3                     /* smaller padding */
+            bg-white
+            shadow-sm hover:shadow-md
+            transition-all duration-300
+            flex flex-col space-y-3
+
+            w-[92%] mx-auto         /* smaller card width mobile */
+            sm:w-[85%]
+            md:w-full
+          "
+        >
+         {/* IMAGE */}
+<div className="
+  w-full 
+  h-40 sm:h-48 md:h-56
+  rounded-lg 
+  overflow-hidden 
+  border border-[#ece7f6]
+">
+  <Image
+    src={proj.image}
+    alt={proj.title}
+
+    width={600}
+    height={400}
+
+    loading="lazy"
+    placeholder="blur"
+
+    className="
+      object-cover w-full h-full 
+      hover:scale-105 
+      transition-all duration-700
+    "
+  />
+</div>
+
+
+          {/* TITLE */}
+          <h2
+            className={`
+              text-lg sm:text-xl md:text-2xl   /* reduced size mobile */
+              momo-font font-bold 
+              text-[#3b2d57] 
+              leading-snug
+              ${TitleStar}
+            `}
           >
-            {/* TEXT BLOCK */}
-            <div className="text-[#6c53a7] md:w-1/2 space-y-4  ">
-              
-              {/* H2 with star */}
-              <h2 className={`text-3xl momo-font font-bold border-b border-[#5e1afd77] p-2 ${TitleStar}`}>
-                {proj.title}
-              </h2>
+            {proj.title}
+          </h2>
 
-              <p className="text-gray-300 leading-relaxed ">
-                {proj.description}
-              </p>
+          {/* DESCRIPTION */}
+          <p className="text-gray-600 leading-relaxed text-xs sm:text-sm md:text-base">
+            {proj.description}
+          </p>
 
-              <a
-                href={proj.link}
-                className="inline-block px-4 py-4 mt-1 rounded-md bg-[#6c53a7] text-white text-l 
-                           hover:bg-[#5b4390] transition-all duration-300"
-              >
-                View Project →
-              </a>
-            </div>
+          {/* BUTTON */}
+          <a
+            href={proj.link}
+            className="
+              inline-block px-3 py-2          /* smaller button */
+              rounded-lg 
+              bg-[#6c53a7] hover:bg-[#5b4390]
+              text-white font-semibold text-xs sm:text-sm
+              transition-all duration-300
+              w-max
+            "
+          >
+            View more →
+          </a>
+        </div>
+      ))}
 
-            {/* IMAGE BLOCK */}
-            <div className="md:w-1/2">
-              <div className="w-full h-64 md:h-80 rounded-xl overflow-hidden border border-white/10 shadow-xl ">
-                <Image
-                  src={proj.image}
-                  alt={proj.title}
-                  className="object-cover w-full h-full "
-                />
-              </div>
-            </div>
+    </div>
+  </div>
+);
 
-          </div>
-        ))}</div>
-  )
-}
+};
 
-
-export default Projects
+export default Projects;

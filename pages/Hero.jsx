@@ -2,84 +2,153 @@
 
 import Image from "next/image";
 import back from "@/public/back.jpg";
+import second from "@/public/second.jpg";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Home() {
-  return (
-    /* HERO SECTION */
-    <div className="relative w-full h-screen overflow-hidden">
+  /* --- IMAGE SLIDER LOGIC --- */
+  const images = [back, second];
+  const [index, setIndex] = useState(0);
 
-      {/* Background Image */}
-      <Image
-        src={back}
-        alt="background"
-        fill
-        quality={100}
-        priority
-        className="object-cover animate-scaleOneWay"
-      />
+  // Auto-slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Manual controls
+  const nextSlide = () => setIndex((prev) => (prev + 1) % images.length);
+  const prevSlide = () =>
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+
+  return (
+    <div
+      className="
+        relative w-full 
+        h-[55vh]
+        sm:h-[70vh]
+        md:h-[80vh]
+        overflow-hidden
+      "
+    >
+      {/* BACKGROUND SLIDER */}
+     {/* BACKGROUND SLIDER - Smooth Fade */}
+<div className="absolute inset-0 z-0 overflow-hidden">
+
+  {images.map((img, i) => (
+    <Image
+      key={i}
+      src={img}
+      alt="background-slide"
+      fill
+      priority
+      quality={100}
+      className={`
+        object-cover
+        absolute inset-0
+        transition-opacity duration-1000 ease-in-out
+        ${i === index ? "opacity-100" : "opacity-0"}
+        animate-scaleOneWay
+      `}
+    />
+  ))}
+
+</div>
+
+
+      {/* LEFT BUTTON (smaller on mobile) */}
+      <button
+        onClick={prevSlide}
+        className="
+          absolute left-3 top-1/2 -translate-y-1/2 z-30
+          bg-white/20 hover:bg-white/40
+          text-white
+          p-2 sm:p-3 rounded-full
+          backdrop-blur-md
+          transition-all
+        "
+      >
+        <ChevronLeft size={20} className="sm:size-4" />
+      </button>
+
+      {/* RIGHT BUTTON (smaller on mobile) */}
+      <button
+        onClick={nextSlide}
+        className="
+          absolute right-3 top-1/2 -translate-y-1/2 z-30
+          bg-white/20 hover:bg-white/40
+          text-white
+          p-2 sm:p-3 rounded-full
+          backdrop-blur-md
+          transition-all
+        "
+      >
+        <ChevronRight size={20} className="sm:size-4" />
+      </button>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
 
-      {/* Content Wrapper */}
-      <div className="relative z-20 px-6 w-full max-w-7xl mx-auto flex flex-col justify-center h-full">
-
-        {/* Main Heading */}
-        <h1 className="momo-font text-[clamp(32px,9vw,100px)] leading-[0.95] tracking-tight">
-          Arab Web <br />
-          Design Agency, <br />
-          Delivering <br />
-          Big Results
+      {/* Content */}
+      <div
+        className="
+          relative z-20 px-4 sm:px-6 w-full max-w-6xl mx-auto 
+          flex flex-col justify-center h-full 
+          text-center
+          mt-10
+          sm:mt-0
+        "
+      >
+        <h1
+          className="
+            momo-font mt-5
+            text-[clamp(40px,10vw,100px)]
+            leading-[0.9]
+            tracking-tight
+            font-semibold
+            text-white
+          "
+        >
+          Arab Web Design Agency <br />
+          Delivering Big Results
         </h1>
 
-        {/* Two Column Layout */}
-        <div className="mt-10 flex flex-col md:flex-row gap-10 md:items-start">
+        <div className="mt-4 sm:mt-6 flex justify-center">
+          <span
+            className="
+              flex items-center gap-2 
+              zalando-bold 
+              text-sm sm:text-base md:text-lg
+              uppercase font-bold text-white
+            "
+          >
+            <span className="text-[#5e1afd] text-xl animate-pulse">✦</span>
+            UAE Based Software Agency — Working Worldwide
+          </span>
+        </div>
 
-          {/* Star Tagline */}
-          <p className="flex items-center gap-2 zalando-bold text-xs sm:text-sm md:text-base uppercase font-bold">
-            <span className="text-[#5e1afd] text-lg animate-pulse drop-shadow-[0_0_6px_rgba(255,255,150,0.8)]">
-              ✦
-            </span>
-            <span className="leading-tight">
-              UAE Based Software Agency — Working Worldwide
-            </span>
-          </p>
-
-          {/* Right-Side Text + CTA */}
-          <div className="md:w-2/3 text-left md:text-justify md:text-lg sm:text-xl md:text-2xl space-y-3">
-
-           {/* Paragraph 1 */}
-<p className="text-gray-100/80 font-light font-mono bg-black/5 p-2 rounded">
-  We create modern websites and digital experiences that are fast, clean, and beautifully designed.
-</p>
-
-{/* Paragraph 2 */}
-<p className="text-gray-100/80 mt-2 font-light font-mono bg-black/5 p-2 rounded">
-  A lean, quality-focused team delivering smart solutions with precise craftsmanship.
-</p>
-
-
-            {/* CTA Button */}
-            <div className="pt-2">
-              <Link
-  href="/"
-  className="inline-flex items-center justify-center px-6 py-3 rounded-lg
-             bg-white/10 border border-white/20 text-white 
-             backdrop-blur-md
-             hover:bg-white/20 hover:border-white/30 
-             transition-all duration-300 font-medium tracking-wide"
->
-  Schedule an intro call →
-</Link>
-
-            </div>
-
-          </div>
-
+        <div className="mt-6 sm:mt-8">
+          <Link
+            href="/"
+            className="
+              inline-flex items-center justify-center 
+              px-7 py-3.5 rounded-lg
+              bg-white/10 border border-white/20 text-white 
+              backdrop-blur-md
+              hover:bg-white/20 hover:border-white/30 
+              transition-all duration-300 
+              font-medium tracking-wide
+              text-base sm:text-lg
+            "
+          >
+            Schedule an intro call →
+          </Link>
         </div>
       </div>
-
     </div>
   );
 }
