@@ -49,7 +49,7 @@ export default function Office() {
   const [activeIndex, setActiveIndex] = useState(null);
   const tooltipRef = useRef(null);
 
-  // CLICK OUTSIDE TO CLOSE TOOLTIP (mobile)
+  // Close tooltip when clicking outside (mobile)
   useEffect(() => {
     function handleClickOutside(e) {
       if (tooltipRef.current && !tooltipRef.current.contains(e.target)) {
@@ -128,59 +128,66 @@ export default function Office() {
           className="w-full rounded-lg shadow-lg"
         />
 
-       {locations.map((loc, i) => (
-  <div
-    key={i}
-    className={`absolute ${loc.position} group cursor-pointer`}
-    onClick={() => setActiveIndex(i)} // mobile
-    onMouseLeave={() => setActiveIndex(null)} // for smooth desktop fallback
-  >
-    {/* Ping */}
-    <span
-      className={`
-        absolute left-1/2 top-1/2 
-        -translate-x-1/2 -translate-y-1/2
-        w-6 h-6 rounded-full ${loc.color}
-        opacity-40 blur-sm animate-ping
-      `}
-    />
+        {/* LOCATION DOTS */}
+        {locations.map((loc, i) => (
+          <div
+            key={i}
+            className={`absolute ${loc.position} group cursor-pointer`}
+            onClick={() => setActiveIndex(i)} // mobile tap
+            onMouseLeave={() => setActiveIndex(null)} // desktop hover fallback
+          >
+            {/* Ping */}
+            <span
+              className={`
+                absolute left-1/2 top-1/2 
+                -translate-x-1/2 -translate-y-1/2
+                w-6 h-6 rounded-full ${loc.color}
+                opacity-40 blur-sm animate-ping
+              `}
+            />
 
-    {/* Dot */}
-    <div
-      className={`
-        w-4 h-4 ${loc.color} rounded-full 
-        border-2 border-white shadow-lg
-        relative z-10 
-        transition-transform
-        group-hover:scale-125
-        ${activeIndex === i ? "scale-125" : ""}
-      `}
-    />
+            {/* Dot */}
+            <div
+              className={`
+                w-4 h-4 ${loc.color} rounded-full 
+                border-2 border-white shadow-lg
+                relative z-10 
+                transition-transform
+                group-hover:scale-125
+                ${activeIndex === i ? "scale-125" : ""}
+              `}
+            />
 
-    {/* Tooltip — Desktop(Hover) + Mobile(Tap) */}
-    <div
-      className={`
-        absolute left-6 top-10
-        bg-white text-gray-700 px-3 py-3
-        rounded-xl shadow-xl w-52 text-left z-50
-        transition-opacity duration-300
+            {/* Tooltip — Desktop + Mobile */}
+            <div
+              ref={tooltipRef}
+              className={`
+                absolute z-50 bg-white text-gray-700 px-3 py-3 
+                rounded-xl shadow-xl text-left transition-opacity duration-300
 
-        ${
-          activeIndex === i
-            ? "opacity-100" // mobile (tap)
-            : "opacity-0 group-hover:opacity-100" // desktop (hover)
-        }
-      `}
-    >
-      <h3 className="font-semibold text-sm">{loc.name}</h3>
-      <p
-        className="text-xs mt-1 leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: loc.details }}
-      ></p>
-    </div>
-  </div>
-))}
+                /* Desktop position */
+                hidden md:block left-6 top-10 w-52
 
+                /* Mobile centered position */
+                md:hidden 
+                left-1/2 -translate-x-1/2 top-10 
+                w-[80vw] max-w-xs
+
+                ${
+                  activeIndex === i
+                    ? "opacity-100"   // Mobile tap
+                    : "opacity-0 group-hover:opacity-100"  // Desktop hover
+                }
+              `}
+            >
+              <h3 className="font-semibold text-sm">{loc.name}</h3>
+              <p
+                className="text-xs mt-1 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: loc.details }}
+              ></p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
