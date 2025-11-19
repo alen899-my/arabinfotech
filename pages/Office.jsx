@@ -160,29 +160,32 @@ export default function Office() {
 
             {/* Tooltip — Desktop + Mobile */}
             <div
-  ref={tooltipRef}
-  className={`
-    absolute z-50 bg-white text-gray-700 px-3 py-3 
-    rounded-xl shadow-xl text-left transition-opacity duration-300
+              ref={tooltipRef}
+              className={`
+                absolute z-50 bg-white text-gray-700 px-3 py-3 
+                rounded-xl shadow-xl text-left transition-opacity duration-300
 
-    /* DESKTOP (md and up) → show on hover */
-    md:left-6 md:top-10 md:w-52
-    md:opacity-0 md:group-hover:opacity-100
+                /* Desktop position */
+                hidden md:block left-6 top-10 w-52
 
-    /* MOBILE (below md) → centered on tap */
-    left-1/2 -translate-x-1/2 top-10 
-    w-[80vw] max-w-xs
-    ${activeIndex === i ? "opacity-100" : "opacity-0"}
-  `}
->
-  <h3 className="font-semibold text-sm">{loc.name}</h3>
+                /* Mobile centered position */
+                md:hidden 
+                left-1/2 -translate-x-1/2 top-10 
+                w-[80vw] max-w-xs
 
-  <p
-    className="text-xs mt-1 leading-relaxed"
-    dangerouslySetInnerHTML={{ __html: loc.details }}
-  ></p>
-</div>
-
+                ${
+                  activeIndex === i
+                    ? "opacity-100"   // Mobile tap
+                    : "opacity-0 group-hover:opacity-100"  // Desktop hover
+                }
+              `}
+            >
+              <h3 className="font-semibold text-sm">{loc.name}</h3>
+              <p
+                className="text-xs mt-1 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: loc.details }}
+              ></p>
+            </div>
           </div>
         ))}
       </div>
