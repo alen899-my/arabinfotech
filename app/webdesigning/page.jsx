@@ -49,7 +49,7 @@ export default function Page() {
 
   {/* LEFT - Animated */}
   <motion.div
-    className="flex flex-col justify-center space-y-6 -mt-20"
+    className="flex flex-col justify-center space-y-2 -mt-20"
     initial={{ opacity: 0, x: -40 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.7 }}
@@ -71,7 +71,7 @@ export default function Page() {
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="text-gray-600 leading-relaxed max-w-xl"
+      className="text-gray-500 text-s leading-relaxed "
     >
       We create websites that elevate your brand, increase trust, and
       deliver measurable business outcomes.
@@ -169,8 +169,8 @@ export default function Page() {
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
       {card.icon}
-      <h3 className="text-xl text-gray-600 font-semibold mb-2">{card.title}</h3>
-      <p className="text-gray-600 leading-relaxed">{card.text}</p>
+      <h3 className="text-gray-500 text-xl uppercase tracking-wide mt-1">{card.title}</h3>
+      <p className="text-gray-500 text-s leading-relaxed ">{card.text}</p>
     </motion.div>
   ))}
 </div>
@@ -182,7 +182,7 @@ export default function Page() {
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}text-gray-700 mt-3 leading-relaxed
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -223,9 +223,9 @@ export default function Page() {
               >
                 <div className="flex items-center gap-4">
                   {item.icon}
-                  <h2 className="text-xl font-semibold text-[#ae5c83]">{item.title}</h2>
+                  <h2 className="text-xl uppercase tracking-wide mt-1 text-[#ae5c83]">{item.title}</h2>
                 </div>
-                <p className="text-gray-700 mt-3 leading-relaxed">{item.text}</p>
+                <p className="text-gray-500 text-s leading-relaxed ">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>

@@ -50,13 +50,13 @@ export default function Page() {
             Ecommerce Development Company In Dubai
           </h1>
 
-          <p className="text-gray-700 mt-4">
+          <p className="text-gray-500 text-s leading-relaxed ">
             At Arabinfotech, we create well-designed e-commerce solutions with 
             modern features helping your business reach more customers around 
             the world.
           </p>
 
-          <p className="text-gray-700 mt-3">
+          <p className="text-gray-500 text-s leading-relaxed ">
             We build fast, scalable, professional online stores optimized for 
             conversions. Enjoy a smooth shopping experience from browsing to 
             checkout — crafted for your brand.
