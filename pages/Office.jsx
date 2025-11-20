@@ -108,7 +108,7 @@ export default function Office() {
           alt="world map"
           width={1200}
           height={700}
-          className="w-full rounded-lg shadow-lg"
+          className="w-full rounded-lg "
         />
 
         {/* Location Dots */}
