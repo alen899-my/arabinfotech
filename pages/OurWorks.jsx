@@ -40,11 +40,11 @@ const OurWorks = () => {
   const statsInView = useInView(statsRef, { once: true, amount: 0.4 });
 
   return (
-    <div className="bg-white w-full flex flex-col items-center">
+    <div className="bg-[#f8eeec] w-full flex flex-col items-center">
 
       {/* -------- TOP SECTION -------- */}
       <section className="w-full max-w-7xl px-6 pt-6 pb-4 text-center">
-        <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
+        <h1 className="text-5xl momo-font  font-semibold tracking-wide text-[#ae5c83]">
           About <span className="text-[#ad4678]">Us</span>
         </h1>
         <div className="w-20 h-[3px] bg-[#6c53a7] mx-auto mt-2 rounded-full" />
@@ -93,14 +93,14 @@ const OurWorks = () => {
       </section>
 
       {/* -------- STATS SECTION -------- */}
-      <section className="w-full bg-white px-6 py-6 flex justify-center relative">
+      <section className="w-full bg-[#f8eeec] px-6 py-6 flex justify-center relative">
         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-[0.06] pointer-events-none" />
 
         <div className="max-w-7xl w-full relative">
 
           {/* Stats Heading */}
           <div className="text-center max-w-2xl mx-auto mb-6">
-           <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
+           <h1 className="text-5xl momo-font  font-semibold tracking-wide text-[#ae5c83]">
           Our <span className="text-[#ad4678]">Numbers Tells Our Stories</span>
         </h1>
             <p className="text-gray-600 mt-2 text-sm md:text-base">
@@ -143,12 +143,12 @@ const OurWorks = () => {
       </section>
 
       {/* -------- SERVICES SECTION -------- */}
-      <section className="w-full bg-white px-6 py-6 -mt-6 flex justify-center">
+      <section className="w-full bg-[#f8eeec] px-6 py-6 -mt-6 flex justify-center">
         <div className="max-w-7xl w-full">
 
           {/* Services Heading */}
           <div className="text-center max-w-2xl mx-auto mb-6">
-            <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
+            <h1 className="text-5xl momo-font  font-semibold tracking-wide text-[#ae5c83]">
           Our <span className="text-[#ad4678]">Services</span>
         </h1>
             <p className="text-gray-600 text-sm md:text-base mt-2">

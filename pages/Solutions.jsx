@@ -7,7 +7,7 @@ const Solutions = () => {
       
       {/* Header Section */}
       <section className="w-full max-w-7xl px-6 -mt-9 mb-4 text-center">
-         <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
+         <h1 className="text-5xl font-semibold tracking-wide momo-font  text-[#ae5c83]">
           Our <span className="text-[#ad4678]">Solutions</span>
         </h1>
         <p className="text-gray-600 mt-2 text-sm md:text-base">
@@ -15,7 +15,7 @@ const Solutions = () => {
             </p>
       </section>
      <Projects />
-      {/* 🔥 BANNER SECTION */}
+      {/* BANNER SECTION */}
       <section className="w-full max-w-7xl px  mb-10">
         <div
           className="
@@ -36,7 +36,7 @@ const Solutions = () => {
               text-3xl md:text-4xl 
               momo-font 
               font-bold 
-              text-[#3b2d57] 
+              text-[#ad4678] 
               tracking-tight
             "
           >

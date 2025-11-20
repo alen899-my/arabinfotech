@@ -65,7 +65,7 @@ export default function Office() {
 
       {/* Heading */}
       <section className="w-full max-w-7xl px-6 -mt-10 pt-12 text-center">
-        <h1 className="text-5xl font-semibold tracking-wide text-[#ae5c83]">
+        <h1 className="text-5xl font-semibold tracking-wide momo-font  text-[#ae5c83]">
           Our <span className="text-[#ad4678]">Offices</span>
         </h1>
       </section>

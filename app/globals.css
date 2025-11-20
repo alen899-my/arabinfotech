@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
+
 @import "tailwindcss";
 
+
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #e4e4e4;
+  --background: #f8eeec;
+  --foreground: #f8eeec;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .momo-trust-display-regular {
@@ -56,4 +67,37 @@ body {
 
 .animate-stamp {
   animation: stamp 0.6s ease-out forwards;
+}
+@keyframes fade-in-left {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-40px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes fade-in-up {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.9s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.9s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
 }

@@ -11,7 +11,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0f0e17] text-white pt-16 pb-6  border-t border-white/10">
+    <footer className="w-full bg-[#0f0e17] text-white  p-6   border-t border-white/10">
 
       {/* ---------- MAIN GRID ---------- */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">

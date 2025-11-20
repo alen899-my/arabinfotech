@@ -1,17 +1,19 @@
-/* ----------------------------------------------
-   GOOGLE FONT IMPORTS
----------------------------------------------- */
+
 
 /* Momo Trust Display */
 @import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
 
 /* Zalando Sans (Variable font) */
 @import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100&display=swap');
 
-
-/* ----------------------------------------------
-   FONT CLASSES
----------------------------------------------- */
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
 
 /* Momo Trust Display */
 .momo-font {
@@ -21,8 +23,6 @@
 }
 
 
-/* Zalando Sans (variable font) */
-/* Replace <uniquifier> with your own semantic class name, e.g. zalando-regular, zalando-bold */
 .zalando-regular {
   font-family: "Zalando Sans", sans-serif;
   font-optical-sizing: auto;
