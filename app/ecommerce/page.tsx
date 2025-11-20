@@ -180,10 +180,10 @@ export default function Page() {
         <div className="shrink-0 mt-1">{item.icon}</div>
 
         <div>
-          <h3 className="text-[#3b2d57] font-semibold text-[20px] leading-tight">
+          <h3 className="text-gray-500 text-xl uppercase tracking-wide mt-1">
             {item.title}
           </h3>
-          <p className="text-gray-500 text-xs leading-relaxed mt-1">
+          <p className="text-gray-500 text-s leading-relaxed mt-1">
             {item.desc}
           </p>
         </div>
@@ -274,8 +274,7 @@ export default function Page() {
 
           {/* HEADING BESIDE IMAGE */}
           <div className="flex-1">
-            <h3 className="text-[#3b2d57] text-[20px] font-semibold 
-                     py-3 px-2 rounded-lg leading-tight">
+            <h3 className="text-gray-500 text-xl uppercase tracking-wide mt-1">
               {item.title}
             </h3>
           </div>
@@ -288,12 +287,12 @@ export default function Page() {
   </p>
 
   {/* MAIN TEXT */}
-  <p className="text-gray-600 text-sm leading-relaxed ">
+  <p className="text-gray-500 text-s leading-relaxed  ">
     {item.text}
   </p>
 
   {/* EXTRA INFO */}
-  <p className="text-gray-600 text-sm leading-relaxed">
+  <p className="text-gray-500 text-s leading-relaxed">
     {item.extra}
   </p>
 
@@ -313,7 +312,7 @@ export default function Page() {
             Explore Our Solutions
           </h3>
 
-          <p className="text-gray-700 mt-3 max-w-2xl mx-auto">
+          <p className="text-gray-500 text-s leading-relaxed mt-1">
             Discover a variety of innovative digital tools and technologies 
             tailored to elevate your business performance and accelerate growth.
           </p>
