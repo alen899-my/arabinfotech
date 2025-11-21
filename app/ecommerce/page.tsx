@@ -21,7 +21,7 @@ import {
 
 export default function Page() {
   return (
-    <div className="relative w-full bg-[#f8eeec] overflow-hidden">
+    <div className="relative w-full bg-white overflow-hidden ">
 
       {/* =================== SHAPES =================== */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -42,15 +42,19 @@ export default function Page() {
           className=""
         >
 
-          <p className="text-[#9056bc] font-medium tracking-wider uppercase">
+          <p className="text-[#9056bc] text-sm tracking-wider font-medium uppercase">
             ✦ eCommerce Web Development
           </p>
 
-          <h1 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] mt-2 leading-tight">
+          <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-4xl md:text-5xl font-bold text-[#ae5c83] momo-font leading-tight"
+              >
             Ecommerce Development Company In Dubai
-          </h1>
-
-          <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix  ">
+         </motion.h1> 
+          <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix   ">
             At Arabinfotech, we create well-designed e-commerce solutions with 
             modern features helping your business reach more customers around 
             the world.

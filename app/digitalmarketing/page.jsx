@@ -57,10 +57,10 @@ export default function Page() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full bg-white overflow-hidden">
 
       {/* ===================== Shapes ===================== */}
-      <div className="absolute top-10 left-2 
+      <div className="absolute top-20 left-2 
         w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 
         bg-[#8d79a1] rounded-full opacity-20 z-0">
       </div>
@@ -71,7 +71,7 @@ export default function Page() {
       </div>
 
       {/* ===================== HERO ===================== */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-28 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-13 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* IMAGE */}
         <motion.div
@@ -112,7 +112,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mt-6 px-7 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
+            className="mt- mb-2 px-7 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
           >
             Schedule an Intro Call
           </motion.button>
@@ -125,7 +125,7 @@ export default function Page() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="relative overflow-hidden -mt-20"
+        className="relative overflow-hidden -mt-18"
         onWheel={(e) => {
           const container = document.getElementById("fm-carousel");
           container.scrollLeft += e.deltaY;
@@ -161,116 +161,149 @@ export default function Page() {
       </motion.div>
 
       {/* ===================== FOUR BOX SECTION ===================== */}
-      <section className="relative z-10 w-full py-20 px-4 -mt-12">
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">
-            Digital Marketing Solutions for Every Business
-          </h1>
-          <p className="text-gray-500 text-sm tracking-wide momo-font">
-            And easy for marketers of any experience level.
-            Arabinfotech provides smart digital marketing solutions that engage your customers throughout their entire journey.
-          </p>
-        </motion.div>
+     <section className="relative z-10 w-full py-20 px-4 -mt-15">
+  <motion.div
+    className="text-center mb-10"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
+    <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">
+      Digital Marketing Solutions for Every Business
+    </h1>
+    <p className="text-gray-500 text-sm tracking-wide momo-font">
+      And easy for marketers of any experience level.
+      Arabinfotech provides smart digital marketing solutions that engage your customers throughout their entire journey.
+    </p>
+  </motion.div>
 
-        {/* ==================== FOUR BOX GRID (E — Hover Lift + Fade Up) ==================== */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto ">
+  {/* ==================== FOUR BOX GRID ==================== */}
+  <div className="
+    grid 
+    grid-cols-2 
+    md:grid-cols-2 
+    lg:grid-cols-4 
+    gap-4 
+    max-w-7xl 
+    mx-auto 
+    px-3
+  ">
+    {/* Box 1 */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.04, y: -5 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="
+        border border-gray-400 
+        p-3 sm:p-6              /* smaller padding on mobile */
+        rounded-2xl 
+        bg-white 
+        shadow-sm  
+      "
+    >
+      <LuSearch className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
+      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+        Search Engine Optimization (SEO)
+      </h3>
+      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+        Strengthen your online visibility with strategic SEO techniques designed
+        to increase rankings and attract the right customers.
+      </p>
+      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
+        Read More
+      </span>
+    </motion.div>
 
-          {/* Box 1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.04, y: -5 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="border border-gray-400 p-6 rounded-2xl bg-white shadow-sm  "
-          >
-            <LuSearch className="text-[#ae5c83] text-3xl mb-4" />
-            <h3 className="text-md momo-font font-semibold text-gray-800 mb-2">
-              Search Engine Optimization (SEO)
-            </h3>
-            <p className="text-gray-600 text-sm mb-3 momo-font-thin-mix">
-              Strengthen your online visibility with strategic SEO techniques designed
-              to increase rankings and attract the right customers.
-            </p>
-            <span className="text-[#ae5c83] text-sm font-semibold cursor-pointer">
-              Read More
-            </span>
-          </motion.div>
+    {/* Box 2 */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.04, y: -5 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55 }}
+      className="
+        border border-gray-400 
+        p-3 sm:p-6 
+        rounded-2xl 
+        bg-white 
+        shadow-sm 
+      "
+    >
+      <LuRocket className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
+      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+        Search Engine Advertising (SEA)
+      </h3>
+      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+        Get instant visibility with paid search ads that drive targeted traffic
+        and boost conversions quickly and effectively.
+      </p>
+      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
+        Read More
+      </span>
+    </motion.div>
 
-          {/* Box 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.04, y: -5 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="border border-gray-400 p-6 rounded-2xl bg-white shadow-sm "
-          >
-            <LuRocket className="text-[#ae5c83] text-3xl mb-4" />
-            <h3 className="text-md momo-font font-semibold text-gray-800 mb-2">
-              Search Engine Advertising (SEA)
-            </h3>
-            <p className="text-gray-600 text-sm mb-3 momo-font-thin-mix">
-              Get instant visibility with paid search ads that drive targeted traffic
-              and boost conversions quickly and effectively.
-            </p>
-            <span className="text-[#ae5c83] text-sm font-semibold cursor-pointer">
-              Read More
-            </span>
-          </motion.div>
+    {/* Box 3 */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.04, y: -5 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="
+        border border-gray-400 
+        p-3 sm:p-6 
+        rounded-2xl 
+        bg-white 
+        shadow-xl 
+      "
+    >
+      <LuPenTool className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
+      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+        Social Media Optimization (SMO)
+      </h3>
+      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+        Build meaningful engagement and a strong online presence across social
+        platforms with our tailored SMO strategies.
+      </p>
+      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
+        Read More
+      </span>
+    </motion.div>
 
-          {/* Box 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.04, y: -5 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="border border-gray-400 p-6 rounded-2xl bg-white shadow-xl "
-          >
-            <LuPenTool className="text-[#ae5c83] text-3xl mb-4" />
-            <h3 className="text-md momo-font font-semibold text-gray-800 mb-2">
-              Social Media Optimization (SMO)
-            </h3>
-            <p className="text-gray-600 text-sm mb-3 momo-font-thin-mix">
-              Build meaningful engagement and a strong online presence across social
-              platforms with our tailored SMO strategies.
-            </p>
-            <span className="text-[#ae5c83] text-sm font-semibold cursor-pointer">
-              Read More
-            </span>
-          </motion.div>
+    {/* Box 4 */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.04, y: -5 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.65 }}
+      className="
+        border border-gray-400 
+        p-3 sm:p-6 
+        rounded-2xl 
+        bg-white 
+        shadow-sm 
+      "
+    >
+      <LuShoppingBag className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
+      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+        Social Media Advertising (SMA)
+      </h3>
+      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+        Reach the right audience with high-impact social ads that expand brand
+        awareness and drive measurable results.
+      </p>
+      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
+        Read More
+      </span>
+    </motion.div>
 
-          {/* Box 4 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.04, y: -5 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
-            className="border border-gray-400 p-6 rounded-2xl bg-white shadow-sm "
-          >
-            <LuShoppingBag className="text-[#ae5c83] text-3xl mb-4" />
-            <h3 className="text-md momo-font font-semibold text-gray-800 mb-2">
-              Social Media Advertising (SMA)
-            </h3>
-            <p className="text-gray-600 text-sm mb-3 momo-font-thin-mix">
-              Reach the right audience with high-impact social ads that expand brand
-              awareness and drive measurable results.
-            </p>
-            <span className="text-[#ae5c83] text-sm font-semibold cursor-pointer">
-              Read More
-            </span>
-          </motion.div>
+  </div>
+</section>
 
-        </div>
-      </section>
         
 <section className="relative overflow-hidden py-20 px-4 bg-gradient-to-b from-white via-[#fdf6fa] to-white -mt-30">
       <div className="max-w-5xl mx-auto relative">
@@ -301,7 +334,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuShoppingBag className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-800 font-semibold momo-font text-lg">Cost-Effective</h3>
+            <h3 className="text-gray-500 font-semibold momo-font text-lg">Cost-Effective</h3>
           </motion.div>
 
           {/* Reach */}
@@ -310,7 +343,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuRocket className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-800 font-semibold momo-font text-lg">Reach</h3>
+            <h3 className="text-gray-500 font-semibold momo-font text-lg">Reach</h3>
           </motion.div>
 
           {/* Targeting */}
@@ -319,7 +352,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuSearch className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-800 font-semibold momo-font text-lg">Targeting</h3>
+            <h3 className="text-gray-500 font-semibold momo-font text-lg">Targeting</h3>
           </motion.div>
 
           {/* Analytics */}
@@ -328,7 +361,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuPenTool className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-800 font-semibold momo-font text-lg">Analytics</h3>
+            <h3 className="text-gray-500 font-semibold momo-font text-lg">Analytics</h3>
           </motion.div>
 
         </motion.div>

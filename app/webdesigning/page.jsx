@@ -21,9 +21,9 @@ import {
 
 export default function Page() {
   return (
-    <div className="relative w-full min-h-screen mt-20 overflow-hidden bg-[#f8eeec]">
+    <div className="relative w-full bg-white overflow-hidden">
 
-      {/* ================= GEOMETRIC SHAPES (unchanged) ================= */}
+    
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[50px] left-[20px] w-[220px] h-[220px] bg-[#eadaffdf] rotate-[12deg] shadow-lg opacity-90"></div>
         <div className="absolute top-[800px] right-[30px] w-0 h-0 border-l-[140px] border-l-transparent border-r-[140px] border-r-transparent border-b-[240px] border-b-[#ffd9e6] opacity-90 rotate-[10deg]"></div>
@@ -45,11 +45,11 @@ export default function Page() {
       </div>
 
       {/* ================= HERO SECTION ================= */}
-     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center -mt-10">
+     <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-13 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
   {/* LEFT - Animated */}
   <motion.div
-    className="flex flex-col justify-center space-y-2 -mt-20"
+    className="flex flex-col justify-center space-y-2 lg:-mt-20"
     initial={{ opacity: 0, x: -40 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.7 }}
@@ -115,12 +115,12 @@ export default function Page() {
     </motion.div>
   </motion.div>
 
-</div>
+</section>
 
       {/* ================= WHY CHOOSE US ================= */}
-      <section className="relative z-10 w-full py-20 px-4 -mt-60">
+      <section className="relative z-10 w-full py-20 px-4 -mt-50">
         <motion.div
-          className="text-center mb-10"
+          className="text-center mb-15"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -134,46 +134,62 @@ export default function Page() {
           </p>
         </motion.div>
 
-       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 -mt-10">
+    <div className="
+  max-w-7xl mx-auto 
+  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+  gap-6 sm:gap-10 
+  -mt-5 sm:-mt-10
+  px-4
+">
   {[{
-    icon: <LuPenTool className="text-[#ae5c83] text-4xl mb-4" />,
+    icon: <LuPenTool className="text-[#ae5c83] text-4xl mb-3 sm:mb-4" />,
     title: "Creative UI/UX",
     text: "We design interfaces that feel natural and enjoyable to use. Every layout, color, and element is chosen to guide visitors smoothly and keep them engaged from the moment they land on your website."
   }, {
-    icon: <LuMonitorSmartphone className="text-[#ae5c83] text-4xl mb-4" />,
+    icon: <LuMonitorSmartphone className="text-[#ae5c83] text-4xl mb-3 sm:mb-4" />,
     title: "Fully Responsive",
     text: "Your website will look and function beautifully on any device—phone, tablet, or desktop. No awkward zooming, no broken layouts—just a seamless experience everywhere."
   }, {
-    icon: <LuRocket className="text-[#ae5c83] text-4xl mb-4" />,
+    icon: <LuRocket className="text-[#ae5c83] text-4xl mb-3 sm:mb-4" />,
     title: "SEO & Speed Optimized",
     text: "Fast-loading pages and clean SEO structure help your business rank higher and convert more visitors. We remove the technical stress so you can focus on growth."
   }, {
-    icon: <LuSearch className="text-[#ae5c83] text-4xl mb-4" />,
+    icon: <LuSearch className="text-[#ae5c83] text-4xl mb-3 sm:mb-4" />,
     title: "Market-Driven Strategy",
     text: "We build websites based on how your customers behave. Every design choice is backed by research, ensuring your site speaks directly to your ideal audience."
   }, {
-    icon: <LuShieldCheck className="text-[#ae5c83] text-4xl mb-4" />,
+    icon: <LuShieldCheck className="text-[#ae5c83] text-4xl mb-3 sm:mb-4" />,
     title: "Secure & Reliable",
     text: "From SSL protection to secure coding practices, we make sure your website stays safe, stable, and resistant to attacks or downtime."
   }, {
-    icon: <LuSettings className="text-[#ae5c83] text-4xl mb-4" />,
+    icon: <LuSettings className="text-[#ae5c83] text-4xl mb-3 sm:mb-4" />,
     title: "Scalable Solutions",
     text: "Whether you’re just starting out or planning rapid expansion, your website will be ready to grow with you—without needing a complete rebuild."
   }].map((card, index) => (
     <motion.div
       key={index}
-      className="p-8 bg-white/70 border-gray-300  backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl transition-all border border-gray-400"
+      className="
+        p-6 sm:p-8 
+        bg-white/70 backdrop-blur-sm 
+        rounded-2xl shadow-md hover:shadow-xl 
+        transition-all border border-gray-400
+      "
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
       {card.icon}
-      <h3 className="text-gray-700 text-xl uppercase tracking-wide mt-1 momo-font">{card.title}</h3>
-      <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix ">{card.text}</p>
+      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
+        {card.title}
+      </h3>
+      <p className="text-gray-500 text-sm sm:text-s leading-relaxed momo-font-thin-mix">
+        {card.text}
+      </p>
     </motion.div>
   ))}
 </div>
+
 
       </section>
 
@@ -188,7 +204,7 @@ export default function Page() {
         >
           <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">Web Designing Services</h1>
           <p className="text-gray-500 text-sm tracking-wide uppercase momo-font">What We Offer</p>
-          <div className="w-16 h-[3px] bg-[#ae5c83] mx-auto mt-3 rounded-full"></div>
+          
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -223,7 +239,7 @@ export default function Page() {
               >
                 <div className="flex items-center gap-4">
                   {item.icon}
-                  <h2 className="text-xl uppercase tracking-wide mt-1 text-[#ae5c83] momo-font">{item.title}</h2>
+                  <h2 className="text-xl uppercase tracking-wide  text-[#ae5c83] momo-font">{item.title}</h2>
                 </div>
                 <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">{item.text}</p>
               </motion.div>
