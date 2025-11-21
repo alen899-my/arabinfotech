@@ -32,7 +32,7 @@ export default function Page() {
       </div>
 
       {/* =================== HERO LAYOUT =================== */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-13 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
         <motion.div
@@ -50,13 +50,13 @@ export default function Page() {
             Ecommerce Development Company In Dubai
           </h1>
 
-          <p className="text-gray-500 text-s leading-relaxed ">
+          <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix  ">
             At Arabinfotech, we create well-designed e-commerce solutions with 
             modern features helping your business reach more customers around 
             the world.
           </p>
 
-          <p className="text-gray-500 text-s leading-relaxed ">
+          <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">
             We build fast, scalable, professional online stores optimized for 
             conversions. Enjoy a smooth shopping experience from browsing to 
             checkout — crafted for your brand.
@@ -66,7 +66,7 @@ export default function Page() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
-            className="mt-6 px-6 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all"
+            className="mt-4 px-6 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
           >
             Schedule an Intro Call
           </motion.button>
@@ -98,7 +98,7 @@ export default function Page() {
     <h2 className="text-[#ae5c83] text-3xl momo-font font-semibold">
       Our eCommerce Services
     </h2>
-    <p className="text-gray-500 text-sm uppercase tracking-wider mt-1">
+    <p className="text-gray-500 text-sm uppercase tracking-wider mt-1 momo-font">
       What We Offer
     </p>
     <div className="w-20 h-[3px] bg-[#ae5c83] mx-auto mt-2 rounded-full"></div>
@@ -175,15 +175,15 @@ export default function Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.45, delay: index * 0.04 }}
-        className="p-5 bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all flex items-start gap-3"
+        className="p-5 bg-white rounded-xl shadow-md border border-gray-400 hover:shadow-lg transition-all flex items-start gap-3"
       >
         <div className="shrink-0 mt-1">{item.icon}</div>
 
         <div>
-          <h3 className="text-gray-500 text-xl uppercase tracking-wide mt-1">
+          <h3 className="text-gray-800 text-xl uppercase tracking-wide mt-1 momo-font">
             {item.title}
           </h3>
-          <p className="text-gray-500 text-s leading-relaxed mt-1">
+          <p className="text-gray-500   leading-relaxed mt-1 momo-font-thin-mix ">
             {item.desc}
           </p>
         </div>
@@ -196,7 +196,7 @@ export default function Page() {
        {/* =================== Why LAYOUT =================== */}
 <section className="relative z-10 p-4 bg-white/40 backdrop-blur-lg rounded-t-[60px] -mt-20">
 
-  {/* HEADER */}
+  
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +205,7 @@ export default function Page() {
     className="text-center mb-14"
   >
     <h2 className="text-[#ae5c83] momo-font text-3xl font-semibold">Why Choose Our eCommerce Solutions</h2>
-    <p className="text-gray-500 text-sm uppercase tracking-wide mt-1">Driven by Quality & Performance</p>
+    <p className="text-gray-500 text-sm uppercase tracking-wide mt-1 momo-font">Driven by Quality & Performance</p>
     <div className="w-20 h-[3px] bg-[#ae5c83] mx-auto mt-2 rounded-full"></div>
   </motion.div>
 
@@ -229,14 +229,14 @@ export default function Page() {
       },
       {
         img: three,
-        title: "Future-Ready Platforms That Grow With You",
+        title: "Future-Ready Platforms ",
         sub: "Flexible for expansion and scaling",
         text: "Your platform adapts smoothly as you grow — add more products, new features, vendors, or enter new markets without system breakdown.",
         extra: "Built with long-term scalability in mind, not just initial launch."
       },
       {
         img: four,
-        title: "Reliable Support That Never Sleeps",
+        title: "Reliable Support ",
         sub: "Proactive monitoring & continuous improvements",
         text: "Our team ensures uninterrupted performance with 24/7 support, frequent updates, and quick fixes whenever you need help.",
         extra: "Peace of mind knowing experts are always watching over your store."
@@ -253,7 +253,7 @@ export default function Page() {
   relative p-6 rounded-2xl shadow-md border border-[#d9c8ff] 
   hover:shadow-xl hover:-translate-y-1 transition-all
 
-  bg-gradient-to-tr from-[#cec5dd] via-[#F3ECFF]/40 to-white
+  bg-gradient-to-tr from-[#bbaad69c] via-white to-[#bbaad697]
   backdrop-blur-sm
 "
 
@@ -274,7 +274,7 @@ export default function Page() {
 
           {/* HEADING BESIDE IMAGE */}
           <div className="flex-1">
-            <h3 className="text-gray-500 text-xl uppercase tracking-wide mt-1">
+            <h3 className="text-gray-800 text-xl uppercase tracking-wide momo-font mt-1">
               {item.title}
             </h3>
           </div>
@@ -282,17 +282,17 @@ export default function Page() {
         </div>
 
         {/* CONTENT BELOW */}
-        <p className="text-[#ae5c83] text-sm font-medium tracking-wide ">
+        <p className="text-[#ae5c83] text-sm font-medium tracking-wide momo-font ">
     {item.sub}
   </p>
 
   {/* MAIN TEXT */}
-  <p className="text-gray-500 text-s leading-relaxed  ">
+  <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix ">
     {item.text}
   </p>
 
   {/* EXTRA INFO */}
-  <p className="text-gray-500 text-s leading-relaxed">
+  <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">
     {item.extra}
   </p>
 
@@ -312,14 +312,14 @@ export default function Page() {
             Explore Our Solutions
           </h3>
 
-          <p className="text-gray-500 text-s leading-relaxed mt-1">
+          <p className="text-gray-500 text-s leading-relaxed mt-1 momo-font">
             Discover a variety of innovative digital tools and technologies 
             tailored to elevate your business performance and accelerate growth.
           </p>
 
           <a
             href="#"
-            className="inline-block mt-6 px-6 py-4 bg-[#6c53a7] text-white rounded-xl font-semibold shadow-lg hover:bg-[#5b4390] transition-all"
+            className="inline-block mt-6 momo-font px-6 py-4 bg-[#6c53a7] text-white rounded-xl font-semibold shadow-lg hover:bg-[#5b4390] transition-all"
           >
             Portfolio →
           </a>

@@ -15,12 +15,33 @@
   font-variation-settings: "wdth" 100;
 }
 
-/* Momo Trust Display */
+.momo-font-thin-mix {
+  font-family: "Zalando Sans", "Momo Trust Display", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.2px;
+}
 .momo-font {
   font-family: "Momo Trust Display", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
+/* Simulated lighter version (best option) */
+.momo-font-light {
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  opacity: 0.8;
+  letter-spacing: 0.3px;
+}
+
+/* Even softer option */
+.momo-font-soft {
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
 
 
 .zalando-regular {
@@ -47,3 +68,8 @@
   font-variation-settings: "wdth" 100;
 }
 
+ @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }

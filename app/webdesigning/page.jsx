@@ -71,7 +71,7 @@ export default function Page() {
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="text-gray-500 text-s leading-relaxed "
+      className="text-gray-500 text-s leading-relaxed momo-font-thin-mix "
     >
       We create websites that elevate your brand, increase trust, and
       deliver measurable business outcomes.
@@ -81,7 +81,7 @@ export default function Page() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay: 0.5 }}
-      className="w-fit px-6 py-4 bg-[#6c53a7] hover:bg-[#8d4368] transition-all text-white rounded-xl shadow-xl text-m font-medium"
+      className="w-fit px-6 py-4 bg-[#6c53a7] hover:bg-[#8d4368] transition-all text-white rounded-xl momo-font momo-font shadow-xl text-m font-medium"
     >
       Schedule an Intro Call
     </motion.button>
@@ -129,7 +129,7 @@ export default function Page() {
           <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">
             Our Web Features
           </h1>
-          <p className="text-gray-500 text-sm tracking-wide uppercase">
+          <p className="text-gray-500 text-sm tracking-wide uppercase momo-font">
             What We Can Do
           </p>
         </motion.div>
@@ -162,15 +162,15 @@ export default function Page() {
   }].map((card, index) => (
     <motion.div
       key={index}
-      className="p-8 bg-white/70 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl transition-all border border-gray-100"
+      className="p-8 bg-white/70 border-gray-300  backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl transition-all border border-gray-400"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
       {card.icon}
-      <h3 className="text-gray-500 text-xl uppercase tracking-wide mt-1">{card.title}</h3>
-      <p className="text-gray-500 text-s leading-relaxed ">{card.text}</p>
+      <h3 className="text-gray-700 text-xl uppercase tracking-wide mt-1 momo-font">{card.title}</h3>
+      <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix ">{card.text}</p>
     </motion.div>
   ))}
 </div>
@@ -187,7 +187,7 @@ export default function Page() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">Web Designing Services</h1>
-          <p className="text-gray-500 text-sm tracking-wide uppercase">What We Offer</p>
+          <p className="text-gray-500 text-sm tracking-wide uppercase momo-font">What We Offer</p>
           <div className="w-16 h-[3px] bg-[#ae5c83] mx-auto mt-3 rounded-full"></div>
         </motion.div>
 
@@ -223,9 +223,9 @@ export default function Page() {
               >
                 <div className="flex items-center gap-4">
                   {item.icon}
-                  <h2 className="text-xl uppercase tracking-wide mt-1 text-[#ae5c83]">{item.title}</h2>
+                  <h2 className="text-xl uppercase tracking-wide mt-1 text-[#ae5c83] momo-font">{item.title}</h2>
                 </div>
-                <p className="text-gray-500 text-s leading-relaxed ">{item.text}</p>
+                <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -272,7 +272,7 @@ export default function Page() {
             Explore Our Solutions
           </h2>
 
-          <p className="text-gray-600 mt-3 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 mt-3 text-base md:text-lg max-w-2xl mx-auto momo-font">
             Discover a variety of innovative digital tools and technologies tailored to elevate
             your business performance and accelerate growth.
           </p>

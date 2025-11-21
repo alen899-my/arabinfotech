@@ -56,7 +56,7 @@ const NavBar = () => {
               <Link
                 href={item.path}
                 className={`
-                  group cursor-pointer relative 
+                  group cursor-pointer relative momo-font
                   ${isActive(item.path) ? "text-[#ae5c83] font-semibold" : "text-[#6c53a7]"}
                 `}
               >
@@ -65,7 +65,7 @@ const NavBar = () => {
                 {/* underline effect */}
                 <span
                   className={`
-                    absolute left-0 -bottom-1 h-[2px] bg-[#ae5c83] transition-all duration-300
+                    absolute left-0 -bottom-1  h-[2px] bg-[#ae5c83] transition-all duration-300
                     ${isActive(item.path) ? "w-full" : "w-0 group-hover:w-full"}
                   `}
                 ></span>
@@ -75,7 +75,7 @@ const NavBar = () => {
 
           {/* WORKS DROPDOWN */}
           <li
-            className="relative group cursor-pointer text-[#6c53a7]"
+            className="relative group cursor-pointer text-[#6c53a7] momo-font"
             ref={dropdownRef}
             onMouseEnter={() => setDropdown(true)}
             onMouseLeave={() => setDropdown(false)}
@@ -136,7 +136,7 @@ const NavBar = () => {
                   onClick={() => setOpen(false)}
                   className={`
                     block py-1
-                    ${isActive(item.path) ? "text-[#ae5c83] font-semibold" : ""}
+                    ${isActive(item.path) ? "text-[#ae5c83] font-semibold momo-font" : "momo-font"}
                   `}
                 >
                   {item.name}
@@ -148,9 +148,9 @@ const NavBar = () => {
             <li className="flex flex-col">
               <span className="font-semibold">Works</span>
               <ul className="ml-4 mt-2 space-y-2">
-                <li className="hover:text-violet-500">Web Projects</li>
-                <li className="hover:text-violet-500">UI/UX Designs</li>
-                <li className="hover:text-violet-500">Apps</li>
+                <li className="hover:text-violet-500 momo-font">Web Projects</li>
+                <li className="hover:text-violet-500 momo-font">UI/UX Designs</li>
+                <li className="hover:text-violet-500 momo-font">Apps</li>
               </ul>
             </li>
 
