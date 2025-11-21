@@ -6,7 +6,7 @@ import Image from "next/image";
 import market from "../../public/market.webp";
 import SEO from "../../public/SEO.webp";
 import advert from "../../public/advert.webp";
-
+import ca from "../../public/ca.png"
 import {
   LuLayoutDashboard,
   LuCode,

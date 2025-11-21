@@ -42,43 +42,71 @@ const OurWorks = () => {
   return (
     <div className="bg-white w-full flex flex-col items-center">
 
-      {/* -------- TOP SECTION -------- */}
-      <section className="w-full max-w-7xl px-6 pt-6 pb-4 text-center">
-        <h1 className="text-5xl momo-font  font-semibold tracking-wide text-[#ae5c83]">
-          About <span className="text-[#ad4678]">Us</span>
-        </h1>
-        <div className="w-20 h-[3px] bg-[#6c53a7] mx-auto mt-2 rounded-full" />
-      </section>
+    {/* -------- TOP SECTION -------- */}
+<section className="w-full max-w-7xl px-6 pt-6 pb-4 text-center">
+  <motion.h1
+    initial={{ opacity: 0, y: -20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="text-5xl momo-font font-semibold tracking-wide text-[#ae5c83]"
+  >
+    About <span className="text-[#ad4678]">Us</span>
+  </motion.h1>
 
-      {/* -------- IMAGE + HEADING -------- */}
-      <section className="w-full max-w-7xl px-6 flex flex-col md:flex-row items-center justify-center gap-6 py-">
-        <motion.div
-          ref={imgRef}
-          initial={{ scale: 1 }}
-          animate={isInView ? { rotate: 12, scale: 1.12 } : { rotate: 0, scale: 1 }}
-          transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
-        >
-          <Image src={first} width={150} height={150} alt="about" className="w-[120px] md:w-[150px] drop-shadow-xl" />
-        </motion.div>
+  <motion.div
+    className="w-20 h-[3px] bg-[#6c53a7] mx-auto mt-2 rounded-full"
+    initial={{ width: 0, opacity: 0 }}
+    whileInView={{ width: 80, opacity: 1 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+    viewport={{ once: true }}
+  />
+</section>
 
-      <h1
-  className="
-    momo-font 
-    text-3xl md:text-5xl 
-    font-semibold 
-    text-black 
-    leading-tight 
-    text-center md:text-left 
-    w-full 
-    max-w-4xl        /* wider width */
-  "
->
-  <span className={TitleStar}>
-    Digital Marketing & Software Development Company in Dubai
-  </span>
-</h1>
+{/* -------- IMAGE + HEADING -------- */}
+<section className="w-full max-w-7xl px-6 flex flex-col md:flex-row items-center justify-center gap-6">
+  
+  <motion.div
+    ref={imgRef}
+    initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
+    whileInView={
+      isInView
+        ? { opacity: 1, scale: 1.1, rotate: 12 }
+        : { opacity: 1, scale: 1, rotate: 0 }
+    }
+    transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
+    viewport={{ once: true }}
+  >
+    <Image
+      src={first}
+      width={150}
+      height={150}
+      alt="about"
+      className="w-[120px] md:w-[150px] drop-shadow-xl"
+    />
+  </motion.div>
 
-      </section>
+  <motion.h1
+    initial={{ opacity: 0, x: 30 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="
+      momo-font 
+      text-3xl md:text-5xl 
+      font-semibold 
+      text-black 
+      leading-tight 
+      text-center md:text-left 
+      w-full 
+      max-w-4xl
+    "
+  >
+    <span className={TitleStar}>
+      Digital Marketing & Software Development Company in Dubai
+    </span>
+  </motion.h1>
+</section>
 
       {/* -------- PARAGRAPH -------- */}
       <section className="w-full max-w-5xl px-6 py-4">
@@ -92,157 +120,250 @@ const OurWorks = () => {
         </p>
       </section>
 
-      {/* -------- STATS SECTION -------- */}
-      <section className="w-full bg-white px-6 py-6 flex justify-center relative">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-[0.06] pointer-events-none" />
+ {/* -------- STATS SECTION -------- */}
+<section className="w-full bg-white px-6 py-6 flex justify-center relative">
+  <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-[0.06] pointer-events-none" />
 
-        <div className="max-w-7xl w-full relative">
+  <div className="max-w-7xl w-full relative">
 
-          {/* Stats Heading */}
-          <div className="text-center max-w-2xl mx-auto mb-6">
-           <h1 className="text-5xl momo-font  font-semibold tracking-wide text-[#ae5c83]">
-          Our <span className="text-[#ad4678]">Numbers Tells Our Stories</span>
-        </h1>
-            <p className="text-gray-600 mt-2 text-sm md:text-base">
-              We’ve built milestones through trust, consistency and innovation.
-            </p>
-          </div>
+    {/* Stats Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="text-center max-w-2xl mx-auto mb-6"
+    >
+      <h1 className="text-5xl momo-font font-semibold tracking-wide text-[#ae5c83]">
+        Our <span className="text-[#ad4678]">Numbers Tells Our Stories</span>
+      </h1>
 
-          {/* Stats Grid */}
-          <div ref={statsRef} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { to: 10, label: "Years of Experience" },
-              { to: 25, label: "Associates" },
-              { to: 750, label: "Clients" },
-              { to: 2000, label: "Projects Delivered" },
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -6, scale: 1.035 }}
-                transition={{ type: "spring", stiffness: 140, damping: 18 }}
-                className="
-                  bg-white border border-[#eaeaea] rounded-2xl p-6
-                  shadow-[0_4px_20px_rgba(0,0,0,0.05)]
-                  hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]
-                  transition-all duration-300 text-center relative
-                "
-              >
-                <div className="absolute top-0 left-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-[#ae5c83] to-[#6c53a7]" />
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="text-gray-600 mt-2 text-sm md:text-base"
+      >
+        We’ve built milestones through trust, consistency and innovation.
+      </motion.p>
+    </motion.div>
 
-                <h1 className="text-[#6c53a7] text-4xl font-semibold">
-                  {statsInView && <Counter from={0} to={stat.to} />}+
-                </h1>
+    {/* Stats Grid */}
+    <motion.div
+      ref={statsRef}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { staggerChildren: 0.15, duration: 0.5 }
+        }
+      }}
+      className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    >
+      {[
+        { to: 10, label: "Years of Experience" },
+        { to: 25, label: "Associates" },
+        { to: 750, label: "Clients" },
+        { to: 2000, label: "Projects Delivered" },
+      ].map((stat, i) => (
+        <motion.div
+          key={i}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          whileHover={{ y: -6, scale: 1.035 }}
+          transition={{ type: "spring", stiffness: 140, damping: 18 }}
+          className="
+            bg-white border border-[#eaeaea] rounded-2xl p-6
+            shadow-[0_4px_20px_rgba(0,0,0,0.05)]
+            hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+            transition-all duration-300 text-center relative
+          "
+        >
+          <div className="absolute top-0 left-0 h-1 w-full rounded-t-2xl bg-gradient-to-r from-[#ae5c83] to-[#6c53a7]" />
 
-                <p className="text-gray-700 text-sm md:text-base mt-2 font-medium">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <motion.h1
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-[#6c53a7] text-4xl font-semibold"
+          >
+            {statsInView && <Counter from={0} to={stat.to} />}+
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-700 text-sm md:text-base mt-2 font-medium"
+          >
+            {stat.label}
+          </motion.p>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
 
       {/* -------- SERVICES SECTION -------- */}
-      <section className="w-full bg-white px-6 py-6 -mt-6 flex justify-center">
-        <div className="max-w-7xl w-full">
+<section className="w-full bg-white px-6 py-6 -mt-6 flex justify-center">
+  <div className="max-w-7xl w-full">
 
-          {/* Services Heading */}
-          <div className="text-center max-w-2xl mx-auto mb-6">
-            <h1 className="text-5xl momo-font  font-semibold tracking-wide text-[#ae5c83]">
-          Our <span className="text-[#ad4678]">Services</span>
-        </h1>
-            <p className="text-gray-600 text-sm md:text-base mt-2">
-              Powerful results-driven services designed to elevate your business.
-            </p>
-          </div>
-
-          {/* Services Grid */}
-         <div className="
-  grid 
-  grid-cols-2 
-  sm:grid-cols-2 
-  lg:grid-cols-4 
-  gap-4           /* smaller gap on mobile */
-">
-  {[
-    { title: "Website Design", desc: "A Website resembles the standard and image of a company.", icon: Monitor },
-    { title: "E-COMMERCE", desc: "We ensure to provide the best result-driven ecommerce development", icon: ShoppingCart },
-    { title: "Digital Marketing", desc: "We create go-to-market strategies for your organisation.", icon: Megaphone },
-    { title: "Software Solutions", desc: "Make an Impact On Your Business with Our Application Tools.", icon: Layers },
-  ].map((srv, i) => (
+    {/* Services Heading */}
     <motion.div
-      key={i}
-      className="
-        border-t-4 border-t-[#6c53a7] 
-        border border-[#6c53a7]
-        rounded-2xl
-        p-3              /* smaller mobile padding */
-        sm:p-5           /* bigger on tablet */
-        text-center
-        shadow-md 
-        hover:shadow-xl 
-        transition-all duration-300
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="text-center max-w-2xl mx-auto mb-6"
+    >
+      <h1 className="text-5xl momo-font font-semibold tracking-wide text-[#ae5c83]">
+        Our <span className="text-[#ad4678]">Services</span>
+      </h1>
 
-        /* smaller overall height in phones */
-        h-auto 
-        sm:h-full
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        className="text-gray-600 text-sm md:text-base mt-2"
+      >
+        Powerful results-driven services designed to elevate your business.
+      </motion.p>
+    </motion.div>
+
+    {/* Services Grid */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { staggerChildren: 0.15, duration: 0.5 }
+        }
+      }}
+      className="
+        grid 
+        grid-cols-2 
+        sm:grid-cols-2 
+        lg:grid-cols-4 
+        gap-4
       "
     >
-      {/* ICON CIRCLE */}
-      <div className="
-        w-14 h-14           /* smaller mobile icon circle */
-        sm:w-20 sm:h-20     /* normal size on sm+ */
-        mx-auto mb-3 
-        rounded-full 
-        bg-[#f3f0ff] 
-        flex items-center justify-center 
-        shadow-md
-      ">
-        <srv.icon 
-          size={30}         /* icon smaller on mobile */
-          className="text-[#6c53a7] sm:size-10" 
-          strokeWidth={1.5} 
-        />
-      </div>
+      {[
+        { title: "Website Design", desc: "A Website resembles the standard and image of a company.", icon: Monitor },
+        { title: "E-COMMERCE", desc: "We ensure to provide the best result-driven ecommerce development", icon: ShoppingCart },
+        { title: "Digital Marketing", desc: "We create go-to-market strategies for your organisation.", icon: Megaphone },
+        { title: "Software Solutions", desc: "Make an Impact On Your Business with Our Application Tools.", icon: Layers },
+      ].map((srv, i) => (
+        <motion.div
+          key={i}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          whileHover={{ y: -6, scale: 1.03 }}
+          transition={{ type: "spring", stiffness: 140, damping: 18 }}
+          className="
+            border-t-4 border-t-[#6c53a7] 
+            border border-[#6c53a7]
+            rounded-2xl
+            p-3 
+            sm:p-5
+            text-center
+            shadow-md 
+            hover:shadow-xl 
+            transition-all duration-300
+            h-auto 
+            sm:h-full
+          "
+        >
+          {/* ICON CIRCLE */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="
+              w-14 h-14
+              sm:w-20 sm:h-20
+              mx-auto mb-3 
+              rounded-full 
+              bg-[#f3f0ff] 
+              flex items-center justify-center 
+              shadow-md
+            "
+          >
+            <srv.icon
+              size={30}
+              className="text-[#6c53a7] sm:size-10"
+              strokeWidth={1.5}
+            />
+          </motion.div>
 
-      {/* TITLE */}
-      <h3 className="
-        text-black 
-        text-base          /* smaller title on mobile */
-        sm:text-xl 
-        font-semibold 
-        mb-2
-      ">
-        {srv.title}
-      </h3>
+          {/* TITLE */}
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+            className="
+              text-black 
+              text-base 
+              sm:text-xl 
+              font-semibold 
+              mb-2
+            "
+          >
+            {srv.title}
+          </motion.h3>
 
-      {/* DESCRIPTION */}
-      <p className="
-        text-gray-700 
-        text-xs           /* smaller mobile desc */
-        sm:text-sm 
-        leading-relaxed 
-        mb-3
-      ">
-        {srv.desc}
-      </p>
+          {/* DESCRIPTION */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="
+              text-gray-700 
+              text-xs 
+              sm:text-sm 
+              leading-relaxed 
+              mb-3
+            "
+          >
+            {srv.desc}
+          </motion.p>
 
-      {/* BUTTON */}
-      <button className="
-        text-[#6c53a7] 
-        hover:text-black 
-        font-semibold 
-        text-xs sm:text-sm
-        transition-all
-      ">
-        Learn More →
-      </button>
+          {/* BUTTON */}
+          <motion.button
+            whileHover={{ x: 4 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="
+              text-[#6c53a7] 
+              hover:text-black 
+              font-semibold 
+              text-xs sm:text-sm
+              transition-all
+            "
+          >
+            Learn More →
+          </motion.button>
+        </motion.div>
+      ))}
     </motion.div>
-  ))}
-</div>
 
-        </div>
-      </section>
+  </div>
+</section>
+
     </div>
   );
 };
