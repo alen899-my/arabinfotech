@@ -107,7 +107,7 @@ const NavBar = () => {
             <button
               className="
                 bg-[#6c53a7] text-white px-6 py-2 rounded-xl shadow
-                hover:bg-[#5b4390] active:scale-95 transition
+                hover:bg-[#5b4390] active:scale-95 transition  momo-font 
               "
             >
               Reach Us

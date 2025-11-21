@@ -104,7 +104,7 @@ export default function Page() {
             Digital Marketing Agency in Dubai – SEO, & Social Media Experts
           </h1>
 
-          <p className="text-gray-600 text-base leading-relaxed momo-font mb-3">
+          <p className="roboto-text">
             Ad solutions to help you reach and engage millions of customers at every stage of journey
           </p>
 
@@ -172,7 +172,7 @@ export default function Page() {
     <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">
       Digital Marketing Solutions for Every Business
     </h1>
-    <p className="text-gray-500 text-sm tracking-wide momo-font">
+    <p className="roboto-text">
       And easy for marketers of any experience level.
       Arabinfotech provides smart digital marketing solutions that engage your customers throughout their entire journey.
     </p>
@@ -208,7 +208,7 @@ export default function Page() {
       <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
         Search Engine Optimization (SEO)
       </h3>
-      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+      <p className=" roboto-text ">
         Strengthen your online visibility with strategic SEO techniques designed
         to increase rankings and attract the right customers.
       </p>
@@ -236,7 +236,7 @@ export default function Page() {
       <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
         Search Engine Advertising (SEA)
       </h3>
-      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+      <p className="roboto-text">
         Get instant visibility with paid search ads that drive targeted traffic
         and boost conversions quickly and effectively.
       </p>
@@ -264,7 +264,7 @@ export default function Page() {
       <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
         Social Media Optimization (SMO)
       </h3>
-      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+      <p className="roboto-text">
         Build meaningful engagement and a strong online presence across social
         platforms with our tailored SMO strategies.
       </p>
@@ -292,7 +292,7 @@ export default function Page() {
       <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
         Social Media Advertising (SMA)
       </h3>
-      <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3 momo-font-thin-mix">
+      <p className="roboto-text">
         Reach the right audience with high-impact social ads that expand brand
         awareness and drive measurable results.
       </p>
@@ -310,13 +310,13 @@ export default function Page() {
 
         {/* Header */}
         <div className="flex flex-col items-center text-center">
-          <h2 className="text-[#ae5c83] text-4xl momo-font font-semibold tracking-tight">
+          <h2 className="text-[#ae5c83] text-3xl momo-font font-semibold tracking-tight">
             Why Arab Infotech?
           </h2>
-          <p className="text-gray-500 mt-3 momo-font-light text-lg">
+          <p className="roboto-text">
             Best digital marketing agency in Dubai
           </p>
-          <div className="h-1 w-16 mt-4 bg-[#ae5c83] rounded-full opacity-60"></div>
+          <div className="h-1 w-16  bg-[#ae5c83] rounded-full opacity-60"></div>
         </div>
 
         {/* Items */}
@@ -334,7 +334,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuShoppingBag className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-500 font-semibold momo-font text-lg">Cost-Effective</h3>
+            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Cost-Effective</h3>
           </motion.div>
 
           {/* Reach */}
@@ -343,7 +343,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuRocket className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-500 font-semibold momo-font text-lg">Reach</h3>
+            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Reach</h3>
           </motion.div>
 
           {/* Targeting */}
@@ -352,7 +352,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuSearch className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-500 font-semibold momo-font text-lg">Targeting</h3>
+            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Targeting</h3>
           </motion.div>
 
           {/* Analytics */}
@@ -361,7 +361,7 @@ export default function Page() {
             className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
           >
             <LuPenTool className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-500 font-semibold momo-font text-lg">Analytics</h3>
+            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Analytics</h3>
           </motion.div>
 
         </motion.div>

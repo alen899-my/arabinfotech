@@ -32,7 +32,7 @@ export default function Page() {
       </div>
 
       {/* =================== HERO LAYOUT =================== */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-13 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* LEFT TEXT */}
         <motion.div
@@ -54,23 +54,24 @@ export default function Page() {
               >
             Ecommerce Development Company In Dubai
          </motion.h1> 
-          <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix   ">
+          <p className="roboto-text   ">
             At Arabinfotech, we create well-designed e-commerce solutions with 
             modern features helping your business reach more customers around 
             the world.
           </p>
+          <div className="absolute bottom-[80px] left-[60%] w-[420px] h-[420px] bg-[#8459d9] rotate-[45deg] shadow-md opacity-25"></div>
 
-          <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">
+          <p className="roboto-text">
             We build fast, scalable, professional online stores optimized for 
             conversions. Enjoy a smooth shopping experience from browsing to 
             checkout — crafted for your brand.
           </p>
-
+         
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
-            className="mt-4 px-6 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
+            className="px-6 py-4  bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
           >
             Schedule an Intro Call
           </motion.button>
@@ -81,11 +82,11 @@ export default function Page() {
           initial={{ opacity: 0, scale: 0.8, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative w-full h-[350px] md:h-[420px] lg:h-[500px] rounded-3xl overflow-hidden   "
-        >
+          className="relative w-full h-[400px] md:h-[420px] lg:h-[500px] rounded-3xl overflow-hidden   "
+        > 
           <Image src={ecom} alt="ecommerce" fill className="object-contain p-6" />
         </motion.div>
-
+        
       </section>
 
      {/* =================== Featurewss LAYOUT =================== */}
@@ -187,7 +188,7 @@ export default function Page() {
           <h3 className="text-gray-800 text-xl uppercase tracking-wide mt-1 momo-font">
             {item.title}
           </h3>
-          <p className="text-gray-500   leading-relaxed mt-1 momo-font-thin-mix ">
+          <p className="roboto-text">
             {item.desc}
           </p>
         </div>
@@ -291,12 +292,12 @@ export default function Page() {
   </p>
 
   {/* MAIN TEXT */}
-  <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix ">
+  <p className="roboto-text ">
     {item.text}
   </p>
 
   {/* EXTRA INFO */}
-  <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">
+  <p className="roboto-text">
     {item.extra}
   </p>
 

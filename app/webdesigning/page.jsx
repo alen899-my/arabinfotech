@@ -27,7 +27,7 @@ export default function Page() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[50px] left-[20px] w-[220px] h-[220px] bg-[#eadaffdf] rotate-[12deg] shadow-lg opacity-90"></div>
         <div className="absolute top-[800px] right-[30px] w-0 h-0 border-l-[140px] border-l-transparent border-r-[140px] border-r-transparent border-b-[240px] border-b-[#ffd9e6] opacity-90 rotate-[10deg]"></div>
-        <div className="absolute bottom-[80px] left-[30%] w-[220px] h-[220px] bg-[#d9ecff] rotate-[45deg] shadow-md opacity-95"></div>
+        <div className="absolute bottom-[80px] left-[30%] w-[220px] h-[220px] bg-[#8459d9] rotate-[45deg] shadow-md opacity-95"></div>
 
         <div
           className="absolute bottom-[-60px] right-[25%] w-[260px] h-[150px] bg-[#fff3cc] opacity-95 shadow-lg"
@@ -37,9 +37,8 @@ export default function Page() {
           }}
         ></div>
 
-        <div className="absolute top-[40px] left-[45%] w-[120px] h-[120px] bg-[#e1ffe5] rounded-full opacity-70 blur-sm"></div>
-
-        <div className="absolute top-[65%] left-[5%] w-[320px] h-[2px] bg-gradient-to-r from-[#5cdf6d] to-transparent rotate-[20deg] opacity-60"></div>
+      
+       
 
         <div className="absolute top-[72%] right-[12%] w-[200px] h-[80px] bg-[#d9ecff] opacity-80 rotate-[14deg] rounded-md shadow"></div>
       </div>
@@ -71,7 +70,7 @@ export default function Page() {
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="text-gray-500 text-s leading-relaxed momo-font-thin-mix "
+      className="text-gray-500 text-s leading-relaxed roboto-text "
     >
       We create websites that elevate your brand, increase trust, and
       deliver measurable business outcomes.
@@ -183,7 +182,7 @@ export default function Page() {
       <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
         {card.title}
       </h3>
-      <p className="text-gray-500 text-sm sm:text-s leading-relaxed momo-font-thin-mix">
+      <p className=" roboto-text">
         {card.text}
       </p>
     </motion.div>
@@ -241,7 +240,7 @@ export default function Page() {
                   {item.icon}
                   <h2 className="text-xl uppercase tracking-wide  text-[#ae5c83] momo-font">{item.title}</h2>
                 </div>
-                <p className="text-gray-500 text-s leading-relaxed momo-font-thin-mix">{item.text}</p>
+                <p className="text-gray-500 text-s leading-relaxed roboto-text">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -254,7 +253,7 @@ export default function Page() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="w-full h-full bg-white/70 backdrop-blur-sm rounded-3xl shadow-inner overflow-hidden p-4">
+            <div className="w-full h-full  rounded-3xl shadow-inner overflow-hidden p-4">
               <Image src={side} alt="Service" width={900} height={900} className="object-contain w-full h-full" />
             </div>
           </motion.div>

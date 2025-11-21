@@ -110,7 +110,7 @@ const OurWorks = () => {
 
       {/* -------- PARAGRAPH -------- */}
       <section className="w-full max-w-5xl px-6 py-4">
-        <p className="text-black text-lg md:text-xl text-center leading-relaxed">
+        <p className="roboto-text">
           Whatever may be your requirements, <span className={highlight}>ArabInfotec</span> has a solution tailored
           to your needs. We provide cost-effective
           <span className={highlight}> Web Designing</span>,
@@ -142,7 +142,7 @@ const OurWorks = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
-        className="text-gray-600 mt-2 text-sm md:text-base"
+        className="roboto-text"
       >
         We’ve built milestones through trust, consistency and innovation.
       </motion.p>
@@ -200,7 +200,7 @@ const OurWorks = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-gray-700 text-sm md:text-base mt-2 font-medium"
+            className="roboto-text"
           >
             {stat.label}
           </motion.p>
@@ -231,7 +231,7 @@ const OurWorks = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="text-gray-600 text-sm md:text-base mt-2"
+        className="roboto-text"
       >
         Powerful results-driven services designed to elevate your business.
       </motion.p>
@@ -333,11 +333,7 @@ const OurWorks = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="
-              text-gray-700 
-              text-xs 
-              sm:text-sm 
-              leading-relaxed 
-              mb-3
+           roboto-text
             "
           >
             {srv.desc}

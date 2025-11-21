@@ -75,7 +75,7 @@ export default function Office() {
         <div className="w-full max-w-5xl rounded-2xl flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 py-8 px-6">
           <div className="flex items-center justify-center gap-3 sm:gap-4">
 
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#6c53a7]/10 flex items-center justify-center border border-[#6c53a7]/30 shadow-inner">
+            <div className="w-10 h-10 -mt-20 sm:w-12 sm:h-12 rounded-full bg-[#6c53a7]/10 flex items-center justify-center border border-[#6c53a7]/30 shadow-inner">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 h-5 sm:w-6 sm:h-6 text-[#6c53a7]"
@@ -93,7 +93,7 @@ export default function Office() {
               </svg>
             </div>
 
-            <p className="text-gray-600 text-sm sm:text-base max-w-xs sm:max-w-md md:max-w-xl">
+            <p className="roboto-text -mt-8">
               We operate across multiple regions to support our clients worldwide.
             </p>
 
@@ -102,7 +102,7 @@ export default function Office() {
       </section>
 
       {/* MAP SECTION */}
-      <div className="relative w-full max-w-4xl mx-auto mb-16">
+      <div className="relative w-full max-w-4xl mx-auto mb-10 -mt-20">
         <Image
           src={map}
           alt="world map"
