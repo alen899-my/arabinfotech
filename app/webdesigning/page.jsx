@@ -27,7 +27,7 @@ export default function Page() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[50px] left-[20px] w-[220px] h-[220px] bg-[#eadaffdf] rotate-[12deg] shadow-lg opacity-90"></div>
         <div className="absolute top-[800px] right-[30px] w-0 h-0 border-l-[140px] border-l-transparent border-r-[140px] border-r-transparent border-b-[240px] border-b-[#ffd9e6] opacity-90 rotate-[10deg]"></div>
-        <div className="absolute bottom-[80px] left-[30%] w-[220px] h-[220px] bg-[#8459d9] rotate-[45deg] shadow-md opacity-95"></div>
+        
 
         <div
           className="absolute bottom-[-60px] right-[25%] w-[260px] h-[150px] bg-[#fff3cc] opacity-95 shadow-lg"

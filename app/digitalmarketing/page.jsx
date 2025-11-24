@@ -71,7 +71,7 @@ export default function Page() {
       </div>
 
       {/* ===================== HERO ===================== */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-13 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 pt-30 pb-13 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* IMAGE */}
         <motion.div
@@ -205,7 +205,7 @@ export default function Page() {
       "
     >
       <LuSearch className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
         Search Engine Optimization (SEO)
       </h3>
       <p className=" roboto-text ">
@@ -233,7 +233,7 @@ export default function Page() {
       "
     >
       <LuRocket className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
         Search Engine Advertising (SEA)
       </h3>
       <p className="roboto-text">
@@ -261,7 +261,7 @@ export default function Page() {
       "
     >
       <LuPenTool className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
         Social Media Optimization (SMO)
       </h3>
       <p className="roboto-text">
@@ -289,7 +289,7 @@ export default function Page() {
       "
     >
       <LuShoppingBag className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-sm sm:text-md momo-font font-semibold text-gray-800 mb-1 sm:mb-2">
+      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
         Social Media Advertising (SMA)
       </h3>
       <p className="roboto-text">

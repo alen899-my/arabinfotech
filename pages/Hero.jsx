@@ -31,11 +31,11 @@ export default function Home() {
         relative w-full 
         h-[55vh]
         sm:h-[70vh]
-        md:h-[80vh]
+        md:h-[90vh]
         overflow-hidden
       "
     >
-      {/* BACKGROUND SLIDER */}
+   
      {/* BACKGROUND SLIDER - Smooth Fade */}
 <div className="absolute inset-0 z-0 overflow-hidden">
 
