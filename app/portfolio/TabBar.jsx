@@ -26,7 +26,7 @@ export default function TabBar({ mobileOnly = false, desktopOnly = false }) {
         className="
           w-full momo-font
           bg-white border border-neutral-300 rounded-md shadow-sm
-          py-2.5 px-4 pr-10 text-sm text-white
+          py-2.5 px-4 pr-10 text-sm text-black
           focus:outline-none focus:ring-2 focus:ring-[#6c53a7] focus:border-[#6c53a7]
           appearance-none
         "
