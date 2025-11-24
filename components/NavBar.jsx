@@ -29,6 +29,7 @@ const NavBar = () => {
     { name: "Web Designing", path: "/webdesigning" },
     { name: "E-commerce", path: "/ecommerce" },
     { name: "Digital Marketing", path: "/digitalmarketing" },
+    {name:"Portfolio",path:"/portfolio/featured"}
   ];
 
   return (
@@ -36,15 +37,15 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center ">
           <Image
-  src={lo}
-  alt="Logo"
-  width={160}
-  height={90}
-  className="object-contain cursor-pointer h-20"
-  priority
-/>
+             src={lo}
+             alt="Logo"
+             width={200}
+             height={80}
+             className="object-contain cursor-pointer h-20 "
+             priority
+      />
 
         </Link>
 

@@ -19,6 +19,16 @@
   margin-bottom: 1rem; 
    
 }
+.roboto-texts {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 12px;        /* readable size */
+  line-height: 1.5;       /* more breathing space */
+   color: #555557;     /* soft dark gray – less strain than pure black */
+  letter-spacing: 0.2px;  /* improves readability */
+  
+   
+}
 
 /* Medium-weight emphasis */
 .roboto-text-strong {

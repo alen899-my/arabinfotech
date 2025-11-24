@@ -1,0 +1,150 @@
+"use client";
+
+import React from "react";
+
+import ec1 from "../../../public/ecom/ec1.png";
+import ec2 from "../../../public/ecom/ec2.png";
+import ec3 from "../../../public/ecom/ec3.png";
+import ec4 from "../../../public/ecom/ec4.png";
+import ec5 from "../../../public/ecom/ec5.png";
+import ec6 from "../../../public/ecom/ec6.png";
+import ec7 from "../../../public/ecom/ec7.png";
+import ec8 from "../../../public/ecom/ec8.png";
+import ec9 from "../../../public/ecom/ec9.png";
+import ec10 from "../../../public/ecom/ec10.png";
+import ec11 from "../../../public/ecom/ec11.png";
+
+/* ------------------------------------------
+   PROJECT DATA (Image + Details)
+------------------------------------------- */
+
+const ecommerceProjects = [
+  {
+    img: ec1,
+    client: "Yameem, UAE",
+    project: "Ecommerce Portal & Mobile Application",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec2,
+    client: "Better Quality Flowers and Chocolates",
+    project: "Ecommerce Portal & Mobile Application",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec3,
+    client: "Inn Styles",
+    project: "Ecommerce Portal & Mobile Application",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec4,
+    client: "Alia Fresh",
+    project: "Ecommerce Portal & Mobile Application",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec5,
+    client: "Trane Parts, UAE",
+    project: "Web Application for Distributors Portal",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec6,
+    client: "Shar Al Sharq Perfume",
+    project: "Ecommerce B2C Portal Development",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec7,
+    client: "Gooxoom, Dubai",
+    project: "Ecommerce B2B Portal Development",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec8,
+    client: "Shoecare Me, UAE",
+    project: "Ecommerce B2C Portal Development",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec9,
+    client: "Magic Repair Me, UAE",
+    project: "Ecommerce B2C Portal Development",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec10,
+    client: "Aliafresh, UAE",
+    project: "Ecommerce B2C Portal Development",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+  {
+    img: ec11,
+    client: "Nature Craft Essentials Trading LLC, Dubai",
+    project: "Ecommerce B2C Portal Development",
+    features: ["Responsive Web Designing", "Ecommerce Development"],
+  },
+];
+
+const Page = () => {
+  return (
+    <section className="bg-gradient-to-b from-slate-100 to-slate-50 px-6 py-16 mt-20 md:py-24">
+          <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
+         <span className="text-black">Our</span>  E-Commerce Websites
+        </h2>
+        <p className="roboto-text">
+         Explore our e-commerce builds—designed for speed, user-friendly navigation, and seamless
+  checkout experiences that increase customer satisfaction.
+        </p>
+      </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+        {ecommerceProjects.map((p, i) => (
+          <div
+            key={i}
+            className="border border-slate-300 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+          >
+            {/* IMAGE */}
+            <div className="relative h-56 w-full overflow-hidden">
+              <img
+                src={p.img.src}
+                alt={p.client}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* CONTENT */}
+            <div className="p-4 space-y-2">
+
+            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
+                {p.client}
+              </h3>
+
+                <p className="text-slate-600 text-[15px]">
+                {p.project}
+              </p>
+
+              {/* TAGS */}
+              <div className="flex flex-wrap gap-2 mt-2">
+                {p.features.map((feature, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-lg border border-purple-200 shadow-sm"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+
+    </section>
+  );
+};
+
+export default Page;
