@@ -257,8 +257,8 @@ export default function Page() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="w-full h-full  rounded-3xl shadow-inner overflow-hidden p-4">
-              <Image src={side} alt="Service" width={900} height={900} className="object-contain w-full h-full" />
+            <div className="  w-full h-full  rounded-3xl shadow-inner overflow-hidden p-4 ">
+              <Image src={side} alt="Service" width={900} height={900} className="object-contain w-full h-full -mt-15" />
             </div>
           </motion.div>
 

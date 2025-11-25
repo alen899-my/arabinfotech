@@ -110,14 +110,17 @@ const OurWorks = () => {
 
       {/* -------- PARAGRAPH -------- */}
       <section className="w-full max-w-5xl px-6 py-4">
-        <p className="roboto-text">
+        <motion.p initial={{ opacity: 0, x: 30 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+    viewport={{ once: true }} className="roboto-text">
           Whatever may be your requirements, <span className={highlight}>ArabInfotec</span> has a solution tailored
           to your needs. We provide cost-effective
           <span className={highlight}> Web Designing</span>,
           <span className={highlight}> Software Solutions</span>,
           <span className={highlight}> Mobile App Development</span>,
           <span className={highlight}> Digital Marketing</span>, and more.
-        </p>
+        </motion.p>
       </section>
 
  {/* -------- STATS SECTION -------- */}
@@ -211,19 +214,19 @@ const OurWorks = () => {
 </section>
 
 
-      {/* -------- SERVICES SECTION -------- */}
-<section className="w-full bg-white px-6 py-6 -mt-6 flex justify-center">
+{/* -------- SERVICES SECTION -------- */}
+<section className="w-full bg-white px-4 sm:px-6 lg:px-8 py-10 -mt-4 flex justify-center">
   <div className="max-w-7xl w-full">
 
-    {/* Services Heading */}
+    {/* Heading */}
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="text-center max-w-2xl mx-auto mb-6"
+      className="text-center max-w-2xl mx-auto mb-10 px-2"
     >
-      <h1 className="text-5xl momo-font font-semibold tracking-wide text-[#ae5c83]">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl momo-font font-semibold tracking-wide text-[#ae5c83]">
         Our <span className="text-[#ad4678]">Services</span>
       </h1>
 
@@ -231,7 +234,7 @@ const OurWorks = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
-        className="roboto-text"
+        className="roboto-text text-sm sm:text-base mt-2 leading-relaxed px-2"
       >
         Powerful results-driven services designed to elevate your business.
       </motion.p>
@@ -252,10 +255,13 @@ const OurWorks = () => {
       }}
       className="
         grid 
-        grid-cols-2 
-        sm:grid-cols-2 
-        lg:grid-cols-4 
+        grid-cols-2
+        sm:grid-cols-2
+        md:grid-cols-3
+        lg:grid-cols-4
         gap-4
+        sm:gap-6
+        md:gap-8
       "
     >
       {[
@@ -282,11 +288,12 @@ const OurWorks = () => {
             shadow-md 
             hover:shadow-xl 
             transition-all duration-300
-            h-auto 
-            sm:h-full
+            flex flex-col 
+            justify-between 
+            h-full
           "
         >
-          {/* ICON CIRCLE */}
+          {/* ICON */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -317,8 +324,9 @@ const OurWorks = () => {
             viewport={{ once: true }}
             className="
               text-black 
-              text-base 
-              sm:text-xl 
+              text-sm 
+              sm:text-lg 
+              md:text-xl 
               font-semibold 
               mb-2
             "
@@ -326,15 +334,13 @@ const OurWorks = () => {
             {srv.title}
           </motion.h3>
 
-          {/* DESCRIPTION */}
+          {/* DESCRIPTION (your <p> untouched, only responsive classes added) */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="
-           roboto-text
-            "
+            className="roboto-text text-xs sm:text-sm md:text-base leading-relaxed mb-3"
           >
             {srv.desc}
           </motion.p>
@@ -353,12 +359,14 @@ const OurWorks = () => {
           >
             Learn More →
           </motion.button>
+
         </motion.div>
       ))}
     </motion.div>
 
   </div>
 </section>
+
 
     </div>
   );
