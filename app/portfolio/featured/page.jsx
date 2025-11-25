@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { motion } from "framer-motion";
 import { Info, BadgeInfo, Building2, Layers, Tag, ChevronDown, ChevronUp } from "lucide-react";
 
 import f1 from "../../../public/featured/f1.png";
@@ -238,17 +237,12 @@ const projects = [
     ],
   },
 ];
-function ProjectCard({ project, index }) {
+function ProjectCard({ project }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className="self-start border border-slate-400 group bg-white rounded-2xl shadow-3xl hover:shadow-2xl hover:-translate-y-2 hover:border-slate-300 transition-all duration-300 overflow-hidden"
-    >
+    <div className=" self-start  border border-slate-400 group bg-white rounded-2xl shadow-3xl hover:shadow-2xl hover:-translate-y-2 hover:border-slate-300 transition-all duration-300 overflow-hidden">
+
       {/* IMAGE */}
       <div className="relative h-50 w-full overflow-hidden rounded-b-lg">
         <Image
@@ -268,25 +262,26 @@ function ProjectCard({ project, index }) {
         </p>
 
         {/* Title + Expand */}
-        <div className="flex justify-between items-start gap-3">
-          <h3
-            className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide momo-font
+       <div className="flex justify-between items-start gap-3">
+  <h3
+    className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide momo-font
                max-h-[48px] overflow-hidden leading-snug"
-          >
-            {project.title}
-          </h3>
+  >
+    {project.title}
+  </h3>
 
-          <button
-            onClick={() => setOpen(!open)}
-            className="p-1 rounded-md hover:bg-slate-100 transition flex-shrink-0"
-          >
-            {open ? (
-              <ChevronUp size={22} className="text-slate-700" />
-            ) : (
-              <ChevronDown size={22} className="text-slate-700" />
-            )}
-          </button>
-        </div>
+  <button
+    onClick={() => setOpen(!open)}
+    className="p-1 rounded-md hover:bg-slate-100 transition flex-shrink-0"
+  >
+    {open ? (
+      <ChevronUp size={22} className="text-slate-700" />
+    ) : (
+      <ChevronDown size={22} className="text-slate-700" />
+    )}
+  </button>
+</div>
+
 
         {/* EXPANDING SECTION */}
         <div
@@ -357,7 +352,7 @@ function ProjectCard({ project, index }) {
         </div>
       </div>
 
-    </motion.div>
+    </div>
   );
 }
 
@@ -366,12 +361,12 @@ function ProjectCard({ project, index }) {
 ------------------------------------------ */
 export default function FeaturedPage() {
   return (
-    <section className="bg-gradient-to-b px-6 py-16 mt-20 md:py-24">
+    <section className="bg-gradient-to-b  px-6 py-16 mt-20 md:py-24">
 
       {/* HEADER */}
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
-          <span className="text-black">Our</span> Featured Projects
+         <span className="text-black">Our</span> Featured Projects
         </h2>
         <p className="roboto-text">
           A selection of our most impactful work across industries, showing how we solve
@@ -382,7 +377,7 @@ export default function FeaturedPage() {
       {/* GRID */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-2">
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
 

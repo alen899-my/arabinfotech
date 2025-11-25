@@ -33,7 +33,7 @@ const itemVariants = {
   }
 };
 
-export default function ContactPage() {
+export default function ContactPage({ hideHeader = false }) {
   const [services, setServices] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -136,15 +136,18 @@ const [message, setMessage] = useState("");
       >
         
         {/* HEADER */}
-        <motion.div variants={itemVariants} className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight momo-font text-[#ae5c83]">
-            Let’s create something <span className="text-slate-800">amazing.</span>
-          </h1>
-          <p className="text-lg text-slate-500 mt-4 max-w-2xl mx-auto roboto-text">
-            Whether you need a digital transformation or a quick consultation, 
-            we are ready to listen.
-          </p>
-        </motion.div>
+        {!hideHeader && (
+  <motion.div variants={itemVariants} className="text-center mb-12">
+    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight momo-font text-[#ae5c83]">
+      Contact Us
+    </h1>
+    <p className="text-lg text-slate-500 max-w-2xl mx-auto roboto-text">
+      Whether you need a digital transformation or a quick consultation, 
+      we are ready to listen.
+    </p>
+  </motion.div>
+)}
+
 
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           
@@ -154,7 +157,7 @@ const [message, setMessage] = useState("");
               
               {/* SECTION: SERVICES */}
               <div className="mb-8">
-                <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2 mb-4">
+                <h2 className="text-xl font-bold momo-font text-slate-800 flex items-center gap-2 mb-4">
                   <CheckCircle2 size={20} className="text-[#ae5c83]" />
                   I'm interested in...
                 </h2>
@@ -169,7 +172,7 @@ const [message, setMessage] = useState("");
                         ${
                           services.includes(item)
                             ? "bg-[#ae5c83] text-white border-[#ae5c83] shadow-lg shadow-[#ae5c83]/25"
-                            : "bg-white text-slate-600 border-slate-200 hover:border-[#ae5c83] hover:text-[#ae5c83]"
+                            : "bg-white text-slate-600 border-slate-400 hover:border-[#ae5c83] hover:text-[#ae5c83]"
                         }
                       `}
                     >
@@ -181,7 +184,7 @@ const [message, setMessage] = useState("");
 
               {/* SECTION: CONTACT INPUTS */}
               <div className="space-y-6">
-                <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <h2 className="text-xl momo-font font-bold text-slate-800 flex items-center gap-2">
                   <User size={20} className="text-[#ae5c83]" />
                   About you
                 </h2>
@@ -192,9 +195,9 @@ const [message, setMessage] = useState("");
                     <div className="relative">
                       <User className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <input 
-                        type="text" value={name}
+                        type="text" value={name} required
   onChange={(e) => setName(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        className="w-full bg-slate-50 border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="John Doe"
                       />
                     </div>
@@ -208,7 +211,7 @@ const [message, setMessage] = useState("");
                         type="email"  
   value={email}
   onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        className="w-full bg-slate-50 border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -221,7 +224,7 @@ const [message, setMessage] = useState("");
                       <MessageSquare className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <textarea  value={message}
   onChange={(e) => setMessage(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
+                        className="w-full bg-slate-50 border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
                         placeholder="Tell us a bit about your project goals..."
                       />
                    </div>
