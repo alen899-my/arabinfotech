@@ -72,7 +72,7 @@ const SoftwarePage = () => {
   ];
 
   return (
-    <section className="px-4 mt-40 md:px-8 bg-[#f8f9fa]">
+    <section className="px-4 mt-40 md:px-8 ">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}

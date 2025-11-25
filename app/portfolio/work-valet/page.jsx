@@ -121,7 +121,7 @@ const ProjectShowcase = () => {
   };
 
   return (
-    <div className="min-h-screen mt-35  bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen mt-35   py-12 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-6">
       <div className="max-w-3xl mx-auto text-center">

@@ -190,7 +190,7 @@ export default function Page() {
             {
               icon: <LuRocket className="text-[#ae5c83] text-3xl mb" />,
               title: "Search Engine Advertising (SEA)",
-              text: "GGet instant visibility with paid search ads that drive targeted traffic and boost conversions quickly and effectively.",
+              text: "Get instant visibility with paid search ads that drive targeted traffic and boost conversions quickly and effectively.",
             },
             {
               icon: <LuPenTool className="text-[#ae5c83] text-3xl mb" />,

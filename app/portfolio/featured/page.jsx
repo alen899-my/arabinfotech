@@ -360,7 +360,7 @@ function ProjectCard({ project }) {
 ------------------------------------------ */
 export default function FeaturedPage() {
   return (
-    <section className="bg-gradient-to-b from-slate-100 to-slate-50 px-6 py-16 mt-20 md:py-24">
+    <section className="bg-gradient-to-b  px-6 py-16 mt-20 md:py-24">
 
       {/* HEADER */}
       <div className="max-w-3xl mx-auto text-center">
