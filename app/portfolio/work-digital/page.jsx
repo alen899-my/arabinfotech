@@ -98,17 +98,19 @@ export default function MagazineCollage() {
 
             {/* HOVER OVERLAY */}
             <div className="
-              absolute inset-0 bg-black/60 opacity-0 
-              group-hover:opacity-100 transition-all duration-300 
-              flex flex-col justify-end p-5
-            ">
-              <h3 className="text-white text-lg font-semibold">
-                {item.title}
-              </h3>
-              <p className="text-white/80 text-sm">
-                {item.type}
-              </p>
-            </div>
+  absolute inset-0 bg-black/60 
+  opacity-100 md:opacity-0 md:group-hover:opacity-100
+  transition-all duration-300 
+  flex flex-col justify-end p-5
+">
+  <h3 className="text-white text-lg font-semibold">
+    {item.title}
+  </h3>
+  <p className="text-white/80 text-sm">
+    {item.type}
+  </p>
+</div>
+
           </div>
         ))}
       </div>

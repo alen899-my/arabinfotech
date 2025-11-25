@@ -14,32 +14,16 @@ export default function PortfolioLayout({ children }) {
       <body className="bg-neutral-950 text-white">
 
        
-        <header
-  className="
-    w-full
-    bg-black
-    border-b border-neutral-300
-  fixed top-0 z-40
-    mt-20
-    px-6 py-4
-    flex flex-col sm:flex-row       /* 👉 mobile = column, desktop = row */
-    sm:items-center sm:justify-between
-    gap-3                            /* space between title + select on mobile */
-  "
->
-  {/* TITLE */}
- 
-
-  {/* DESKTOP TABS (Same line) */}
-  <div className="hidden sm:block">
+<header className="fixed top-20 bg-black  left-0 w-full z-40">
+  <div className="sm:block hidden">
     <TabBar desktopOnly />
   </div>
 
-  {/* MOBILE SELECT (2nd row) */}
-  <div className="sm:hidden w-full">
+  <div className="sm:hidden block px-6 py-4 bg-black border-b border-neutral-300">
     <TabBar mobileOnly />
   </div>
 </header>
+
 
 
         {/* PAGE CONTENT */}

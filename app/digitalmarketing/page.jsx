@@ -204,7 +204,7 @@ export default function Page() {
         shadow-sm  
       "
     >
-      <LuSearch className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
+      <LuSearch className="text-[#ae5c83] text-2xl sm:text-2xl mb-2 sm:mb-4" />
       <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
         Search Engine Optimization (SEO)
       </h3>

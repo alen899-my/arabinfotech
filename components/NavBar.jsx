@@ -1,174 +1,168 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
-import lo from "@/public/lo.jpg";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
+import lo from "@/public/lo.jpg";
 
-const NavBar = () => {
+export default function NavBar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const isActive = (path) => pathname === path;
+  const isActive = (p) => pathname === p;
 
+  // close dropdown on outside click
   useEffect(() => {
-    function handleClickOutside(e) {
+    const handler = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdown(false);
+        setDropdownOpen(false);
       }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const menuItems = [
-    { name: "Web Designing", path: "/webdesigning" },
-    { name: "E-commerce", path: "/ecommerce" },
-    { name: "Digital Marketing", path: "/digitalmarketing" },
-    {name:"Portfolio",path:"/portfolio/featured"}
+  const LINKS = [
+    { label: "Web Designing", href: "/webdesigning" },
+    { label: "E-commerce", href: "/ecommerce" },
+    { label: "Digital Marketing", href: "/digitalmarketing" },
+    { label: "Portfolio", href: "/portfolio/featured" },
+  ];
+
+  const WORKS = [
+    { label: "Web Projects", href: "/works/web" },
+    { label: "UI/UX Designs", href: "/works/uiux" },
+    { label: "Apps", href: "/works/apps" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white backdrop-blur-md z-50 border-b border-gray-300">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
 
         {/* LOGO */}
-        <Link href="/" className="flex items-center ">
-          <Image
-             src={lo}
-             alt="Logo"
-             width={200}
-             height={80}
-             className="object-contain cursor-pointer h-20 "
-             priority
-      />
-
+        <Link href="/" className="flex items-center">
+          <Image 
+            src={lo} 
+            alt="Logo"
+            width={165}
+            height={50}
+            className="h-12 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* DESKTOP MENU */}
-        <ul className="hidden md:flex gap-10 text-lg font-medium items-center">
+        <div className="hidden md:flex items-center gap-10">
+          {LINKS.map((item, i) => (
+            <Link
+              key={i}
+              href={item.href}
+              className={`relative momo-font text-lg transition ${
+                isActive(item.href)
+                  ? "text-[#ae5c83] font-semibold"
+                  : "text-[#6c53a7] hover:text-[#ae5c83]"
+              }`}
+            >
+              {item.label}
 
-          {menuItems.map((item, idx) => (
-            <li key={idx}>
-              <Link
-                href={item.path}
-                className={`
-                  group cursor-pointer relative momo-font
-                  ${isActive(item.path) ? "text-[#ae5c83] font-semibold" : "text-[#6c53a7]"}
-                `}
-              >
-                {item.name}
-
-                {/* underline effect */}
-                <span
-                  className={`
-                    absolute left-0 -bottom-1  h-[2px] bg-[#ae5c83] transition-all duration-300
-                    ${isActive(item.path) ? "w-full" : "w-0 group-hover:w-full"}
-                  `}
-                ></span>
-              </Link>
-            </li>
+              {/* Animated underline */}
+              <span
+                className={`absolute left-0 -bottom-1 h-[2px] bg-[#ae5c83] transition-all duration-300 
+                ${isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"}`}
+              ></span>
+            </Link>
           ))}
 
           {/* WORKS DROPDOWN */}
-          <li
-            className="relative group cursor-pointer text-[#6c53a7] momo-font"
+          <div
+            className="relative"
             ref={dropdownRef}
-            onMouseEnter={() => setDropdown(true)}
-            onMouseLeave={() => setDropdown(false)}
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
           >
-            <span className="relative">
+            <button className="flex items-center gap-1 text-[#6c53a7] hover:text-[#ae5c83] momo-font text-lg transition">
               Works
-              <span
-                className="
-                  block h-[2px] bg-[#ae5c83] scale-x-0 
-                  group-hover:scale-x-100 transition-transform duration-300
-                "
-              ></span>
-            </span>
+              <ChevronDown size={18} className="mt-[2px]" />
+            </button>
 
-            {dropdown && (
-              <ul
-                className="absolute top-10 left-0 w-48 bg-white shadow-xl border border-black/10 
-                rounded-xl py-3 z-50 animate-fadeIn"
-              >
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Projects</li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">UI/UX Designs</li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Apps</li>
-              </ul>
+            {/* Dropdown */}
+            {dropdownOpen && (
+              <div className="absolute top-10 left-0 w-56 bg-white rounded-xl shadow-lg border border-black/10 py-3 animate-fadeIn">
+                {WORKS.map((w, i) => (
+                  <Link
+                    key={i}
+                    href={w.href}
+                    className="block px-5 py-2 text-[#6c53a7] hover:bg-gray-100 hover:text-[#ae5c83] momo-font transition"
+                  >
+                    {w.label}
+                  </Link>
+                ))}
+              </div>
             )}
-          </li>
+          </div>
 
-          {/* Button */}
-          <li>
-            <button
-              className="
-                bg-[#6c53a7] text-white px-6 py-2 rounded-xl shadow
-                hover:bg-[#5b4390] active:scale-95 transition  momo-font 
-              "
-            >
+          {/* BUTTON */}
+          <Link href="/contact">
+            <button className="px-6 py-2 bg-[#6c53a7] text-white rounded-xl shadow hover:bg-[#5b4390] transition active:scale-95 momo-font">
               Reach Us
             </button>
-          </li>
-        </ul>
+          </Link>
+        </div>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          className="md:hidden text-[#6c53a7]"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={28} /> : <Menu size={28} />}
+        {/* MOBILE MENU TOGGLE */}
+        <button className="md:hidden text-[#6c53a7]" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
       </div>
 
       {/* MOBILE MENU */}
-      {open && (
+      {mobileOpen && (
         <div className="md:hidden bg-white shadow-xl border-t border-black/10 animate-slideDown">
-          <ul className="flex flex-col gap-6 p-6 text-lg font-medium text-[#6c53a7]">
+          <div className="flex flex-col gap-6 p-6 text-lg text-[#6c53a7] momo-font">
 
-            {menuItems.map((item, idx) => (
-              <li key={idx}>
-                <Link
-                  href={item.path}
-                  onClick={() => setOpen(false)}
-                  className={`
-                    block py-1
-                    ${isActive(item.path) ? "text-[#ae5c83] font-semibold momo-font" : "momo-font"}
-                  `}
-                >
-                  {item.name}
-                </Link>
-              </li>
+            {LINKS.map((item, i) => (
+              <Link
+                key={i}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className={`${
+                  isActive(item.href) ? "text-[#ae5c83] font-semibold" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
             ))}
 
-            {/* Works Dropdown in Mobile */}
-            <li className="flex flex-col">
-              <span className="font-semibold">Works</span>
-              <ul className="ml-4 mt-2 space-y-2">
-                <li className="hover:text-violet-500 momo-font">Web Projects</li>
-                <li className="hover:text-violet-500 momo-font">UI/UX Designs</li>
-                <li className="hover:text-violet-500 momo-font">Apps</li>
-              </ul>
-            </li>
+            {/* MOBILE DROPDOWN */}
+            <div>
+              <p className="font-semibold">Works</p>
+              <div className="ml-4 mt-2 space-y-2">
+                {WORKS.map((w, i) => (
+                  <Link
+                    key={i}
+                    href={w.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block hover:text-violet-500"
+                  >
+                    {w.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-            <button
-              className="
-                bg-[#6c53a7] text-white px-5 py-2 rounded-xl shadow
-                hover:bg-[#5b4390] active:scale-95 transition
-              "
-            >
-              Reach Us
-            </button>
-
-          </ul>
+            {/* CTA BUTTON */}
+            <Link href="/contact">
+              <button className="w-full bg-[#6c53a7] text-white py-2 rounded-xl shadow hover:bg-[#5b4390] transition active:scale-95">
+                Reach Us
+              </button>
+            </Link>
+          </div>
         </div>
       )}
     </nav>
   );
-};
-
-export default NavBar;
+}

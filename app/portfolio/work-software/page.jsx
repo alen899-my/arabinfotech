@@ -77,22 +77,23 @@ const SoftwarePage = () => {
 
         {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-6">
-             <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
-         <span className="text-black">Our</span>  Software Solutions
-        </h2>
-        <p className="roboto-text">
-           Scalable, industry-ready platforms built to automate operations, enhance visibility, and modernize business workflows through clean engineering and intelligent design.
-        </p>
-      </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
+              <span className="text-black">Our</span> Software Solutions
+            </h2>
+            <p className="roboto-text">
+              Scalable, industry-ready platforms built to automate operations, enhance visibility, and modernize business workflows through clean engineering and intelligent design.
+            </p>
+          </div>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* GRID (UPDATED FOR RESPONSIVENESS) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((item, i) => (
             <ProductCard key={i} item={item} />
           ))}
         </div>
+
       </div>
     </section>
   );
@@ -129,8 +130,8 @@ const ProductCard = ({ item }) => {
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
       `}
     >
-      {/* IMAGE */}
-      <div className="relative w-full h-60 md:h-72 overflow-hidden">
+      {/* IMAGE (UPDATED HEIGHT FOR MOBILE) */}
+      <div className="relative w-full h-52 sm:h-60 md:h-72 overflow-hidden">
         <Image
           src={item.image}
           alt={item.title}
@@ -149,20 +150,25 @@ const ProductCard = ({ item }) => {
       {/* TEXT */}
       <div className="p-6 md:p-7">
         <h3
-          className={`font-bold momo-font text-slate-900  transition-colors ${
+          className={`font-bold momo-font text-slate-900 transition-colors ${
             item.isHero ? "text-2xl md:text-3xl" : "text-xl"
           }`}
         >
           {item.title}
         </h3>
 
-        <p
-          className={`text-slate-600 leading-relaxed ${
-            item.isHero ? "text-[15px] md:text-[16px] line-clamp-5" : "text-sm line-clamp-8"
-          }`}
-        >
-          {item.description}
-        </p>
+       <p
+  className={`
+    text-slate-600 leading-relaxed
+    ${
+      item.isHero
+        ? "text-[14px] sm:text-[15px] md:text-[16px] line-clamp-none sm:line-clamp-6"
+        : "text-xs sm:text-sm line-clamp-none sm:line-clamp-7"
+    }
+  `}
+>
+  {item.description}
+</p>
       </div>
     </div>
   );
