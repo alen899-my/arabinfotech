@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
+import { motion } from "framer-motion";
 import des1 from "../../../public/webdesign/des1.png";
 import des2 from "../../../public/webdesign/des2.png";
 import des3 from "../../../public/webdesign/des3.png";

@@ -1,4 +1,5 @@
 "use client";
+import toast from "react-hot-toast";
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -48,6 +49,10 @@ export default function ContactPage() {
     "Website Project", "Web App", "eCommerce", "SEO",
     "UX / UI Design", "Marketing", "Consultancy", "Not sure",
   ];
+  const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [message, setMessage] = useState("");
+
 
   const locations = [
     {
@@ -84,6 +89,35 @@ export default function ContactPage() {
       markerColor: "bg-emerald-500",
     },
   ];
+  async function handleSubmit() {
+  const loadingToast = toast.loading("Sending message...");
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        services,
+      }),
+    });
+
+    const data = await res.json();
+
+    toast.dismiss(loadingToast);
+
+    if (data.success) {
+      toast.success("Message delivered to Mailtrap!");
+    } else {
+      toast.error("Failed to send message.");
+    }
+  } catch (error) {
+    toast.dismiss(loadingToast);
+    toast.error("Error sending message.");
+  }
+}
 
   return (
     <div className="mt-20 min-h-screen  text-slate-800 overflow-x-hidden selection:bg-[#ae5c83] selection:text-white pb-20">
@@ -158,7 +192,8 @@ export default function ContactPage() {
                     <div className="relative">
                       <User className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <input 
-                        type="text" 
+                        type="text" value={name}
+  onChange={(e) => setName(e.target.value)}
                         className="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="John Doe"
                       />
@@ -170,7 +205,9 @@ export default function ContactPage() {
                     <div className="relative">
                       <Mail className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <input 
-                        type="email" 
+                        type="email"  
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
                         className="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="john@company.com"
                       />
@@ -182,7 +219,8 @@ export default function ContactPage() {
                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Message</label>
                    <div className="relative">
                       <MessageSquare className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
-                      <textarea 
+                      <textarea  value={message}
+  onChange={(e) => setMessage(e.target.value)}
                         className="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
                         placeholder="Tell us a bit about your project goals..."
                       />
@@ -193,7 +231,7 @@ export default function ContactPage() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => setIsSubmitting(!isSubmitting)}
+                    onClick={handleSubmit}
                     className="w-full bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white font-semibold rounded-xl py-4 shadow-xl shadow-[#ae5c83]/20 hover:shadow-2xl hover:shadow-[#ae5c83]/30 transition-all flex items-center justify-center gap-2 group"
                   >
                     <Send size={18} className="group-hover:translate-x-1 transition-transform" />
