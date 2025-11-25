@@ -12,6 +12,7 @@ export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const isActive = (p) => pathname === p;
 
@@ -40,7 +41,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white backdrop-blur border-b border-gray-200">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white backdrop-blur border-b border-gray-300">
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
 
         {/* LOGO */}
@@ -131,7 +132,7 @@ export default function NavBar() {
 
             {/* CTA BUTTON */}
             <Link href="/contact">
-              <button className="w-full bg-[#6c53a7] text-white py-2 rounded-xl shadow hover:bg-[#5b4390] transition active:scale-95">
+              <button  className="w-full bg-[#6c53a7] text-white py-2 rounded-xl shadow hover:bg-[#5b4390] transition active:scale-95">
                 Reach Us
               </button>
             </Link>
