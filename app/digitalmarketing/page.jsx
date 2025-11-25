@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link"
 import market from "../../public/market.webp";
 import SEO from "../../public/SEO.webp";
 import advert from "../../public/advert.webp";
@@ -108,14 +108,23 @@ export default function Page() {
             Ad solutions to help you reach and engage millions of customers at every stage of journey
           </p>
 
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt- mb-2 px-7 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
-          >
-            Schedule an Intro Call
-          </motion.button>
+         
+            
+        
+         <motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  <Link
+    href="/contact"
+    className=" inline-block px-7 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
+  >
+    Schedule an Intro Call
+  </Link>
+</motion.div>
+
+         
         </motion.div>
       </section>
 
@@ -324,7 +333,7 @@ export default function Page() {
           </p>
 
           <a
-            href="#"
+            href="/contact"
             className="
               inline-block 
               mt-3 

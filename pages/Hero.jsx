@@ -31,7 +31,7 @@ export default function Home() {
         relative w-full 
         h-[55vh]
         sm:h-[70vh]
-        md:h-[90vh]
+        md:h-[85vh]
         overflow-hidden
       "
     >
@@ -133,7 +133,7 @@ export default function Home() {
 
         <div className="mt-6 sm:mt-8">
           <Link
-            href="/"
+            href="/contact"
             className="
               inline-flex items-center justify-center 
               px-7 py-3.5 rounded-lg

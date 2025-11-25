@@ -7,6 +7,7 @@ import one from "@/public/one.png"
 import two from "@/public/two.png"
 import three from "@/public/three.png"
 import four from "@/public/four.png"
+import Link from "next/link"
 import {
   LuLayoutDashboard,
   LuCode,LuShield,
@@ -67,14 +68,18 @@ export default function Page() {
             checkout — crafted for your brand.
           </p>
          
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="px-6 py-4  bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
+                  <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Schedule an Intro Call
-          </motion.button>
+            <Link
+              href="/contact"
+              className=" inline-block px-7 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
+            >
+              Schedule an Intro Call
+            </Link>
+          </motion.div>
         </motion.div>
 
     
@@ -323,7 +328,7 @@ export default function Page() {
           </p>
 
           <a
-            href="#"
+            href="/contact"
             className="inline-block mt-6 momo-font px-6 py-4 bg-[#6c53a7] text-white rounded-xl font-semibold shadow-lg hover:bg-[#5b4390] transition-all"
           >
             Portfolio →

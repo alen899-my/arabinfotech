@@ -6,7 +6,7 @@ import Image from "next/image";
 import des from "../../public/des.jpg";
 import img2 from "../../public/img2.jpg";
 import side from "../../public/side.webp";
-
+import Link from "next/link"
 import {
   LuLayoutDashboard,
   LuCode,
@@ -76,14 +76,18 @@ export default function Page() {
       deliver measurable business outcomes.
     </motion.p>
 
-    <motion.button
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, delay: 0.5 }}
-      className="w-fit px-6 py-4 bg-[#6c53a7] hover:bg-[#8d4368] transition-all text-white rounded-xl momo-font momo-font shadow-xl text-m font-medium"
-    >
-      Schedule an Intro Call
-    </motion.button>
+            <motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  <Link
+    href="/contact"
+    className=" inline-block px-7 py-4 bg-[#6c53a7] text-white rounded-xl shadow-lg hover:bg-[#8d4368] transition-all momo-font"
+  >
+    Schedule an Intro Call
+  </Link>
+</motion.div>
   </motion.div>
 
   {/* RIGHT IMAGES - Animated */}
@@ -293,7 +297,7 @@ export default function Page() {
           </p>
 
           <a
-            href="#"
+            href="contact"
             className="
               inline-block 
               mt-3 

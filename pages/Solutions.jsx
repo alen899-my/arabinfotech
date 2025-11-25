@@ -78,7 +78,7 @@ const Solutions = () => {
           </motion.p>
 
           <motion.a
-            href="#"
+            href="/portfolio/featured"
             whileHover={{ scale: 1.05, y: -3 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="

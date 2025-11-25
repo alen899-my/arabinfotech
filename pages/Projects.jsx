@@ -12,28 +12,28 @@ const Projects = () => {
       description:
         "Our Valet Parking Platform delivers advanced technology and data-driven solutions to improve parking management and reduce congestion in cities. It enhances comfort, real-time visibility, and supports secure P2PE & EMV transactions.",
       image: valetparking,
-      link: "#",
+      link: "/portfolio/work-valet",
     },
     {
       title: "Competency Analytics System",
       description:
         "This system measures knowledge, skills, and capabilities for businesses and education. It analyzes technical and behavioral competencies, providing structured and measurable insights.",
       image: analtyc,
-      link: "#",
+      link: "/portfolio/work-software",
     },
     {
       title: "Attendance Payroll System",
       description:
         "A leading HR & Payroll platform managing attendance, leave, payout processing, and HR workflows. Automate HR tasks efficiently on any device—anytime, anywhere.",
       image: payday,
-      link: "#",
+      link: "/portfolio/work-software",
     },
     {
       title: "Splunk Professional Services",
       description:
         "At ARABINFOTECH, we specialize in providing tailored Splunk Professional Services to help businesses harness the power of their data. Whether you're implementing IT Service Intelligence (ITSI) for service monitoring, optimizing your Security Information and Event Management (SIEM) solution",
       image: bus,
-      link: "#",
+      link: "/portfolio/work-software",
     },
   ];
 
