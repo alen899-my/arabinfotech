@@ -86,7 +86,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="mt-20 min-h-screen bg-slate-50 text-slate-800 overflow-x-hidden selection:bg-[#ae5c83] selection:text-white pb-20">
+    <div className="mt-20 min-h-screen  text-slate-800 overflow-x-hidden selection:bg-[#ae5c83] selection:text-white pb-20">
       
       {/* Background Decoration */}
       <div className="fixed inset-0 pointer-events-none opacity-40">
