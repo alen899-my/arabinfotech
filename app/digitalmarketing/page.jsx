@@ -161,148 +161,68 @@ export default function Page() {
       </motion.div>
 
       {/* ===================== FOUR BOX SECTION ===================== */}
-     <section className="relative z-10 w-full py-20 px-4 -mt-15">
-  <motion.div
-    className="text-center mb-10"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-  >
-    <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">
-      Digital Marketing Solutions for Every Business
-    </h1>
-    <p className="roboto-text">
-      And easy for marketers of any experience level.
-      Arabinfotech provides smart digital marketing solutions that engage your customers throughout their entire journey.
-    </p>
-  </motion.div>
+      <section className="relative z-10 w-full py-20 px-4 -mt-16">
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-[#ae5c83] text-3xl momo-font font-semibold">
+            Digital Marketing Solutions for Every Business
+          </h1>
+          <p className="roboto-text max-w-3xl mx-auto">
+            Arabinfotech provides smart digital marketing solutions that engage customers throughout their journey.
+          </p>
+        </motion.div>
 
-  {/* ==================== FOUR BOX GRID ==================== */}
-  <div className="
-    grid 
-    grid-cols-2 
-    md:grid-cols-2 
-    lg:grid-cols-4 
-    gap-4 
-    max-w-7xl 
-    mx-auto 
-    px-3
-  ">
-    {/* Box 1 */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.04, y: -5 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="
-        border border-gray-400 
-        p-3 sm:p-6              /* smaller padding on mobile */
-        rounded-2xl 
-        bg-white 
-        shadow-sm  
-      "
-    >
-      <LuSearch className="text-[#ae5c83] text-2xl sm:text-2xl mb-2 sm:mb-4" />
-      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
-        Search Engine Optimization (SEO)
-      </h3>
-      <p className=" roboto-text ">
-        Strengthen your online visibility with strategic SEO techniques designed
-        to increase rankings and attract the right customers.
-      </p>
-      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
-        Read More
-      </span>
-    </motion.div>
+        {/* FOUR BOX GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto px-3">
 
-    {/* Box 2 */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.04, y: -5 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.55 }}
-      className="
-        border border-gray-400 
-        p-3 sm:p-6 
-        rounded-2xl 
-        bg-white 
-        shadow-sm 
-      "
-    >
-      <LuRocket className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
-        Search Engine Advertising (SEA)
-      </h3>
-      <p className="roboto-text">
-        Get instant visibility with paid search ads that drive targeted traffic
-        and boost conversions quickly and effectively.
-      </p>
-      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
-        Read More
-      </span>
-    </motion.div>
+          {/* Box Template */}
+          {[
+            {
+              icon: <LuSearch className="text-[#ae5c83] text-3xl mb" />,
+              title: "Search Engine Optimization (SEO)",
+              text: " Strengthen your online visibility with strategic SEO techniques designed to increase rankings and attract the right customers."
+            },
+            {
+              icon: <LuRocket className="text-[#ae5c83] text-3xl mb" />,
+              title: "Search Engine Advertising (SEA)",
+              text: "GGet instant visibility with paid search ads that drive targeted traffic and boost conversions quickly and effectively.",
+            },
+            {
+              icon: <LuPenTool className="text-[#ae5c83] text-3xl mb" />,
+              title: "Social Media Optimization (SMO)",
+              text: "Build meaningful engagement and a strong online presence across social platforms with our tailored SMO strategies.",
+            },
+            {
+              icon: <LuShoppingBag className="text-[#ae5c83] text-3xl mb" />,
+              title: "Social Media Advertising (SMA)",
+              text: "Reach the right audience with high-impact social ads that expand brand awareness and drive measurable results.",
+            },
+          ].map((box, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.04, y: -5 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 + i * 0.05 }}
+              className="border border-gray-300 p-6 rounded-2xl bg-white shadow-sm"
+            >
+              {box.icon}
+              <h3 className="text-gray-700 text-xl uppercase tracking-wide momo-font">
+                {box.title}
+              </h3>
+              <p className="roboto-text ">{box.text}</p>
+              
+            </motion.div>
+          ))}
 
-    {/* Box 3 */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.04, y: -5 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="
-        border border-gray-400 
-        p-3 sm:p-6 
-        rounded-2xl 
-        bg-white 
-        shadow-xl 
-      "
-    >
-      <LuPenTool className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
-        Social Media Optimization (SMO)
-      </h3>
-      <p className="roboto-text">
-        Build meaningful engagement and a strong online presence across social
-        platforms with our tailored SMO strategies.
-      </p>
-      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
-        Read More
-      </span>
-    </motion.div>
-
-    {/* Box 4 */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.04, y: -5 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.65 }}
-      className="
-        border border-gray-400 
-        p-3 sm:p-6 
-        rounded-2xl 
-        bg-white 
-        shadow-sm 
-      "
-    >
-      <LuShoppingBag className="text-[#ae5c83] text-2xl sm:text-3xl mb-2 sm:mb-4" />
-      <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
-        Social Media Advertising (SMA)
-      </h3>
-      <p className="roboto-text">
-        Reach the right audience with high-impact social ads that expand brand
-        awareness and drive measurable results.
-      </p>
-      <span className="text-[#ae5c83] text-xs sm:text-sm font-semibold cursor-pointer">
-        Read More
-      </span>
-    </motion.div>
-
-  </div>
-</section>
+        </div>
+      </section>
 
         
 <section className="relative overflow-hidden py-20 px-4 bg-gradient-to-b from-white via-[#fdf6fa] to-white -mt-30">
