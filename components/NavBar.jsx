@@ -40,7 +40,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white backdrop-blur border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
 
         {/* LOGO */}
@@ -78,32 +78,7 @@ export default function NavBar() {
           ))}
 
           {/* WORKS DROPDOWN */}
-          <div
-            className="relative"
-            ref={dropdownRef}
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
-            <button className="flex items-center gap-1 text-[#6c53a7] hover:text-[#ae5c83] momo-font text-lg transition">
-              Works
-              <ChevronDown size={18} className="mt-[2px]" />
-            </button>
-
-            {/* Dropdown */}
-            {dropdownOpen && (
-              <div className="absolute top-10 left-0 w-56 bg-white rounded-xl shadow-lg border border-black/10 py-3 animate-fadeIn">
-                {WORKS.map((w, i) => (
-                  <Link
-                    key={i}
-                    href={w.href}
-                    className="block px-5 py-2 text-[#6c53a7] hover:bg-gray-100 hover:text-[#ae5c83] momo-font transition"
-                  >
-                    {w.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          
 
           {/* BUTTON */}
           <Link href="/contact">
