@@ -246,7 +246,7 @@ function ProjectCard({ project }) {
               <div className=" border-t border-gray-100 space-y-">
                 
                 {/* Info Blocks */}
-                <div className="-space-y-5">
+                <div className="-space-y-8">
                     <div className="bg-[#fcfaff] p-3 rounded-xl border border-[#6c53a7]/10">
                         <div className="flex items-center gap-2 mb-1 text-[#6c53a7]">
                             <Building2 size={14} />
@@ -313,8 +313,7 @@ export default function FeaturedPage() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 ">
-      
-      {/* HEADER SECTION (Margin Top 20 as requested) */}
+     
       <section className="mt-40 px-6 mb-12">
         <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl momo-font font-bold mb-4 text-gray-900">
