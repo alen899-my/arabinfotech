@@ -166,52 +166,53 @@ const Page = () => {
       </div>
 
       {/* PAGINATION */}
-      <div className="flex justify-center mt-16">
-        <div className="flex items-center gap-2 bg-white p-2 rounded-xl shadow-sm border border-gray-100">
+     <div className="flex justify-center mt-10">
+  <div className="flex items-center gap-1 sm:gap-2 bg-white p-2 rounded-xl shadow-sm border border-gray-100 overflow-x-auto scrollbar-none max-w-full">
 
-          {/* Prev */}
-          <button
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              currentPage === 1
-                ? "text-gray-300 cursor-not-allowed"
-                : "text-gray-600 hover:bg-gray-100 hover:text-[#ae5c83]"
-            }`}
-          >
-            Prev
-          </button>
+    {/* Prev */}
+    <button
+      onClick={() => goToPage(currentPage - 1)}
+      disabled={currentPage === 1}
+      className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-colors ${
+        currentPage === 1
+          ? "text-gray-300 cursor-not-allowed"
+          : "text-gray-600 hover:bg-gray-100 hover:text-[#ae5c83]"
+      }`}
+    >
+      Prev
+    </button>
 
-          {/* Page Numbers */}
-          {Array.from({ length: totalPages }).map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => goToPage(idx + 1)}
-              className={`w-10 h-10 rounded-lg text-sm font-bold transition-all ${
-                currentPage === idx + 1
-                  ? "bg-[#ae5c83] text-white shadow-md transform scale-105"
-                  : "text-gray-600 hover:bg-gray-50"
-              }`}
-            >
-              {idx + 1}
-            </button>
-          ))}
+    {/* Page Numbers */}
+    {Array.from({ length: totalPages }).map((_, idx) => (
+      <button
+        key={idx}
+        onClick={() => goToPage(idx + 1)}
+        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+          currentPage === idx + 1
+            ? "bg-[#ae5c83] text-white shadow-md scale-105"
+            : "text-gray-600 hover:bg-gray-50"
+        }`}
+      >
+        {idx + 1}
+      </button>
+    ))}
 
-          {/* Next */}
-          <button
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              currentPage === totalPages
-                ? "text-gray-300 cursor-not-allowed"
-                : "text-gray-600 hover:bg-gray-100 hover:text-[#ae5c83]"
-            }`}
-          >
-            Next
-          </button>
+    {/* Next */}
+    <button
+      onClick={() => goToPage(currentPage + 1)}
+      disabled={currentPage === totalPages}
+      className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-colors ${
+        currentPage === totalPages
+          ? "text-gray-300 cursor-not-allowed"
+          : "text-gray-600 hover:bg-gray-100 hover:text-[#ae5c83]"
+      }`}
+    >
+      Next
+    </button>
 
-        </div>
-      </div>
+  </div>
+</div>
+
     </section>
   );
 };
