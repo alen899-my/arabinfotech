@@ -1,36 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { X, User, Mail, MessageSquare, CheckCircle2, Send } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, User, Mail, MessageSquare, CheckCircle2, Send, Phone } from "lucide-react";
 import toast from "react-hot-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
+export default function QuotePopup({ open, onClose }) {
+  const pathname = usePathname();
 
-export default function QuotePopup({ open, setOpen }) {
   const [services, setServices] = useState([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");  // ⭐ NEW FIELD
   const [message, setMessage] = useState("");
-const PAGE_SERVICE_MAP = {
-  "/webdesigning": "Web Designing",
-  "/ecommerce": "eCommerce",
-  "/seo": "SEO",
-  "/digitalmarketing": "Marketing",
-  "/uxui": "UX / UI Design",
-  "/consultancy": "Consultancy",
-  "/solutions/custom-software": "Custom Software",
-};
-const pathname = usePathname();
-useEffect(() => {
-  if (open) {
-    const match = PAGE_SERVICE_MAP[pathname];
-    if (match) {
-      setServices([match]);  
+
+  const PAGE_SERVICE_MAP = {
+    "/webdesigning": "Web Designing",
+    "/ecommerce": "eCommerce",
+    "/seo": "SEO",
+    "/digitalmarketing": "Marketing",
+    "/uxui": "UX / UI Design",
+    "/consultancy": "Consultancy",
+    "/solutions/custom-software": "Custom Software",
+  };
+
+  useEffect(() => {
+    if (open) {
+      const match = PAGE_SERVICE_MAP[pathname];
+      if (match) setServices([match]);
     }
-  }
-}, [open, pathname]);
+  }, [open, pathname]);
 
   if (!open) return null;
 
@@ -56,6 +56,7 @@ useEffect(() => {
   const handleSubmit = async () => {
     if (!name.trim()) return toast.error("Enter your name.");
     if (!email.trim()) return toast.error("Enter your email.");
+    if (!phone.trim()) return toast.error("Enter your phone number."); // ⭐ validation
     if (!message.trim()) return toast.error("Message is required.");
     if (services.length === 0) return toast.error("Select at least one service.");
 
@@ -65,142 +66,173 @@ useEffect(() => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, services }),
+        body: JSON.stringify({ name, email, phone, message, services }), // ⭐ phone added
       });
 
       const data = await res.json();
 
       toast.dismiss(loading);
+
       if (data.success) {
-        toast.success("Message sent!");
-        setOpen(false);
-        setName("");
-        setEmail("");
-        setMessage("");
-        setServices([]);
+        toast.success("Message sent successfully!");
+        onClose();
+        setName(""); setEmail(""); setPhone(""); setMessage(""); setServices([]);
       } else {
-        toast.error("Failed to send.");
+        toast.error("Failed to send message.");
       }
-    } catch (e) {
+    } catch {
       toast.dismiss(loading);
-      toast.error("Error sending message.");
+      toast.error("Something went wrong.");
     }
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-black/40 backdrop-blur-sm flex items-end justify-center">
-      {/* Close on background click */}
-      <div className="absolute inset-0" onClick={() => setOpen(false)} />
-
-      {/* POPUP PANEL */}
-      <motion.div
-        initial={{ y: "100%" }}
-        animate={{ y: 0 }}
-        className="relative w-full max-w-xl bg-white rounded-t-3xl shadow-xl p-6 overflow-y-auto max-h-[85vh]"
-      >
-        {/* Close Button */}
-        <button
-          onClick={() => setOpen(false)}
-          className="absolute top-4 right-4 bg-[#ae5c83] shadow p-2 rounded-full"
-        >
-          <X size={20} />
-        </button>
-
-      {/* FORM TITLE */}
-<h2 className="text-xl text-center font-bold text-[#ae5c83] mb-4 momo-font">
-  Get a Quote
-</h2>
-
-{/* SERVICES */}
-<div className="mb-4">
-  <p className="font-semibold flex items-center gap-2 mb-2 text-black text-sm">
-    <CheckCircle2 size={16} className="text-[#ae5c83]" />
-    I’m interested in...
-  </p>
-
-  <div className="grid grid-cols-2 gap-2">
-    {SERVICES.map((item) => {
-      const checked = services.includes(item);
-      return (
-        <label
-          key={item}
-          className={`flex items-center gap-2 p-2.5 rounded-lg border text-sm cursor-pointer transition 
-            ${checked ? "border-[#ae5c83] bg-[#f7e9f1]" : "border-slate-300 bg-white"}
-          `}
-        >
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={() =>
-              setServices((prev) =>
-                prev.includes(item)
-                  ? prev.filter((s) => s !== item)
-                  : [...prev, item]
-              )
-            }
-            className="w-4 h-4 accent-[#ae5c83]"
+    <AnimatePresence>
+      {open && (
+        <>
+          {/* Background */}
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
           />
-          <span className="text-[13px] font-medium text-black leading-tight">
-            {item}
-          </span>
-        </label>
-      );
-    })}
-  </div>
-</div>
 
-{/* NAME FIELD */}
-<div className="mb-3">
-  <label className="block text-[13px] text-black font-semibold mb-1">Full Name</label>
-  <div className="relative">
-    <User className="absolute left-3 top-3 text-slate-400" size={16} />
-    <input
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      className="w-full pl-9 pr-3 py-2 rounded-lg text-black bg-slate-50 text-sm border border-slate-300 focus:border-[#ae5c83] focus:ring-2 focus:ring-[#ae5c83]/20 transition"
-      placeholder="John Doe"
-    />
-  </div>
-</div>
+          {/* Popup */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed max-h-[90vh] overflow-y-auto z-[9999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-[92%] max-w-lg p-6 rounded-2xl shadow-2xl"
+          >
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-1.5 rounded-full transition"
+            >
+              <X size={24} />
+            </button>
 
-{/* EMAIL FIELD */}
-<div className="mb-3">
-  <label className="block text-[13px] text-black font-semibold mb-1">Email Address</label>
-  <div className="relative">
-    <Mail className="absolute left-3 top-3 text-slate-400" size={16} />
-    <input
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      className="w-full pl-9 pr-3 py-2 rounded-lg bg-slate-50 text-black text-sm border border-slate-300 focus:border-[#ae5c83] focus:ring-2 focus:ring-[#ae5c83]/20 transition"
-      placeholder="john@company.com"
-    />
-  </div>
-</div>
+            {/* Title */}
+            <h2 className="text-2xl text-center font-bold text-[#ae5c83] mb-6 momo-font">Get a Quote</h2>
 
-{/* MESSAGE FIELD */}
-<div className="mb-4">
-  <label className="block text-[13px] text-black font-semibold mb-1">Message</label>
-  <div className="relative">
-    <MessageSquare className="absolute left-3 top-3 text-slate-400" size={16} />
-    <textarea
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      className="w-full pl-9 pr-3 py-2 rounded-lg bg-slate-50 text-black text-sm border border-slate-300 h-28 resize-none focus:border-[#ae5c83] focus:ring-2 focus:ring-[#ae5c83]/20 transition"
-      placeholder="Tell us about your project..."
-    />
-  </div>
-</div>
+            {/* SERVICES */}
+            <div className="mb-5">
+              <p className="font-semibold flex items-center gap-2 mb-3 text-gray-800 text-sm">
+                <CheckCircle2 size={18} className="text-[#ae5c83]" />
+                I’m interested in...
+              </p>
 
-{/* SUBMIT BUTTON */}
-<button
-  onClick={handleSubmit}
-  className="w-full bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg active:scale-95 transition"
+              <div className="grid grid-cols-2 gap-2">
+                {SERVICES.map((item) => {
+                  const checked = services.includes(item);
+                  return (
+                    <label
+                      key={item}
+                      className={`flex items-center gap-2 p-2.5 rounded-lg border text-sm cursor-pointer transition select-none
+                        ${checked ? "border-[#ae5c83] bg-[#ae5c83]/10 text-[#ae5c83] font-semibold"
+                                  : "border-slate-200 bg-white text-gray-600 hover:border-[#ae5c83]/50"}`}
+                    >
+                      <input
+                        checked={checked}
+                        type="checkbox"
+                        onChange={() => toggleService(item)}
+                        className="w-4 h-4 accent-[#ae5c83]"
+                      />
+                      <span className="text-[13px]">{item}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* FULL NAME */}
+            <div className="mb-4">
+              <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Full Name</label>
+              <div className="relative">
+                <User className="absolute left-3 top-3 text-slate-400" size={18} />
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="John Doe"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                />
+              </div>
+            </div>
+
+            {/* ⭐ PHONE + EMAIL ROW */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+              
+              {/* Phone */}
+              <div>
+                <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Phone</label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-3 text-slate-400" size={18} />
+                  <input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+91 98765 43210"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Email</label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 text-slate-400" size={18} />
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="john@company.com"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* MESSAGE */}
+            <div className="mb-6">
+              <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Project Details</label>
+              <div className="relative">
+                <MessageSquare className="absolute left-3 top-3 text-slate-400" size={18} />
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell us about your project…"
+                  className="w-full pl-10 pr-4 py-2.5 h-28 bg-slate-50 rounded-xl border border-slate-400 text-gray-900 text-sm resize-none
+                   focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                />
+              </div>
+            </div>
+
+            {/* SUBMIT */}
+            <button
+            onClick={handleSubmit}
+            className="
+              mx-auto
+              px-6 py-2.5
+              bg-gradient-to-r from-[#ae5c83] to-[#8a4262]
+              text-white
+              rounded-full
+              text-sm font-semibold
+              flex items-center justify-center gap-2
+              shadow-md
+              transition-all duration-300
+              hover:shadow-xl hover:scale-[1.05]
+              active:scale-[0.96]
+              border border-white/20
+              backdrop-blur-sm
+            "
 >
   <Send size={16} />
   Send Message
 </button>
 
-      </motion.div>
-    </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 }

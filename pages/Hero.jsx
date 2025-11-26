@@ -31,7 +31,7 @@ export default function Home() {
         relative w-full 
         h-[60vh]
         sm:h-[70vh]
-        md:h-[85vh]
+        md:h-[100vh]
         overflow-hidden
       "
     >
