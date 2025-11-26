@@ -235,10 +235,10 @@ export default function MobileAppsPage() {
       </div>
     </section>
 
-    {/* ---------------- NEW SECTION: PROCESS STEPS ---------------- */}
-    <section className="py-16 md:py-20 bg-[#fcfcfc] border-t border-gray-100">
+    {/* ----------------  STEPS ---------------- */}
+    <section className="py-16 md:py-10 bg-[#fcfcfc] border-t ">
         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-2">
                 <h2 className="text-3xl md:text-4xl momo-font font-bold text-gray-900">How We Build</h2>
                 <p className="text-gray-500 mt-2">From concept to the App Store, we handle it all.</p>
             </div>
@@ -255,12 +255,12 @@ export default function MobileAppsPage() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white p-6 rounded-2xl shadow-sm border border-gray-400 hover:shadow-lg transition-all group"
+                        className="bg-white p-3 rounded-2xl shadow-sm border border-gray-400 hover:shadow-lg transition-all group"
                     >
                         <div className="w-12 h-12 bg-[#ae5c83] rounded-xl flex items-center justify-center text-white text-xl mb-4 group-hover:bg-[#6c53a7] group-hover:text-white transition-colors">
                             {step.icon}
                         </div>
-                        <h3 className="font-bold text-black text-lg momo-font mb-2">{step.title}</h3>
+                        <h3 className="font-bold text-black text-lg momo-font ">{step.title}</h3>
                         <p className="text-sm text-gray-500">{step.desc}</p>
                     </motion.div>
                 ))}
@@ -384,7 +384,7 @@ function ServiceCard({ icon, title, desc, color, accent }) {
         {desc}
       </p>
       <div className="mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" style={{ color: accent }}>
-        Learn More <LuArrowRight />
+       
       </div>
     </motion.div>
   );
