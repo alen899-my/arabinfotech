@@ -246,7 +246,7 @@ function ProjectCard({ project }) {
               <div className=" border-t border-gray-100 space-y-">
                 
                 {/* Info Blocks */}
-                <div className="-space-y-8">
+                <div className="-space-y-2">
                     <div className="bg-[#fcfaff] p-3 rounded-xl border border-[#6c53a7]/10">
                         <div className="flex items-center gap-2 mb-1 text-[#6c53a7]">
                             <Building2 size={14} />
