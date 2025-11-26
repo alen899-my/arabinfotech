@@ -29,7 +29,7 @@ export default function Home() {
     <div
       className="
         relative w-full 
-        h-[55vh]
+        h-[60vh]
         sm:h-[70vh]
         md:h-[85vh]
         overflow-hidden
