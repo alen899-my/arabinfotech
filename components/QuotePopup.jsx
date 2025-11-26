@@ -13,20 +13,21 @@ export default function QuotePopup({ open, setOpen }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-    const PAGE_SERVICE_MAP = {
+const PAGE_SERVICE_MAP = {
   "/webdesigning": "Web Designing",
   "/ecommerce": "eCommerce",
   "/seo": "SEO",
   "/digitalmarketing": "Marketing",
   "/uxui": "UX / UI Design",
   "/consultancy": "Consultancy",
+  "/solutions/custom-software": "Custom Software",
 };
 const pathname = usePathname();
 useEffect(() => {
   if (open) {
     const match = PAGE_SERVICE_MAP[pathname];
     if (match) {
-      setServices([match]);  // auto-select only one
+      setServices([match]);  
     }
   }
 }, [open, pathname]);
@@ -40,6 +41,7 @@ useEffect(() => {
     "UX / UI Design",
     "Marketing",
     "Consultancy",
+    "Custom Software",
     "Not sure",
   ];
 
