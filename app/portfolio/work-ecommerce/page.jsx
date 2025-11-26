@@ -104,7 +104,7 @@ const Page = () => {
         {ecommerceProjects.map((p, i) => (
           <div
             key={i}
-            className="border border-slate-300 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+            className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-300 "
           >
             {/* IMAGE */}
             <div className="relative h-56 w-full overflow-hidden">
@@ -131,7 +131,7 @@ const Page = () => {
                 {p.features.map((feature, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-lg border border-purple-200 shadow-sm"
+                    className="px-3 py-1 bg-purple-50 text-[#ae5c83] text-xs font-medium rounded-lg border border-purple-200 shadow-sm"
                   >
                     {feature}
                   </span>

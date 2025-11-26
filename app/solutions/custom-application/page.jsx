@@ -191,9 +191,7 @@ export default function MobileAppsPage() {
                 onCanPlay={(e) => e.target.play()}
               />
               {/* Modern Glass Badge on Video */}
-              <div className="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">
-                  <span className="text-white text-xs font-bold tracking-wider">LIVE PREVIEW</span>
-              </div>
+              
             </div>
 
             {/* Decorative Glow */}
@@ -259,7 +257,7 @@ export default function MobileAppsPage() {
                         transition={{ delay: idx * 0.1 }}
                         className="bg-white p-6 rounded-2xl shadow-sm border border-gray-400 hover:shadow-lg transition-all group"
                     >
-                        <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-[#6c53a7] text-xl mb-4 group-hover:bg-[#6c53a7] group-hover:text-white transition-colors">
+                        <div className="w-12 h-12 bg-[#ae5c83] rounded-xl flex items-center justify-center text-white text-xl mb-4 group-hover:bg-[#6c53a7] group-hover:text-white transition-colors">
                             {step.icon}
                         </div>
                         <h3 className="font-bold text-black text-lg momo-font mb-2">{step.title}</h3>

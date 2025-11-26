@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Keep your existing imports exactly as they are
 import des1 from "../../../public/webdesign/des1.png";
 import des2 from "../../../public/webdesign/des2.png";
 import des3 from "../../../public/webdesign/des3.png";
@@ -68,15 +70,14 @@ const webDesignProjects = [
 
 const tags = [
   "Website Designing",
-  "Responsive Web Designing",
+  "Responsive Design", // Shortened slightly for better fit
   "Web Development",
 ];
 
-const itemsPerPage =6;
+const itemsPerPage = 6;
 
 const Page = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
   const totalPages = Math.ceil(webDesignProjects.length / itemsPerPage);
 
   const firstIndex = (currentPage - 1) * itemsPerPage;
@@ -93,104 +94,124 @@ const Page = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b  px-6 py-16 mt-20 md:py-24">
-         <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
-        <span className="text-black">Our</span>  Websites
-        </h2>
-        <p className="roboto-text">
+    <section className="bg-gray-50 px-6 py-16 mt-20 md:py-24 min-h-screen">
+      {/* Header */}
+      <div className="max-w-3xl mx-auto text-center mb-16">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight mb-4"
+        >
+          <span className="text-gray-900">Our</span> Websites
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="roboto-text text-gray-600 text-lg max-w-xl mx-auto"
+        >
           A showcase of our custom-built websites designed to elevate brands, enhance engagement,
-  and deliver exceptional digital experiences.
-        </p>
+          and deliver exceptional digital experiences.
+        </motion.p>
       </div>
+
       {/* GRID */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-        {currentProjects.map((p, i) => (
-          <div
-            key={i}
-            className="border border-slate-400 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
-          >
-            <div className="relative h-56 w-full overflow-hidden">
-              <img
-                src={p.img.src}
-                alt={p.client}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="p-4 space-y-2">
-              <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
-                {p.client}
-              </h3>
-
-              <p className="text-slate-600 text-[15px]">
-                Project: Website Designing
-              </p>
-
-              <div className="flex flex-wrap gap-2 mt-2">
-                {tags.map((t, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 bg-purple-50 text-purple-700 text-xs font-medium rounded-lg border border-purple-200 shadow-sm"
-                  >
-                    {t}
-                  </span>
-                ))}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <AnimatePresence mode="wait">
+          {currentProjects.map((p, i) => (
+            <motion.div
+              key={`${currentPage}-${i}`} // Force re-render animation on page change
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, delay: i * 0.1 }}
+              className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-300 flex flex-col"
+            >
+              {/* Image Container */}
+              <div className="relative h-56 w-full overflow-hidden bg-gray-100">
+                <img
+                  src={p.img.src}
+                  alt={p.client}
+                  className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Subtle Overlay on Hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
-            </div>
-          </div>
-        ))}
+
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-gray-800 text-lg font-bold uppercase tracking-wide momo-font leading-snug mb-2 group-hover:text-[#ae5c83] transition-colors">
+                  {p.client}
+                </h3>
+
+                <p className="text-gray-500 text-sm font-medium mb-4">
+                  Project: <span className="text-gray-700">Website Designing</span>
+                </p>
+
+                {/* Tags pushed to bottom */}
+                <div className="mt-auto flex flex-wrap gap-2">
+                  {tags.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 bg-[#ae5c83]/5 text-[#ae5c83] text-[11px] font-semibold uppercase tracking-wider rounded-md border border-[#ae5c83]/20"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       {/* PAGINATION */}
-      {/* PAGINATION */}
-<div className="flex justify-center mt-12">
-  <div className="flex items-center gap-2">
+      <div className="flex justify-center mt-16">
+        <div className="flex items-center gap-2 bg-white p-2 rounded-xl shadow-sm border border-gray-100">
 
-    {/* Prev */}
-    <button
-      onClick={() => goToPage(currentPage - 1)}
-      disabled={currentPage === 1}
-      className={`px-4 py-2 rounded-lg border border-slate-400 text-slate-700 font-medium ${
-        currentPage === 1
-          ? "opacity-40 cursor-not-allowed"
-          : "hover:bg-slate-200"
-      }`}
-    >
-      Prev
-    </button>
+          {/* Prev */}
+          <button
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              currentPage === 1
+                ? "text-gray-300 cursor-not-allowed"
+                : "text-gray-600 hover:bg-gray-100 hover:text-[#ae5c83]"
+            }`}
+          >
+            Prev
+          </button>
 
-    {/* Page Numbers */}
-    {Array.from({ length: totalPages }).map((_, idx) => (
-      <button
-        key={idx}
-        onClick={() => goToPage(idx + 1)}
-        className={`px-4 py-2 rounded-lg border text-sm font-medium ${
-          currentPage === idx + 1
-            ? "bg-purple-600 text-white border-purple-600"
-            : "border-slate-400 text-slate-700 hover:bg-slate-200"
-        }`}
-      >
-        {idx + 1}
-      </button>
-    ))}
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => goToPage(idx + 1)}
+              className={`w-10 h-10 rounded-lg text-sm font-bold transition-all ${
+                currentPage === idx + 1
+                  ? "bg-[#ae5c83] text-white shadow-md transform scale-105"
+                  : "text-gray-600 hover:bg-gray-50"
+              }`}
+            >
+              {idx + 1}
+            </button>
+          ))}
 
-    {/* Next */}
-    <button
-      onClick={() => goToPage(currentPage + 1)}
-      disabled={currentPage === totalPages}
-      className={`px-4 py-2 rounded-lg border border-slate-400 text-slate-700 font-medium ${
-        currentPage === totalPages
-          ? "opacity-40 cursor-not-allowed"
-          : "hover:bg-slate-200"
-      }`}
-    >
-      Next
-    </button>
+          {/* Next */}
+          <button
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              currentPage === totalPages
+                ? "text-gray-300 cursor-not-allowed"
+                : "text-gray-600 hover:bg-gray-100 hover:text-[#ae5c83]"
+            }`}
+          >
+            Next
+          </button>
 
-  </div>
-</div>
-
+        </div>
+      </div>
     </section>
   );
 };
