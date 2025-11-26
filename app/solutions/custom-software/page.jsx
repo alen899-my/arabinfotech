@@ -38,153 +38,200 @@ export default function Page() {
     <div className="w-full bg-[#FAFAFA] overflow-x-hidden selection:bg-[#ae5c83] selection:text-white">
       
       {/* ---------------- HERO SECTION: Modern Split Overlay ---------------- */}
-      <div className="relative w-full h-[90vh] flex items-end md:items-center justify-start overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            src="/videos/soft.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover scale-105"
-            onCanPlay={(e) => e.target.play()}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-        </div>
+     <div className="relative w-full min-h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 md:pb-0">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-3xl"
-          >
-            <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
-              <span className="h-[2px] w-12 bg-[#ae5c83]"></span>
-              <span className="text-white !text-white roboto-text uppercase tracking-widest text-sm font-semibold">
-  Next-Gen Engineering
-</span>
+  {/* Video Background */}
+  <div className="absolute inset-0 z-0">
+    <video
+      src="/videos/soft.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      className="w-full h-full object-cover"
+      onCanPlay={(e) => e.target.play()}
+    />
 
-            </motion.div>
+    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+  </div>
 
-            <motion.h1
-              variants={fadeInUp}
-              className="text-5xl md:text-7xl momo-font font-bold text-white leading-[1.1] mb-6"
-            >
-              Software that <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ae5c83] to-[#d88aa5]">
-                Thinks & Scales.
-              </span>
-            </motion.h1>
+  {/* Content */}
+  <div className="relative z-10 w-full max-w-7xl mx-auto px-5 py-20 md:py-0">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      className="max-w-3xl"
+    >
 
-           <motion.p
-  variants={fadeInUp}
-  className="text-white !text-white text-lg md:text-xl roboto-text max-w-xl mb-10 font-light drop-shadow-[0_0_10px_rgba(0,0,0,0.4)]"
->
+      {/* Tagline */}
+      <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-3">
+        <span className="h-[2px] w-10 bg-[#ae5c83]" />
+        <span className="text-white text-xs sm:text-sm tracking-widest uppercase">
+          Next-Gen Engineering
+        </span>
+      </motion.div>
 
-              We craft intelligent digital ecosystems. From complex ERPs to
-              seamless automation, we bridge the gap between concept and code.
-            </motion.p>
+      {/* Heading */}
+      <motion.h1
+        variants={fadeInUp}
+        className="font-bold momo-font leading-tight text-white text-[clamp(2.5rem,6vw,5.5rem)]"
+      >
+        Software that<br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ae5c83] to-[#e5a9c4]">
+          Thinks & Scales.
+        </span>
+      </motion.h1>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-              <Link href="#services">
-                <button className="px-8 py-4 bg-[#ae5c83] text-white rounded-md font-semibold hover:bg-[#964a6d] transition-all flex items-center gap-2 group shadow-lg shadow-[#ae5c83]/30">
-                  Our Expertise
-                  <LuArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-              <Link href="/contact">
-                <button className="px-8 py-4 bg-[#6c53a7] backdrop-blur-md border border-white/20 text-white rounded-md font-semibold hover:bg-[#6c53a7e4] transition-all">
-                  Let's Talk
-                </button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+      {/* Paragraph */}
+      <motion.p
+        variants={fadeInUp}
+        className="text-white !text-white  text-[clamp(1rem,2vw,1.3rem)] roboto-text max-w-xl mt-4 mb-8 font-light leading-relaxed drop-shadow-xl"
+      >
+        We craft intelligent digital ecosystems—From complex ERPs to scalable automation, built to adapt and grow with your business.
+      </motion.p>
 
-        {/* Floating Glass Stats (Modern Touch) */}
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="hidden md:flex absolute bottom-10 right-10 bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl max-w-xs"
-        >
-            <div className="text-white">
-                <p className="text-3xl font-bold momo-font">98%</p>
-                <p className="text-sm opacity-80 roboto-text">Client Retention Rate</p>
-            </div>
-            <div className="w-[1px] bg-white/20 mx-6 h-12"></div>
-            <div className="text-white">
-                <p className="text-3xl font-bold momo-font">200+</p>
-                <p className="text-sm opacity-80 roboto-text">Projects Deployed</p>
-            </div>
-        </motion.div>
-      </div>
+      {/* CTA Buttons */}
+      <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+        <Link href="#services">
+          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#ae5c83] text-white rounded-md font-semibold hover:bg-[#964a6d] transition flex items-center gap-2 group shadow-lg shadow-[#ae5c83]/40">
+            Our Expertise
+            <LuArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </Link>
+
+        <Link href="/contact">
+          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#6c53a7] border border-white/20 text-white rounded-md font-semibold hover:bg-[#5a4897] transition">
+            Let’s Talk
+          </button>
+        </Link>
+      </motion.div>
+    </motion.div>
+  </div>
+
+  {/* Floating Stats — Show only from md breakpoint */}
+  <motion.div 
+    initial={{ opacity: 0, x: 50 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 1, duration: 0.8 }}
+    className="hidden md:flex absolute bottom-10 right-10 bg-white/10 backdrop-blur-xl border border-white/10 p-6 rounded-2xl max-w-xs space-x-6"
+  >
+    <div className="text-white">
+      <p className="text-3xl font-bold momo-font">98%</p>
+      <p className="text-sm opacity-80 roboto-text">Client Retention</p>
+    </div>
+    <div className="w-[1px] bg-white/20 h-10" />
+    <div className="text-white">
+      <p className="text-3xl font-bold momo-font">200+</p>
+      <p className="text-sm opacity-80 roboto-text">Projects Shipped</p>
+    </div>
+  </motion.div>
+</div>
+
 
       {/* ---------------- FEATURES SECTION (New Content) ---------------- */}
-      <section className="py-15 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="text-[#6c53a7] font-bold tracking-wider uppercase text-sm mb-2 roboto-text">
-              Why Choose Us
-            </motion.h2>
-            <motion.h3 variants={fadeInUp} className="text-4xl md:text-5xl momo-font font-bold text-gray-900 mb-6 leading-tight">
-              Beyond just code. <br/> We build <span className="text-[#ae5c83]">Business Assets.</span>
-            </motion.h3>
-            <motion.p variants={fadeInUp} className="text-gray-600 roboto-text text-lg mb-8 leading-relaxed">
-              We don't just deliver software; we deliver reliability. Our architecture is designed for high-traffic environments and complex data relationships.
-            </motion.p>
-            
-            <motion.div variants={fadeInUp} className="space-y-4">
-                {[
-                    { title: "Scalable Architecture", desc: "Built to handle millions of requests without breaking.", icon: LuLayers },
-                    { title: "Bank-Grade Security", desc: "Data encryption and role-based access control.", icon: LuShieldCheck },
-                    { title: "Lightning Fast", desc: "Optimized React & Next.js patterns for speed.", icon: LuZap },
-                ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                        <div className="mt-1 p-2 bg-[#f8f2f5] text-[#ae5c83] rounded-lg">
-                            <item.icon size={20} />
-                        </div>
-                        <div>
-                            <h4 className="font-bold momo-font text-gray-800">{item.title}</h4>
-                            <p className="text-sm text-gray-500 roboto-text">{item.desc}</p>
-                        </div>
-                    </div>
-                ))}
-            </motion.div>
-          </motion.div>
+  <section className="py-8 md:py-20 px-4 md:px-6 bg-white">
+  {/* Reduced gap on mobile (gap-6) and padding (py-8) */}
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2  md:gap-16 items-center">
 
-          <motion.div 
-             initial={{ opacity: 0, scale: 0.9 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.8 }}
-             className="relative h-[500px] w-full bg-[#f8f2f5] rounded-[2rem] overflow-hidden"
-          >
-             {/* Abstract Graphic Element */}
-             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 bg-[#ae5c83]/20 rounded-full blur-3xl absolute top-10 left-10"></div>
-                <div className="w-64 h-64 bg-[#6c53a7]/20 rounded-full blur-3xl absolute bottom-10 right-10"></div>
-                
-                <div className="relative z-10 bg-white/60 backdrop-blur-xl p-8 rounded-2xl shadow-xl border border-white/50 max-w-sm">
-                    <LuWorkflow size={40} className="text-[#6c53a7] mb-4" />
-                    <h4 className="text-2xl momo-font font-bold text-gray-800 mb-2">Workflow Engine</h4>
-                    <p className="text-gray-600 roboto-text text-sm">Automating complex business logic with precision and style.</p>
-                    <div className="mt-6 flex gap-2">
-                        <span className="h-2 w-full bg-[#ae5c83] rounded-full opacity-80"></span>
-                        <span className="h-2 w-1/3 bg-[#6c53a7] rounded-full opacity-40"></span>
-                    </div>
-                </div>
-             </div>
-          </motion.div>
+    {/* LEFT CONTENT */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={staggerContainer}
+    >
+      <motion.h2 
+        variants={fadeInUp} 
+        className="text-[#6c53a7] font-bold tracking-wider uppercase text-xs md:text-sm mb-2 roboto-text"
+      >
+        Why Choose Us
+      </motion.h2>
+
+      <motion.h3 
+        variants={fadeInUp} 
+        className="text-2xl sm:text-3xl md:text-5xl momo-font font-bold text-gray-900 mb-3 md:mb-6 leading-tight"
+      >
+        Beyond just code. <br/> We build <span className="text-[#ae5c83]">Business Assets.</span>
+      </motion.h3>
+
+      <motion.p 
+        variants={fadeInUp} 
+        className="text-gray-600 roboto-text text-sm sm:text-base md:text-lg mb-6 md:mb-8 leading-relaxed"
+      >
+        We don't just deliver software; we deliver reliability. Our architecture is designed for high-traffic environments and complex data relationships. 
+        
+      </motion.p>
+      
+      <motion.div 
+        variants={fadeInUp} 
+        className="space-y-3 md:space-y-4"
+      >
+        {[
+  {
+    title: "Scalable Architecture",
+    desc: "Built to handle millions of requests without breaking.Whether you're growing gradually or scaling globally — performance stays consistent.",
+    desc2: "Whether you're growing gradually or scaling globally — performance stays consistent.",
+    icon: LuLayers
+  },
+  {
+    title: "Bank-Grade Security",
+    desc: "Data encryption and role-based access control.We follow industry-standard security compliance including OWASP, GDPR, and ISO practices.",
+    desc2: "We follow industry-standard security compliance including OWASP, GDPR, and ISO practices.",
+    icon: LuShieldCheck
+  },
+  {
+    title: "Lightning Fast",
+    desc: "Optimized React & Next.js patterns for speed.From caching to lazy loading — every millisecond is engineered for smoother UX.",
+    desc2: "From caching to lazy loading — every millisecond is engineered for smoother UX.",
+    icon: LuZap
+  }
+].map((item, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <div className="mt-1 p-2 bg-[#f8f2f5] text-[#ae5c83] rounded-lg shrink-0">
+              <item.icon size={18} />
+            </div>
+            <div>
+              <h4 className="font-bold momo-font text-gray-800 text-sm md:text-base">{item.title}</h4>
+              <p className="text-xs md:text-sm text-gray-500 roboto-text leading-tight">{item.desc}</p>
+              
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </motion.div>
+
+    {/* RIGHT VISUAL */}
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="relative h-[300px] sm:h-[420px] md:h-[500px] w-full bg-[#f8f2f5] rounded-xl md:rounded-[2rem] overflow-hidden mt-2 md:mt-0"
+    >
+      <div className="absolute inset-0 flex items-center justify-center">
+        {/* Blurs */}
+        <div className="w-40 md:w-64 h-40 md:h-64 bg-[#ae5c83]/20 rounded-full blur-3xl absolute top-6 md:top-10 left-6" />
+        <div className="w-40 md:w-64 h-40 md:h-64 bg-[#6c53a7]/20 rounded-full blur-3xl absolute bottom-6 md:bottom-10 right-6" />
+        
+        {/* Glass Card - Width increased for mobile (w-[90%]) */}
+        <div className="relative z-10 bg-white/60 backdrop-blur-xl p-5 md:p-8 rounded-2xl shadow-xl border border-white/50 w-[90%] sm:max-w-sm">
+          <LuWorkflow size={32} className="text-[#6c53a7] mb-3 md:mb-4" />
+          <h4 className="text-lg md:text-2xl momo-font font-bold text-gray-800 mb-1 md:mb-2">Workflow Engine</h4>
+          <p className="text-gray-600 roboto-text text-xs md:text-sm">
+            Automating complex business logic with precision and style.
+          </p>
+          <div className="mt-4 md:mt-6 flex gap-2">
+            <span className="h-2 w-full bg-[#ae5c83] rounded-full opacity-80" />
+            <span className="h-2 w-1/3 bg-[#6c53a7] rounded-full opacity-40" />
+          </div>
         </div>
-      </section>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* ---------------- BENTO GRID SERVICES ---------------- */}
       <section id="services" className="w-full bg-[#1a1a1a] py-20 px-6 text-white">
@@ -196,7 +243,7 @@ export default function Page() {
         <h2 className="text-4xl md:text-5xl momo-font font-bold text-white mb-3">
           Our Capabilities
         </h2>
-        <p className="text-gray-400 roboto-text max-w-md text-sm md:text-base">
+        <p className="text-white !text-white  roboto-text max-w-md text-sm md:text-base">
           Modular, powerful, and designed for the future. Explore our core technical services.
         </p>
       </div>
@@ -396,7 +443,7 @@ export default function Page() {
   );
 }
 
-// Helper component for the Bento Grid smaller items
+
 function ServiceCard({ title, icon, desc, color }) {
     return (
         <motion.div 
