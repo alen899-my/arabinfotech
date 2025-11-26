@@ -66,11 +66,9 @@ export default function Page() {
     >
 
       {/* Tagline */}
-      <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-3">
-        <span className="h-[2px] w-10 bg-[#ae5c83]" />
-        <span className="text-white text-xs sm:text-sm tracking-widest uppercase">
-          Next-Gen Engineering
-        </span>
+      <motion.div variants={fadeInUp} className="flex items-center gap-3 ">
+      
+        
       </motion.div>
 
       {/* Heading */}
@@ -102,7 +100,7 @@ export default function Page() {
         </Link>
 
         <Link href="/contact">
-          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#6c53a7] border border-white/20 text-white rounded-md font-semibold hover:bg-[#5a4897] transition">
+          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#6c53a7]  text-white rounded-md font-semibold hover:bg-[#5a4897] transition">
             Let’s Talk
           </button>
         </Link>

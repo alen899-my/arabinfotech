@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-
+import { motion } from "framer-motion";
 import ec1 from "../../../public/ecom/ec1.png";
 import ec2 from "../../../public/ecom/ec2.png";
 import ec3 from "../../../public/ecom/ec3.png";
@@ -87,28 +87,69 @@ const ecommerceProjects = [
   },
 ];
 
+/* ------------------------------------------
+   ANIMATION VARIANTS
+------------------------------------------- */
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Delay between each card showing up
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const Page = () => {
   return (
-    <section className="bg-gradient-to-b  px-6 py-16 mt-20 md:py-24">
-          <div className="max-w-3xl mx-auto text-center">
+    <section className="bg-gradient-to-b px-6 py-16 mt-20 md:py-24">
+      {/* HEADER ANIMATION */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mx-auto text-center"
+      >
         <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
-         <span className="text-black">Our</span>  E-Commerce Websites
+          <span className="text-black">Our</span> E-Commerce Websites
         </h2>
-        <p className="roboto-text">
-         Explore our e-commerce builds—designed for speed, user-friendly navigation, and seamless
-  checkout experiences that increase customer satisfaction.
+        <p className="roboto-text mt-4">
+          Explore our e-commerce builds—designed for speed, user-friendly
+          navigation, and seamless checkout experiences that increase customer
+          satisfaction.
         </p>
-      </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      </motion.div>
 
+      {/* GRID ANIMATION CONTAINER */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-12"
+      >
         {ecommerceProjects.map((p, i) => (
-          <div
+          <motion.div
             key={i}
-            className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-300 "
+            variants={cardVariants}
+            whileHover={{ y: -8 }} // Slight lift effect on hover
+            className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-300"
           >
             {/* IMAGE */}
             <div className="relative h-56 w-full overflow-hidden">
-              <img
+              <motion.img
+                whileHover={{ scale: 1.05 }} // Zoom effect on hover
+                transition={{ duration: 0.5 }}
                 src={p.img.src}
                 alt={p.client}
                 className="w-full h-full object-cover"
@@ -117,14 +158,11 @@ const Page = () => {
 
             {/* CONTENT */}
             <div className="p-4 space-y-2">
-
-            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
+              <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">
                 {p.client}
               </h3>
 
-                <p className="text-slate-600 text-[15px]">
-                {p.project}
-              </p>
+              <p className="text-slate-600 text-[15px]">{p.project}</p>
 
               {/* TAGS */}
               <div className="flex flex-wrap gap-2 mt-2">
@@ -138,11 +176,9 @@ const Page = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-
-      </div>
-
+      </motion.div>
     </section>
   );
 };

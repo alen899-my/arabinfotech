@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import { motion } from 'framer-motion'; // Import Framer Motion
 
 // ==== IMAGE IMPORTS ====
 import val1 from "../../../public/valets/val1.png";
@@ -13,9 +16,28 @@ import val9 from "../../../public/valets/val9.png";
 import val10 from "../../../public/valets/val10.png";
 import val11 from "../../../public/valets/val11.png";
 import val12 from "../../../public/valets/val12.png";
-// val13 was missing in your original list
 import val14 from "../../../public/valets/val14.png";
 import val15 from "../../../public/valets/val15.png";
+
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Stagger effect for cards
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 const ProjectShowcase = () => {
   const data = {
@@ -121,32 +143,45 @@ const ProjectShowcase = () => {
   };
 
   return (
-    <div className="min-h-screen mt-30   py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen mt-30 py-12 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-6">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
-         <span className="text-black">Our</span>  Valet Software Solutions
-        </h2>
-       <p className="roboto-text">
-  Powerful valet automation tools built to optimize traffic flow, digitize
-  operations, track workforce performance, and ensure seamless guest arrivals
-  across high-demand venues.
-</p>
-      </div>
-    </div>
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-6"
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold momo-font text-[#ae5c83] leading-tight ">
+            <span className="text-black">Our</span> Valet Software Solutions
+          </h2>
+          <p className="roboto-text">
+            Powerful valet automation tools built to optimize traffic flow, digitize
+            operations, track workforce performance, and ensure seamless guest arrivals
+            across high-demand venues.
+          </p>
+        </div>
+      </motion.div>
 
       {/* Grid Layout */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+      >
         {data.entries.map((entry, index) => (
-          <article 
-            key={index} 
+          <motion.article 
+            key={index}
+            variants={cardVariants}
             className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-300 flex flex-col"
           >
             {/* Image Container */}
             <div className="relative h-56 overflow-hidden bg-slate-200 group">
               <img 
-                src={entry.image.src || entry.image} // Handles Next.js StaticImageData or standard string imports
+                src={entry.image.src || entry.image}
                 alt={entry.Client} 
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
@@ -179,9 +214,9 @@ const ProjectShowcase = () => {
                 <p>{entry.About_Client}</p>
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
