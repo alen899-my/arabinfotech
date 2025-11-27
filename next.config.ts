@@ -35,6 +35,26 @@ const nextConfig: NextConfig = {
         source: "/valet-parking",
         destination: "/solutions/valet-parking",
       },
+      {
+        source:"/attendance-payroll-system",
+        destination:"/solutions/softwaresolutions/attendance-payroll-system"
+      },
+      {
+        source:"/auto-garage-system",
+        destination:"/solutions/softwaresolutions/auto-garage-system"
+      },
+      {
+        source:"/manufacturers-project-lifecycle-system",
+        destination:"/solutions/softwaresolutions/manufacturers-project-lifecycle-system"
+      },
+      {
+        source:"/materials-requirement-planning-system",
+        destination:"/solutions/softwaresolutions/materials-requirement-planning-system"
+      },
+      {
+        source:"/property-rentals-management-system",
+        destination:"/solutions/softwaresolutions/property-rentals-management-system"
+      }
     ];
   },
 };
