@@ -36,7 +36,7 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
-        <GetaQuote/>
+       
         <Toaster position="top-center" />
        <Footer/>
       </body>
