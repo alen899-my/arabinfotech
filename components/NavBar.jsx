@@ -30,13 +30,13 @@ export default function NavBar() {
   const isActive = (p) => pathname === p || pathname.startsWith(p);
 
   const SOLUTIONS = [
-    {label:"Valet Parking",href:"/solutions/valet-parking"},
-    {label:"Splunk professional",href:"/solutions/splunk-proffesional-service"},
-    {label:"ShortList Pro",href:"/solutions/shortlist-pro"},
-    {label:"Cometency analysis system",href:"/solutions/cometency-analysis-system"},
-    {label:"Manpower supply solution",href:"/solutions/manpower-supply-software"},
-    { label: "Custom Software", href: "/solutions/custom-software", icon: <Monitor size={18} /> },
-    { label: "Mobile Apps", href: "/solutions/custom-application", icon: <Smartphone size={18} /> }
+    {label:"Valet Parking",href:"/valet-parking"},
+    {label:"Splunk professional",href:"/splunk-proffesional-service"},
+    {label:"ShortList Pro",href:"/shortlist-pro"},
+    {label:"Cometency analysis system",href:"/competency-analysis-system"},
+    {label:"Manpower supply solution",href:"/manpower-supply-software"},
+    { label: "Custom Software", href: "/custom-software", icon: <Monitor size={18} /> },
+    { label: "Mobile Apps", href: "/custom-application", icon: <Smartphone size={18} /> }
   ];
 
   const LINKS = [

@@ -227,7 +227,7 @@ export default function CompetencyAnalysisPage() {
 // --- SUB-COMPONENT ---
 function ToolCard({ title, desc, metric, val }) {
   return (
-    <div className="group relative p-4 bg-white border border-slate-200 rounded-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+    <div className="group relative p-4 bg-white border border-slate-400 rounded-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
        <div className="absolute top-0 left-0 w-full h-1 bg-slate-100 group-hover:bg-[#ae5c83] transition-colors rounded-t-xl"></div>
        
        <div className="flex justify-between items-start mb-6">
