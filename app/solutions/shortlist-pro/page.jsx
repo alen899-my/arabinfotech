@@ -82,7 +82,7 @@ export default function ShortlistProPage() {
       
 
       {/* SECTION 2: CORE MODULES (The Functional Grid) */}
-      <section className="py-12 px-6 bg-white">
+      <section className="py- px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className=" border-l-4 border-[#ae5c83] pl-6">
             <h3 className="momo-font text-2xl font-bold text-slate-900">Core Modules</h3>
