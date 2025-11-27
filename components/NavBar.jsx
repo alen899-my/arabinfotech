@@ -31,7 +31,7 @@ export default function NavBar() {
 
   const SOLUTIONS = [
     {label:"Valet Parking",href:"/solutions/valet-parking"},
-    {label:"Splunk professional",href:"/solutions/splunk-proffesional-software"},
+    {label:"Splunk professional",href:"/solutions/splunk-proffesional-service"},
     {label:"ShortList Pro",href:"/solutions/shortlist-pro"},
     {label:"Cometency analysis system",href:"/solutions/cometency-analysis-system"},
     {label:"Manpower supply solution",href:"/solutions/manpower-supply-software"},
