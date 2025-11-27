@@ -81,6 +81,14 @@ const accentColor = "#ae5c83";
       icon: <CreditCard size={32} />,
     },
   ];
+  const industries = [
+  "5-star Hotels",
+  "Airports",
+  "Hospitals",
+  "Shopping Malls",
+  "Government Offices",
+  "Residential And Commercial properties",
+];
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -89,7 +97,7 @@ const itemVariants = {
     transition: { duration: 0.5, ease: "easeOut" },
   },
 };
-// Data for the features grid consolidated into one clear list
+
 const featuresList = [
   {
     icon: <ReceiptText size={28} />,
@@ -150,9 +158,12 @@ export default function ValetParkingModernPage() {
             className="text-left space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-block py-1 px-3 rounded-full bg-[#ae5c83]/10 text-[#ae5c83] text-sm font-semibold tracking-wide uppercase mb-4">
-               Valet Parking Solution ( aitEdge-VPS )
+             <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded border border-slate-200 bg-white shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#ae5c83]"></span>
+              <span className="font-roboto text-xs font-bold tracking-widest uppercase text-slate-500">
+                Valet Parking Service
               </span>
+            </div>
               <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight momo-font">
                 Reimagining the
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#ae5c83] to-[#8a4262]">
@@ -291,7 +302,57 @@ export default function ValetParkingModernPage() {
         </div>
       </div>
     </section>
+ <section className="py-10 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-6">
+        <h4 className="momo-font text-sm font-bold text-slate-400 uppercase tracking-widest">
+          Industries We Serve
+        </h4>
+      </div>
 
+      {/* Marquee Container */}
+      <div className="relative flex w-full overflow-hidden mask-gradient">
+        
+        {/* Gradient Masks for smooth fade in/out effect */}
+        <div className="absolute top-0 left-0 z-10 w-20 h-full bg-gradient-to-r from-white to-transparent pointer-events-none" />
+        <div className="absolute top-0 right-0 z-10 w-20 h-full bg-gradient-to-l from-white to-transparent pointer-events-none" />
+
+        {/* Moving Track 1 */}
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex flex-shrink-0 gap-6 px-3"
+        >
+          {industries.map((ind, i) => (
+            <IndustryTag key={`a-${i}`} text={ind} />
+          ))}
+        </motion.div>
+
+        {/* Moving Track 2 (Duplicate for seamless loop) */}
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex flex-shrink-0 gap-6 px-3"
+        >
+          {industries.map((ind, i) => (
+            <IndustryTag key={`b-${i}`} text={ind} />
+          ))}
+        </motion.div>
+
+        {/* Moving Track 3 (Extra buffer for wide screens) */}
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex flex-shrink-0 gap-6 px-3"
+        >
+          {industries.map((ind, i) => (
+            <IndustryTag key={`c-${i}`} text={ind} />
+          ))}
+        </motion.div>
+      </div>
+    </section>
 
   <section className="py-20 px-6 bg-slate-50 border-y border-slate-200 font-sans">
       <div className="max-w-6xl mx-auto">
@@ -411,3 +472,10 @@ export default function ValetParkingModernPage() {
   );
 }
 
+function IndustryTag({ text }) {
+  return (
+    <span className="flex-shrink-0 px-8 py-3 momo-font text-gray-600  border border-slate-300 rounded-lg shadow-sm whitespace-nowrap text-lg">
+      {text}
+    </span>
+  );
+}
