@@ -130,7 +130,7 @@ export default function NavBar() {
 
             <button
               onClick={() => setModalOpen(true)}
-              className="px-5 py-2 bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white rounded-full text-sm shadow-md hover:scale-[1.05] transition">
+              className="px-6 py-3 bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white rounded-full text-sm shadow-md hover:scale-[1.05] transition">
               Get a Quote
             </button>
           </div>

@@ -175,7 +175,7 @@ export default function SplunkPage() {
       </div>
     </section>
       {/* 3. RICH CONTENT SERVICES (Masonry Style Layout) */}
-      <section className="py-12 px-6 bg-slate-50 border-y border-slate-200">
+      <section className="py-12 px-6  border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center ">
             <h2 className="momo-font text-4xl font-bold text-slate-900">Our Services</h2>
@@ -321,7 +321,7 @@ export default function SplunkPage() {
 
 function FeatureCard({ title, content }) {
   return (
-    <div className="p-8 border border-[#ae5c83] bg-slate-50 hover:bg-white hover:shadow-lg transition-all duration-300 group">
+    <div className="p-8 border border-[#ae5c83]  hover:bg-white hover:shadow-lg transition-all duration-300 group">
       <div className="w-12 h-12 bg-white border border-slate-200 flex items-center justify-center rounded mb-6 group-hover:border-[#ae5c83]">
         <MousePointerClick className="text-slate-400 group-hover:text-[#ae5c83] transition-colors" size={24} />
       </div>

@@ -143,7 +143,7 @@ export default function ValetParkingModernPage() {
   const accentColor = "#ae5c83";
 
   return (
-    <div className="w-full bg-slate-50 overflow-hidden font-sans">
+    <div className="w-full  overflow-hidden font-sans">
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-24 px-6">
         {/* Subtle Background Element */}
@@ -190,7 +190,7 @@ export default function ValetParkingModernPage() {
 </Link>
            <button
   onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
-  className="px-8 py-3 bg-white text-slate-700 border border-slate-200 rounded-lg font-semibold hover:border-[#ae5c83]/50 hover:bg-slate-50 transition-all"
+  className="px-8 py-3 bg-white text-slate-700 border border-slate-200 rounded-lg font-semibold hover:border-[#ae5c83]/50 hover: transition-all"
 >
   View Features
 </button>
@@ -275,7 +275,7 @@ export default function ValetParkingModernPage() {
         </div>
 
         {/* Image + Floating Notification */}
-        <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-50">
+        <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg border border-slate-200 ">
           <Image
             src={vp}
             alt="Valet Parking Software Preview"
@@ -354,7 +354,7 @@ export default function ValetParkingModernPage() {
       </div>
     </section>
 
-  <section className="py-20 px-6 bg-slate-50 border-y border-slate-200 font-sans">
+  <section className="py-20 px-6  border-y border-slate-200 font-sans">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 momo-font mb-4">

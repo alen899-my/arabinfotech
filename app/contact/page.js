@@ -197,7 +197,7 @@ const [message, setMessage] = useState("");
                       <input 
                         type="text" value={name} required
   onChange={(e) => setName(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        className="w-full  border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="John Doe"
                       />
                     </div>
@@ -211,7 +211,7 @@ const [message, setMessage] = useState("");
                         type="email"  
   value={email}
   onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        className="w-full  border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -224,7 +224,7 @@ const [message, setMessage] = useState("");
                       <MessageSquare className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <textarea  value={message}
   onChange={(e) => setMessage(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
+                        className="w-full  border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
                         placeholder="Tell us a bit about your project goals..."
                       />
                    </div>

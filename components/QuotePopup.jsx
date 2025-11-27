@@ -155,7 +155,7 @@ export default function QuotePopup({ open, onClose }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl  border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                 />
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function QuotePopup({ open, onClose }) {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl  border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                   />
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function QuotePopup({ open, onClose }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="john@company.com"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl  border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                   />
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function QuotePopup({ open, onClose }) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Tell us about your project…"
-                  className="w-full pl-10 pr-4 py-2.5 h-28 bg-slate-50 rounded-xl border border-slate-400 text-gray-900 text-sm resize-none
+                  className="w-full pl-10 pr-4 py-2.5 h-28  rounded-xl border border-slate-400 text-gray-900 text-sm resize-none
                    focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                 />
               </div>
