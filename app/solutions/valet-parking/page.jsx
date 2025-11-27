@@ -160,7 +160,7 @@ export default function ValetParkingModernPage() {
             <motion.div variants={itemVariants}>
              <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded border border-slate-200 bg-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#ae5c83]"></span>
-              <span className="font-roboto text-xs font-bold tracking-widest uppercase text-slate-500">
+              <span className="roboto-texttext-xs font-bold tracking-widest uppercase text-slate-500">
                 Valet Parking Service
               </span>
             </div>
@@ -227,7 +227,7 @@ export default function ValetParkingModernPage() {
       </section>
 
       {/* ================= THE PROBLEM & SOLUTION ================= */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-5 px-6 bg-white">
       {/* Heading */}
       <div className="max-w-4xl mx-auto text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 momo-font">
@@ -302,7 +302,7 @@ export default function ValetParkingModernPage() {
         </div>
       </div>
     </section>
- <section className="py-10 bg-white overflow-hidden">
+ <section className="py-5 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center mb-6">
         <h4 className="momo-font text-sm font-bold text-slate-400 uppercase tracking-widest">
           Industries We Serve
@@ -354,7 +354,7 @@ export default function ValetParkingModernPage() {
       </div>
     </section>
 
-  <section className="py-20 px-6  border-y border-slate-200 font-sans">
+  <section className="py-5 px-6  border-y border-slate-200 font-sans">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 momo-font mb-4">
@@ -403,7 +403,7 @@ export default function ValetParkingModernPage() {
     </section>
 
       {/* ================= KEY FEATURES & BENEFITS GRID ================= */}
-      <section id="features" className="py-24 px-6 bg-white">
+      <section id="features" className="py-5 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 momo-font">

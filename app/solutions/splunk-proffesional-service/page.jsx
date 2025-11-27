@@ -36,7 +36,7 @@ const spaceMono = Space_Mono({
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--roboto-text ",
 });
 
 // --- CONSTANTS ---
@@ -71,7 +71,7 @@ export default function SplunkPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded border border-slate-200 bg-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#ae5c83]"></span>
-              <span className="font-roboto text-xs font-bold tracking-widest uppercase text-slate-500">
+              <span className="roboto-texttext-xs font-bold tracking-widest uppercase text-slate-500">
                 Splunk Professional Services
               </span>
             </div>
@@ -95,7 +95,7 @@ export default function SplunkPage() {
       </section>
 
       {/* 2. WHY CHOOSE US (Clean Grid) */}
-      <section className="py-12 px-6 bg-white">
+      <section className="py-5 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="mb-6">
             <h3 className="font-momo text-3xl font-bold mb-2">Why Choose Us?</h3>
@@ -123,7 +123,7 @@ export default function SplunkPage() {
 
 
 
-    <section className="py-10 bg-white overflow-hidden">
+    <section className="py-5 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center mb-6">
         <h4 className="momo-font text-sm font-bold text-slate-400 uppercase tracking-widest">
           Industries We Serve
@@ -175,7 +175,7 @@ export default function SplunkPage() {
       </div>
     </section>
       {/* 3. RICH CONTENT SERVICES (Masonry Style Layout) */}
-      <section className="py-12 px-6  border-y border-slate-200">
+      <section className="py-5 px-6  border-y border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center ">
             <h2 className="momo-font text-4xl font-bold text-slate-900">Our Services</h2>
@@ -354,7 +354,7 @@ function ServiceBlock({ title, items, icon: Icon }) {
         </h3>
       </div>
       
-      <ul className="space-y-2 font-roboto flex-grow">
+      <ul className="space-y-2 roboto-textflex-grow">
         {items.map((item, idx) => {
            // Split the content into Bold Header and Regular Text
            const [head, body] = item.includes(':') ? item.split(':') : [item, ''];

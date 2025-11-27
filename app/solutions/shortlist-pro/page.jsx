@@ -29,7 +29,7 @@ const spaceMono = Space_Mono({
 const roboto = Roboto({ 
   weight: ["300", "400", "500", "700"], 
   subsets: ["latin"], 
-  variable: "--font-roboto" 
+  variable: "--roboto-text " 
 });
 
 // --- CONSTANTS ---
@@ -64,7 +64,7 @@ export default function ShortlistProPage() {
               ShortlistPRO
             </h2>
 
-            <p className="font-roboto text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="roboto-texttext-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
               ShortlistPRO makes it easier for companies to analyze and filter resumes, identifying the most qualified candidates in seconds.
             </p>
 
@@ -128,7 +128,7 @@ export default function ShortlistProPage() {
      
 
       {/* SECTION 3: KEY FEATURES & FOOTER */}
-      <section className="py-1 px-6 bg-[#fafafa] border-t border-slate-200">
+      <section className="py-1 px-6 bg-[#fafafa] ">
         <div className="max-w-6xl mx-auto">
           <div className=" border-l-4 border-[#ae5c83] pl-6">
             <h3 className="momo-font text-2xl font-bold text-slate-900">Core Functionalities</h3>
@@ -157,6 +157,27 @@ export default function ShortlistProPage() {
 
         </div>
       </section>
+          <section className="relative z-10 -mt-5 px-4 ">
+        <div className="max-w-4xl mx-auto text-center   py-14 px-6 ">
+
+          <h3 className="text-3xl md:text-4xl momo-font font-bold text-[#ae5c83]">
+            Explore Our Solutions
+          </h3>
+
+          <p className="text-gray-500 text-s leading-relaxed mt-1 momo-font">
+            Discover a variety of innovative digital tools and technologies 
+            tailored to elevate your business performance and accelerate growth.
+          </p>
+
+          <a
+            href="/contact"
+            className="inline-block mt-6 momo-font px-6 py-4 bg-[#6c53a7] text-white rounded-xl font-semibold shadow-lg hover:bg-[#5b4390] transition-all"
+          >
+            Portfolio →
+          </a>
+
+        </div>
+      </section>
 
     </main>
   );
@@ -166,10 +187,10 @@ export default function ShortlistProPage() {
 
 function ModuleCard({ icon: Icon, title, desc }) {
   return (
-    <div className="bg-white border border-[#ae5c83] p-5 hover:bg-[#faf3f7] transition-colors group h-full">
+    <div className="bg-white border border-[#ae5c83] p-5 hover:bg-[#faf3f7] rounded-md transition-colors group h-full">
       <Icon className="w-10 h-10 text-slate-500 group-hover:text-[#ae5c83] mb-6 transition-colors" />
       <h4 className="momo-font text-lg font-bold text-slate-900 mb-3">{title}</h4>
-      <p className="font-roboto text-slate-500 text-sm leading-relaxed">
+      <p className="roboto-texttext-slate-500 text-sm leading-relaxed">
         {desc}
       </p>
     </div>
@@ -178,12 +199,12 @@ function ModuleCard({ icon: Icon, title, desc }) {
 
 function FeatureItem({ icon: Icon, title, desc }) {
   return (
-    <div className="flex flex-col border border-[#ae5c83] items-center text-center p-2">
+    <div className="flex flex-col border border-[#ae5c83] items-center rounded-md text-center p-2">
       <div className="w-14 h-14 bg-white border border-slate-300 rounded-full flex items-center justify-center mb-4 shadow-sm text-[#ae5c83]">
         <Icon size={24} />
       </div>
       <h4 className="momo-font text-lg font-bold text-slate-900 mb-2">{title}</h4>
-      <p className="font-roboto text-slate-500 text-sm max-w-xs">
+      <p className="roboto-texttext-slate-500 text-sm max-w-xs">
         {desc}
       </p>
     </div>
