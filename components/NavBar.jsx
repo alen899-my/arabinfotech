@@ -170,10 +170,10 @@ export default function NavBar() {
                     </button>
 
                     {mobileSolutionsOpen && (
-                      <div className="bg-gray-50 p-2 rounded-xl">
+                      <div className="p-2 rounded-xl">
                         {SOLUTIONS.map((s, idx) => (
                           <Link key={idx} href={s.href} onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-3 py-3 px-2 rounded-lg hover:bg-white">
+                            className="flex items-center text-slate-600 gap-3 py-3 px-2 rounded-lg hover:text-[#ae5c83]">
                             {s.icon} {s.label}
                           </Link>
                         ))}
