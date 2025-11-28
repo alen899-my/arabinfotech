@@ -75,7 +75,7 @@ const StatBox = ({ value, label }) => (
 
 // --- Main Page Component ---
 const Page = () => {
-  // REMOVED: useScroll and useTransform logic so hero stays visible
+ 
 
   return (
     <div className="min-h-screen w-full bg-[#FAFAFA] text-black selection:bg-[#6c53a7] selection:text-white pb-20">
@@ -87,7 +87,7 @@ const Page = () => {
       </div>
 
       {/* ---------- PRODUCT OVERVIEW SECTION ---------- */}
-      <section className="relative z-10 w-full pt-12 pb-6 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 w-full pt-20 pb-6 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
           animate="visible"
