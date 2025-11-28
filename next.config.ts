@@ -54,6 +54,18 @@ const nextConfig: NextConfig = {
       {
         source:"/property-rentals-management-system",
         destination:"/solutions/softwaresolutions/property-rentals-management-system"
+      },
+      {
+        source:"/email-solutions",
+        destination:"/solutions/domainandserver/email-solutions"
+      },
+      {
+        source:"/google-business",
+        destination:"/solutions/domainandserver/google-business"
+      },
+      {
+        source:"/office365",
+        destination:"/solutions/domainandserver/office365"
       }
     ];
   },

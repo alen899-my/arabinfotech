@@ -40,6 +40,12 @@ export default function NavBar() {
     { label: "Materials Requirement Planning", href: "/materials-requirement-planning-system" },
     { label: "Property Rentals Management", href: "/property-rentals-management-system" },
   ];
+  const EMAILANDDOMAIN=[
+    { label: "Email & Hosting", href: "/email-solutions" },
+    { label: "Google Business", href: "/google-business" },
+    { label: "Office365", href: "/office365" },
+
+  ]
 
   const SOLUTIONS = [
     { label: "Valet Parking", href: "/valet-parking" },
@@ -47,8 +53,9 @@ export default function NavBar() {
     { label: "ShortList Pro", href: "/shortlist-pro" },
     { label: "Competency analysis system", href: "/competency-analysis-system" },
     { label: "Manpower supply solution", href: "/manpower-supply-software" },
-    // This item will trigger the nested menu
+   
     { label: "Software Solutions", href: "#", isNested: true }, 
+    { label: "Email & Domain Solutions", href: "#", isNested: true },
     { label: "Custom Software", href: "/custom-software", icon: <Monitor size={18} /> },
     { label: "Mobile Apps", href: "/custom-application", icon: <Smartphone size={18} /> }
   ];
