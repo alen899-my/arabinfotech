@@ -81,11 +81,7 @@ const MPLSPage = () => {
   return (
     <div className="min-h-screen w-full bg-[#FAFAFA] text-gray-900 selection:bg-[#6c53a7] selection:text-white pb-20">
       
-      {/* Background Decor */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-white via-white to-transparent" />
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#6c53a7]/5 rounded-full blur-[120px]" />
-      </div>
+    
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 pt-32">
         
