@@ -6,18 +6,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
   Menu, X, ChevronDown, ChevronRight, Monitor, Smartphone, 
-  Globe, ShoppingBag, MessageSquareCode, BarChart3, Layers 
+  Globe, ShoppingBag, MessageSquareCode,KeySquare, BarChart3, Layers, Mail 
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import lo from "@/public/lo.jpg"; // Ensure this path is correct in your project
-import QuotePopup from "@/components/QuotePopup"; // Ensure this path is correct
+import lo from "@/public/lo.jpg"; 
+import QuotePopup from "@/components/QuotePopup"; 
 
 export default function NavBar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
-  // New state for the nested mobile dropdown
+  
+  // Mobile dropdown states
   const [mobileSoftwareOpen, setMobileSoftwareOpen] = useState(false); 
+  const [mobileEmailOpen, setMobileEmailOpen] = useState(false);
+
   const [scrolled, setScrolled] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -33,6 +36,7 @@ export default function NavBar() {
 
   const isActive = (p) => pathname === p || pathname.startsWith(p);
 
+  // --- DATA ARRAYS ---
   const SOFTWARE_SOLUTIONS = [
     { label: "Attendance Payroll System", href: "/attendance-payroll-system" },
     { label: "Auto Garage system", href: "/auto-garage-system" },
@@ -40,12 +44,12 @@ export default function NavBar() {
     { label: "Materials Requirement Planning", href: "/materials-requirement-planning-system" },
     { label: "Property Rentals Management", href: "/property-rentals-management-system" },
   ];
-  const EMAILANDDOMAIN=[
+
+  const EMAILANDDOMAIN = [
     { label: "Email & Hosting", href: "/email-solutions" },
     { label: "Google Business", href: "/google-business" },
     { label: "Office365", href: "/office365" },
-
-  ]
+  ];
 
   const SOLUTIONS = [
     { label: "Valet Parking", href: "/valet-parking" },
@@ -54,10 +58,12 @@ export default function NavBar() {
     { label: "Competency analysis system", href: "/competency-analysis-system" },
     { label: "Manpower supply solution", href: "/manpower-supply-software" },
    
-    { label: "Software Solutions", href: "#", isNested: true }, 
-    { label: "Email & Domain Solutions", href: "#", isNested: true },
-    { label: "Custom Software", href: "/custom-software", icon: <Monitor size={18} /> },
-    { label: "Mobile Apps", href: "/custom-application", icon: <Smartphone size={18} /> }
+    // Triggers for nested menus
+    { label: "Software Solutions", href: "#", isNested: true,  }, 
+    { label: "Email & Domain Solutions", href: "#", isNested: true,  },
+    
+    { label: "Custom Software", href: "/custom-software",  },
+    { label: "Mobile Apps", href: "/custom-application",  }
   ];
 
   const LINKS = [
@@ -68,6 +74,13 @@ export default function NavBar() {
     { label: "Portfolio", href: "/portfolio/featured", icon: <Monitor size={20} /> },
     { label: "Contact Us", href: "/contact", icon: <MessageSquareCode size={20} /> }
   ];
+
+  // Helper to get the correct sub-array based on label
+  const getSubItems = (label) => {
+    if (label === "Software Solutions") return SOFTWARE_SOLUTIONS;
+    if (label === "Email & Domain Solutions") return EMAILANDDOMAIN;
+    return [];
+  };
 
   return (
     <>
@@ -113,54 +126,58 @@ export default function NavBar() {
                   </button>
 
                   {/* Dropdown Container */}
-                  <div
-                    className="absolute left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-3 group-hover:translate-y-0 transition-all duration-300 border-t-[3px] border-[#ae5c83]"
-                  >
-                    {/* Note: overflow-hidden removed to allow nested menu to pop out */}
-                    <div className="w-[260px] bg-white shadow-2xl rounded-lg border border-gray-200 p-2">
+                  <div className="absolute left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-3 group-hover:translate-y-0 transition-all duration-300 border-t-[3px] border-[#ae5c83]">
+                    <div className="w-[280px] bg-white shadow-2xl rounded-lg border border-gray-200 p-2">
                       
                       <div className="flex flex-col gap-1">
-                        {SOLUTIONS.map((s, idx) => (
-                          s.isNested ? (
-                            // --- NESTED TRIGGER (Software Solutions) ---
-                            <div key={idx} className="relative group/nested">
-                              <button
-                                className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 group-hover/nested:text-[#ae5c83]"
-                              >
-                                <span className="flex items-center gap-2">
-                                  {s.icon && s.icon}
-                                  {s.label}
-                                </span>
-                                <ChevronRight className="w-4 h-4" />
-                              </button>
+                        {SOLUTIONS.map((s, idx) => {
+                          
+                          // LOGIC FOR DESKTOP NESTED ITEMS
+                          if (s.isNested) {
+                            const subItems = getSubItems(s.label);
 
-                              {/* --- NESTED MENU --- */}
-                              <div className="absolute left-full top-0 pl-2 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300">
-                                <div className="w-[280px] bg-white shadow-2xl rounded-lg border border-gray-200 p-2 border-t-[3px] border-t-[#ae5c83]">
-                                  {SOFTWARE_SOLUTIONS.map((sub, subIdx) => (
-                                    <Link
-                                      key={subIdx}
-                                      href={sub.href}
-                                      className="block px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 text-[13px] font-medium text-gray-600 hover:text-[#ae5c83]"
-                                    >
-                                      {sub.label}
-                                    </Link>
-                                  ))}
+                            return (
+                              <div key={idx} className="relative group/nested">
+                                <button
+                                  className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 group-hover/nested:text-[#ae5c83]"
+                                >
+                                  <span className="flex items-center gap-2">
+                                    {s.icon && s.icon}
+                                    {s.label}
+                                  </span>
+                                  <ChevronRight className="w-4 h-4" />
+                                </button>
+
+                                {/* --- NESTED MENU (Pops out to the right) --- */}
+                                <div className="absolute left-full top-0 pl-2 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300">
+                                  <div className="w-[280px] bg-white shadow-2xl rounded-lg border border-gray-200 p-2 border-t-[3px] border-t-[#ae5c83]">
+                                    {subItems.map((sub, subIdx) => (
+                                      <Link
+                                        key={subIdx}
+                                        href={sub.href}
+                                        className="block px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 text-[13px] font-medium text-gray-600 hover:text-[#ae5c83]"
+                                      >
+                                        {sub.label}
+                                      </Link>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ) : (
-                            // --- STANDARD LINK ---
+                            );
+                          }
+
+                          // STANDARD DESKTOP LINK
+                          return (
                             <Link
-                                key={idx}
-                                href={s.href}
-                                className="flex items-center gap-2 px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 hover:text-[#ae5c83]"
-                              >
-                               
-                                {s.label}
+                              key={idx}
+                              href={s.href}
+                              className="flex items-center gap-2 px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 hover:text-[#ae5c83]"
+                            >
+                              {s.icon}
+                              {s.label}
                             </Link>
-                          )
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -214,42 +231,53 @@ export default function NavBar() {
                     {/* Solutions List */}
                     {mobileSolutionsOpen && (
                       <div className="pl-4 pr-2 pb-4 space-y-2">
-                        {SOLUTIONS.map((s, idx) => (
-                          s.isNested ? (
-                            // --- MOBILE NESTED (Software Solutions) ---
-                            <div key={idx} className="rounded-lg bg-gray-50">
-                              <button 
-                                onClick={() => setMobileSoftwareOpen(!mobileSoftwareOpen)}
-                                className="w-full flex items-center justify-between text-slate-600 py-3 px-3 hover:text-[#ae5c83] font-medium"
-                              >
-                                <span className="flex items-center gap-3">{s.icon} {s.label}</span>
-                                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileSoftwareOpen ? "rotate-180" : ""}`} />
-                              </button>
-                              
-                              {/* Nested Sub-items */}
-                              {mobileSoftwareOpen && (
-                                <div className="pl-6 pr-2 pb-2 space-y-1 border-l-2 border-[#ae5c83] ml-3 mb-2">
-                                  {SOFTWARE_SOLUTIONS.map((sub, subIdx) => (
-                                     <Link 
-                                       key={subIdx} 
-                                       href={sub.href} 
-                                       onClick={() => setMobileOpen(false)}
-                                       className="block text-slate-500 text-sm py-2 hover:text-[#ae5c83]"
-                                     >
-                                       {sub.label}
-                                     </Link>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          ) : (
-                            // --- MOBILE STANDARD LINK ---
+                        {SOLUTIONS.map((s, idx) => {
+                          
+                          // LOGIC FOR MOBILE NESTED ITEMS
+                          if (s.isNested) {
+                            const isSoftware = s.label === "Software Solutions";
+                            // Determine which state to toggle and which array to show
+                            const isOpen = isSoftware ? mobileSoftwareOpen : mobileEmailOpen;
+                            const setOpen = isSoftware ? setMobileSoftwareOpen : setMobileEmailOpen;
+                            const subItems = getSubItems(s.label);
+
+                            return (
+                              <div key={idx} className="rounded-lg bg-gray-50">
+                                <button 
+                                  onClick={() => setOpen(!isOpen)}
+                                  className="w-full flex items-center justify-between text-slate-600 py-3 px-3 hover:text-[#ae5c83] font-medium"
+                                >
+                                  <span className="flex items-center gap-3">{s.icon} {s.label}</span>
+                                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                                </button>
+                                
+                                {/* Nested Sub-items */}
+                                {isOpen && (
+                                  <div className="pl-6 pr-2 pb-2 space-y-1 border-l-2 border-[#ae5c83] ml-3 mb-2">
+                                    {subItems.map((sub, subIdx) => (
+                                       <Link 
+                                         key={subIdx} 
+                                         href={sub.href} 
+                                         onClick={() => setMobileOpen(false)}
+                                         className="block text-slate-500 text-sm py-2 hover:text-[#ae5c83]"
+                                       >
+                                         {sub.label}
+                                       </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          }
+
+                          // STANDARD MOBILE LINK
+                          return (
                             <Link key={idx} href={s.href} onClick={() => setMobileOpen(false)}
                               className="flex items-center text-slate-600 gap-3 py-3 px-3 rounded-lg hover:bg-gray-50 hover:text-[#ae5c83]">
                               {s.icon} {s.label}
                             </Link>
-                          )
-                        ))}
+                          );
+                        })}
                       </div>
                     )}
                   </div>

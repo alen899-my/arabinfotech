@@ -148,11 +148,11 @@ export default function CompetencyAnalysisPage() {
               </p>
             </div>
 
-            <div className="p-4  rounded-xl border border-slate-400 hover:border-[#ae5c83] transition-colors group">
-              <div className="mb-1 bg-white w-12 h-12 rounded-lg flex items-center justify-center border border-slate-100 shadow-sm group-hover:bg-[#ae5c83] group-hover:text-white transition-colors text-slate-400">
+            <div className="p-8 rounded-xl border border-slate-400 hover:border-[#ae5c83] transition-colors group">
+              <div className="mb-1 bg-white w-12 h-12 rounded-lg flex items-center justify-center border border-slate-400 shadow-sm group-hover:bg-[#ae5c83] group-hover:text-white transition-colors text-slate-400">
                 <Brain size={24} />
               </div>
-              <h3 className="momo-font text-lg font-bold mb-3">Education Sector</h3>
+              <h3 className="momo-font text-lg font-bold mb-">Education Sector</h3>
               <p className="roboto-text text-slate-600 leading-relaxed">
                 Determine core competencies in student performance. Move beyond grades to measure actual capabilities and applied knowledge.
               </p>
