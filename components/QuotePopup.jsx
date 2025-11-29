@@ -12,9 +12,10 @@ export default function QuotePopup({ open, onClose }) {
   const [services, setServices] = useState([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");  // ⭐ NEW FIELD
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
+  // 1. Mapped the route /office365 to the service name
   const PAGE_SERVICE_MAP = {
     "/webdesigning": "Web Designing",
     "/ecommerce": "eCommerce",
@@ -23,20 +24,26 @@ export default function QuotePopup({ open, onClose }) {
     "/uxui": "UX / UI Design",
     "/consultancy": "Consultancy",
     "/solutions/custom-software": "Custom Software",
+    "/office365": "Microsoft 365", // Added Route
   };
 
   useEffect(() => {
     if (open) {
       const match = PAGE_SERVICE_MAP[pathname];
-      if (match) setServices([match]);
+      if (match) {
+        // If it's the office365 page, ensure we don't duplicate if already selected
+        setServices((prev) => prev.includes(match) ? prev : [match]);
+      }
     }
   }, [open, pathname]);
 
   if (!open) return null;
 
+  // 2. Added "Microsoft 365" to the checkboxes list
   const SERVICES = [
     "Web Designing",
     "eCommerce",
+    "Microsoft 365", // Added Item
     "SEO",
     "UX / UI Design",
     "Marketing",
@@ -56,7 +63,7 @@ export default function QuotePopup({ open, onClose }) {
   const handleSubmit = async () => {
     if (!name.trim()) return toast.error("Enter your name.");
     if (!email.trim()) return toast.error("Enter your email.");
-    if (!phone.trim()) return toast.error("Enter your phone number."); // ⭐ validation
+    if (!phone.trim()) return toast.error("Enter your phone number.");
     if (!message.trim()) return toast.error("Message is required.");
     if (services.length === 0) return toast.error("Select at least one service.");
 
@@ -66,7 +73,7 @@ export default function QuotePopup({ open, onClose }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, message, services }), // ⭐ phone added
+        body: JSON.stringify({ name, email, phone, message, services }),
       });
 
       const data = await res.json();
@@ -155,14 +162,13 @@ export default function QuotePopup({ open, onClose }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl  border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                 />
               </div>
             </div>
 
-            {/* ⭐ PHONE + EMAIL ROW */}
+            {/* PHONE + EMAIL ROW */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-              
               {/* Phone */}
               <div>
                 <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Phone</label>
@@ -172,7 +178,7 @@ export default function QuotePopup({ open, onClose }) {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl  border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                   />
                 </div>
               </div>
@@ -186,7 +192,7 @@ export default function QuotePopup({ open, onClose }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="john@company.com"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl  border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                   />
                 </div>
               </div>
@@ -201,35 +207,33 @@ export default function QuotePopup({ open, onClose }) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Tell us about your project…"
-                  className="w-full pl-10 pr-4 py-2.5 h-28  rounded-xl border border-slate-400 text-gray-900 text-sm resize-none
-                   focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  className="w-full pl-10 pr-4 py-2.5 h-28 rounded-xl border border-slate-400 text-gray-900 text-sm resize-none focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
                 />
               </div>
             </div>
 
             {/* SUBMIT */}
             <button
-            onClick={handleSubmit}
-            className="
-              mx-auto
-              px-6 py-2.5
-              bg-gradient-to-r from-[#ae5c83] to-[#8a4262]
-              text-white
-              rounded-full
-              text-sm font-semibold
-              flex items-center justify-center gap-2
-              shadow-md
-              transition-all duration-300
-              hover:shadow-xl hover:scale-[1.05]
-              active:scale-[0.96]
-              border border-white/20
-              backdrop-blur-sm
-            "
->
-  <Send size={16} />
-  Send Message
-</button>
-
+              onClick={handleSubmit}
+              className="
+                mx-auto
+                px-6 py-2.5
+                bg-gradient-to-r from-[#ae5c83] to-[#8a4262]
+                text-white
+                rounded-full
+                text-sm font-semibold
+                flex items-center justify-center gap-2
+                shadow-md
+                transition-all duration-300
+                hover:shadow-xl hover:scale-[1.05]
+                active:scale-[0.96]
+                border border-white/20
+                backdrop-blur-sm
+              "
+            >
+              <Send size={16} />
+              Send Message
+            </button>
           </motion.div>
         </>
       )}

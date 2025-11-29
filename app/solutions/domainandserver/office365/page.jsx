@@ -5,12 +5,19 @@ import {
   CheckCircle2, 
   CloudCog, ShieldCheck, Coins, LayoutGrid,
   ShieldAlert, Lock, Users,Server, Mail, 
-  Laptop, HardDrive, AlertOctagon, Check, X 
+  Laptop, HardDrive, AlertOctagon, Check,Briefcase, X 
 } from "lucide-react";
+import QuotePopup from "../../../../components/QuotePopup";
 import PricingPage from "@/components/PricingPage";
+
 // --- SUB-COMPONENT: Animated Circular Stat ---
 const AnimatedCircularStat = ({ value, label, icon, color }) => {
   const [percent, setPercent] = useState(0);
+  
+  
+  const handleOpenPopup = () => {
+      setIsPopupOpen(true);
+    };
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -121,8 +128,14 @@ const AnimatedCircularStat = ({ value, label, icon, color }) => {
   );
 };
 
+
 // --- MAIN PAGE COMPONENT ---
 const Microsoft365Page = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
 
   // Updated Video ID for Microsoft 365 Copilot
   const VIDEO_ID = "9lCs43HUw9M"; 
@@ -358,11 +371,11 @@ const Microsoft365Page = () => {
         </div>
       </section>
        <PricingPage/>    
-      <section className="py-15 px-6 bg-white">
+      <section className="py-1 px-6 bg-white">
   <div className="max-w-6xl mx-auto">
     
     {/* Section Heading */}
-    <div className="mb-12 text-center md:text-left">
+    <div className="mb-1 text-center md:text-left">
       <h2 className="text-3xl momo-font font-extrabold text-slate-900">
         Setup & Implementation Scope
       </h2>
@@ -492,8 +505,30 @@ const Microsoft365Page = () => {
 
     </div>
   </div>
+
+<div className="py-12 px-6 text-center">
+  <div className="max-w-3xl mx-auto flex flex-col items-center">
+    
+    <h2 className="text-3xl md:text-4xl momo-font font-bold text-slate-900 mb-4">
+      Looking for Office 365 solutions?
+    </h2>
+    
+    <p className="text-lg roboto-text text-slate-600 mb-8 max-w-xl">
+      Need a custom enterprise setup or consultation? Let us build the perfect plan for your business.
+    </p>
+
+    <button 
+      onClick={handleOpenPopup}
+      className="px-10 py-3.5 bg-[#ae5c83] text-white font-bold rounded-md shadow-lg hover:bg-[#96476d] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 momo-font"
+    >
+      Schedule a Call
+    </button>
+  </div>
+</div>
+            <QuotePopup open={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 </section>
 
+           
     </main>
   );
 };
