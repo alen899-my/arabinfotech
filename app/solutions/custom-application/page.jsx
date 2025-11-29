@@ -14,9 +14,9 @@ import {
   LuSearch,
   LuPenTool,
   LuRocket,
-  LuSettings
+  LuSettings, 
 } from "react-icons/lu";
-
+import CtaBanner from "@/components/CtaBanner";
 // Animation Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -49,7 +49,7 @@ export default function MobileAppsPage() {
     <div className="w-full bg-white overflow-x-hidden selection:bg-[#ae5c83] selection:text-white">
       
       {/* ---------------- SECTION 1: HERO ---------------- */}
-      <section className="relative pt-32 pb-12 px-6 md:pt-25 md:pb-20 bg-[#fdfbfd] overflow-hidden">
+      <section className="relative pt-32  px-6 md:pt-25 md: bg-[#fdfbfd] overflow-hidden">
         {/* Background Decor */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-[#f4ebf1] to-transparent -z-10 rounded-bl-[100px]" />
         
@@ -137,7 +137,7 @@ export default function MobileAppsPage() {
         </div>
       </section>
 
-      {/* ---------------- NEW SECTION: INFINITE TECH MARQUEE ---------------- */}
+      {/* ----------------  INFINITE TECH MARQUEE ---------------- */}
       <section className="py-8 bg-white border-y border-gray-100 overflow-hidden">
         <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Powering Apps With</p>
         <div className="relative flex w-full overflow-hidden">
@@ -167,7 +167,7 @@ export default function MobileAppsPage() {
       </section>
 
       {/* ---------------- SECTION 2: CONTENT & VIDEO INTEGRATION ---------------- */}
-     <section className="py-12 px-6 bg-white">
+     <section className="py-5 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
@@ -236,7 +236,7 @@ export default function MobileAppsPage() {
     </section>
 
     {/* ----------------  STEPS ---------------- */}
-    <section className="py-16 md:py-10 bg-[#fcfcfc] border-t ">
+    <section className=" py-5 px-6 bg-white">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-2">
                 <h2 className="text-3xl md:text-4xl momo-font font-bold text-gray-900">How We Build</h2>
@@ -269,7 +269,7 @@ export default function MobileAppsPage() {
     </section>
 
       {/* ---------------- SECTION 3: SERVICES (3 Columns) ---------------- */}
-      <section className="py-20 px-6 bg-[#111] text-white relative overflow-hidden">
+      <section className="py-5 px-6 bg-[#111] text-white relative overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#ae5c83] rounded-full blur-[120px] opacity-10 pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#6c53a7] rounded-full blur-[120px] opacity-10 pointer-events-none" />
@@ -314,55 +314,7 @@ export default function MobileAppsPage() {
       </section>
 
       {/* ---------------- SECTION 4: CTA STRIP ---------------- */}
-        <section className="relative z-10 w-full px-4 bg-gradient-to-br from-gray-50 to-white border-t border-gray-100">
-        <div
-          className="
-            w-full 
-            py-16 md:py-20 px-6 
-            text-center 
-            transition-all 
-            duration-300
-          "
-        >
-          <h2
-            className="
-              text-3xl md:text-5xl 
-              momo-font 
-              font-bold 
-              text-[#ae5c83] 
-              tracking-tight
-              mb-4
-            "
-          >
-            Explore Our Solutions
-          </h2>
-
-          <p className="text-gray-600 mt-3 text-base md:text-lg max-w-2xl mx-auto momo-font mb-8">
-            Discover a variety of innovative digital tools and technologies tailored to elevate
-            your business performance and accelerate growth.
-          </p>
-
-          <Link
-            href="/portfolio"
-            className="
-              inline-flex items-center gap-2
-              mt-3 
-              px-8 py-4 
-              rounded-xl 
-              bg-[#6c53a7] 
-              text-white 
-              font-semibold 
-              hover:bg-[#5b4390]
-              hover:shadow-lg hover:shadow-[#6c53a7]/20
-              hover:-translate-y-1
-              transition-all 
-              duration-300
-            "
-          >
-            View Portfolio <LuArrowRight />
-          </Link>
-        </div>
-      </section>
+        <CtaBanner />
     </div>
   );
 }

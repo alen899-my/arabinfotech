@@ -89,9 +89,9 @@ const GSuitePage = () => {
 
           </div>
 
-          {/* RIGHT: IMAGE */}
+         
           <div className="relative w-full h-[400px] lg:h-[480px] rounded-[2rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100 group">
-            {/* Replace with a Google Workspace / Office visual */}
+         
             <Image 
               src="/cloud.gif" 
               alt="Google G-Suite Collaboration" 
@@ -143,7 +143,7 @@ const GSuitePage = () => {
               {tools.map((tool, idx) => (
                 <div 
                   key={idx} 
-                  className="bg-slate-50 p-5 rounded-2xl border border-slate-100 hover:border-[#ae5c83]/30 hover:bg-white hover:shadow-lg transition-all duration-300 group"
+                  className="bg-slate-50 p-5 rounded-2xl border border-slate-400 hover:border-[#ae5c83]/30 hover:bg-white hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-3 text-[#5b4390] group-hover:text-[#ae5c83] transition-colors">
                     {tool.icon}

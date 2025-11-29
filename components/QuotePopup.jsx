@@ -25,7 +25,8 @@ export default function QuotePopup({ open, onClose }) {
     "/uxui": "UX / UI Design",
     "/consultancy": "Consultancy",
     "/solutions/custom-software": "Custom Software",
-    "/office365": "Microsoft 365", // Added Route
+    "/office365": "Microsoft 365",
+    "/google-business": "G-Suite"
   };
 
   useEffect(() => {
@@ -52,6 +53,7 @@ export default function QuotePopup({ open, onClose }) {
     "Consultancy",
     "Custom Software",
     "Not sure",
+    "G-Suite"
   ];
 
   const toggleService = (value) => {

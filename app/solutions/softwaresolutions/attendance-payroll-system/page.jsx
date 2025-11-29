@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import React from "react"; 
-import { motion } from "framer-motion"; // Removed useScroll/useTransform
+import Link from "next/link";
+import { motion } from "framer-motion"; 
 import { 
   Users, 
   CreditCard, 
@@ -121,6 +122,8 @@ const Page = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="pt-4 flex gap-4">
+              <Link href="/contact">
+            
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -129,6 +132,7 @@ const Page = () => {
                 Get Started
                 <ArrowRight size={18} />
               </motion.button>
+                </Link>
             </motion.div>
           </div>
 

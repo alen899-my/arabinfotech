@@ -49,7 +49,7 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
     <motion.div
       variants={itemVariants}
       whileHover={{ scale: 1.02 }}
-      className="flex items-start gap-4 p-5 bg-white rounded-xl border border-[#6c53a7]/20 shadow-sm hover:shadow-md transition-all duration-300 group"
+      className="flex items-start gap-4 p-5 bg-white rounded-xl border border-slate-400 shadow-sm hover:shadow-md transition-all duration-300 group"
     >
       
       <div>
@@ -148,7 +148,7 @@ const GaragePage = () => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#6c53a7] momo-font hover:bg-[#5a448d] text-white rounded-xl font-bold shadow-lg shadow-purple-600/20 hover:shadow-xl transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-[#6c53a7] momo-font hover:bg-[#5a448d] text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2"
               >
                 Get Started
                 <ArrowRight size={18} />
@@ -159,7 +159,7 @@ const GaragePage = () => {
     <motion.button 
       whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
       whileTap={{ scale: 0.95 }}
-      className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-bold hover:shadow-lg transition-all"
+      className="px-6 py-3 bg-white text-gray-700 border border-gray-500 rounded-xl font-bold hover:shadow-lg transition-all"
     >
       View Features
     </motion.button>
@@ -174,7 +174,7 @@ const GaragePage = () => {
          initial={{ opacity: 0, y: 20 }}
          whileInView={{ opacity: 1, y: 0 }}
          viewport={{ once: true }}
-         className="w-full bg-[#6c53a7] py-12 mb-16 shadow-inner"
+         className="w-full bg-[#6c53a7] py-5 mb-3 shadow-inner"
       >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-purple-400/30">
             <StatBox value="100%" label="Paperless Workflow" />
@@ -186,7 +186,7 @@ const GaragePage = () => {
 
       {/* ---------- MODULES GRID ---------- */}
       <section id="carfeatures" className="relative z-10 w-full px-6 max-w-7xl mx-auto ">
-        <div className="text-center mb-5">
+        <div className="text-center mb-2">
           <h2 className="text-3xl momo-font font-bold text-[#ae5c83] mb-1">System Capabilities</h2>
           <p className="text-gray-500 max-w-2xl mx-auto">Everything you need to run a modern auto service center, packed into one intuitive interface.</p>
         </div>
@@ -237,7 +237,7 @@ const GaragePage = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
-        className="w-full py-12 px-6 bg-white border-t border-gray-100"
+        className="w-full py-5 px-6 bg-white border-t border-gray-100"
       >
         <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl momo-font font-bold text-[#ae5c83] mb-2">Why Garages Choose aitEdge-AGS?</h3>

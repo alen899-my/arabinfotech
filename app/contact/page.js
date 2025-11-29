@@ -154,33 +154,7 @@ const [message, setMessage] = useState("");
           {/* LEFT COLUMN: FORM */}
           <motion.div variants={itemVariants} className="lg:col-span-7">
             <div className="backdrop-blur-xl bg-white/80 border border-slate-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-3xl p-8">
-              
-              {/* SECTION: SERVICES */}
-              <div className="mb-8">
-                <h2 className="text-xl font-bold momo-font text-slate-800 flex items-center gap-2 mb-4">
-                  <CheckCircle2 size={20} className="text-[#ae5c83]" />
-                  I'm interested in...
-                </h2>
-                <div className="flex flex-wrap gap-3">
-                  {SERVICES.map((item) => (
-                    <motion.button
-                      key={item}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => toggleService(item)}
-                      className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 border
-                        ${
-                          services.includes(item)
-                            ? "bg-[#ae5c83] text-white border-[#ae5c83] shadow-lg shadow-[#ae5c83]/25"
-                            : "bg-white text-slate-600 border-slate-400 hover:border-[#ae5c83] hover:text-[#ae5c83]"
-                        }
-                      `}
-                    >
-                      {item}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
+           
 
               {/* SECTION: CONTACT INPUTS */}
               <div className="space-y-6">

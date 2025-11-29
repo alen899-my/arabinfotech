@@ -16,7 +16,7 @@ import {
   LuZap,
   LuShieldCheck,
 } from "react-icons/lu";
-
+import CtaBanner from "@/components/CtaBanner";
 // Animation variants for cleaner code
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -129,7 +129,7 @@ export default function Page() {
 
 
       {/* ---------------- FEATURES SECTION (New Content) ---------------- */}
-  <section className="py-8 md:py-20 px-4 md:px-6 bg-white">
+  <section className="py-5 md:py-5 px-4 md:px-6 bg-white">
   {/* Reduced gap on mobile (gap-6) and padding (py-8) */}
   <div className="max-w-7xl mx-auto grid md:grid-cols-2  md:gap-16 items-center">
 
@@ -232,7 +232,7 @@ export default function Page() {
 
 
       {/* ---------------- BENTO GRID SERVICES ---------------- */}
-      <section id="services" className="w-full bg-[#1a1a1a] py-20 px-6 text-white">
+      <section id="services" className="w-full bg-[#1a1a1a] py-5 px-6 text-white">
   <div className="max-w-7xl mx-auto">
 
     {/* Header */}
@@ -350,7 +350,7 @@ export default function Page() {
 
 
       {/* ---------------- HOW WE WORK (Process) ---------------- */}
-      <section className="py-15 bg-[#f8f2f5]">
+      <section className="py-5 bg-[#f8f2f5]">
         <div className="max-w-6xl mx-auto px-6">
             <div className="text-center ">
                 <h2 className="text-3xl md:text-4xl momo-font font-bold text-[#ae5c83]">The Development Process</h2>
@@ -383,60 +383,8 @@ export default function Page() {
             </div>
         </div>
       </section>
-
-      <section className="relative z-10 w-full  px-4 ">
-        <div
-          className="
-            w-full 
-          
-           border-none
-            
-            py-10 px-6 
-            text-center 
-          
-          
-            transition-all 
-            duration-300
-          "
-        >
-          <h2
-            className="
-              text-3xl md:text-4xl 
-              momo-font 
-              font-bold 
-              text-[#ae5c83] 
-              tracking-tight
-            "
-          >
-            Explore Our Solutions
-          </h2>
-
-          <p className="text-gray-600 mt-3 text-base md:text-lg max-w-2xl mx-auto momo-font">
-            Discover a variety of innovative digital tools and technologies tailored to elevate
-            your business performance and accelerate growth.
-          </p>
-
-          <a
-            href="contact"
-            className="
-              inline-block 
-              mt-3 
-              px-4 py-4 
-              rounded-lg 
-              bg-[#6c53a7] 
-              text-white 
-              font-semibold 
-              hover:bg-[#5b4390]
-              transition-all 
-              duration-300
-              shadow-lg shadow-black/10
-            "
-          >
-            PortFolio →
-          </a>
-        </div>
-      </section>
-      
+        <CtaBanner />          
+    
     </div>
   );
 }
