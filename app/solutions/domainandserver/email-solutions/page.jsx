@@ -92,7 +92,7 @@ const DomainWhiteTheme = () => {
               in the UAE. Secure your digital name today before someone else does.
             </p>
 
-            <div className="bg-white p-2 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 max-w-lg w-full">
+            <div className=" p-2 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 max-w-lg w-full">
               <div className="flex items-center">
                 <Link href="/contact">
                  <button className="bg-[#ae5c83] hover:bg-[#964a6e] momo-font text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2  justify-center">
