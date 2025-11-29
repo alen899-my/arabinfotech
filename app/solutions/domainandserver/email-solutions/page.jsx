@@ -46,7 +46,7 @@ const DomainWhiteTheme = () => {
   return (
     <>
       {/* --- SECTION 1: DOMAIN SEARCH --- */}
-      <section className="bg-white text-slate-800 min-h-screen py-2 relative overflow-hidden flex flex-col justify-center">
+      <section className="bg-white text-slate-800 min-h-screen py-10 relative overflow-hidden flex flex-col justify-center">
         
         {/* --- CSS for Marquee Animation --- */}
         <style jsx global>{`
