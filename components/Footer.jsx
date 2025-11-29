@@ -8,6 +8,7 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -131,7 +132,7 @@ export default function Footer() {
         </p>
 
         <div className="flex justify-center gap-4 mt-3 text-xs text-[#ae5c83]">
-          <a href="#" className="hover:underline">Privacy Policy</a>
+          <Link href="/termsandconditions" className="hover:underline">Terms & Conditons</Link>
           <a href="#" className="hover:underline">Terms of Service</a>
           <a href="#" className="hover:underline">FAQ</a>
         </div>
