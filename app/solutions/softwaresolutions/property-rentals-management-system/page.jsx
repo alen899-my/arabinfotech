@@ -65,11 +65,11 @@ const RoleCard = ({ icon: Icon, role, title, features }) => (
   <motion.div 
     variants={itemVariants}
     whileHover={{ y: -8 }}
-    className="bg-white p-8 rounded-2xl border border-gray-400 shadow-xl shadow-purple-900/5 relative overflow-hidden"
+    className="bg-white p-4 rounded-2xl border border-gray-400 shadow-xl shadow-purple-900/5 relative overflow-hidden"
   >
     <div className="absolute top-0 right-0 w-24 h-24 bg-[#6c53a7]/5 rounded-bl-[80px] -mr-4 -mt-4"></div>
     
-    <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-[#6c53a7] mb-6">
+    <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-[#6c53a7] mb-2">
       <Icon size={28} />
     </div>
     
@@ -102,13 +102,13 @@ const StatBox = ({ value, label }) => (
 const PRMSPage = () => {
 
   return (
-    <div className="min-h-screen w-full bg-[#FAFAFA] text-black selection:bg-[#6c53a7] selection:text-white pb-20">
+    <div className="min-h-screen w-full bg-[#FAFAFA] text-black selection:bg-[#6c53a7] selection:text-white ">
       
       {/* Background Decor */}
      
 
       {/* ---------- HERO SECTION ---------- */}
-      <section className="relative z-10 w-full pt-26 pb-12 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 w-full pt-26 pb-2 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -116,7 +116,7 @@ const PRMSPage = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
           {/* Column 1: Text Description */}
-          <div className="space-y-6">
+          <div className="space-y-2">
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               aitEdge-<span className="text-[#6c53a7]">PRMS</span>
               <span className="block text-2xl md:text-3xl text-gray-500 font-medium mt-2">Property Rentals System</span>
@@ -136,7 +136,7 @@ const PRMSPage = () => {
                <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#6c53a7] hover:bg-[#5a448d] text-white rounded-xl font-bold shadow-lg shadow-purple-600/20 hover:shadow-xl transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-[#6c53a7] momo-font hover:bg-[#5a448d] text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2"
               >
                 Lets Talk
                 <ArrowRight size={18} />
@@ -191,7 +191,7 @@ const PRMSPage = () => {
          initial={{ opacity: 0, y: 20 }}
          whileInView={{ opacity: 1, y: 0 }}
          viewport={{ once: true }}
-         className="w-full bg-[#6c53a7] py-12 mb-16 shadow-inner"
+         className="w-full bg-[#6c53a7] py-5 mb-3 shadow-inner"
       >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-purple-400/30">
             <StatBox value="Cloud" label="Based Solution" />

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react"; 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   Factory, 
@@ -46,7 +47,7 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
     <motion.div
       variants={itemVariants}
       whileHover={{ scale: 1.02 }}
-      className="flex items-start gap-4 p-5 bg-white rounded-xl border border-[#6c53a7]/20 shadow-sm hover:shadow-md transition-all duration-300 group"
+      className="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-400 shadow-sm hover:shadow-md transition-all duration-300 group"
     >
       <div className="shrink-0 p-3 bg-purple-50 text-[#6c53a7] rounded-lg group-hover:bg-[#6c53a7] group-hover:text-white transition-colors duration-300">
         <Icon size={24} />
@@ -63,12 +64,12 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
 const ProcessStep = ({ number, title, icon: Icon, description }) => (
   <motion.div 
     variants={itemVariants}
-    className="relative flex flex-col items-center text-center p-6 bg-white rounded-2xl border border-gray-100 shadow-lg shadow-purple-900/5 hover:-translate-y-2 transition-transform duration-300"
+    className="relative flex flex-col items-center text-center p-6 bg-white rounded-2xl border border-gray-400 shadow-lg shadow-purple-900/5 hover:-translate-y-2 transition-transform duration-300"
   >
     <div className="absolute -top-4 bg-[#ae5c83] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
       Step 0{number}
     </div>
-    <div className="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-[#6c53a7] mb-4">
+    <div className="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-[#6c53a7] mb-2">
       <Icon size={28} />
     </div>
     <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
@@ -100,7 +101,7 @@ const MRPSPage = () => {
       </div>
 
       {/* ---------- HERO SECTION ---------- */}
-      <section className="relative z-10 w-full pt-26 pb-12 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 w-full pt-26 pb-2 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -131,18 +132,20 @@ const MRPSPage = () => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#6c53a7] hover:bg-[#5a448d] text-white rounded-xl font-bold shadow-lg shadow-purple-600/20 hover:shadow-xl transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-[#6c53a7] momo-font hover:bg-[#5a448d] text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2"
               >
                 Schedule Demo
                 <ArrowRight size={18} />
               </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-xl font-bold hover:shadow-lg transition-all"
-              >
-                View Features
-              </motion.button>
+               <Link href="#mrpfeatures">
+                  <motion.button 
+                    whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-white text-gray-700 border border-gray-500 rounded-xl font-bold hover:shadow-lg transition-all"
+                  >
+                    View Features
+                  </motion.button>
+                </Link>
             </motion.div>
           </div>
 
@@ -189,7 +192,7 @@ const MRPSPage = () => {
          initial={{ opacity: 0, y: 20 }}
          whileInView={{ opacity: 1, y: 0 }}
          viewport={{ once: true }}
-         className="w-full bg-[#6c53a7] py-12 mb-16 shadow-inner"
+         className="w-full bg-[#6c53a7] py-5 mb-3 shadow-inner"
       >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-purple-400/30">
             <StatBox value="100%" label="Inventory Control" />
@@ -200,9 +203,9 @@ const MRPSPage = () => {
       </motion.section>
 
       {/* ---------- THE 3 STEPS PROCESS ---------- */}
-      <section className="relative z-10 w-full px-6 max-w-7xl mx-auto mb-20">
+      <section className="relative z-10 w-full px-6 max-w-7xl mx-auto mb-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl momo-font font-bold text-gray-900 mb-3">How MRP Works</h2>
+          <h2 className="text-3xl momo-font font-bold text-[#ae5c83] ">How MRP Works</h2>
           <p className="text-gray-500 max-w-2xl mx-auto">The 3 basic steps of our Material Requirements Planning run.</p>
         </div>
 
@@ -238,13 +241,13 @@ const MRPSPage = () => {
       </section>
 
       {/* ---------- FEATURES & BENEFITS GRID ---------- */}
-      <section className="relative z-10 w-full px-6 max-w-7xl mx-auto mb-20">
+      <section className="relative z-10 w-full px-6 max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           {/* LEFT: Feature Modules */}
           <div className="lg:col-span-7">
-            <div className="mb-6">
-               <h3 className="text-2xl font-bold text-gray-900 mb-2">System Capabilities</h3>
+            <div className="mb-">
+               <h3 id="mrpfeatures" className="text-2xl font-bold text-[#ae5c83] mb-2">System Capabilities</h3>
                <p className="text-gray-500">Comprehensive tools for modern manufacturing.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -278,8 +281,8 @@ const MRPSPage = () => {
             viewport={{ once: true }}
             className="lg:col-span-5 bg-white p-8 rounded-2xl border border-gray-100 shadow-xl shadow-purple-900/5 h-fit"
           >
-             <h3 className="text-xl font-bold text-gray-900 mb-6">Why Choose aitEdge-MRPS?</h3>
-             <ul className="space-y-5">
+             <h3 className="text-xl font-bold text-[#ae5c83] mb-4">Why Choose aitEdge-MRPS?</h3>
+             <ul className="space-y-2">
                {[
                  "Reduce inventory levels significantly",
                  "Improve manufacturing productivity",

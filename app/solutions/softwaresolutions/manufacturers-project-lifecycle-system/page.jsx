@@ -5,15 +5,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Play, 
-  Map, 
-  Cpu, 
-  Activity, 
-  Flag,
-  Layers,
-  ArrowRight,
-  CheckCircle2,
-  Zap
+  Play, Map, Cpu, Activity, Flag,
+  ArrowRight, CheckCircle2, ChevronRight, Layers
 } from "lucide-react";
 
 // --- Data ---
@@ -23,263 +16,228 @@ const phases = [
     title: "Initiating", 
     icon: Play, 
     desc: "Define the project scope and obtain necessary approvals to begin.",
-    details: [
-      "Identify Stakeholders",
-      "Develop Project Charter",
-      "Initial Scope Definition"
-    ]
+    details: ["Identify Stakeholders", "Develop Project Charter", "Initial Scope Definition"]
   },
   { 
     id: 2, 
     title: "Planning", 
     icon: Map, 
     desc: "Establish total scope, refine objectives, and define the course of action.",
-    details: [
-      "Define deliverables",
-      "Resource allocation",
-      "Risk assessment"
-    ]
+    details: ["Define deliverables", "Resource allocation", "Risk assessment"]
   },
   { 
     id: 3, 
     title: "Executing", 
     icon: Cpu, 
     desc: "Complete the work defined in the project management plan.",
-    details: [
-      "Team Management",
-      "Quality Assurance",
-      "Stakeholder Engagement"
-    ]
+    details: ["Team Management", "Quality Assurance", "Stakeholder Engagement"]
   },
   { 
     id: 4, 
     title: "Monitoring", 
     icon: Activity, 
     desc: "Track, review, and regulate the progress and performance.",
-    details: [
-      "Performance Reporting",
-      "Change Control",
-      "Variance Analysis"
-    ]
+    details: ["Performance Reporting", "Change Control", "Variance Analysis"]
   },
   { 
     id: 5, 
     title: "Closing", 
     icon: Flag, 
     desc: "Finalize all activities across all process groups to formally close.",
-    details: [
-      "Project Sign-off",
-      "Lessons Learned",
-      "Resource Release"
-    ]
+    details: ["Project Sign-off", "Lessons Learned", "Resource Release"]
   },
 ];
 
 const MPLSPage = () => {
   const [activeTab, setActiveTab] = useState(phases[0]);
+  const [direction, setDirection] = useState(0);
+
+  const handleTabChange = (newTab) => {
+    setDirection(newTab.id > activeTab.id ? 1 : -1);
+    setActiveTab(newTab);
+  };
+
+  const nextPhase = () => {
+    const nextId = activeTab.id < phases.length ? activeTab.id : 1;
+    const nextTab = phases.find(p => p.id === nextId + 1) || phases[0];
+    handleTabChange(nextTab);
+  };
 
   return (
-    <div className="min-h-screen w-full bg-[#FAFAFA] text-gray-900 selection:bg-[#6c53a7] selection:text-white pb-20">
+    <div className="min-h-screen w-full bg-white text-slate-900 pb-20 relative overflow-hidden">
       
-    
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-slate-50 to-white -z-10" />
+      <div className="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] bg-[#ae5c83]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-100px] w-[600px] h-[600px] bg-[#6c53a7]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-32">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-16">
         
-        {/* --- HEADER WITH NEW PARAGRAPHS --- */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 text-[#6c53a7] text-xs font-bold uppercase tracking-wider mb-6 shadow-sm"
-          >
-            <Layers size={14} /> Manufacturer's Project Lifecycle System
-          </motion.div>
+        {/* --- HEADER --- */}
+        <div className="text-center mb-12 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-4">
+             <div className="w-8 h-1 bg-[#6c53a7] rounded-full" />
+             <span className="text-[#6c53a7] font-bold uppercase tracking-widest text-xs">Lifecycle Methodology</span>
+             <div className="w-8 h-1 bg-[#6c53a7] rounded-full" />
+          </div>
           
-          <motion.h1 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight momo-font mb-8"
-          >
-            Framework for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c53a7] to-[#ae5c83]">
-              Business Object Maturity
-            </span>
-          </motion.h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight momo-font mb-6">
+            Framework for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c53a7] to-[#ae5c83]">Business Object Maturity</span>
+          </h1>
           
-          {/* Added Paragraphs Here */}
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="space-y-4 text-lg text-gray-600 roboto-text leading-relaxed text-left md:text-center max-w-3xl mx-auto"
-          >
-            <p>
-              The Project Life Cycle provides a framework for managing any type of project within a business. It focuses on the phases, processes, tools, knowledge and skills of managing a project.
-            </p>
-            
-            
+          <p className="text-lg text-slate-600 roboto-text leading-relaxed max-w-2xl mx-auto">
+             A structured approach to project execution, ensuring consistency and quality from initiation to closure.
+          </p>
+        </div>
+        
+        {/* Diagram Placeholder */}
+        <div className="hidden">
+           
 
+[Image of Project Management Lifecycle Diagram]
 
-
-            <p>
-              Life cycles define the way business objects mature, providing a model for the commercialization process. Business information and objects become more mature throughout the product development cycle.
-            </p>
-          </motion.div>
         </div>
 
-        {/* --- FEATURE TOUR LAYOUT (Vertical Tabs) --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* --- WIZARD NAVIGATION (Progress Bar) --- */}
+        <div className="relative mb-16 px-4">
+          {/* Connecting Line */}
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 rounded-full -z-10 hidden md:block" />
           
-          {/* LEFT: VERTICAL NAVIGATION */}
-          <div className="lg:col-span-4 flex flex-col relative">
-            {/* The vertical gray line */}
-            <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gray-100 hidden lg:block" />
-            
-            {/* The active moving line (Progress bar) */}
-            <motion.div 
-              layout
-              className="absolute left-6 w-[2px] bg-[#6c53a7] hidden lg:block z-10"
-              initial={false}
-              animate={{ 
-                height: 80, // Height of one item roughly
-                top: (activeTab.id - 1) * 96 // Approx distance between items
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
+          <div className="flex justify-between items-center max-w-4xl mx-auto relative">
+             {/* Mobile View: Simple progress text */}
+             <div className="md:hidden w-full text-center text-sm font-bold text-slate-500 mb-4">
+               Phase {activeTab.id} of {phases.length}
+             </div>
 
-            <div className="space-y-4">
-              {phases.map((phase) => {
-                const isActive = activeTab.id === phase.id;
-                return (
-                  <button
-                    key={phase.id}
-                    onClick={() => setActiveTab(phase)}
-                    className={`
-                      relative w-full text-left p-4 rounded-xl transition-all duration-300 group flex items-center gap-4
-                      ${isActive ? "bg-white shadow-lg shadow-purple-900/5 lg:bg-transparent lg:shadow-none" : "hover:bg-white hover:shadow-sm"}
-                    `}
-                  >
-                    {/* Number Circle */}
-                    <div className={`
-                      w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm border-2 transition-all duration-300 shrink-0 z-20 bg-white
-                      ${isActive 
-                        ? "border-[#6c53a7] text-[#6c53a7] scale-110 shadow-lg shadow-purple-500/20" 
-                        : "border-gray-100 text-gray-400 group-hover:border-[#6c53a7]/50 group-hover:text-[#6c53a7]"}
-                    `}>
-                      0{phase.id}
-                    </div>
-
-                    {/* Text */}
-                    <div>
-                      <h3 className={`font-bold text-lg transition-colors ${isActive ? "text-[#6c53a7]" : "text-gray-700"}`}>
+             {/* Desktop View: Steps */}
+             <div className="hidden md:flex justify-between w-full">
+                {phases.map((phase) => {
+                  const isActive = activeTab.id === phase.id;
+                  const isCompleted = activeTab.id > phase.id;
+                  
+                  return (
+                    <button 
+                      key={phase.id}
+                      onClick={() => handleTabChange(phase)}
+                      className="group flex flex-col items-center gap-3 relative"
+                    >
+                      <div className={`
+                        w-12 h-12 rounded-full flex items-center justify-center border-4 transition-all duration-300 z-10 bg-white
+                        ${isActive 
+                           ? "border-[#ae5c83] text-[#ae5c83] scale-125 shadow-xl" 
+                           : isCompleted 
+                              ? "border-[#6c53a7] text-white bg-[#6c53a7]" 
+                              : "border-slate-200 text-slate-300 group-hover:border-slate-300"}
+                      `}>
+                         {isCompleted ? <CheckCircle2 size={18} /> : <phase.icon size={18} />}
+                      </div>
+                      <span className={`
+                        text-xs font-bold uppercase tracking-wider transition-colors absolute -bottom-8 w-32 text-center
+                        ${isActive ? "text-[#ae5c83]" : isCompleted ? "text-[#6c53a7]" : "text-slate-300"}
+                      `}>
                         {phase.title}
-                      </h3>
-                      <p className={`text-xs ${isActive ? "text-gray-500" : "text-gray-400"}`}>
-                        Click to view details
-                      </p>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-
-          {/* RIGHT: DYNAMIC WINDOW (The "Card") */}
-          <div className="lg:col-span-8">
-             <div className="relative bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-200/50 overflow-hidden min-h-[500px]">
-                
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeTab.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.3 }}
-                    className="h-full flex flex-col md:flex-row"
-                  >
-                    {/* CONTENT SIDE */}
-                    <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-                       <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-[#6c53a7] mb-6">
-                          <activeTab.icon size={24} />
-                       </div>
-                       
-                       <h2 className="text-3xl font-bold text-gray-900 mb-4 momo-font">{activeTab.title} Phase</h2>
-                       
-                       <p className="text-gray-600 roboto-text leading-relaxed mb-8">
-                         {activeTab.desc}
-                       </p>
-
-                       <div className="space-y-3">
-                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Key Activities</p>
-                         {activeTab.details.map((detail, i) => (
-                           <motion.div 
-                             key={i}
-                             initial={{ opacity: 0, x: -10 }}
-                             animate={{ opacity: 1, x: 0 }}
-                             transition={{ delay: 0.1 + (i * 0.1) }}
-                             className="flex items-center gap-3 text-sm font-medium text-gray-700 bg-gray-50 p-3 rounded-lg"
-                           >
-                             <CheckCircle2 size={16} className="text-[#ae5c83]" />
-                             {detail}
-                           </motion.div>
-                         ))}
-                       </div>
-
-                       <div className="mt-8 pt-6 border-t border-gray-100">
-                        <Link href="/contact">
-                          <button className="flex items-center gap-2 text-[#6c53a7] font-bold text-sm hover:gap-3 transition-all">
-                             Start {activeTab.title} Process <ArrowRight size={16} />
-                          </button>
-                        </Link>
-                        
-                       </div>
-                    </div>
-
-                    {/* IMAGE SIDE */}
-                    <div className="md:w-1/2 relative min-h-[300px] md:min-h-full bg-gray-100">
-                       <Image 
-                         src="/prodcycle.jpg" 
-                         alt="Product Cycle Visualization" 
-                         fill 
-                         className="object-cover"
-                       />
-                       {/* Gradient Overlay */}
-                       <div className="absolute inset-0 bg-gradient-to-t from-[#6c53a7]/80 to-transparent mix-blend-multiply opacity-60"></div>
-                       
-                       {/* Floating Stats Card on Image */}
-                       <motion.div 
-                         initial={{ y: 20, opacity: 0 }}
-                         animate={{ y: 0, opacity: 1 }}
-                         transition={{ delay: 0.3 }}
-                         className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50"
-                       >
-                          <div className="flex items-center justify-between mb-2">
-                             <div className="flex items-center gap-2">
-                                <Zap size={16} className="text-orange-500 fill-orange-500" />
-                                <span className="text-xs font-bold uppercase text-gray-600">Impact Score</span>
-                             </div>
-                             <span className="text-lg font-bold text-gray-900">98%</span>
-                          </div>
-                          <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
-                             <motion.div 
-                               initial={{ width: 0 }}
-                               animate={{ width: "98%" }}
-                               transition={{ duration: 1, delay: 0.5 }}
-                               className="h-full bg-gradient-to-r from-[#6c53a7] to-[#ae5c83]"
-                             />
-                          </div>
-                       </motion.div>
-                    </div>
-
-                  </motion.div>
-                </AnimatePresence>
-
+                      </span>
+                    </button>
+                  );
+                })}
              </div>
           </div>
-
         </div>
+
+        {/* --- MAIN CONTENT CARD (Reversed Layout) --- */}
+        <div className="relative min-h-[600px]">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={activeTab.id}
+            custom={direction}
+            initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="grid lg:grid-cols-2 gap-0 bg-white rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100"
+          >
+            
+            {/* LEFT: VISUAL (Reversed Position) */}
+            <div className="relative h-[400px] lg:h-auto bg-slate-900 group">
+               <Image 
+                 src="/prodcycle.jpg" 
+                 alt={`${activeTab.title} Phase Visualization`} 
+                 fill 
+                 className="object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-500"
+               />
+               
+               {/* Overlay Gradients */}
+               <div className="absolute inset-0 bg-gradient-to-tr from-[#6c53a7]/80 to-[#ae5c83]/40 mix-blend-overlay" />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+               {/* Decorative Content on Image */}
+               <div className="absolute bottom-10 left-10 text-white z-10">
+                  <div className="text-6xl font-bold opacity-20 momo-font mb-2">0{activeTab.id}</div>
+                  <h3 className="text-2xl font-bold">{activeTab.title} Phase</h3>
+                  <div className="h-1 w-12 bg-[#ae5c83] mt-4 rounded-full" />
+               </div>
+            </div>
+
+            {/* RIGHT: CONTENT (Reversed Position) */}
+            <div className="p-10 md:p-14 lg:p-16 flex flex-col justify-center">
+               
+               <div className="mb-6">
+                 <div className="inline-flex items-center gap-2 text-[#ae5c83] font-bold uppercase tracking-wider text-xs mb-4">
+                    <Layers size={14} /> Process Detail
+                 </div>
+                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 momo-font leading-tight">
+                   {activeTab.title} the <br/> Project Scope
+                 </h2>
+               </div>
+
+               <p className="text-lg text-slate-600 mb-8 roboto-text leading-relaxed border-l-4 border-slate-100 pl-4">
+                 {activeTab.desc}
+               </p>
+
+               <div className="bg-slate-50 rounded-2xl p-6 mb-8">
+                  <h4 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <Activity size={18} className="text-[#6c53a7]" /> 
+                    Key Activities
+                  </h4>
+                  <ul className="space-y-3">
+                   {activeTab.details.map((item, i) => (
+                     <motion.li 
+                       key={i} 
+                       initial={{ opacity: 0, x: 20 }}
+                       animate={{ opacity: 1, x: 0 }}
+                       transition={{ delay: 0.2 + (i * 0.1) }}
+                       className="flex items-center gap-3 text-slate-600 text-sm font-medium"
+                     >
+                       <div className="w-1.5 h-1.5 rounded-full bg-[#ae5c83]" />
+                       {item}
+                     </motion.li>
+                   ))}
+                  </ul>
+               </div>
+
+               <div className="flex items-center gap-4">
+                 <Link href="/contact">
+                    <button className="px-8 py-4 bg-[#6c53a7] text-white rounded-xl font-bold shadow-lg shadow-purple-200 hover:shadow-xl hover:bg-[#5a448d] transition-all flex items-center gap-2">
+                      Start Phase
+                    </button>
+                 </Link>
+                 
+                 {activeTab.id < phases.length && (
+                   <button 
+                     onClick={nextPhase}
+                     className="px-6 py-4 text-slate-500 hover:text-[#ae5c83] font-bold transition-colors flex items-center gap-2"
+                   >
+                     Next Step <ChevronRight size={18} />
+                   </button>
+                 )}
+               </div>
+
+            </div>
+
+          </motion.div>
+        </AnimatePresence>
+        </div>
+
       </div>
     </div>
   );
