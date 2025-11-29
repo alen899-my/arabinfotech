@@ -113,16 +113,16 @@ const PRMSPage = () => {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
         >
           {/* Column 1: Text Description */}
-          <div className="space-y-2">
+          <div className="">
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               aitEdge-<span className="text-[#6c53a7]">PRMS</span>
-              <span className="block text-2xl md:text-3xl text-gray-500 font-medium mt-2">Property Rentals System</span>
+              <span className="block text-2xl md:text-3xl text-gray-500 font-medium ">Property Rentals System</span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="space-y-4 text-lg text-gray-600 leading-relaxed">
+            <motion.div variants={itemVariants} className="space-y- text-lg text-gray-600 leading-relaxed">
               <p>
                 <strong>Arabinfotec</strong> provides all-in-one, cloud-based property management software designed by property managers. Take control of every aspect of your business—from accounting and leasing to operations and maintenance.
               </p>
@@ -131,7 +131,7 @@ const PRMSPage = () => {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="pt-6 flex gap-4">
+            <motion.div variants={itemVariants} className="pt-4 flex gap-4">
               <Link href="/contact">
                <motion.button 
                 whileHover={{ scale: 1.05 }}

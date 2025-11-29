@@ -88,23 +88,23 @@ const Page = () => {
       </div>
 
       {/* ---------- PRODUCT OVERVIEW SECTION ---------- */}
-      <section className="relative z-10 w-full pt-20 pb-6 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 w-full pt-20 pb-2 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={containerVariants}
           // REMOVED: style={{ opacity, scale, y }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center origin-top"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center origin-top"
         >
           {/* Left Column: Text Description */}
-          <div className="space-y-6">
+          <div className="space-y-">
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               aitEdge-<span className="text-[#6c53a7]">APS</span>
-              <span className="block text-2xl md:text-3xl text-gray-500 font-medium mt-2">Attendance Payroll System</span>
+              <span className="block text-2xl md:text-3xl text-gray-500 font-medium mt-1">Attendance Payroll System</span>
             </motion.h1>
 
             {/* FIXED: Removed 'prose' so text-gray-600 works correctly */}
-            <motion.div variants={itemVariants} className="space-y-4 text-lg text-gray-600 leading-relaxed">
+            <motion.div variants={itemVariants} className="space-y-2 text-lg text-gray-600 leading-relaxed">
               <p>
                 <strong>Arabinfotec</strong> is a leading HRMS & Payroll Platform. Automate HR tasks & employee attendance in minutes with our best-in-class software.
               </p>
@@ -113,7 +113,7 @@ const Page = () => {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mt-4">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mt-2">
               {["Fastest growing platform in UAE", "Cloud-based", "Secure"].map((tag, i) => (
                 <span key={i} className="px-3 py-1 bg-purple-50 text-[#6c53a7] text-xs font-semibold rounded-full border border-purple-100">
                   {tag}

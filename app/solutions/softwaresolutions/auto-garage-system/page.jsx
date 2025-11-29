@@ -76,7 +76,7 @@ const StatBox = ({ value, label }) => (
 const GaragePage = () => {
 
   return (
-    <div className="min-h-screen w-full bg-[#FAFAFA] text-black selection:bg-[#6c53a7] selection:text-white pb-20">
+    <div className="min-h-screen w-full bg-[#FAFAFA] text-black selection:bg-[#6c53a7] selection:text-white pb-10">
       
       {/* Background Decor - Updated to Purple/Pink theme */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -85,12 +85,12 @@ const GaragePage = () => {
       </div>
 
       {/* ---------- HERO SECTION ---------- */}
-      <section className="relative z-10 w-full pt-20 pb-12 px-6 max-w-7xl mx-auto">
+      <section className="relative z-10 w-full pt-20 pb-2 px-6 max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
         >
           {/* Column 1: Product Visual (Left) */}
           <motion.div variants={itemVariants} className="relative order-last lg:order-first">
@@ -128,13 +128,13 @@ const GaragePage = () => {
           </motion.div>
 
           {/* Column 2: Text Description (Right) */}
-          <div className="space-y-6">
+          <div className="space-y-">
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               aitEdge-<span className="text-[#6c53a7]">AGS</span>
               <span className="block text-2xl md:text-3xl text-gray-500 font-medium mt-2">Auto Garage System</span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="space-y-4 text-lg text-gray-600 leading-relaxed">
+            <motion.div variants={itemVariants} className="space-y- text-lg text-gray-600 leading-relaxed">
               <p>
                 <strong>Arabinfotec</strong> presents a fully automated Garage Management System (GMS). This isn't just software it's a complete ecosystem to manage your workshop, inventory, and customer website from a single dashboard.
               </p>
@@ -143,7 +143,7 @@ const GaragePage = () => {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="pt-6 flex gap-4">
+            <motion.div variants={itemVariants} className="pt-4 flex gap-4">
               <Link href="/contact" >
               <motion.button 
                 whileHover={{ scale: 1.05 }}
