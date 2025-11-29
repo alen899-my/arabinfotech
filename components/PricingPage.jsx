@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, X, Briefcase } from "lucide-react";
+import { Check, X } from "lucide-react";
 // ↓↓↓ IMPORT YOUR POPUP COMPONENT HERE ↓↓↓
 import QuotePopup from "./QuotePopup"; 
 
@@ -19,6 +19,8 @@ const PricingPage = () => {
       yearlyPrice: "228",
       description: "Essential tools for light users and frontline workers.",
       isPopular: false,
+      themeColor: "#3b82f6", // Blue
+      lightColor: "#eff6ff", // Blue-50
       features: {
         email: "50 GB",
         storage: "1 TB",
@@ -35,6 +37,8 @@ const PricingPage = () => {
       yearlyPrice: "378",
       description: "Best for businesses that need desktop apps and storage.",
       isPopular: false,
+      themeColor: "#6366f1", // Indigo
+      lightColor: "#eef2ff", // Indigo-50
       features: {
         email: "50 GB",
         storage: "1 TB",
@@ -51,6 +55,8 @@ const PricingPage = () => {
       yearlyPrice: "540",
       description: "The comprehensive solution for most businesses.",
       isPopular: true,
+      themeColor: "#5b4390", // Brand Purple
+      lightColor: "#f3f0ff", // Purple-50
       features: {
         email: "50 GB",
         storage: "1 TB",
@@ -67,6 +73,8 @@ const PricingPage = () => {
       yearlyPrice: "840",
       description: "Advanced security and cyberthreat protection.",
       isPopular: false,
+      themeColor: "#ae5c83", // Brand Rose
+      lightColor: "#fff1f2", // Rose-50
       features: {
         email: "50 GB",
         storage: "1 TB",
@@ -109,21 +117,36 @@ const PricingPage = () => {
             {plans.map((plan, idx) => (
               <div
                 key={idx}
-                className={`relative bg-white rounded-3xl border transition-all duration-300 flex flex-col h-full
+                style={{ 
+                    borderColor: plan.isPopular ? plan.themeColor : undefined 
+                }}
+                className={`relative bg-white rounded-3xl border transition-all duration-300 flex flex-col h-full overflow-hidden
                   ${plan.isPopular 
-                    ? "border-[#5b4390] shadow-2xl lg:scale-110 lg:z-10 ring-1 ring-[#5b4390]/20" 
-                    : "border-slate-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                    ? "shadow-2xl lg:scale-110 lg:z-10 ring-1" 
+                    : "border-slate-200 shadow-lg hover:shadow-xl hover:-translate-y-1"
                   }`}
               >
+                 {/* Top Colored Bar for Visual Separation */}
+                 <div style={{ backgroundColor: plan.themeColor }} className="h-2 w-full absolute top-0 left-0"></div>
+
                 {plan.isPopular && (
-                  <div className="absolute momo-font -top-4 left-1/2 -translate-x-1/2 bg-[#5b4390] text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide shadow-md whitespace-nowrap z-20">
+                  <div 
+                    style={{ backgroundColor: plan.themeColor }}
+                    className="absolute momo-font top-0 left-1/2 -translate-x-1/2 text-white px-4 pt-3 pb-1 rounded-b-xl text-xs font-bold tracking-wide shadow-md whitespace-nowrap z-20"
+                  >
                     MOST POPULAR
                   </div>
                 )}
 
                 {/* Top Section */}
-                <div className="p-5 border-b border-slate-100 flex flex-col flex-grow">
-                  <h3 className="text-xl momo-font font-bold text-slate-900 mb-1">{plan.name}</h3>
+                <div className="p-5 pt-8 flex flex-col flex-grow">
+                  {/* Name with Dynamic Color */}
+                  <h3 
+                    style={{ color: plan.themeColor }}
+                    className="text-xl momo-font font-bold mb-1"
+                  >
+                    {plan.name}
+                  </h3>
 
                   {/* Description */}
                   <p className="text-sm roboto-text text-slate-500 min-h-[40px] mb-4 leading-relaxed">
@@ -133,20 +156,27 @@ const PricingPage = () => {
                   <div className="mt-auto">
                     <div className="flex items-baseline gap-1">
                       <span className="text-sm momo-font font-semibold text-slate-400">AED</span>
-                      <span className="text-4xl momo-font font-extrabold text-slate-900">{plan.price}</span>
+                      {/* Price with Dynamic Color */}
+                      <span 
+                        style={{ color: plan.themeColor }}
+                        className="text-4xl momo-font font-extrabold"
+                      >
+                        {plan.price}
+                      </span>
                       <span className="roboto-text text-slate-500">/mo</span>
                     </div>
-                    <div className="text-xs roboto-text text-slate-400 font-medium mb-3">
+                    <div className="text-xs roboto-text text-slate-400 font-medium mb-4">
                       Billed yearly at AED {plan.yearlyPrice}/user
                     </div>
 
                     <button 
                       onClick={handleOpenPopup}
-                      className={`w-full py-2.5 rounded-xl momo-font font-bold transition-colors duration-200 text-sm
-                      ${plan.isPopular 
-                        ? "bg-[#5b4390] text-white hover:bg-[#463173] shadow-lg shadow-[#5b4390]/25" 
-                        : "bg-slate-100 text-slate-800 hover:bg-slate-200"
-                      }`}
+                      style={{ 
+                        backgroundColor: plan.isPopular ? plan.themeColor : plan.lightColor,
+                        color: plan.isPopular ? '#ffffff' : plan.themeColor,
+                        boxShadow: plan.isPopular ? `0 10px 15px -3px ${plan.themeColor}40` : 'none'
+                      }}
+                      className={`w-full py-2.5 rounded-xl momo-font font-bold transition-all duration-200 text-sm hover:brightness-95`}
                     >
                       Subscribe
                     </button>
@@ -154,26 +184,52 @@ const PricingPage = () => {
                 </div>
 
                 {/* Features List Section */}
-                <div className="p-5 pt-4 text-sm roboto-text bg-slate-50/50 rounded-b-3xl flex-grow-0">
-                  <div className="space-y-2">
-                      <div className="flex justify-between items-center pb-1.5 border-b border-slate-200/60">
-                      <span className="text-slate-600 font-medium">Mailbox</span>
-                      <span className="font-bold text-slate-900">{plan.features.email}</span>
+                <div className="p-5 pt-4 text-sm roboto-text bg-slate-50/50 border-t border-slate-100 rounded-b-3xl flex-grow-0">
+                  <div className="space-y-3">
+                      <div className="flex justify-between items-center pb-2 border-b border-slate-200/60">
+                        <span className="text-slate-600 font-medium">Mailbox</span>
+                        <span className="font-bold text-slate-900">{plan.features.email}</span>
                       </div>
-                      <div className="flex justify-between items-center pb-1.5 border-b border-slate-200/60">
-                      <span className="text-slate-600 font-medium">OneDrive</span>
-                      <span className="font-bold text-slate-900">{plan.features.storage}</span>
+                      <div className="flex justify-between items-center pb-2 border-b border-slate-200/60">
+                        <span className="text-slate-600 font-medium">OneDrive</span>
+                        <span className="font-bold text-slate-900">{plan.features.storage}</span>
                       </div>
 
-                      <div className="pt-1.5 space-y-2">
-                          <FeatureRow label="Office Desktop Apps" included={plan.features.desktopApps} tooltip="Word, Excel, PowerPoint" />
-                          <FeatureRow label="Web & Mobile Apps" included={plan.features.webApps} />
-                          <FeatureRow label="Teams & Comm" included={plan.features.teams} />
-                          <FeatureRow label="Device Management" included={plan.features.deviceMgmt} />
-                          <FeatureRow label="Advanced Security" included={plan.features.security} />
+                      <div className="pt-2 space-y-2.5">
+                          <FeatureRow 
+                            label="Office Desktop Apps" 
+                            included={plan.features.desktopApps} 
+                            tooltip="Word, Excel, PowerPoint" 
+                            themeColor={plan.themeColor}
+                          />
+                          <FeatureRow 
+                            label="Web & Mobile Apps" 
+                            included={plan.features.webApps} 
+                            themeColor={plan.themeColor}
+                          />
+                          <FeatureRow 
+                            label="Teams & Comm" 
+                            included={plan.features.teams} 
+                            themeColor={plan.themeColor}
+                          />
+                          <FeatureRow 
+                            label="Device Management" 
+                            included={plan.features.deviceMgmt} 
+                            themeColor={plan.themeColor}
+                          />
+                          <FeatureRow 
+                            label="Advanced Security" 
+                            included={plan.features.security} 
+                            themeColor={plan.themeColor}
+                          />
 
                           {plan.features.advancedThreat && (
-                          <FeatureRow label="Adv. Threat Protection" included highlight />
+                          <FeatureRow 
+                            label="Adv. Threat Protection" 
+                            included 
+                            highlight 
+                            themeColor={plan.themeColor}
+                          />
                           )}
                       </div>
                   </div>
@@ -182,23 +238,32 @@ const PricingPage = () => {
             ))}
           </div>
 
-        
+          <QuotePopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 
         </div>
       </section>
-
-     
     </>
   );
 };
 
-const FeatureRow = ({ label, included, highlight = false, tooltip }) => (
-  <div className={`flex items-start gap-2.5 ${!included ? "opacity-40" : ""}`}>
-    <div className={`mt-0.5 rounded-full p-0.5 flex-shrink-0 ${included ? (highlight ? "bg-[#ae5c83] text-white" : "bg-green-100 text-green-700") : "bg-slate-200 text-slate-400"}`}>
-        {included ? <Check className="w-3 h-3" /> : <X className="w-3 h-3" />}
+const FeatureRow = ({ label, included, highlight = false, tooltip, themeColor }) => (
+  <div className={`flex items-start gap-3 ${!included ? "opacity-40 grayscale" : ""}`}>
+    {/* Checkmark Circle with Dynamic Background */}
+    <div 
+        style={{ 
+            backgroundColor: included ? (highlight ? themeColor : `${themeColor}20`) : '#e2e8f0', // Hex + 20 opacity if not highlighted
+            color: included ? (highlight ? '#ffffff' : themeColor) : '#94a3b8'
+        }}
+        className={`mt-0.5 rounded-full p-0.5 flex-shrink-0`}
+    >
+        {included ? <Check className="w-3 h-3" strokeWidth={3} /> : <X className="w-3 h-3" />}
     </div>
+    
     <div className="flex-1">
-        <span className={`block text-[13px] leading-tight roboto-text ${highlight ? "text-[#ae5c83] font-bold" : "text-slate-700"}`}>
+        <span 
+            style={{ color: highlight ? themeColor : undefined }}
+            className={`block text-[13px] leading-tight roboto-text ${highlight ? "font-bold" : "text-slate-700"}`}
+        >
             {label}
         </span>
         {tooltip && <span className="text-[10px] roboto-text text-slate-400 block mt-0.5 leading-tight">{tooltip}</span>}

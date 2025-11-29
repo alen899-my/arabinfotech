@@ -50,8 +50,8 @@ export default function ContactPage({ hideHeader = false }) {
     "UX / UI Design", "Marketing", "Consultancy", "Not sure",
   ];
   const [name, setName] = useState("");
-const [email, setEmail] = useState("");
-const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
 
   const locations = [
@@ -89,38 +89,48 @@ const [message, setMessage] = useState("");
       markerColor: "bg-emerald-500",
     },
   ];
+
   async function handleSubmit() {
-  const loadingToast = toast.loading("Sending message...");
+    // Basic Client-Side Validation
+    if (!name.trim()) return toast.error("Full Name is required.");
+    if (!email.trim()) return toast.error("Email Address is required.");
+    if (!message.trim()) return toast.error("Message is required.");
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-        services,
-      }),
-    });
+    const loadingToast = toast.loading("Sending message...");
 
-    const data = await res.json();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          services,
+        }),
+      });
 
-    toast.dismiss(loadingToast);
+      const data = await res.json();
 
-    if (data.success) {
-      toast.success("Message delivered to Mailtrap!");
-    } else {
-      toast.error("Failed to send message.");
+      toast.dismiss(loadingToast);
+
+      if (data.success) {
+        toast.success("Message delivered to Mailtrap!");
+        // Optional: Clear form
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch (error) {
+      toast.dismiss(loadingToast);
+      toast.error("Error sending message.");
     }
-  } catch (error) {
-    toast.dismiss(loadingToast);
-    toast.error("Error sending message.");
   }
-}
 
   return (
-    <div className="mt-20 min-h-screen  text-slate-800 overflow-x-hidden selection:bg-[#ae5c83] selection:text-white pb-20">
+    <div className="mt-20 min-h-screen text-slate-800 overflow-x-hidden selection:bg-[#ae5c83] selection:text-white pb-20">
       
       {/* Background Decoration */}
       <div className="fixed inset-0 pointer-events-none opacity-40">
@@ -137,16 +147,16 @@ const [message, setMessage] = useState("");
         
         {/* HEADER */}
         {!hideHeader && (
-  <motion.div variants={itemVariants} className="text-center mb-12">
-    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight momo-font text-[#ae5c83]">
-      Contact Us
-    </h1>
-    <p className="text-lg text-slate-500 max-w-2xl mx-auto roboto-text">
-      Whether you need a digital transformation or a quick consultation, 
-      we are ready to listen.
-    </p>
-  </motion.div>
-)}
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight momo-font text-[#ae5c83]">
+              Contact Us
+            </h1>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto roboto-text">
+              Whether you need a digital transformation or a quick consultation, 
+              we are ready to listen.
+            </p>
+          </motion.div>
+        )}
 
 
         <div className="grid lg:grid-cols-12 gap-10 items-start">
@@ -165,27 +175,34 @@ const [message, setMessage] = useState("");
 
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="group">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Full Name</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
                     <div className="relative">
                       <User className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <input 
-                        type="text" value={name} required
-  onChange={(e) => setName(e.target.value)}
-                        className="w-full  border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        type="text" 
+                        value={name} 
+                        required
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="John Doe"
                       />
                     </div>
                   </div>
 
                   <div className="group">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Email Address</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
                     <div className="relative">
                       <Mail className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <input 
                         type="email"  
-  value={email}
-  onChange={(e) => setEmail(e.target.value)}
-                        className="w-full  border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        value={email}
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -193,12 +210,16 @@ const [message, setMessage] = useState("");
                 </div>
 
                 <div className="group">
-                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Message</label>
+                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
+                     Message <span className="text-red-500">*</span>
+                   </label>
                    <div className="relative">
                       <MessageSquare className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
-                      <textarea  value={message}
-  onChange={(e) => setMessage(e.target.value)}
-                        className="w-full  border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
+                      <textarea  
+                        value={message}
+                        required
+                        onChange={(e) => setMessage(e.target.value)}
+                        className="w-full border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
                         placeholder="Tell us a bit about your project goals..."
                       />
                    </div>
@@ -236,7 +257,7 @@ const [message, setMessage] = useState("");
                <div className="bg-[#ae5c83]/10 p-2 rounded-lg">
                  <Globe className="text-[#ae5c83]" size={24} />
                </div>
-               <div className="bg-[#ae5c83">
+               <div>
                  <h3 className="font-bold text-lg text-slate-800 leading-tight">Global Presence</h3>
                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">3 Offices Worldwide</p>
                </div>
@@ -270,7 +291,7 @@ const [message, setMessage] = useState("");
                         </p>
                       </div>
 
-                      <div className="flex flex-col gap-2  pt-4 border-t border-black/5">
+                      <div className="flex flex-col gap-2 pt-4 border-t border-black/5 mt-4">
                         <div className={`flex items-center gap-3 text-sm text-slate-500 hover:${loc.textAccent} transition-colors cursor-pointer w-max`}>
                           <Phone size={14} /> <span>{loc.phone}</span>
                         </div>

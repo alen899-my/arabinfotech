@@ -20,20 +20,20 @@ export default function QuotePopup({ open, onClose }) {
     "/webdesigning": "Web Designing",
     "/ecommerce": "eCommerce",
     "/seo": "SEO",
-    "/email-solutions": "Domain",
+    "/email-solutions": "Email and Domain",
     "/digitalmarketing": "Marketing",
     "/uxui": "UX / UI Design",
     "/consultancy": "Consultancy",
     "/solutions/custom-software": "Custom Software",
     "/office365": "Microsoft 365",
-    "/google-business": "G-Suite"
+    "/google-business": "G-Suite",
+    "/valet-parking":"Valet Parking"
   };
 
   useEffect(() => {
     if (open) {
       const match = PAGE_SERVICE_MAP[pathname];
       if (match) {
-        // If it's the office365 page, ensure we don't duplicate if already selected
         setServices((prev) => prev.includes(match) ? prev : [match]);
       }
     }
@@ -41,18 +41,18 @@ export default function QuotePopup({ open, onClose }) {
 
   if (!open) return null;
 
-  // 2. Added "Microsoft 365" to the checkboxes list
   const SERVICES = [
     "Web Designing",
     "eCommerce",
     "Microsoft 365", 
-    "Domain",
+    "Email and Domain",
     "SEO",
     "UX / UI Design",
     "Marketing",
     "Consultancy",
     "Custom Software",
     "Not sure",
+    "Valet Parking",
     "G-Suite"
   ];
 
@@ -159,7 +159,9 @@ export default function QuotePopup({ open, onClose }) {
 
             {/* FULL NAME */}
             <div className="mb-2">
-              <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Full Name</label>
+              <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
+                Full Name <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
                 <User className="absolute left-3 top-3 text-slate-400" size={18} />
                 <input
@@ -175,7 +177,9 @@ export default function QuotePopup({ open, onClose }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
               {/* Phone */}
               <div>
-                <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Phone</label>
+                <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
+                  Phone <span className="text-red-500">*</span>
+                </label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-3 text-slate-400" size={18} />
                   <input
@@ -189,7 +193,9 @@ export default function QuotePopup({ open, onClose }) {
 
               {/* Email */}
               <div>
-                <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Email</label>
+                <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
+                  Email 
+                </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 text-slate-400" size={18} />
                   <input
@@ -204,7 +210,9 @@ export default function QuotePopup({ open, onClose }) {
 
             {/* MESSAGE */}
             <div className="mb-2">
-              <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Project Details</label>
+              <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
+                 Details <span className="text-red-500">*</span>
+              </label>
               <div className="relative">
                 <MessageSquare className="absolute left-3 top-3 text-slate-400" size={18} />
                 <textarea

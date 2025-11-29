@@ -37,7 +37,7 @@ export default function Page() {
   return (
     <div className="w-full bg-[#FAFAFA] overflow-x-hidden selection:bg-[#ae5c83] selection:text-white">
       
-      {/* ---------------- HERO SECTION: Modern Split Overlay ---------------- */}
+      {/* ---------------- HERO SECTION:  ---------------- */}
      <div className="relative w-full min-h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
 
   {/* Video Background */}
@@ -85,7 +85,7 @@ export default function Page() {
       {/* Paragraph */}
       <motion.p
         variants={fadeInUp}
-        className="text-white !text-white  text-[clamp(1rem,2vw,1.3rem)] roboto-text max-w-xl mt-4 mb-8 font-light leading-relaxed drop-shadow-xl"
+        className="roboto-texts text-[clamp(1rem,2vw,1.3rem)] roboto-text max-w-xl mt-4 mb-8 font-light leading-relaxed drop-shadow-xl"
       >
         We craft intelligent digital ecosystems—From complex ERPs to scalable automation, built to adapt and grow with your business.
       </motion.p>
@@ -93,14 +93,14 @@ export default function Page() {
       {/* CTA Buttons */}
       <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
         <Link href="#services">
-          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#ae5c83] text-white rounded-md font-semibold hover:bg-[#964a6d] transition flex items-center gap-2 group shadow-lg shadow-[#ae5c83]/40">
+          <button className="px-6 momo-font py-3 sm:px-8 sm:py-4 bg-[#ae5c83] text-white rounded-md font-semibold hover:bg-[#964a6d] transition flex items-center gap-2 group shadow-lg shadow-[#ae5c83]/40">
             Our Expertise
             <LuArrowRight className="group-hover:translate-x-1 transition-transform" />
           </button>
         </Link>
 
         <Link href="/contact">
-          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#6c53a7]  text-white rounded-md font-semibold hover:bg-[#5a4897] transition">
+          <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#6c53a7] momo-font text-white rounded-md font-semibold hover:bg-[#5a4897] transition">
             Let’s Talk
           </button>
         </Link>
@@ -117,18 +117,18 @@ export default function Page() {
   >
     <div className="text-white">
       <p className="text-3xl font-bold momo-font">98%</p>
-      <p className="text-sm opacity-80 roboto-text">Client Retention</p>
+      <p className="text-sm opacity-80 roboto-texts">Client Retention</p>
     </div>
     <div className="w-[1px] bg-white/20 h-10" />
     <div className="text-white">
       <p className="text-3xl font-bold momo-font">200+</p>
-      <p className="text-sm opacity-80 roboto-text">Projects Shipped</p>
+      <p className="text-sm opacity-80 roboto-texts">Projects Shipped</p>
     </div>
   </motion.div>
 </div>
 
 
-      {/* ---------------- FEATURES SECTION (New Content) ---------------- */}
+      {/* ---------------- FEATURES SECTION  ---------------- */}
   <section className="py-5 md:py-5 px-4 md:px-6 bg-white">
   {/* Reduced gap on mobile (gap-6) and padding (py-8) */}
   <div className="max-w-7xl mx-auto grid md:grid-cols-2  md:gap-16 items-center">
@@ -241,7 +241,7 @@ export default function Page() {
         <h2 className="text-4xl md:text-5xl momo-font font-bold text-white mb-3">
           Our Capabilities
         </h2>
-        <p className="text-white !text-white  roboto-text max-w-md text-sm md:text-base">
+        <p className="  roboto-texts max-w-md text-sm md:text-base">
           Modular, powerful, and designed for the future. Explore our core technical services.
         </p>
       </div>
@@ -272,7 +272,7 @@ export default function Page() {
 
     <h3 className="text-2xl momo-font font-bold mb-2">Enterprise ERP</h3>
 
-    <p className="text-white/90 text-sm roboto-text leading-relaxed max-w-sm">
+    <p className=" text-sm roboto-texts leading-relaxed max-w-sm">
       Connect finance, HR, sales & logistics into one real-time dashboard.
     </p>
   </div>
@@ -319,7 +319,7 @@ export default function Page() {
               {card.icon}
             </div>
             <h4 className="text-lg font-semibold momo-font">{card.title}</h4>
-           <p className="text-white text-xs roboto-text mt-1 !text-white">{card.desc}</p>
+           <p className=" text-xs roboto-texts mt-1 !text-white">{card.desc}</p>
 
           </div>
         </motion.div>
@@ -336,7 +336,7 @@ export default function Page() {
           <h3 className="text-xl momo-font font-bold text-white">
             CRM & Analytics
           </h3>
-          <p className="text-white text-xs roboto-text mt-1 !text-white">
+          <p className=" text-xs roboto-texts mt-1 ">
 
             Smarter customer insights and automation.
           </p>
@@ -383,7 +383,54 @@ export default function Page() {
             </div>
         </div>
       </section>
-        <CtaBanner />          
+         <div className="max-w-5xl mx-auto px-6 relative z-20 ">
+              <div className="bg-white rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] p-10 md:p-5 text-center border border-slate-100 relative overflow-hidden">
+                
+                {/* Top Gradient Line Accent */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#6c53a7] via-[#ae5c83] to-[#6c53a7]" />
+            
+                {/* Background Pattern (Optional) */}
+                <div className="absolute inset-0 bg-[radial-gradient(#6c53a7_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.03]" />
+            
+                <div className="relative z-10">
+                  <h2 className="text-3xl md:text-5xl momo-font font-extrabold text-slate-900 tracking-tight mb-2">
+                    Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c53a7] to-[#ae5c83]">Solutions</span>
+                  </h2>
+            
+                  <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto roboto-text mb-4 leading-relaxed">
+                    Discover a variety of innovative digital tools tailored to elevate
+                    your business performance.
+                  </p>
+            
+                  <div className="flex justify-center">
+                    <Link
+                      href="/portfolio"
+                      className="
+                        group
+                        flex items-center gap-3
+                        pl-8 pr-6 py-4
+                        rounded-full
+                        bg-[#5b4390] 
+                        text-white 
+                        font-bold 
+                        shadow-xl shadow-[#5b4390]/25
+                        hover:bg-[#4a3675]
+                        hover:shadow-2xl hover:shadow-[#5b4390]/40
+                        hover:-translate-y-1
+                        transition-all 
+                        duration-300
+                      "
+                    >
+                      <span>View Portfolio</span>
+                      <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
+                         {/* Assuming you have lucide-react imported */}
+                        
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>        
     
     </div>
   );

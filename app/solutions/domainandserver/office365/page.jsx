@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import QuotePopup from "../../../../components/QuotePopup";
 import PricingPage from "@/components/PricingPage";
-
+import  Link  from "next/link";
 // --- SUB-COMPONENT: Animated Circular Stat ---
 const AnimatedCircularStat = ({ value, label, icon, color }) => {
   const [percent, setPercent] = useState(0);
@@ -415,7 +415,7 @@ const Microsoft365Page = () => {
               </div>
               <div>
                 <h4 className="font-bold text-lg momo-font">Cpanel Domain Configuration</h4>
-                <p className="text-slate-300  text-sm leading-relaxed mt-1">
+                <p className="text-slate-300 roboto-texts  text-sm leading-relaxed mt-1">
                   Complete DNS setup and domain linking to Microsoft servers to ensure seamless connectivity.
                 </p>
               </div>
@@ -428,7 +428,7 @@ const Microsoft365Page = () => {
               </div>
               <div>
                 <h4 className="font-bold momo-font text-lg">License Installation & Email Gen</h4>
-                <p className="text-slate-300 text-sm leading-relaxed mt-1">
+                <p className="text-slate-300 roboto-texts text-sm leading-relaxed mt-1">
                   Allocation of licenses to users and creation of professional business email addresses.
                 </p>
               </div>
@@ -441,7 +441,7 @@ const Microsoft365Page = () => {
               </div>
               <div>
                 <h4 className="font-bold momo-font text-lg">Security Policy Implementation</h4>
-                <p className="text-slate-300  text-sm leading-relaxed mt-1">
+                <p className="text-slate-300 roboto-texts text-sm leading-relaxed mt-1">
                   Setting up tenant-wide security rules to protect your organization's data from day one.
                 </p>
               </div>
@@ -527,8 +527,7 @@ const Microsoft365Page = () => {
 </div>
             <QuotePopup open={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 </section>
-
-           
+  
     </main>
   );
 };

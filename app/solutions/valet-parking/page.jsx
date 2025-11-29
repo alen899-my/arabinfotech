@@ -143,22 +143,22 @@ export default function ValetParkingModernPage() {
   const accentColor = "#ae5c83";
 
   return (
-    <div className="w-full  overflow-hidden font-sans">
+    <div className="w-full  overflow-hidden ">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-24 px-6">
+      <section className="relative w-full pt-24  md:pt-32 md:pb-4 px-6">
         {/* Subtle Background Element */}
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-[#ae5c83]/10 to-transparent rounded-bl-full -z-10 blur-3xl"></div>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap- items-center">
           {/* Hero Text Content */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="text-left space-y-6"
+            className="text-left space-y-"
           >
             <motion.div variants={itemVariants}>
-             <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded border border-slate-200 bg-white shadow-sm">
+             <div className="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded border border-slate-200 bg-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#ae5c83]"></span>
               <span className="roboto-texttext-xs font-bold tracking-widest uppercase text-slate-500">
                 Valet Parking Service
@@ -229,8 +229,8 @@ export default function ValetParkingModernPage() {
       {/* ================= THE PROBLEM & SOLUTION ================= */}
       <section className="py-5 px-6 bg-white">
       {/* Heading */}
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 momo-font">
+      <div className="max-w-4xl mx-auto text-center mb-1">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 momo-font">
           The Digital Transformation of Parking
         </h2>
         <p className="text-xl text-slate-600 leading-relaxed">
@@ -245,7 +245,7 @@ export default function ValetParkingModernPage() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
         {/* Text Block */}
-        <div className="space-y-6 text-slate-600 leading-relaxed">
+        <div className="space-y-2 text-slate-600 leading-relaxed">
           <h3 className="text-2xl font-bold text-slate-900 momo-font">
             Seamless, Fast, and Transparent.
           </h3>
@@ -356,8 +356,8 @@ export default function ValetParkingModernPage() {
 
   <section className="py-5 px-6  border-y border-slate-200 font-sans">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 momo-font mb-4">
+        <div className="text-center mb-1">
+          <h2 className="text-3xl font-bold text-slate-900 momo-font mb-2">
             How It Works
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
@@ -370,7 +370,7 @@ export default function ValetParkingModernPage() {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex justify-between items-start gap-4 hover:shadow-md transition-shadow"
+              className="bg-white p-6 rounded-xl shadow-sm border border-slate-400 flex justify-between items-start gap-4 hover:shadow-md transition-shadow"
             >
               {/* Left Side: Number and Text */}
               <div className="flex gap-4 items-start">
@@ -382,11 +382,11 @@ export default function ValetParkingModernPage() {
                   {step.id}
                 </div>
                  {/* Text Content */}
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <div> 
+                  <h3 className="text-xl momo-font font-bold text-slate-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className=" text-sm  roboto-text leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -405,8 +405,8 @@ export default function ValetParkingModernPage() {
       {/* ================= KEY FEATURES & BENEFITS GRID ================= */}
       <section id="features" className="py-5 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 momo-font">
+          <div className="text-center mb-1">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 momo-font">
               Powerful Features, Tangible Results
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -426,18 +426,18 @@ export default function ValetParkingModernPage() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
-                className="p-8 bg-white rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition-all duration-300 group"
+                className="p-8 bg-white rounded-2xl shadow-md border border-slate-400 hover:shadow-xl transition-all duration-300 group"
               >
                 <div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg transition-transform group-hover:scale-110`}
+                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-2 text-white shadow-lg transition-transform group-hover:scale-110`}
                   style={{ backgroundColor: accentColor }}
                 >
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 roboto-text leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -445,29 +445,55 @@ export default function ValetParkingModernPage() {
           </motion.div>
         </div>
       </section>
-      
-      <section className="relative z-10 -mt-5 px-4 ">
-        <div className="max-w-4xl mx-auto text-center   py-14 px-6 ">
-
-          <h3 className="text-3xl md:text-4xl momo-font font-bold text-[#ae5c83]">
-            Explore Our Solutions
-          </h3>
-
-          <p className="text-gray-500 text-s leading-relaxed mt-1 momo-font">
-            Discover a variety of innovative digital tools and technologies 
-            tailored to elevate your business performance and accelerate growth.
-          </p>
-
-          <a
-            href="/contact"
-            className="inline-block mt-6 momo-font px-6 py-4 bg-[#6c53a7] text-white rounded-xl font-semibold shadow-lg hover:bg-[#5b4390] transition-all"
-          >
-            Portfolio →
-          </a>
-
-        </div>
-      </section>
-
+     
+     <div className="max-w-5xl mx-auto px-6 relative z-20 ">
+       <div className="bg-white rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] p-10 md:p-5 text-center border border-slate-100 relative overflow-hidden">
+         
+         {/* Top Gradient Line Accent */}
+         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#6c53a7] via-[#ae5c83] to-[#6c53a7]" />
+     
+         {/* Background Pattern (Optional) */}
+         <div className="absolute inset-0 bg-[radial-gradient(#6c53a7_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.03]" />
+     
+         <div className="relative z-10">
+           <h2 className="text-3xl md:text-5xl momo-font font-extrabold text-slate-900 tracking-tight mb-2">
+             Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c53a7] to-[#ae5c83]">Solutions</span>
+           </h2>
+     
+           <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto roboto-text mb-4 leading-relaxed">
+             Discover a variety of innovative digital tools tailored to elevate
+             your business performance.
+           </p>
+     
+           <div className="flex justify-center">
+             <Link
+               href="/portfolio"
+               className="
+                 group
+                 flex items-center gap-3
+                 pl-8 pr-6 py-4
+                 rounded-full
+                 bg-[#5b4390] 
+                 text-white 
+                 font-bold 
+                 shadow-xl shadow-[#5b4390]/25
+                 hover:bg-[#4a3675]
+                 hover:shadow-2xl hover:shadow-[#5b4390]/40
+                 hover:-translate-y-1
+                 transition-all 
+                 duration-300
+               "
+             >
+               <span>View Portfolio</span>
+               <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
+                  {/* Assuming you have lucide-react imported */}
+                 
+               </div>
+             </Link>
+           </div>
+         </div>
+       </div>
+     </div>
     </div>
   );
 }

@@ -141,7 +141,7 @@ export default function NavBar() {
                                 <button
                                   className="w-full flex items-center justify-between px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 group-hover/nested:text-[#ae5c83]"
                                 >
-                                  <span className="flex items-center gap-2">
+                                  <span className="flex items-center gap-2 momo-font-light">
                                     {s.icon && s.icon}
                                     {s.label}
                                   </span>
@@ -155,7 +155,7 @@ export default function NavBar() {
                                       <Link
                                         key={subIdx}
                                         href={sub.href}
-                                        className="block px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 text-[13px] font-medium text-gray-600 hover:text-[#ae5c83]"
+                                        className="block px-4 py-2 hover:bg-[#f9e6f1] momo-font-light rounded-md transition-all duration-200 text-[13px] font-medium text-gray-600 hover:text-[#ae5c83]"
                                       >
                                         {sub.label}
                                       </Link>
@@ -171,7 +171,7 @@ export default function NavBar() {
                             <Link
                               key={idx}
                               href={s.href}
-                              className="flex items-center gap-2 px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 hover:text-[#ae5c83]"
+                              className="flex items-center momo-font-light  gap-2 px-4 py-2 hover:bg-[#f9e6f1] rounded-md transition-all duration-200 cursor-pointer text-[14px] font-medium text-gray-700 hover:text-[#ae5c83]"
                             >
                               {s.icon}
                               {s.label}
@@ -187,7 +187,7 @@ export default function NavBar() {
 
             <button
               onClick={() => setModalOpen(true)}
-              className="px-6 py-3 bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white rounded-md text-sm shadow-md hover:scale-[1.05] transition">
+              className="px-6 py-3 bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white rounded-md text-sm shadow-md hover:scale-[1.05] momo-font transition">
               Get a Quote
             </button>
           </div>
@@ -214,7 +214,7 @@ export default function NavBar() {
               {LINKS.map((item, i) => (
                 item.label !== "Solutions" ? (
                   <Link key={i} href={item.href} onClick={() => setMobileOpen(false)}
-                    className={`text-lg font-medium border-b py-4 flex gap-4
+                    className={`text-lg font-medium border-b momo-font py-4 flex gap-4
                       ${isActive(item.href) ? "text-[#ae5c83]" : "text-slate-600"}`}>
                     {item.icon} {item.label}
                   </Link>
@@ -224,7 +224,7 @@ export default function NavBar() {
                     <button
                       onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                       className="w-full flex justify-between py-4 text-lg font-medium">
-                      <span className="flex text-slate-600 items-center gap-4">{item.icon} Solutions</span>
+                      <span className="flex text-slate-600 items-center gap-4 momo-font border-b">{item.icon} Solutions</span>
                       <ChevronDown className={`transition-transform duration-300 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
                     </button>
 
@@ -242,12 +242,12 @@ export default function NavBar() {
                             const subItems = getSubItems(s.label);
 
                             return (
-                              <div key={idx} className="rounded-lg bg-gray-50">
+                              <div key={idx} className="rounded-lg  bg-gray-50">
                                 <button 
                                   onClick={() => setOpen(!isOpen)}
-                                  className="w-full flex items-center justify-between text-slate-600 py-3 px-3 hover:text-[#ae5c83] font-medium"
+                                  className="w-full flex items-center border-b justify-between text-slate-600 py-3 px-3 hover:text-[#ae5c83] font-medium"
                                 >
-                                  <span className="flex items-center gap-3">{s.icon} {s.label}</span>
+                                  <span className="flex items-center momo-font gap-3">{s.icon} {s.label}</span>
                                   <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
                                 </button>
                                 
@@ -259,7 +259,7 @@ export default function NavBar() {
                                          key={subIdx} 
                                          href={sub.href} 
                                          onClick={() => setMobileOpen(false)}
-                                         className="block text-slate-500 text-sm py-2 hover:text-[#ae5c83]"
+                                         className="block text-slate-500 text-sm py-2 momo-font hover:text-[#ae5c83]"
                                        >
                                          {sub.label}
                                        </Link>
@@ -273,7 +273,7 @@ export default function NavBar() {
                           // STANDARD MOBILE LINK
                           return (
                             <Link key={idx} href={s.href} onClick={() => setMobileOpen(false)}
-                              className="flex items-center text-slate-600 gap-3 py-3 px-3 rounded-lg hover:bg-gray-50 hover:text-[#ae5c83]">
+                              className="flex items-center text-slate-600 gap-3 momo-font py-3 px-3 rounded-lg hover:bg-gray-50 hover:text-[#ae5c83]">
                               {s.icon} {s.label}
                             </Link>
                           );
@@ -287,7 +287,7 @@ export default function NavBar() {
 
             <button
               onClick={() => { setMobileOpen(false); setModalOpen(true); }}
-              className="mt-8 px-6 py-3 mx-auto block bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white rounded-full shadow-md w-full">
+              className="mt-8 px-6 py-3 mx-auto momo-font block bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white rounded-full shadow-md ">
               Get a Quote
             </button>
           </motion.div>

@@ -14,17 +14,17 @@
   font-weight: 500;
   font-size: 16px;        /* readable size */
   line-height: 1.5;       /* more breathing space */
-   color: #555557;     /* soft dark gray – less strain than pure black */
+   color: #1e293b;    /* soft dark gray – less strain than pure black */
   letter-spacing: 0.2px;  /* improves readability */
-  margin-bottom: 1rem; 
+
    
 }
 .roboto-texts {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 12px;        /* readable size */
+  font-size: 16px;        /* readable size */
   line-height: 1.5;       /* more breathing space */
-   color: #555557;     /* soft dark gray – less strain than pure black */
+   color: #e7e7ee;     /* soft dark gray – less strain than pure black */
   letter-spacing: 0.2px;  /* improves readability */
   
    
@@ -47,8 +47,7 @@
 .momo-font-light {
   font-family: "Momo Trust Display", sans-serif;
   font-weight: 400;
-  opacity: 0.8;
-  letter-spacing: 0.3px;
+  
 }
 
 /* Even softer option */

@@ -17,6 +17,7 @@ import {
   LuPenTool,
   LuSearch,
   LuSettings,
+
 } from "react-icons/lu";
 
 {/*corousel imports*/}
@@ -170,7 +171,7 @@ export default function Page() {
       </motion.div>
 
       {/* ===================== FOUR BOX SECTION ===================== */}
-      <section className="relative z-10 w-full py-20 px-4 -mt-16">
+      <section className="relative z-10 w-full py-2 px-4 ">
         <motion.div
           className="text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
@@ -202,7 +203,6 @@ export default function Page() {
               text: "Get instant visibility with paid search ads that drive targeted traffic and boost conversions quickly and effectively.",
             },
             {
-              icon: <LuPenTool className="text-[#ae5c83] text-3xl mb" />,
               title: "Social Media Optimization (SMO)",
               text: "Build meaningful engagement and a strong online presence across social platforms with our tailored SMO strategies.",
             },
@@ -219,7 +219,7 @@ export default function Page() {
               whileHover={{ scale: 1.04, y: -5 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 + i * 0.05 }}
-              className="border border-gray-300 p-6 rounded-2xl bg-white shadow-sm"
+              className="border border-gray-400 p-6 rounded-2xl bg-white shadow-sm"
             >
               {box.icon}
               <h3 className="text-gray-700 text-xl uppercase tracking-wide momo-font">
@@ -233,125 +233,113 @@ export default function Page() {
         </div>
       </section>
 
+<section className="py-5 px-6 bg-white relative overflow-hidden">
+      
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         
-<section className="relative overflow-hidden py-20 px-4 bg-gradient-to-b from-white via-[#fdf6fa] to-white -mt-30">
-      <div className="max-w-5xl mx-auto relative">
-
-        {/* Header */}
-        <div className="flex flex-col items-center text-center">
-          <h2 className="text-[#ae5c83] text-3xl momo-font font-semibold tracking-tight">
-            Why Arab Infotech?
+        {/* Left: Text Content */}
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-[#5b4390] text-xs font-bold uppercase tracking-wider">
+             Agency Benefits
+          </div>
+          
+          <h2 className="text-4xl lg:text-5xl momo-font font-bold text-slate-900 leading-tight">
+            Why we are the <br/>
+            <span className= " text-[#ae5c83]">
+              Best in Dubai
+            </span>
           </h2>
-          <p className="roboto-text">
-            Best digital marketing agency in Dubai
+          
+          <p className="text-slate-600 text-lg roboto-text leading-relaxed">
+            We don't just run ads; we build digital ecosystems. Arab Infotech provides a holistic approach to marketing that prioritizes growth, transparency, and tangible results.
           </p>
-          <div className="h-1 w-16  bg-[#ae5c83] rounded-full opacity-60"></div>
+
+          <div className="pt-4 border-t border-slate-100">
+             <p className="text-sm font-bold text-slate-400 uppercase tracking-widest momo-font">Trusted by 500+ Clients</p>
+          </div>
         </div>
 
-        {/* Items */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-y-10 gap-x-8 max-w-3xl mx-auto mt-12"
-        >
+        {/* Right: The Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+           
+           <div className="bg-[#FAFAFA] p-6 rounded-2xl hover:bg-white hover:shadow-lg border border-transparent hover:border-slate-100 transition-all duration-300">
+              <LuShoppingBag className="text-[#ae5c83] w-10 h-10 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 momo-font">Cost-Effective</h3>
+              <p className="text-sm text-slate-500 mt-2">Optimized budgets for maximum impact.</p>
+           </div>
 
-          {/* Cost-Effective */}
-          <motion.div
-            variants={item}
-            className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
-          >
-            <LuShoppingBag className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Cost-Effective</h3>
-          </motion.div>
+           <div className="bg-[#FAFAFA] p-6 rounded-2xl hover:bg-white hover:shadow-lg border border-transparent hover:border-slate-100 transition-all duration-300">
+              <LuRocket className="text-[#5b4390] w-10 h-10 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 momo-font">Global Reach</h3>
+              <p className="text-sm text-slate-500 mt-2">Scale your brand beyond borders.</p>
+           </div>
 
-          {/* Reach */}
-          <motion.div
-            variants={item}
-            className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
-          >
-            <LuRocket className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Reach</h3>
-          </motion.div>
+           <div className="bg-[#FAFAFA] p-6 rounded-2xl hover:bg-white hover:shadow-lg border border-transparent hover:border-slate-100 transition-all duration-300">
+              <LuSearch className="text-[#5b4390] w-10 h-10 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 momo-font">Laser Targeting</h3>
+              <p className="text-sm text-slate-500 mt-2">Find customers who actually convert.</p>
+           </div>
 
-          {/* Targeting */}
-          <motion.div
-            variants={item}
-            className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
-          >
-            <LuSearch className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Targeting</h3>
-          </motion.div>
+           <div className="bg-[#FAFAFA] p-6 rounded-2xl hover:bg-white hover:shadow-lg border border-transparent hover:border-slate-100 transition-all duration-300">
+              <LuPenTool className="text-[#ae5c83] w-10 h-10 mb-4" />
+              <h3 className="text-lg font-bold text-slate-900 momo-font">Deep Analytics</h3>
+              <p className="text-sm text-slate-500 mt-2">Insights that drive strategy.</p>
+           </div>
 
-          {/* Analytics */}
-          <motion.div
-            variants={item}
-            className="flex flex-col items-center text-center group transition-transform duration-300 hover:scale-105"
-          >
-            <LuPenTool className="text-[#ae5c83] text-5xl mb-3 group-hover:scale-110 transition-all duration-300" />
-            <h3 className="text-gray-700 text-lg sm:text-xl uppercase tracking-wide mt-1 momo-font">Analytics</h3>
-          </motion.div>
+        </div>
 
-        </motion.div>
       </div>
     </section>
 
 
+<div className="max-w-5xl mx-auto px-6 relative z-20 ">
+  <div className="bg-white rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] p-10 md:p-5 text-center border border-slate-100 relative overflow-hidden">
+    
+    {/* Top Gradient Line Accent */}
+    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#6c53a7] via-[#ae5c83] to-[#6c53a7]" />
 
+    {/* Background Pattern (Optional) */}
+    <div className="absolute inset-0 bg-[radial-gradient(#6c53a7_0.5px,transparent_0.5px)] [background-size:16px_16px] opacity-[0.03]" />
 
-      <section className="relative z-10 w-full  -mt-20">
-        <div
+    <div className="relative z-10">
+      <h2 className="text-3xl md:text-5xl momo-font font-extrabold text-slate-900 tracking-tight mb-2">
+        Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c53a7] to-[#ae5c83]">Solutions</span>
+      </h2>
+
+      <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto roboto-text mb-4 leading-relaxed">
+        Discover a variety of innovative digital tools tailored to elevate
+        your business performance.
+      </p>
+
+      <div className="flex justify-center">
+        <Link
+          href="/portfolio"
           className="
-            w-full 
-          
-           border-none
-            
-            py-10 px-6 
-            text-center 
-          
-          
+            group
+            flex items-center gap-3
+            pl-8 pr-6 py-4
+            rounded-full
+            bg-[#5b4390] 
+            text-white 
+            font-bold 
+            shadow-xl shadow-[#5b4390]/25
+            hover:bg-[#4a3675]
+            hover:shadow-2xl hover:shadow-[#5b4390]/40
+            hover:-translate-y-1
             transition-all 
             duration-300
           "
         >
-          <h2
-            className="
-              text-3xl md:text-4xl 
-              momo-font 
-              font-bold 
-              text-[#ae5c83] 
-              tracking-tight
-            "
-          >
-            Explore Our Solutions
-          </h2>
-
-          <p className="text-gray-600 mt-3 text-base md:text-lg max-w-2xl mx-auto momo-font">
-            Discover a variety of innovative digital tools and technologies tailored to elevate
-            your business performance and accelerate growth.
-          </p>
-
-          <a
-            href="/contact"
-            className="
-              inline-block 
-              mt-3 
-              px-4 py-4 
-              rounded-lg 
-              bg-[#6c53a7] 
-              text-white 
-              font-semibold 
-              hover:bg-[#5b4390]
-              transition-all 
-              duration-300
-              shadow-lg shadow-black/10
-            "
-          >
-            PortFolio →
-          </a>
-        </div>
-      </section>
+          <span>View Portfolio</span>
+          <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
+             {/* Assuming you have lucide-react imported */}
+            
+          </div>
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div>
   );
