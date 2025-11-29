@@ -1,15 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { 
   Search, Globe, ArrowRight, CheckCircle2, 
   Server, Shield, Zap, Clock, Mail, MousePointer2, 
-  Cloud, Cpu, Lock, HardDrive, Settings 
+  Cloud, Cpu, Lock, HardDrive, Settings, Briefcase 
 } from "lucide-react";
+// ↓↓↓ Make sure this path is correct for your project structure ↓↓↓
+import QuotePopup from "../../../../components/QuotePopup"; 
 
 import Link from "next/link"
+
 const DomainWhiteTheme = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
   const extensions = [
     ".com", ".in", ".ae", ".net", ".org", ".co.uk", ".io", 
     ".tech", ".biz", ".info", ".me", ".store", ".online", ".app"
@@ -37,6 +46,7 @@ const DomainWhiteTheme = () => {
       desc: "Professional email accounts included with allocated disk space and traffic."
     }
   ];
+  
   const dedicatedStats = [
     { label: "Uptime", value: "99.99%", icon: <Zap className="w-4 h-4 text-[#ae5c83]" /> },
     { label: "Control", value: "Root Access", icon: <Settings className="w-4 h-4 text-[#5b4390]" /> },
@@ -46,7 +56,8 @@ const DomainWhiteTheme = () => {
   return (
     <>
       {/* --- SECTION 1: DOMAIN SEARCH --- */}
-      <section className="bg-white text-slate-800 min-h-screen py-10 relative overflow-hidden flex flex-col justify-center">
+     
+      <section className="bg-white text-slate-800 py-20 relative overflow-hidden flex flex-col justify-center">
         
         {/* --- CSS for Marquee Animation --- */}
         <style jsx global>{`
@@ -64,7 +75,8 @@ const DomainWhiteTheme = () => {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#5b4390]/5 blur-[120px] rounded-full pointer-events-none" />
 
         {/* --- MAIN CONTENT WRAPPER --- */}
-        <div className="container mx-auto px-6 relative z-10 max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+        {/* Reduced gap-12/20 to gap-8/12 and mb-16 to mb-8 */}
+        <div className="container mx-auto px-6 relative z-10 max-w-7xl grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-8">
 
           {/* LEFT: CONTENT */}
           <div className="space-y-2">
@@ -94,15 +106,14 @@ const DomainWhiteTheme = () => {
 
             <div className=" p-2 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 max-w-lg w-full">
               <div className="flex items-center">
-                <Link href="/contact">
-                 <button className="bg-[#ae5c83] hover:bg-[#964a6e] momo-font text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2  justify-center">
+                {/* Button triggers popup */}
+                <button 
+                  onClick={handleOpenPopup}
+                  className="bg-[#ae5c83] hover:bg-[#964a6e] momo-font text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 justify-center w-full md:w-auto"
+                >
                   Get Your Domain 
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                
-                
-                </Link>
-               
               </div>
             </div>
             
@@ -134,13 +145,13 @@ const DomainWhiteTheme = () => {
         </div>
 
         {/* ---- MARQUEE ---- */}
-        <div className="w-full    bg-white/50 backdrop-blur-sm">
+        <div className="w-full backdrop-blur-sm">
           <div className="w-full overflow-hidden">
             <div className="flex w-max animate-marquee">
               {[...extensions, ...extensions, ...extensions].map((ext, index) => (
                 <span 
                   key={index} 
-                  className="mx-8 text-2xl md:text-3xl font-bold text-slate-400 hover:text-[#5b4390] transition-colors cursor-default select-none"
+                  className="mx-8 text-2xl md:text-xl font-bold text-slate-400 hover:text-[#5b4390] transition-colors cursor-default select-none"
                 >
                   {ext}
                 </span>
@@ -152,12 +163,13 @@ const DomainWhiteTheme = () => {
 
 
       {/* --- SECTION 2: SHARED MANAGED SERVER --- */}
-      <section className=" text-slate-800 relative overflow-hidden">
+      
+      <section className="text-slate-800 -mt-5 relative overflow-hidden">
         
-     
         <div className="container mx-auto px-6 relative z-10 max-w-7xl">
           
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Reduced gap-16 to gap-10 */}
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
             
             {/* LEFT: TEXT CONTENT */}
             <div className="space-y-3">
@@ -204,8 +216,6 @@ const DomainWhiteTheme = () => {
                 </p>
               </div>
 
-              {/* Call to Action */}
-             
             </div>
 
             {/* RIGHT: FEATURE GRID */}
@@ -215,7 +225,7 @@ const DomainWhiteTheme = () => {
                 {features.map((item, idx) => (
                   <div 
                     key={idx} 
-                    className="bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-[#ae5c83]/30 hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-slate-400 hover:border-[#ae5c83]/30 hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-4 border border-slate-100">
                       {item.icon}
@@ -233,16 +243,15 @@ const DomainWhiteTheme = () => {
         </div>
       </section>
 
-
-
-      <section className="bg-white text-slate-800 py-2 relative overflow-hidden">
+      {/* --- SECTION 3: DEDICATED SERVER --- */}
+      {/* Reduced py-12 to py-8 */}
+      <section className="bg-white text-slate-800 py-8 relative overflow-hidden">
         
         <div className="container mx-auto px-6 relative z-10 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Reduced gap-16 to gap-10 */}
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
             
-         
             <div className="relative order-2 lg:order-1">
-            
               <div className="relative w-full h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100">
                  {/* Replace with a server/rack image */}
                 <Image 
@@ -253,8 +262,6 @@ const DomainWhiteTheme = () => {
                 />
                 <div className="absolute inset-0 bg-[#5b4390]/20 mix-blend-multiply" />
               </div>
-
-             
             </div>
 
             {/* RIGHT: TEXT CONTENT */}
@@ -323,13 +330,24 @@ const DomainWhiteTheme = () => {
                 </div>
               </div>
 
-            
+              {/* Added Popup Trigger Button in Last Section */}
+              <div className="pt-2">
+                <button 
+                  onClick={handleOpenPopup}
+                  className="px-8 py-3.5 bg-[#5b4390] text-white font-bold rounded-xl shadow-lg hover:bg-[#4a3675] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 momo-font flex items-center gap-2"
+                >
+                  <Briefcase className="w-4 h-4" />
+                  Get Dedicated Server 
+                </button>
+              </div>
 
             </div>
-
           </div>
         </div>
       </section>
+
+      {/* Popup Component Rendered at the end */}
+      <QuotePopup open={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </>
   );
 };

@@ -20,6 +20,7 @@ export default function QuotePopup({ open, onClose }) {
     "/webdesigning": "Web Designing",
     "/ecommerce": "eCommerce",
     "/seo": "SEO",
+    "/email-solutions": "Domain",
     "/digitalmarketing": "Marketing",
     "/uxui": "UX / UI Design",
     "/consultancy": "Consultancy",
@@ -43,7 +44,8 @@ export default function QuotePopup({ open, onClose }) {
   const SERVICES = [
     "Web Designing",
     "eCommerce",
-    "Microsoft 365", // Added Item
+    "Microsoft 365", 
+    "Domain",
     "SEO",
     "UX / UI Design",
     "Marketing",
@@ -121,11 +123,11 @@ export default function QuotePopup({ open, onClose }) {
             </button>
 
             {/* Title */}
-            <h2 className="text-2xl text-center font-bold text-[#ae5c83] mb-6 momo-font">Get a Quote</h2>
+            <h2 className="text-2xl text-center font-bold text-[#ae5c83] mb-2 momo-font">Get a Quote</h2>
 
             {/* SERVICES */}
-            <div className="mb-5">
-              <p className="font-semibold flex items-center gap-2 mb-3 text-gray-800 text-sm">
+            <div className="mb-2">
+              <p className="font-semibold flex items-center gap-2 mb-2 text-gray-800 text-sm">
                 <CheckCircle2 size={18} className="text-[#ae5c83]" />
                 I’m interested in...
               </p>
@@ -136,9 +138,9 @@ export default function QuotePopup({ open, onClose }) {
                   return (
                     <label
                       key={item}
-                      className={`flex items-center gap-2 p-2.5 rounded-lg border text-sm cursor-pointer transition select-none
+                      className={`flex items-center gap-1 p-1 rounded-lg border text-sm cursor-pointer transition select-none
                         ${checked ? "border-[#ae5c83] bg-[#ae5c83]/10 text-[#ae5c83] font-semibold"
-                                  : "border-slate-200 bg-white text-gray-600 hover:border-[#ae5c83]/50"}`}
+                                  : "border-slate-400 bg-white text-gray-600 hover:border-[#ae5c83]/50"}`}
                     >
                       <input
                         checked={checked}
@@ -154,7 +156,7 @@ export default function QuotePopup({ open, onClose }) {
             </div>
 
             {/* FULL NAME */}
-            <div className="mb-4">
+            <div className="mb-2">
               <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Full Name</label>
               <div className="relative">
                 <User className="absolute left-3 top-3 text-slate-400" size={18} />
@@ -168,7 +170,7 @@ export default function QuotePopup({ open, onClose }) {
             </div>
 
             {/* PHONE + EMAIL ROW */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
               {/* Phone */}
               <div>
                 <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Phone</label>
@@ -199,7 +201,7 @@ export default function QuotePopup({ open, onClose }) {
             </div>
 
             {/* MESSAGE */}
-            <div className="mb-6">
+            <div className="mb-2">
               <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">Project Details</label>
               <div className="relative">
                 <MessageSquare className="absolute left-3 top-3 text-slate-400" size={18} />
