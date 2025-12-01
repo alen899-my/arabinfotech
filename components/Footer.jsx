@@ -8,6 +8,7 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import lo from "@/public/lo.jpg"; 
 import Link from "next/link";
 
 export default function Footer() {
@@ -125,25 +126,59 @@ export default function Footer() {
 
       </div>
 
-      {/* ---------- SUB-FOOTER ---------- */}
-      <div className="max-w-7xl mx-auto px-6 mt-14 border-t border-white/10 pt-6 text-center">
-        <p className="text-gray-400 text-xs md:text-sm">
-          © {new Date().getFullYear()} ArabInfoTech — All Rights Reserved.
-        </p>
+ {/* ---------- SUB-FOOTER ---------- */}
+<div className="w-full bg-black/5 py-6 mt-10 border-t border-white/10">
+  <div className="max-w-7xl mx-auto px-6 text-center">
 
-        <div className="flex justify-center gap-4 mt-3 text-xs text-[#ae5c83]">
-          <Link href="/termsandconditions" className="hover:underline">Terms & Conditons</Link>
-          <Link href="/privacypolicy" className="hover:underline">Privacy Policy</Link>
-          <Link href="/refundpolicy" className="hover:underline">Refund Policy</Link>
-          <Link href="/faq" className="hover:underline">FAQ</Link>
-          <Link href="/site-map" className="hover:underline">Site map</Link>
-          <Link href="/about" className="hover:underline">AboutUs</Link>
-        </div>
+    {/* COPYRIGHT */}
+    <p className="text-gray-500 text-[11px] sm:text-sm">
+      © {new Date().getFullYear()} ArabInfoTech — All Rights Reserved.
+    </p>
 
-        <p className="text-gray-500 text-xs mt-3">
-          Designed & Developed by ArabInfoTech
-        </p>
-      </div>
+    {/* LINKS */}
+    <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 mt-3 text-[11px] sm:text-sm font-medium roboto-text">
+
+      <Link href="/termsandconditions" className="text-[#ae5c83] transition hover:underline">
+        Terms & Conditions
+      </Link>
+      <span className="text-gray-400">|</span>
+
+      <Link href="/privacypolicy" className="text-[#ae5c83] transition hover:underline">
+        Privacy Policy
+      </Link>
+      <span className="text-gray-400">|</span>
+
+      <Link href="/refundpolicy" className="text-[#ae5c83] transition hover:underline">
+        Refund Policy
+      </Link>
+      <span className="text-gray-400">|</span>
+
+      <Link href="/faq" className="text-[#ae5c83] transition hover:underline">
+        FAQ
+      </Link>
+      <span className="text-gray-400">|</span>
+
+      <Link href="/site-map" className="text-[#ae5c83] transition hover:underline">
+        Sitemap
+      </Link>
+      <span className="text-gray-400">|</span>
+
+      <Link href="/about" className="text-[#ae5c83] transition hover:underline">
+        About Us
+      </Link>
+       <span className="text-gray-400">|</span>
+      <Link href="/contact" className="text-[#ae5c83] transition hover:underline">
+        Contact Us
+      </Link>
+    </div>
+
+    {/* CREDITS */}
+    <p className="text-gray-400 text-[10px] sm:text-xs mt-4">
+      Designed & Developed by ArabInfoTech
+    </p>
+  </div>
+</div>
+
 
     </footer>
   );
