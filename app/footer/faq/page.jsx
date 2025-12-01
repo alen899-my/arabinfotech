@@ -121,14 +121,14 @@ const FAQModernLeftBorder = () => {
                   >
                     {/* Big Decorative Number */}
                     <span className={`text-3xl font-black momo-font transition-colors duration-300 hidden sm:block ${
-                      isOpen ? 'text-[#ae5c83]' : 'text-gray-200 group-hover:text-pink-100'
+                      isOpen ? 'text-[#ae5c83]' : 'text-gray-400 group-hover:text-[#ae5c83]'
                     }`}>
                       {number}
                     </span>
 
                     <div className="flex-1 pt-1 z-10">
                       <h3 className={`momo-font text-lg md:text-lg font-bold uppercase pr-8 transition-colors ${
-                        isOpen ? 'text-gray-900' : 'text-gray-600 group-hover:text-gray-900'
+                        isOpen ? 'text-[#ae5c83]' : 'text-gray-600 group-hover:text-[#ae5c83]'
                       }`}>
                         {item.question}
                       </h3>
