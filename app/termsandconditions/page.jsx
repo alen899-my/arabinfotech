@@ -50,7 +50,7 @@ const TermsAndConditions = () => {
 
           {/* 1. USE OF THE SITE */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">1.USE OF THE SITE</h2>
+           <h2 className="momo-font text-xl text-[#ae5c83] font-bold  uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">1.USE OF THE SITE</h2>
             <p className="mb-4 roboto-text">
               When you use the Site or our services, you agree to use the Site and our services only for purposes that are permitted by these Terms and any applicable law, regulation, or generally accepted practices or guidelines in the relevant jurisdictions. In addition, you agree that you are solely responsible for any breach of your obligations under these Terms and for the consequences (including any loss or damage which ARABINFOTEC may suffer) of any such breach. As a condition of your use of the Site and our services, you warrant to ARABINFOTEC that you will not use the Site or our services for any purpose that is unlawful or prohibited by these Terms. Whether on behalf of yourself or on behalf of any third party, you agree not to:
             </p>
@@ -77,7 +77,7 @@ const TermsAndConditions = () => {
 
           {/* 2. RIGHT TO MONITOR CONTENT */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">2.RIGHT TO MONITOR CONTENT</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">2.RIGHT TO MONITOR CONTENT</h2>
             <p className="roboto-text">
               ARABINFOTEC has the right, but not the obligation, in its sole discretion, at any time, for any reason, to monitor, analyze, edit, move, remove, or refuse to make available any content made available through the Site. ARABINFOTEC takes no responsibility and assumes no liability for any content you post, upload, or otherwise make available through your use of the Site. You are solely responsible for any content you post, upload, or otherwise make available through your use of the Site.
             </p>
@@ -85,7 +85,7 @@ const TermsAndConditions = () => {
 
           {/* 3. RESTRICTIONS ON CONTENT */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">3.RESTRICTIONS ON CONTENT</h2>
+           <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">3.RESTRICTIONS ON CONTENT</h2>
             <p className="mb-4 roboto-text">
               ARABINFOTEC may, in its sole discretion, at any time, remove or deny content for any reason, including, but not limited to, when the content contains any of the following:
             </p>
@@ -101,7 +101,7 @@ const TermsAndConditions = () => {
 
           {/* 4. REGISTERING FOR AN ACCOUNT */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">4.REGISTERING FOR AN ACCOUNT</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">4.REGISTERING FOR AN ACCOUNT</h2>
             <p className="mb-4 roboto-text">
               To register for a ARABINFOTEC account, you must provide us with your personal information, including your name, email address, and password. It is a condition of your use of the Site that all the information you provide on the Site is accurate, current, and complete. Your user name and password are for your personal use only. To ensure that your user name and password remain confidential, DO NOT share this information with anyone. You are responsible for maintaining the confidentiality of your account information and for restricting access to your computer or mobile device, and you agree to accept responsibility for all activities that occur under your account. Remember to choose a strong password, including numbers, capital letters, special characters, etc., and is not typically found in a dictionary. In the event, your password is lost or stolen it is your responsibility to notify ARABINFOTEC at the address listed in the “Contact Us” section.
             </p>
@@ -112,7 +112,7 @@ const TermsAndConditions = () => {
 
           {/* 5. PLACING AN ORDER */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">5.PLACING AN ORDER</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">5.PLACING AN ORDER</h2>
             <p className="mb-4 roboto-text">
               Your order is an offer to ARABINFOTEC to buy the product(s) and services listed in your order along with a sales order number. When you place an order to purchase a product and/or service from ARABINFOTEC, we will send you an email confirming receipt of your order and containing the details of your order (the “Order Confirmation”). Your receipt of the Order Confirmation only confirms that we have received your order; it does not constitute ARABINFOTEC’s acceptance of your order or ARABINFOTEC’s confirmation of our offer to sell. An order is not binding upon ARABINFOTEC until it is accepted; ARABINFOTEC must receive payment before it will accept an order. Payment for product(s) ordered is due prior to shipment. Once payment is received and the order is accepted, ARABINFOTEC will issue an invoice to you and a contract will come into existence between you and us. ARABINFOTEC may, in its sole discretion, at any time after receiving your order, accept or decline your order for any reason. In addition, ARABINFOTEC may, in its sole discretion, cancel your order and limit order quantity. Where your order is declined, canceled, or limited, we will inform you of this by appropriate means and you will not be charged. If however, your order is limited or canceled after your credit card has been charged for the purchase, ARABINFOTEC will issue a credit to your credit card account in the amount of the charge.
             </p>
@@ -124,7 +124,7 @@ const TermsAndConditions = () => {
 
           {/* 6. PAYMENT */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">6.PAYMENT</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">6.PAYMENT</h2>
             <p className="mb-4 roboto-text">
               In order to place an order with ARABINFOTEC, you must provide us with your name, shipping address, billing address, telephone number, and payment information, such as your credit card number, billing address, credit card expiration date, and credit card security code. You represent and warrant to ARABINFOTEC that the credit card information or other payment method information you provide to ARABINFOTEC is accurate and complete, and you are authorized to use such credit card or payment method for the purchase. Cardholders must retain a copy of transaction records and www.arabinfotechllc.com policies and rules.
             </p>
@@ -135,7 +135,7 @@ const TermsAndConditions = () => {
 
           {/* 7. DELIVERY POLICY */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">7.DELIVERY POLICY</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">7.DELIVERY POLICY</h2>
             <p className="mb-4 roboto-text">
               We deliver products only inside UAE. Shipping will be done by a third-party courier company. Delivery time may vary from 1-3 working days. Delivery charges are based on the location of the delivery and will be displayed once the user chooses the place of delivery. Avoid any delivery delay by providing your full address along with your contact details.
             </p>
@@ -146,7 +146,7 @@ const TermsAndConditions = () => {
 
           {/* 8. ORDER STATUS */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">8.ORDER STATUS</h2>
+           <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">8.ORDER STATUS</h2>
             <p className="roboto-text">
               ARABINFOTEC will keep you informed of your order status via email. All tracking information will be emailed to your ARABINFOTEC ID once your order has shipped.
             </p>
@@ -154,7 +154,7 @@ const TermsAndConditions = () => {
 
           {/* 9. ORDER PROCESSING */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">9.ORDER PROCESSING</h2>
+           <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">9.ORDER PROCESSING</h2>
             <p className="roboto-text">
               Once you have placed your order, you can expect your order to be processed within approximately 1-7 business days, provided the items are in stock and there are no problems with payment verification. ARABINFOTEC does not guarantee same-day shipping. Orders are not processed on holidays.
             </p>
@@ -162,7 +162,7 @@ const TermsAndConditions = () => {
 
           {/* 10. PRODUCTS/SERVICES */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">10. PRODUCTS/SERVICES</h2>
+           <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">10. PRODUCTS/SERVICES</h2>
             <p className="mb-4 roboto-text">
               Unless expressly indicated otherwise, ARABINFOTEC is not the manufacturer of the products sold on the Site. Actual product packaging and materials may contain more and different information than that displayed on the Site. Ingredients may also change. All information about the products on the Site is provided for information purposes only, and ARABINFOTEC MAKES NO WARRANTIES OR REPRESENTATIONS AS TO THE SITE’S ACCURACY. We recommend that you do not rely solely on the information presented on the Site. Please always read labels, warnings, and directions provided with the product before use.
             </p>
@@ -170,7 +170,7 @@ const TermsAndConditions = () => {
 
           {/* 11. PRODUCT/SERVICE TESTING */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">11.PRODUCT/SERVICE TESTING</h2>
+           <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">11.PRODUCT/SERVICE TESTING</h2>
             <p className="mb-4 roboto-text">
               ARABINFOTEC, like other e-retailers, ships items in the condition they were received from the original manufacturer/distributor. ARABINFOTEC does not conduct product testing before shipping any merchandise.
             </p>
@@ -181,7 +181,7 @@ const TermsAndConditions = () => {
 
           {/* 12. INTELLECTUAL PROPERTY */}
           <section>
-           <h2 className="momo-font text-xl font-bold text-black uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">12.INTELLECTUAL PROPERTY</h2>
+           <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-2 md:mb-4 border-b border-gray-200 pb-2 tracking-normal text-left">12.INTELLECTUAL PROPERTY</h2>
             <p className="mb-4 roboto-text">
               All content included on the Site, such as text, graphics, logos, images, videos, digital downloads, data, software, any other material, and the design selection and arrangement thereof is owned or licensed property of ARABINFOTEC, its suppliers, licensors, or other providers of such material. ARABINFOTEC and its suppliers and licensors expressly reserve all intellectual property rights in all content.
             </p>
@@ -193,7 +193,7 @@ const TermsAndConditions = () => {
 
           {/* 13. PRICING AND AVAILABILITY */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-4 border-b border-gray-200 pb-2">13. PRICING AND AVAILABILITY</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-4 border-b border-gray-200 pb-2">13. PRICING AND AVAILABILITY</h2>
             <p className="mb-4 roboto-text">
               All prices are displayed in the currency of the jurisdiction of the country you have selected when accessing the Site.
             </p>
@@ -210,7 +210,7 @@ const TermsAndConditions = () => {
 
           {/* 14. PRODUCT/SERVICE LISTING */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-4 border-b border-gray-200 pb-2">14. PRODUCT/SERVICE LISTING</h2>
+            <h2 className="momo-font text-xl font-bold text-[#ae5c83] uppercase mb-4 border-b border-gray-200 pb-2">14. PRODUCT/SERVICE LISTING</h2>
             <p className="mb-4 roboto-text">
               Prices and availability of products are subject to change without notice. Any changes to ARABINFOTEC controlled prices, specifications and terms will be effective only after the effective date of the change and will not affect any dispute arising prior to the effective date of the change. ARABINFOTEC strives for accuracy in all item descriptions, photographs images, compatibility references, detailed specifications, pricing, links, and any other product-related information contained herein or referenced on the Site. Due to system, typographical, informational, technical, human, and other errors, we cannot and do not guarantee that all information, including descriptions, photographs images, compatibility references, detailed specifications, pricing, links, availability, and any other product-related information listed is accurate, complete or current, nor do we assume responsibility for these errors. ARABINFOTEC reserves the right at any time and without notice to update product information and to correct and/or remove product-related errors, inaccuracies, or omissions. To the fullest extent permitted by law, ARABINFOTEC shall at its sole discretion have the right at any time to refuse and/or cancel any order for a product whose listing on the Site contained erroneous information, including but not limited to incorrect pricing. If such an order is canceled after your credit card has been charged for the purchase, ARABINFOTEC will issue a credit to your credit card account in the amount of the charge. Additionally, all hyperlinks to other websites from ARABINFOTEC are provided as resources to customers looking for additional information and/or professional opinion. ARABINFOTEC does not assume responsibility for the claims and/or representations made on these or any other websites.
             </p>
@@ -221,7 +221,7 @@ const TermsAndConditions = () => {
 
           {/* 15. CHILDREN */}
           <section>
-            <h2 className="momo-font text-xl font-bold text-black uppercase mb-4 border-b border-gray-200 pb-2">15. CHILDREN</h2>
+            <h2 className="momo-font text-xl text-[#ae5c83] uppercase mb-4 border-b border-gray-200 pb-2">15. CHILDREN</h2>
             <p className="roboto-text">
               Customers using the website who are Minor /under the age of 18 shall not register as a User of the website and shall not transact on or use the website. We do not sell products for purchase by children. If you are under the age of majority pursuant to applicable law, you may only use ARABINFOTEC with the involvement of a parent or guardian. If you order a product to which a minimum age requirement applies, by ordering that Product you confirm that you and, if different, the recipient of the product, are of the required age necessary to buy that product.
             </p>
