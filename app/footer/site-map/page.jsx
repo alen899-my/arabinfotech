@@ -121,7 +121,7 @@ export default function SiteMapPage() {
                     <span className="p-2 bg-pink-50 text-[#ae5c83] rounded-lg">
                       {section.icon}
                     </span>
-                    <h3 className="momo-font text-xl font-bold text-gray-800 uppercase">
+                    <h3 className="momo-font text-xl font-bold text-[#ae5c83] uppercase">
                       {section.title}
                     </h3>
                   </div>

@@ -90,6 +90,10 @@ const nextConfig: NextConfig = {
       {
         source:"/site-map",
         destination:"/footer/site-map"
+      },
+      {
+        source:"/about",
+        destination:"/footer/about"
       }
     ];
   },
