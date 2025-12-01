@@ -19,8 +19,8 @@ const PricingPage = () => {
       yearlyPrice: "228",
       description: "Essential tools for light users and frontline workers.",
       isPopular: false,
-      themeColor: "#3b82f6", // Blue
-      lightColor: "#eff6ff", // Blue-50
+      themeColor:"#7ac28d", 
+      lightColor: "#eff6ff", 
       features: {
         email: "50 GB",
         storage: "1 TB",
