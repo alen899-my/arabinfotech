@@ -14,6 +14,9 @@ export default function QuotePopup({ open, onClose }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  
+  // New: Error State
+  const [errors, setErrors] = useState({});
 
   // 1. Mapped the route /office365 to the service name
   const PAGE_SERVICE_MAP = {
@@ -36,6 +39,8 @@ export default function QuotePopup({ open, onClose }) {
       if (match) {
         setServices((prev) => prev.includes(match) ? prev : [match]);
       }
+      // Clear errors when opening
+      setErrors({});
     }
   }, [open, pathname]);
 
@@ -57,19 +62,60 @@ export default function QuotePopup({ open, onClose }) {
   ];
 
   const toggleService = (value) => {
-    setServices((prev) =>
-      prev.includes(value)
+    setServices((prev) => {
+      const newServices = prev.includes(value)
         ? prev.filter((s) => s !== value)
-        : [...prev, value]
-    );
+        : [...prev, value];
+      
+      // Clear service error if selection is made
+      if (newServices.length > 0 && errors.services) {
+        setErrors(prevErr => ({ ...prevErr, services: null }));
+      }
+      return newServices;
+    });
+  };
+
+  // Validation Logic
+  const validateForm = () => {
+    let newErrors = {};
+    let isValid = true;
+
+    if (!name.trim()) {
+      newErrors.name = "Full name is required";
+      isValid = false;
+    }
+
+    if (!phone.trim()) {
+      newErrors.phone = "Phone number is required";
+      isValid = false;
+    } else if (!/^\+?[0-9\s-]{7,15}$/.test(phone)) {
+      newErrors.phone = "Invalid phone number";
+      isValid = false;
+    }
+
+    if (!message.trim()) {
+      newErrors.message = "Message details are required";
+      isValid = false;
+    }
+
+    // Email is optional, but if provided, must be valid
+    if (email.trim() && !/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Invalid email format";
+      isValid = false;
+    }
+
+    if (services.length === 0) {
+      newErrors.services = "Please select at least one service";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleSubmit = async () => {
-    if (!name.trim()) return toast.error("Enter your name.");
-    if (!email.trim()) return toast.error("Enter your email.");
-    if (!phone.trim()) return toast.error("Enter your phone number.");
-    if (!message.trim()) return toast.error("Message is required.");
-    if (services.length === 0) return toast.error("Select at least one service.");
+    // Run Validation
+    if (!validateForm()) return;
 
     const loading = toast.loading("Sending...");
 
@@ -87,7 +133,8 @@ export default function QuotePopup({ open, onClose }) {
       if (data.success) {
         toast.success("Message sent successfully!");
         onClose();
-        setName(""); setEmail(""); setPhone(""); setMessage(""); setServices([]);
+        // Reset Form
+        setName(""); setEmail(""); setPhone(""); setMessage(""); setServices([]); setErrors({});
       } else {
         toast.error("Failed to send message.");
       }
@@ -128,10 +175,10 @@ export default function QuotePopup({ open, onClose }) {
             <h2 className="text-2xl text-center font-bold text-[#ae5c83] mb-2 momo-font">Get a Quote</h2>
 
             {/* SERVICES */}
-            <div className="mb-2">
+            <div className="mb-4">
               <p className="font-semibold flex items-center gap-2 mb-2 text-gray-800 text-sm">
                 <CheckCircle2 size={18} className="text-[#ae5c83]" />
-                I’m interested in...
+                I’m interested in... <span className="text-red-500">*</span>
               </p>
 
               <div className="grid grid-cols-2 gap-2">
@@ -141,8 +188,12 @@ export default function QuotePopup({ open, onClose }) {
                     <label
                       key={item}
                       className={`flex items-center gap-1 p-1 rounded-lg border text-sm cursor-pointer transition select-none
-                        ${checked ? "border-[#ae5c83] bg-[#ae5c83]/10 text-[#ae5c83] font-semibold"
-                                  : "border-slate-400 bg-white text-gray-600 hover:border-[#ae5c83]/50"}`}
+                        ${checked 
+                            ? "border-[#ae5c83] bg-[#ae5c83]/10 text-[#ae5c83] font-semibold"
+                            : "border-slate-400 bg-white text-gray-600 hover:border-[#ae5c83]/50"
+                        }
+                        ${errors.services ? "border-red-300" : ""}
+                      `}
                     >
                       <input
                         checked={checked}
@@ -155,10 +206,13 @@ export default function QuotePopup({ open, onClose }) {
                   );
                 })}
               </div>
+              {errors.services && (
+                <p className="text-red-500 text-[11px] mt-1 font-medium">{errors.services}</p>
+              )}
             </div>
 
             {/* FULL NAME */}
-            <div className="mb-2">
+            <div className="mb-3">
               <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
                 Full Name <span className="text-red-500">*</span>
               </label>
@@ -166,15 +220,25 @@ export default function QuotePopup({ open, onClose }) {
                 <User className="absolute left-3 top-3 text-slate-400" size={18} />
                 <input
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    if (errors.name) setErrors({...errors, name: null});
+                  }}
                   placeholder="John Doe"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm focus:ring-4 outline-none transition-all
+                    ${errors.name 
+                      ? "border-red-500 bg-red-50 focus:border-red-500 focus:ring-red-100" 
+                      : "border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15"
+                    }`}
                 />
               </div>
+              {errors.name && (
+                <p className="text-red-500 text-[11px] mt-1 font-medium">{errors.name}</p>
+              )}
             </div>
 
             {/* PHONE + EMAIL ROW */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
               {/* Phone */}
               <div>
                 <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
@@ -184,32 +248,52 @@ export default function QuotePopup({ open, onClose }) {
                   <Phone className="absolute left-3 top-3 text-slate-400" size={18} />
                   <input
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                        setPhone(e.target.value);
+                        if (errors.phone) setErrors({...errors, phone: null});
+                    }}
                     placeholder="+91 98765 43210"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm focus:ring-4 outline-none transition-all
+                        ${errors.phone 
+                          ? "border-red-500 bg-red-50 focus:border-red-500 focus:ring-red-100" 
+                          : "border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15"
+                        }`}
                   />
                 </div>
+                {errors.phone && (
+                    <p className="text-red-500 text-[11px] mt-1 font-medium">{errors.phone}</p>
+                )}
               </div>
 
               {/* Email */}
               <div>
                 <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
-                  Email 
+                  Email <span className="text-gray-400 font-normal normal-case">(Optional)</span>
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 text-slate-400" size={18} />
                   <input
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (errors.email) setErrors({...errors, email: null});
+                    }}
                     placeholder="john@company.com"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-gray-900 text-sm focus:ring-4 outline-none transition-all
+                        ${errors.email 
+                          ? "border-red-500 bg-red-50 focus:border-red-500 focus:ring-red-100" 
+                          : "border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15"
+                        }`}
                   />
                 </div>
+                {errors.email && (
+                    <p className="text-red-500 text-[11px] mt-1 font-medium">{errors.email}</p>
+                )}
               </div>
             </div>
 
             {/* MESSAGE */}
-            <div className="mb-2">
+            <div className="mb-4">
               <label className="block text-xs font-bold mb-1.5 text-gray-700 uppercase">
                  Details <span className="text-red-500">*</span>
               </label>
@@ -217,11 +301,21 @@ export default function QuotePopup({ open, onClose }) {
                 <MessageSquare className="absolute left-3 top-3 text-slate-400" size={18} />
                 <textarea
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    if (errors.message) setErrors({...errors, message: null});
+                  }}
                   placeholder="Tell us about your project…"
-                  className="w-full pl-10 pr-4 py-2.5 h-28 rounded-xl border border-slate-400 text-gray-900 text-sm resize-none focus:border-[#ae5c83] focus:ring-[#ae5c83]/15 focus:ring-4 outline-none"
+                  className={`w-full pl-10 pr-4 py-2.5 h-28 rounded-xl border text-gray-900 text-sm resize-none focus:ring-4 outline-none transition-all
+                    ${errors.message 
+                      ? "border-red-500 bg-red-50 focus:border-red-500 focus:ring-red-100" 
+                      : "border-slate-400 focus:border-[#ae5c83] focus:ring-[#ae5c83]/15"
+                    }`}
                 />
               </div>
+              {errors.message && (
+                <p className="text-red-500 text-[11px] mt-1 font-medium">{errors.message}</p>
+              )}
             </div>
 
             {/* SUBMIT */}

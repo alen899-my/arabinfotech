@@ -224,7 +224,7 @@ export default function NavBar() {
                     <button
                       onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                       className="w-full flex justify-between py-4 text-lg font-medium">
-                      <span className="flex text-slate-600 items-center gap-4 momo-font border-b">{item.icon} Solutions</span>
+                      <span className="flex text-slate-600 w-full items-center gap-4 momo-font border-b">{item.icon} Solutions</span>
                       <ChevronDown className={`transition-transform duration-300 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
                     </button>
 
