@@ -7,6 +7,7 @@ import {
   Instagram,
   Linkedin,
   Twitter,
+  Youtube
 } from "lucide-react";
 import lo from "@/public/lo.jpg"; 
 import Link from "next/link";
@@ -89,7 +90,7 @@ export default function Footer() {
 </div>
 
 
-      {/* ---------- SOCIALS ---------- */}
+{/* ---------- SOCIALS ---------- */}
 <div>
   <h3 className="text-2xl font-bold momo-font text-[#ae5c83]">
     Follow Us
@@ -102,19 +103,22 @@ export default function Footer() {
   {/* Social Icons */}
   <div className="flex items-center gap-4 mt-6">
     {[
-      { icon: Facebook, link: "#" },
-      { icon: Instagram, link: "#" },
-      { icon: Linkedin, link: "#" },
-      { icon: Twitter, link: "#" },
+      { icon: Facebook, link: "https://www.facebook.com/arabinfotec" },
+      { icon: Instagram, link: "https://www.instagram.com/arabinfotec_/" },
+      { icon: Linkedin, link: "https://www.linkedin.com/company/arabinfotec" },
+      { icon: Twitter, link: "https://x.com/arabinfotec" },
+      { icon: Youtube, link: "https://www.youtube.com/channel/UConU2gg52rHALzD6QNU2DoQ" },
     ].map((social, i) => {
       const Icon = social.icon;
       return (
         <a
           key={i}
           href={social.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="
             p-3 bg-[#1b1a26] rounded-full border border-white/10
-            hover:bg-[#6c53a7] hover:border-[#6c53a7]
+            hover:bg-[#ae5c83] hover:border-[#ae5c83]
             hover:text-white transition-all
           "
         >
@@ -125,21 +129,22 @@ export default function Footer() {
   </div>
 
   {/* Logo Under Social Icons */}
-  <div className="mt-6 flex md:justify-start">
+  <div className="mt-6 flex justify-center md:justify-start">
     <Image
-  src={lo}
-  alt="Company Logo"
-  width={180}
-  height={180}
-  className="
-    object-contain opacity-95 hover:opacity-100 transition-all
-    mix-blend-screen
-    [mask-image:linear-gradient(to bottom,transparent,white,white)]
-  "
-/>
-
+      src={lo}
+      alt="Company Logo"
+      width={180}
+      height={180}
+      className="
+        object-contain opacity-95 transition-all 
+        hover:opacity-100 hover:scale-105
+        mix-blend-screen
+        [mask-image:linear-gradient(to bottom,transparent,white,white)]
+      "
+    />
   </div>
 </div>
+
 
       </div>
 
