@@ -1,6 +1,5 @@
 "use client";
 import toast from "react-hot-toast";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { 
@@ -10,7 +9,6 @@ import {
   Mail, 
   Phone, 
   MessageSquare, 
-  CheckCircle2,
   Globe,
   ArrowRight
 } from "lucide-react";
@@ -37,6 +35,15 @@ export default function ContactPage({ hideHeader = false }) {
   const [services, setServices] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Form State
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(""); // Added Phone State
+  const [message, setMessage] = useState("");
+
+  // Error State
+  const [errors, setErrors] = useState({});
+
   const toggleService = (value) => {
     setServices((prev) =>
       prev.includes(value)
@@ -45,22 +52,12 @@ export default function ContactPage({ hideHeader = false }) {
     );
   };
 
-  const SERVICES = [
-    "Website Project", "Web App", "eCommerce", "SEO",
-    "UX / UI Design", "Marketing", "Consultancy", "Not sure",
-  ];
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-
   const locations = [
     {
       name: "USA Office",
       address: "447 Broadway, 2nd Floor Suite #1233, New York, NY 10013, US",
       phone: "+1 478 800 4004",
       email: "info@vstbiz.com",
-      // Visual Styles
       bgClass: "bg-rose-100",
       borderClass: "border-rose-100 group-hover:border-rose-200",
       textAccent: "text-rose-600",
@@ -71,7 +68,6 @@ export default function ContactPage({ hideHeader = false }) {
       address: "Infopark, 1st Floor, Suite #C1-5, Cherthala, Kerala 688541, IN",
       phone: "+91 478 255 4004",
       email: "info@vstbiz.com",
-      // Visual Styles
       bgClass: "bg-blue-100",
       borderClass: "border-blue-100 group-hover:border-blue-200",
       textAccent: "text-blue-600",
@@ -82,7 +78,6 @@ export default function ContactPage({ hideHeader = false }) {
       address: "R364 - Al Wasal Building, 3rd Floor, Suite #40 & 103, Dubai, AE",
       phone: "+971 4 852 0449",
       email: "info@arabinfotechllc.com",
-
       bgClass: "bg-emerald-100",
       borderClass: "border-emerald-100 group-hover:border-emerald-200",
       textAccent: "text-emerald-600",
@@ -90,42 +85,84 @@ export default function ContactPage({ hideHeader = false }) {
     },
   ];
 
-  async function handleSubmit() {
-    // Basic Client-Side Validation
-    if (!name.trim()) return toast.error("Full Name is required.");
-    if (!email.trim()) return toast.error("Email Address is required.");
-    if (!message.trim()) return toast.error("Message is required.");
+  // Validation Function
+  const validateForm = () => {
+    let newErrors = {};
+    let isValid = true;
 
+    // Name Validation
+    if (!name.trim()) {
+      newErrors.name = "Full Name is required";
+      isValid = false;
+    }
+
+    // Phone Validation (Required)
+    if (!phone.trim()) {
+      newErrors.phone = "Phone Number is required";
+      isValid = false;
+    } else if (!/^\+?[0-9\s-]{7,15}$/.test(phone)) {
+      newErrors.phone = "Invalid phone number format";
+      isValid = false;
+    }
+
+    // Email Validation (Optional, but checks format if provided)
+    if (email.trim() && !/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Invalid email address";
+      isValid = false;
+    }
+
+    // Message Validation
+    if (!message.trim()) {
+      newErrors.message = "Message is required";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  async function handleSubmit() {
+    // Run Validation - No Toast on Error
+    if (!validateForm()) {
+      return; 
+    }
+
+    setIsSubmitting(true);
     const loadingToast = toast.loading("Sending message...");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/contactUs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
-          email,
+          email, // Optional
+          phone, // Added
           message,
           services,
         }),
       });
 
       const data = await res.json();
-
       toast.dismiss(loadingToast);
 
       if (data.success) {
-        toast.success("Message delivered to Mailtrap!");
-        // Optional: Clear form
+        toast.success("Message delivered successfully!");
+        // Clear form
         setName("");
         setEmail("");
+        setPhone("");
         setMessage("");
+        setServices([]);
+        setErrors({});
       } else {
         toast.error("Failed to send message.");
       }
     } catch (error) {
       toast.dismiss(loadingToast);
       toast.error("Error sending message.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -173,7 +210,9 @@ export default function ContactPage({ hideHeader = false }) {
                   About you
                 </h2>
 
+                {/* ROW 1: NAME & PHONE */}
                 <div className="grid md:grid-cols-2 gap-5">
+                  {/* Name Input */}
                   <div className="group">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
                       Full Name <span className="text-red-500">*</span>
@@ -183,32 +222,67 @@ export default function ContactPage({ hideHeader = false }) {
                       <input 
                         type="text" 
                         value={name} 
-                        required
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
+                        onChange={(e) => {
+                          setName(e.target.value);
+                          if(errors.name) setErrors({...errors, name: null});
+                        }}
+                        className={`w-full border ${errors.name ? "border-red-400 bg-red-50" : "border-slate-400"} text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all`}
                         placeholder="John Doe"
                       />
                     </div>
+                    {errors.name && (
+                      <p className="text-red-500 text-xs mt-1 ml-1 font-medium">{errors.name}</p>
+                    )}
                   </div>
 
+                  {/* Phone Input (Now Required) */}
                   <div className="group">
                     <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
-                      Email Address <span className="text-red-500">*</span>
+                      Phone Number <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
+                      <Phone className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <input 
-                        type="email"  
-                        value={email}
-                        required
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all"
-                        placeholder="john@company.com"
+                        type="tel" 
+                        value={phone} 
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                          if(errors.phone) setErrors({...errors, phone: null});
+                        }}
+                        className={`w-full border ${errors.phone ? "border-red-400 bg-red-50" : "border-slate-400"} text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all`}
+                        placeholder="+1 (555) 000-0000"
                       />
                     </div>
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1 ml-1 font-medium">{errors.phone}</p>
+                    )}
                   </div>
                 </div>
 
+                {/* ROW 2: Email (Optional) */}
+                <div className="group">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
+                    Email Address <span className="text-slate-300 font-normal normal-case">(Optional)</span>
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
+                    <input 
+                      type="email"  
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if(errors.email) setErrors({...errors, email: null});
+                      }}
+                      className={`w-full border ${errors.email ? "border-red-400 bg-red-50" : "border-slate-400"} text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all`}
+                      placeholder="john@company.com"
+                    />
+                  </div>
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1 ml-1 font-medium">{errors.email}</p>
+                  )}
+                </div>
+
+                {/* Message Input */}
                 <div className="group">
                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">
                      Message <span className="text-red-500">*</span>
@@ -217,12 +291,17 @@ export default function ContactPage({ hideHeader = false }) {
                       <MessageSquare className="absolute left-4 top-3.5 text-slate-400 w-4 h-4 group-focus-within:text-[#ae5c83] transition-colors" />
                       <textarea  
                         value={message}
-                        required
-                        onChange={(e) => setMessage(e.target.value)}
-                        className="w-full border border-slate-400 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none"
+                        onChange={(e) => {
+                          setMessage(e.target.value);
+                          if(errors.message) setErrors({...errors, message: null});
+                        }}
+                        className={`w-full border ${errors.message ? "border-red-400 bg-red-50" : "border-slate-400"} text-slate-800 text-sm rounded-xl pl-10 pr-4 py-3 h-32 outline-none focus:bg-white focus:border-[#ae5c83] focus:ring-4 focus:ring-[#ae5c83]/10 transition-all resize-none`}
                         placeholder="Tell us a bit about your project goals..."
                       />
                    </div>
+                   {errors.message && (
+                      <p className="text-red-500 text-xs mt-1 ml-1 font-medium">{errors.message}</p>
+                   )}
                 </div>
                 
                 <div className="pt-2">
@@ -230,10 +309,11 @@ export default function ContactPage({ hideHeader = false }) {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleSubmit}
-                    className="w-full bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white font-semibold rounded-xl py-4 shadow-xl shadow-[#ae5c83]/20 hover:shadow-2xl hover:shadow-[#ae5c83]/30 transition-all flex items-center justify-center gap-2 group"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white font-semibold rounded-xl py-4 shadow-xl shadow-[#ae5c83]/20 hover:shadow-2xl hover:shadow-[#ae5c83]/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-                    <span>Send Message</span>
+                    <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                   </motion.button>
                 </div>
 
@@ -303,8 +383,6 @@ export default function ContactPage({ hideHeader = false }) {
                  </motion.div>
                ))}
              </div>
-
-            
 
           </motion.div>
 

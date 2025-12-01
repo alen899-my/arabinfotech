@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import lo from "@/public/lo.jpg"; 
 import Link from "next/link";
-
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#0f0e17] text-white  p-6   border-t border-white/10">
@@ -89,40 +89,57 @@ export default function Footer() {
 </div>
 
 
-        {/* ---------- SOCIALS ---------- */}
-        <div>
-          <h3 className="text-2xl font-bold momo-font text-[#ae5c83]">
-            Follow Us
-          </h3>
+      {/* ---------- SOCIALS ---------- */}
+<div>
+  <h3 className="text-2xl font-bold momo-font text-[#ae5c83]">
+    Follow Us
+  </h3>
 
-          <p className="text-gray-400 text-sm mt-2">
-            Stay connected with our latest updates.
-          </p>
+  <p className="text-gray-400 text-sm mt-2">
+    Stay connected with our latest updates.
+  </p>
 
-          <div className="flex items-center gap-4 mt-6">
-            {[
-              { icon: Facebook, link: "#" },
-              { icon: Instagram, link: "#" },
-              { icon: Linkedin, link: "#" },
-              { icon: Twitter, link: "#" },
-            ].map((social, i) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={i}
-                  href={social.link}
-                  className="
-                    p-3 bg-[#1b1a26] rounded-full border border-white/10
-                    hover:bg-[#6c53a7] hover:border-[#6c53a7]
-                    hover:text-white transition-all
-                  "
-                >
-                  <Icon size={20} />
-                </a>
-              );
-            })}
-          </div>
-        </div>
+  {/* Social Icons */}
+  <div className="flex items-center gap-4 mt-6">
+    {[
+      { icon: Facebook, link: "#" },
+      { icon: Instagram, link: "#" },
+      { icon: Linkedin, link: "#" },
+      { icon: Twitter, link: "#" },
+    ].map((social, i) => {
+      const Icon = social.icon;
+      return (
+        <a
+          key={i}
+          href={social.link}
+          className="
+            p-3 bg-[#1b1a26] rounded-full border border-white/10
+            hover:bg-[#6c53a7] hover:border-[#6c53a7]
+            hover:text-white transition-all
+          "
+        >
+          <Icon size={20} />
+        </a>
+      );
+    })}
+  </div>
+
+  {/* Logo Under Social Icons */}
+  <div className="mt-6 flex md:justify-start">
+    <Image
+  src={lo}
+  alt="Company Logo"
+  width={180}
+  height={180}
+  className="
+    object-contain opacity-95 hover:opacity-100 transition-all
+    mix-blend-screen
+    [mask-image:linear-gradient(to bottom,transparent,white,white)]
+  "
+/>
+
+  </div>
+</div>
 
       </div>
 
