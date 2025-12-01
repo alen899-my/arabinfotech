@@ -133,8 +133,9 @@ export default function Footer() {
 
         <div className="flex justify-center gap-4 mt-3 text-xs text-[#ae5c83]">
           <Link href="/termsandconditions" className="hover:underline">Terms & Conditons</Link>
-          <a href="/privacypolicy" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">FAQ</a>
+          <Link href="/privacypolicy" className="hover:underline">Privacy Policy</Link>
+          <Link href="/refundpolicy" className="hover:underline">Refund Policy</Link>
+          <Link href="/faq" className="hover:underline">FAQ</Link>
         </div>
 
         <p className="text-gray-500 text-xs mt-3">

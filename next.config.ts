@@ -66,6 +66,22 @@ const nextConfig: NextConfig = {
       {
         source:"/office365",
         destination:"/solutions/domainandserver/office365"
+      },
+      {
+        source:"/privacypolicy",
+        destination:"/footer/privacypolicy"
+      },
+      {
+        source:"/termsandconditions",
+        destination:"/footer/termsandconditions"
+      },
+      {
+        source:"/refundpolicy",
+        destination:"/footer/refundpolicy"
+      },
+      {
+        source:"/faq",
+        destination:"/footer/faq"
       }
     ];
   },
