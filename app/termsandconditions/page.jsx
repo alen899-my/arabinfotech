@@ -5,16 +5,17 @@ const TermsAndConditions = () => {
     <div className="w-full min-h-screen bg-white selection:bg-[#ae5c83] selection:text-white">
       
       {/* --- FIXED PINK BANNER --- */}
-      <div className="fixed top-20 left-0 w-full bg-[#ae5c83] py-8 md:py-8 flex flex-col justify-center px-6 z-40 shadow-lg border-b border-[#924b6d]">
-        <div className="max-w-6xl mx-auto w-full">
-          <h1 className="momo-font text-white text-3xl md:text-4xl uppercase tracking-wider mb-2">
-            Terms & Conditions
-          </h1>
-          <p className="text-white/80 text-xs md:text-sm tracking-widest font-light uppercase ">
-            AIT INFORMATION TECHNOLOGY L.L.C / ARABINFOTEC
-          </p>
-        </div>
-      </div>
+     <div className="fixed top-20 left-0 w-full bg-[#ae5c83] py-8 md:py-8 flex flex-col justify-center px-6 z-40 shadow-lg border-b border-[#924b6d]">
+  <div className="max-w-6xl mx-auto w-full">
+    <h1 className="momo-font text-white text-3xl md:text-4xl uppercase tracking-wider mb-2">
+      Terms & Conditions
+    </h1>
+    <p className="text-white/80 text-xs md:text-sm tracking-widest font-light uppercase">
+      Last Updated: November 30, 2025
+    </p>
+  </div>
+</div>
+
 
     
       <div className="max-w-5xl mx-auto px-6 pb-20 pt-[260px] md:pt-[240px]">

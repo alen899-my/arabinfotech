@@ -312,7 +312,7 @@ export default function ManpowerPage() {
      
            <div className="flex justify-center">
              <Link
-               href="/portfolio"
+               href="/portfolio/featured"
                className="
                  group
                  flex items-center gap-3

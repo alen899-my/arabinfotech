@@ -246,7 +246,7 @@ export default function Page() {
         </p>
       </div>
       <Link 
-        href="/portfolio/featured" 
+        href="/portfolio/featured/featured" 
         className="hidden md:block text-[#ae5c83] hover:text-white transition-colors pb-1 border-b border-[#ae5c83] text-sm"
       >
         View Full Portfolio
@@ -404,7 +404,7 @@ export default function Page() {
             
                   <div className="flex justify-center">
                     <Link
-                      href="/portfolio"
+                      href="/portfolio/featured"
                       className="
                         group
                         flex items-center gap-3
