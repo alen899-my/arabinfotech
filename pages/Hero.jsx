@@ -230,11 +230,10 @@ export default function Home() {
 
       <div className="bg-white w-full flex flex-col items-center">
         
-       
 <section className="w-full max-w-6xl mx-auto px-5 py-6 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
 
   {/* --------------------------------------------------
-      LEFT: IMAGE (Compact & Aligned)
+      LEFT: IMAGE
   -------------------------------------------------- */}
   <motion.div
     ref={imgRef}
@@ -258,7 +257,7 @@ export default function Home() {
   </motion.div>
 
   {/* --------------------------------------------------
-      RIGHT: CONTENT (Title + Paragraph unified)
+      RIGHT: CONTENT
   -------------------------------------------------- */}
   <div className="flex flex-col gap-3 text-center md:text-left">
     
@@ -273,13 +272,13 @@ export default function Home() {
       Digital Marketing & Software Development Company in Dubai
     </motion.h1>
 
-    {/* Paragraph */}
+    {/* Paragraph with Justified Text */}
     <motion.p
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="roboto-text text-sm sm:text-base text-gray-700 leading-relaxed"
+      className="roboto-text text-sm sm:text-base text-gray-700 leading-relaxed text-justify"
     >
       At ArabInfotec, your requirements shape the solution — not the other way around. Whether you need Web Design, Software Development, Mobile App Development, Digital Marketing, or Enterprise Systems, we deliver scalable and value-driven technology tailored to your business. Our ready-to-use platforms include E-commerce Stores, Staff Management ERP, Valet Parking Systems, Kitchen Display Software, Real Estate CRM, and Travel Management Systems — designed to streamline operations and accelerate growth. Digital transformation isn’t optional — it’s essential. And we make the journey seamless, efficient, and future-ready.
     </motion.p>
