@@ -136,6 +136,7 @@ export default function Footer() {
           <Link href="/privacypolicy" className="hover:underline">Privacy Policy</Link>
           <Link href="/refundpolicy" className="hover:underline">Refund Policy</Link>
           <Link href="/faq" className="hover:underline">FAQ</Link>
+          <Link href="/site-map" className="hover:underline">Site map</Link>
         </div>
 
         <p className="text-gray-500 text-xs mt-3">

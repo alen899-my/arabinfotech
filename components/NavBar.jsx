@@ -93,7 +93,7 @@ export default function NavBar() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="relative z-50" onClick={() => setMobileOpen(false)}>
+          <Link href="/" className="relative z-60" onClick={() => setMobileOpen(false)}>
             <Image
               src={lo}
               alt="Logo"

@@ -5,7 +5,7 @@ const CancellationPolicy = () => {
     <div className="w-full min-h-screen bg-white selection:bg-[#ae5c83] selection:text-white">
       
       {/* --- FIXED PINK BANNER --- */}
-      <div className="fixed top-20 left-0 w-full bg-[#ae5c83] py-3 md:px-10 z-40 shadow-lg border-b border-[#924b6d]">
+      <div className="fixed top-20 left-0 w-full bg-[#ae5c83] py-3 md:px-10 z-20 shadow-lg border-b border-[#924b6d]">
         <div className="max-w-[1280px] mx-auto w-full px-6">
           <h1 className="momo-font text-white text-lg sm:text-xl md:text-2xl font-semibold uppercase mb-1">
             Cancellation and Return Policy

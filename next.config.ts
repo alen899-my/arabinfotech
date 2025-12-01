@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         destination: "/solutions/competency-analysis-system",
       },
       {
+        source:"/",
+        destination:"/home"
+      },
+      {
         source: "/custom-application",
         destination: "/solutions/custom-application",
       },
@@ -82,6 +86,10 @@ const nextConfig: NextConfig = {
       {
         source:"/faq",
         destination:"/footer/faq"
+      },
+      {
+        source:"/site-map",
+        destination:"/footer/site-map"
       }
     ];
   },

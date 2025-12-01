@@ -51,7 +51,7 @@ const FAQModernLeftBorder = () => {
     <div className="w-full min-h-screen bg-gray-50 selection:bg-[#ae5c83] selection:text-white">
 
       {/* --- FIXED PINK BANNER --- */}
-      <div className="fixed top-20 left-0 w-full bg-[#ae5c83] py-3 md:px-10 z-40 shadow-lg border-b border-[#924b6d]">
+      <div className="fixed top-20 left-0 w-full bg-[#ae5c83] py-3 md:px-10 z-20 shadow-lg border-b border-[#924b6d]">
         <div className="max-w-[1280px] mx-auto w-full px-6">
           <h1 className="momo-font text-white text-lg sm:text-xl md:text-2xl font-semibold uppercase mb-1">
             FAQ
@@ -69,7 +69,7 @@ const FAQModernLeftBorder = () => {
           
           {/* --- LEFT SIDE: STICKY HEADER --- */}
           <div className="lg:col-span-4 lg:sticky lg:top-48 space-y-6">
-            <div className="hidden lg:block w-12 h-1 bg-[#ae5c83] mb-6"></div>
+            <div className="hidden lg:block w-12 h-1 bg-[#ae5c83] mb-3"></div>
             
             <h2 className="momo-font text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight uppercase">
               Frequently <br />
@@ -81,10 +81,10 @@ const FAQModernLeftBorder = () => {
               We crafted this page to answer the questions we get asked most along the way.
             </p>
 
-            <div className="pt-8">
-               <div className="p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+            <div className="pt-4">
+               <div className="p-6 bg-white rounded-xl shadow-sm border border-gray-400">
                   <p className="text-sm text-gray-500 font-medium uppercase mb-2">Still have questions?</p>
-                  <a href="#" className="text-[#ae5c83] font-bold text-lg hover:underline decoration-2 underline-offset-4">
+                  <a href="/contact" className="text-[#ae5c83] font-bold text-lg hover:underline decoration-2 underline-offset-4">
                     Contact Support &rarr;
                   </a>
                </div>
