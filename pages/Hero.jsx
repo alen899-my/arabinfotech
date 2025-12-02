@@ -255,7 +255,7 @@ export default function Home() {
 
       <div className="bg-white w-full flex flex-col items-center">
         
-<section className="w-full max-w-6xl mx-auto px-5 py-6 flex flex-col md:flex-row items-center md:items-start gap- md:gap-">
+<section className="w-full max-w-6xl mx-auto px-5  py-6  flex flex-col md:flex-row items-center md:items-start gap- md:py-20">
 
   {/* --------------------------------------------------
       LEFT: IMAGE
@@ -312,10 +312,8 @@ export default function Home() {
 </section>
 
 
-        {/* --------------------------------------------------
-            SECTION 5: STATS
-        -------------------------------------------------- */}
-      <section className="w-full bg-white px-6 py-2 md:py-6 flex justify-center relative overflow-hidden">
+        
+<section className="w-full bg-white px-6 py-2 md:-mt-6 flex justify-center relative overflow-hidden">
   
   {/* Background Decoration (Optional: keeps your pattern) */}
   <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-[0.03] pointer-events-none" />
@@ -410,7 +408,7 @@ export default function Home() {
         -------------------------------------------------- */}
 
 
-<section className="w-full bg-white px-6 py-2 flex justify-center">
+<section className="w-full bg-white px-6 py-6 md:py-16  flex justify-center relative overflow-hidden">
   <div className="max-w-7xl w-full">
 
     {/* -------- HEADER -------- */}
@@ -546,7 +544,7 @@ export default function Home() {
       </div>
 
       {/* ---------- OFFICES SECTION ---------- */}
-<section className="w-full bg-white px-6 py-2 flex justify-center">
+<section className="w-full bg-white px-6 py-6 md:py-8  flex justify-center relative overflow-hidden">
   <div className="max-w-7xl w-full">
 
     {/* HEADER (same style as services) */}
@@ -571,7 +569,7 @@ export default function Home() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount: 0.3 }}
-      className="relative w-full max-w-4xl mx-auto  mb-8"
+      className="relative w-full max-w-4xl mx-auto  mt-4"
     >
       <div className="relative w-full overflow-hidden rounded-2xl shadow-md">
         <Image
@@ -638,9 +636,9 @@ export default function Home() {
   </div>
 </section>
 
-<div className="bg-white w-full flex flex-col items-center">
+<div className="bg-white w-full flex flex-col px-6 py-6 items-center md:py-16">
   {/* ---------- SOLUTIONS SECTION HEADER ---------- */}
-  <section className="w-full bg-white px-6 pt-1 pb-4 flex justify-center">
+  <section className="w-full bg-white px-6 pt-1 pb-8 flex justify-center">
     <div className="w-full max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
