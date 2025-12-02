@@ -208,7 +208,7 @@ export default function Home() {
   <div className="absolute inset-0 bg-black/60 z-10" />
 
   {/* CONTENT */}
-  <div className="relative z-20 px-4 sm:px-6 w-full max-w-6xl mx-auto h-full flex flex-col justify-center text-center">
+  <div className="relative z-20 mt-6 px-4 sm:px-6 w-full max-w-6xl mx-auto h-full flex flex-col justify-center text-center">
 
     {/* Heading */}
     <h1 className="momo-font text-[clamp(38px,9vw,95px)] leading-[1.05] font-semibold text-white">
