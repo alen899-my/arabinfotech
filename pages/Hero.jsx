@@ -227,13 +227,23 @@ export default function Home() {
     {/* CTA BUTTON */}
     <div className="mt-6 sm:mt-8">
       <Link
-        href="/contact"
-        className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-white/10 border border-white/20 
-        text-white backdrop-blur-md hover:bg-white/20 hover:border-white/30 transition-all 
-        duration-300 font-medium tracking-wide text-sm sm:text-lg"
-      >
-        Schedule an intro call →
-      </Link>
+  href="/contact"
+  className="
+    inline-flex items-center justify-center 
+    px-6 sm:px-8 py-3 sm:py-4 
+    text-white text-sm sm:text-lg momo-font 
+    rounded-lg
+    bg-gradient-to-r from-[#ae5c83] to-[#5b4390]
+    shadow-[0_10px_25px_rgba(174,92,131,0.35)]
+    hover:shadow-[0_15px_30px_rgba(91,67,144,0.45)]
+    hover:scale-[1.06]
+    transition-all duration-300 ease-out
+    backdrop-blur-md tracking-wide
+  "
+>
+  Schedule an intro call →
+</Link>
+
     </div>
 
     {/* Pagination Dots — moved under CTA */}
@@ -544,7 +554,7 @@ export default function Home() {
       </div>
 
       {/* ---------- OFFICES SECTION ---------- */}
-<section className="w-full bg-white px-6 py-6 md:py-8  flex justify-center relative overflow-hidden">
+<section className="w-full bg-white px-6 py-6 md:py-4 flex justify-center relative overflow-hidden">
   <div className="max-w-7xl w-full">
 
     {/* HEADER (same style as services) */}
@@ -636,7 +646,7 @@ export default function Home() {
   </div>
 </section>
 
-<div className="bg-white w-full flex flex-col px-6 py-6 items-center md:py-16">
+<div className="bg-white w-full flex flex-col px-6 py-6 items-center md:py-12">
   {/* ---------- SOLUTIONS SECTION HEADER ---------- */}
   <section className="w-full bg-white px-6 pt-1 pb-8 flex justify-center">
     <div className="w-full max-w-7xl">
@@ -669,7 +679,7 @@ export default function Home() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className="max-w-5xl mx-auto relative z-20 mt-10"
+      className="max-w-5xl mx-auto relative z-20 mt-16"
     >
       <div className="bg-white rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] p-10 md:p-5 text-center border border-slate-100 relative overflow-hidden">
         {/* Top Gradient Line Accent */}
@@ -695,23 +705,18 @@ export default function Home() {
             <Link
               href="/portfolio/featured"
               className="
-                group
-                flex items-center gap-3
-                pl-8 pr-6 py-4
-                rounded-full
-                bg-[#5b4390] 
-                text-white 
-                font-bold 
-                shadow-xl shadow-[#5b4390]/25
-                hover:bg-[#4a3675]
-                hover:shadow-2xl hover:shadow-[#5b4390]/40
-                hover:-translate-y-1
-                transition-all 
-                duration-300
+                 px-6 py-3 
+    text-white text-sm momo-font rounded-lg
+    bg-gradient-to-r from-[#ae5c83] to-[#5b4390]
+    shadow-[0_10px_25px_rgba(174,92,131,0.35)]
+    hover:shadow-[0_15px_30px_rgba(91,67,144,0.45)]
+    hover:scale-[1.06]
+    transition-all duration-300 ease-out
+    backdrop-blur-md
               "
             >
               <span>View Portfolio</span>
-              <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform" />
+              
             </Link>
           </div>
         </div>

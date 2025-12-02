@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 import valetparking from "@/public/valetparking.jpg";
 import analtyc from "@/public/analtyc.jpg";
 import payday from "@/public/payday.jpg";
@@ -118,20 +118,25 @@ return (
             {proj.description}
           </p>
 
-          {/* BUTTON */}
-          <a
-            href={proj.link}
-            className="
-              inline-block px-3 py-2          /* smaller button */
-              rounded-lg 
-              bg-[#6c53a7] hover:bg-[#5b4390]
-              text-white font-semibold text-xs sm:text-sm
-              transition-all duration-300
-              w-max
-            "
-          >
-            View more →
-          </a>
+          <div className="flex items-center text-[#ae5c83] font-medium text-sm transition-all duration-300 momo-font group-hover:underline cursor-pointer">
+         <Link
+  href={proj.link}
+  className="flex items-center text-[#ae5c83] font-medium text-sm momo-font cursor-pointer transition-all duration-300 group-hover:underline group-hover:text-[#6c53a7]"
+>
+  Learn More
+  <svg
+    width="18"
+    height="18"
+    className="ml-2 transition-transform duration-300 group-hover:translate-x-2"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <path d="M5 3l6 5-6 5" />
+  </svg>
+</Link>
+
+        </div>
         </div>
       ))}
 
