@@ -167,92 +167,67 @@ export default function Home() {
           SECTION 1: HERO SLIDER
       -------------------------------------------------- */}
       <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[100vh] overflow-hidden">
-        
-        {/* Background Images */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          {images.map((img, i) => (
-            <Image
-              key={i}
-              src={img}
-              alt="background-slide"
-              fill
-              priority
-              quality={100}
-              className={`
-                object-cover
-                absolute inset-0
-                transition-opacity duration-1000 ease-in-out
-                ${i === index ? "opacity-100" : "opacity-0"}
-                animate-scaleOneWay
-              `}
-            />
-          ))}
-        </div>
 
-        {/* Navigation Buttons */}
-        <button
-          onClick={prevSlide}
-          className="
-            absolute left-3 top-1/2 -translate-y-1/2 z-30
-            bg-white/20 hover:bg-white/40
-            text-white
-            p-2 sm:p-3 rounded-full
-            backdrop-blur-md
-            transition-all
-          "
-        >
-          <ChevronLeft size={20} className="sm:size-4" />
-        </button>
+  {/* Background Images */}
+  <div className="absolute inset-0 z-0 overflow-hidden">
+    {images.map((img, i) => (
+      <Image
+        key={i}
+        src={img}
+        alt="background-slide"
+        fill
+        priority
+        quality={100}
+        className={`
+          object-cover absolute inset-0
+          transition-opacity duration-1000 ease-in-out
+          ${i === index ? "opacity-100" : "opacity-0"}
+          animate-scaleOneWay
+        `}
+      />
+    ))}
+  </div>
 
-        <button
-          onClick={nextSlide}
-          className="
-            absolute right-3 top-1/2 -translate-y-1/2 z-30
-            bg-white/20 hover:bg-white/40
-            text-white
-            p-2 sm:p-3 rounded-full
-            backdrop-blur-md
-            transition-all
-          "
-        >
-          <ChevronRight size={20} className="sm:size-4" />
-        </button>
+  {/* Navigation Buttons */}
+  <button onClick={prevSlide} className="absolute left-3 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 text-white p-2 sm:p-3 rounded-full backdrop-blur-md transition-all">
+    <ChevronLeft size={20} className="sm:size-4" />
+  </button>
 
-        {/* Overlay & Content */}
-        <div className="absolute inset-0 bg-black/60 z-10" />
+  <button onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 text-white p-2 sm:p-3 rounded-full backdrop-blur-md transition-all">
+    <ChevronRight size={20} className="sm:size-4" />
+  </button>
 
-        <div className="relative z-20 px-4 sm:px-6 w-full max-w-6xl mx-auto flex flex-col justify-center h-full text-center mt-10 sm:mt-0">
-          <h1 className="momo-font mt-5 text-[clamp(40px,10vw,100px)] leading-[0.9] tracking-tight font-semibold text-white">
-            Arab Web Design Agency <br />
-            Delivering Big Results
-          </h1>
+  {/* Pagination Dots */}
+  <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+    {images.map((_, i) => (
+      <button
+        key={i}
+        onClick={() => setIndex(i)}
+        className={`
+          w-3 h-3 rounded-full transition-all duration-300
+          ${i === index ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"}
+        `}
+      />
+    ))}
+  </div>
 
-          <div className="mt-4 sm:mt-6 flex justify-center">
-            <span className="flex items-center gap-2 zalando-bold text-sm sm:text-base md:text-lg uppercase font-bold text-white">
-              <span className="text-[#5e1afd] text-xl animate-pulse">✦</span>
-              UAE Based Software Agency — Working Worldwide
-            </span>
-          </div>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/60 z-10" />
 
-          <div className="mt-6 sm:mt-8">
-            <Link
-              href="/contact"
-              className="
-                inline-flex items-center justify-center 
-                px-7 py-3.5 rounded-lg
-                bg-white/10 border border-white/20 text-white 
-                backdrop-blur-md
-                hover:bg-white/20 hover:border-white/30 
-                transition-all duration-300 
-                font-medium tracking-wide
-                text-base sm:text-lg
-              "
-            >
-              Schedule an intro call →
-            </Link>
-          </div>
-        </div>
-      </div>
+  {/* Content */}
+  <div className="relative z-20 px-4 sm:px-6 w-full max-w-6xl mx-auto flex flex-col justify-center h-full text-center">
+    <h1 className="momo-font mt-5 text-[clamp(40px,10vw,100px)] leading-[0.9] tracking-tight font-semibold text-white">
+      Arab Web Design Agency <br /> Delivering Big Results
+    </h1>
+
+    <div className="mt-6">
+      <Link href="/contact" className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white backdrop-blur-md hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium tracking-wide text-base sm:text-lg">
+        Schedule an intro call →
+      </Link>
+    </div>
+  </div>
+</div>
+
 
       <div className="bg-white w-full flex flex-col items-center">
         
@@ -662,7 +637,7 @@ export default function Home() {
   </section>
 
   {/* ---------- PROJECTS & CTA WRAPPER (align with max width) ---------- */}
-  <div className="w-full max-w-7xl px-6">
+  <div className="w-full  px-2">
     {/* Projects Component */}
     <Projects />
 
