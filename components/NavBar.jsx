@@ -152,7 +152,7 @@ export default function NavBar() {
                           <ul className="space-y-2">
                             {SPECIALIZED_SYSTEMS.map((sub, idx) => (
                               <li key={idx}>
-                                <Link href={sub.href} className="text-slate-600 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
+                                <Link href={sub.href} className="text-slate-800 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
                                   {sub.label}
                                 </Link>
                               </li>
@@ -168,7 +168,7 @@ export default function NavBar() {
                           <ul className="space-y-2">
                             {SOFTWARE_SOLUTIONS.map((sub, idx) => (
                               <li key={idx}>
-                                <Link href={sub.href} className="text-slate-600 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
+                                <Link href={sub.href} className="text-slate-800 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
                                   {sub.label}
                                 </Link>
                               </li>
@@ -184,7 +184,7 @@ export default function NavBar() {
                           <ul className="space-y-2">
                             {EMAILANDDOMAIN.map((sub, idx) => (
                               <li key={idx}>
-                                <Link href={sub.href} className="text-slate-600 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
+                                <Link href={sub.href} className="text-slate-800 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
                                   {sub.label}
                                 </Link>
                               </li>
@@ -200,7 +200,7 @@ export default function NavBar() {
                           <ul className="space-y-2">
                             {DEV_SERVICES.map((sub, idx) => (
                               <li key={idx}>
-                                <Link href={sub.href} className="text-slate-600 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
+                                <Link href={sub.href} className="text-slate-800 hover:text-[#ae5c83] text-[14px] momo-font font-medium block hover:translate-x-1 transition-transform">
                                   {sub.label}
                                 </Link>
                               </li>
