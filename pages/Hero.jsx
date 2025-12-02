@@ -469,7 +469,7 @@ export default function Home() {
       title: "Software Solutions",
       desc: "Custom-built applications designed to automate workflows, improve efficiency, and scale with your business growth.",
       img: "/service/sst.jpg",
-       link:"/softwaresolutions"
+       link:"/portfolio/work-software"
     },
   ].map((srv, i) => (
     <motion.div
