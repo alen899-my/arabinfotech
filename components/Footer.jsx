@@ -13,7 +13,7 @@ import {
 import lo from "@/public/lo.jpg"; 
 import Link from "next/link";
 import Image from "next/image";
-
+import GradientButton from "@/components/GradientButton"
 export default function Footer() {
   return (
     <footer className="w-full bg-[#0f0e17] text-white relative  border-t border-white/10 font-sans">
@@ -45,17 +45,7 @@ export default function Footer() {
                 transition-all
               "
             />
-            <button
-              className="
-                px-6 py-3 rounded-lg
-                bg-[#6c53a7] hover:bg-[#5b4390]
-                text-white font-semibold
-                transition-all text-sm whitespace-nowrap
-                shadow-md hover:shadow-lg
-              "
-            >
-              Subscribe
-            </button>
+            <GradientButton href="" text="subscribe" />
           </div>
         </div>
 

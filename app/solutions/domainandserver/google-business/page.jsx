@@ -12,6 +12,7 @@ import {
 // ↓↓↓ Make sure this path is correct ↓↓↓
 import QuotePopup from "../../../../components/QuotePopup"; 
 import CtaBanner from "@/components/CtaBanner"
+import GradientButton from "@/components/GradientButton"
 const GSuitePage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -67,13 +68,11 @@ const GSuitePage = () => {
 
             <div className="p-2 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 max-w-lg w-full">
               <div className="flex items-center">
-                <button 
+                <GradientButton 
+                  text="Get G-Suite Now"
                   onClick={handleOpenPopup}
-                  className="bg-[#ae5c83] hover:bg-[#964a6e] momo-font text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 justify-center w-full md:w-auto"
-                >
-                  Get G-Suite Now
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                  icon={<Briefcase className="w-4 h-4 ml-2" />}
+                />
               </div>
             </div>
             
@@ -212,13 +211,11 @@ const GSuitePage = () => {
                 </div>
 
                 <div className="pt-4">
-                  <button 
+                      <GradientButton 
+                    text="Start Your Migration"
                     onClick={handleOpenPopup}
-                    className="px-8 py-3.5 bg-[#5b4390] text-white font-bold rounded-xl shadow-lg hover:bg-[#4a3675] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 momo-font flex items-center gap-2"
-                  >
-                    Start Your Migration
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                    icon={<ArrowRight className="w-4 h-4 ml-2" />}
+                  />
                 </div>
               </div>
 

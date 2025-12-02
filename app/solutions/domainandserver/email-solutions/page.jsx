@@ -108,13 +108,11 @@ const DomainWhiteTheme = () => {
             <div className=" p-2 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 max-w-lg w-full">
               <div className="flex items-center">
                 {/* Button triggers popup */}
-                <button 
-                  onClick={handleOpenPopup}
-                  className="bg-[#ae5c83] hover:bg-[#964a6e] momo-font text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 justify-center w-full md:w-auto"
-                >
-                  Get Your Domain 
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                <GradientButton 
+  text="Get Your Domain"
+  onClick={handleOpenPopup}
+  icon={<ArrowRight className="w-4 h-4 ml-2" />}
+/>
               </div>
             </div>
             
@@ -333,13 +331,14 @@ const DomainWhiteTheme = () => {
 
               {/* Added Popup Trigger Button in Last Section */}
               <div className="pt-2">
-                <button 
-                  onClick={handleOpenPopup}
-                  className="px-8 py-3.5 bg-[#5b4390] text-white font-bold rounded-xl shadow-lg hover:bg-[#4a3675] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 momo-font flex items-center gap-2"
-                >
-                  <Briefcase className="w-4 h-4" />
-                  Get Dedicated Server 
-                </button>
+                
+
+<GradientButton 
+  text="Get Dedicated Server"
+  onClick={handleOpenPopup}
+  icon={<Briefcase className="w-4 h-4 ml-2" />}
+/>
+
               </div>
 
             </div>

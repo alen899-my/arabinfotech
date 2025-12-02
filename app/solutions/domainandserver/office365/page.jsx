@@ -5,11 +5,12 @@ import {
   CheckCircle2, 
   CloudCog, ShieldCheck, Coins, LayoutGrid,
   ShieldAlert, Lock, Users,Server, Mail, 
-  Laptop, HardDrive, AlertOctagon, Check,Briefcase, X 
+  Laptop, HardDrive, AlertOctagon, Check,Briefcase, X ,ArrowRight
 } from "lucide-react";
 import QuotePopup from "../../../../components/QuotePopup";
 import PricingPage from "@/components/PricingPage";
 import  Link  from "next/link";
+import GradientButton from "@/components/GradientButton"
 // --- SUB-COMPONENT: Animated Circular Stat ---
 const AnimatedCircularStat = ({ value, label, icon, color }) => {
   const [percent, setPercent] = useState(0);
@@ -517,12 +518,11 @@ const Microsoft365Page = () => {
       Need a custom enterprise setup or consultation? Let us build the perfect plan for your business.
     </p>
 
-    <button 
+        <GradientButton 
+      text="Schedule a Consultation"
       onClick={handleOpenPopup}
-      className="px-10 py-3.5 bg-[#ae5c83] text-white font-bold rounded-md shadow-lg hover:bg-[#96476d] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 momo-font"
-    >
-      Schedule a Call
-    </button>
+      icon={<ArrowRight className="w-4 h-4 ml-2" />}
+    />
   </div>
 </div>
             <QuotePopup open={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
