@@ -324,17 +324,21 @@ export default function QuotePopup({ open, onClose }) {
               className="
                 mx-auto
                 px-6 py-2.5
-                bg-gradient-to-r from-[#ae5c83] to-[#8a4262]
+               
                 text-white
-                rounded-full
+                rounded-lg
                 text-sm font-semibold
                 flex items-center justify-center gap-2
-                shadow-md
-                transition-all duration-300
-                hover:shadow-xl hover:scale-[1.05]
+                
                 active:scale-[0.96]
                 border border-white/20
                 backdrop-blur-sm
+                 bg-gradient-to-r from-[#ae5c83] to-[#5b4390]
+            shadow-[0_10px_25px_rgba(174,92,131,0.35)]
+            hover:shadow-[0_15px_30px_rgba(91,67,144,0.45)]
+            hover:scale-[1.06]
+            transition-all duration-300 ease-out
+            backdrop-blur-md
               "
             >
               <Send size={16} />

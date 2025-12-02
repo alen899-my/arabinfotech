@@ -319,29 +319,21 @@ export default function Page() {
 
       <div className="flex justify-center">
         <Link
-          href="/portfolio/featured"
-          className="
-            group
-            flex items-center gap-3
-            pl-8 pr-6 py-4
-            rounded-full
-            bg-[#5b4390] 
-            text-white 
-            font-bold 
-            shadow-xl shadow-[#5b4390]/25
-            hover:bg-[#4a3675]
-            hover:shadow-2xl hover:shadow-[#5b4390]/40
-            hover:-translate-y-1
-            transition-all 
-            duration-300
-          "
-        >
-          <span>View Portfolio</span>
-          <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
-             {/* Assuming you have lucide-react imported */}
-            
-          </div>
-        </Link>
+              href="/portfolio/featured"
+              className="
+                 px-6 py-3 
+    text-white text-sm momo-font rounded-lg
+    bg-gradient-to-r from-[#ae5c83] to-[#5b4390]
+    shadow-[0_10px_25px_rgba(174,92,131,0.35)]
+    hover:shadow-[0_15px_30px_rgba(91,67,144,0.45)]
+    hover:scale-[1.06]
+    transition-all duration-300 ease-out
+    backdrop-blur-md
+              "
+            >
+              <span>View Portfolio</span>
+              
+            </Link>
       </div>
     </div>
   </div>

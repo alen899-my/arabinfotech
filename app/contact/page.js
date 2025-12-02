@@ -310,7 +310,12 @@ export default function ContactPage({ hideHeader = false }) {
                     whileTap={{ scale: 0.98 }}
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-[#ae5c83] to-[#8a4262] text-white font-semibold rounded-xl py-4 shadow-xl shadow-[#ae5c83]/20 hover:shadow-2xl hover:shadow-[#ae5c83]/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                    className=" text-white font-semibold rounded-xl py-4 px-6   hover:shadow-[#ae5c83]/30  flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed  bg-gradient-to-r from-[#ae5c83] to-[#5b4390]
+            shadow-[0_10px_25px_rgba(174,92,131,0.35)]
+            hover:shadow-[0_15px_30px_rgba(91,67,144,0.45)]
+            hover:scale-[1.06]
+            transition-all duration-300 ease-out
+            backdrop-blur-md"
                   >
                     <Send size={18} className="group-hover:translate-x-1 transition-transform" />
                     <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
