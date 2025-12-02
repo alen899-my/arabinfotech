@@ -13,7 +13,7 @@ import second from "@/public/second.jpg";
 import map from "@/pages/map.jpg"; // Note: Ensure this path is correct in your project structure
 import first from "@/pages/first.png"; // Note: Ensure this path is correct
 import Projects from "@/pages/Projects";
-
+import GradientButton from "@/components/GradientButton";
 export default function Home() {
 
   /* =========================================
@@ -226,23 +226,7 @@ export default function Home() {
 
     {/* CTA BUTTON */}
     <div className="mt-6 sm:mt-8">
-      <Link
-  href="/contact"
-  className="
-    inline-flex items-center justify-center 
-    px-6 sm:px-8 py-3 sm:py-4 
-    text-white text-sm sm:text-lg momo-font 
-    rounded-lg
-    bg-gradient-to-r from-[#ae5c83] to-[#5b4390]
-    shadow-[0_10px_25px_rgba(174,92,131,0.35)]
-    hover:shadow-[0_15px_30px_rgba(91,67,144,0.45)]
-    hover:scale-[1.06]
-    transition-all duration-300 ease-out
-    backdrop-blur-md tracking-wide
-  "
->
-  Schedule an intro call →
-</Link>
+     <GradientButton href="/contact" text="Schedule an Intro Call"/>
 
     </div>
 
